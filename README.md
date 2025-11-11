@@ -11,7 +11,7 @@
 ## 快速开始
 
 ```bash
-go get github.com/uapis/uapi-sdk-go@latest
+go get github.com/AxT-Team/uapi-sdk-go@latest
 ```
 
 ```go
@@ -19,7 +19,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/uapis/uapi-sdk-go/uapi"
+	"github.com/AxT-Team/uapi-sdk-go/uapi"
 )
 
 func main() {

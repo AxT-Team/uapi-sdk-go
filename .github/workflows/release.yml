@@ -3,8 +3,21 @@ on:
   push:
     tags: ['v*.*.*']
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Release placeholder - customize per registry"
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+      - run: go test ./...
+      - run: go build ./...
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            go.mod
+            go.sum
+          generate_release_notes: true
