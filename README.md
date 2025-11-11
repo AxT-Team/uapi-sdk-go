@@ -1,9 +1,10 @@
 # uapi-sdk-go
 
-![Banner](./banner.png)
+![Banner](https://raw.githubusercontent.com/AxT-Team/uapi-sdk-go/main/banner.png)
 
 [![Go](https://img.shields.io/badge/Go-1.22+-00ADD8?style=flat-square&logo=go&logoColor=white)](https://go.dev/)
 [![Docs](https://img.shields.io/badge/Docs-uapis.cn-2EAE5D?style=flat-square)](https://uapis.cn/)
+[![Go Reference](https://pkg.go.dev/badge/github.com/AxT-Team/uapi-sdk-go.svg)](https://pkg.go.dev/github.com/AxT-Team/uapi-sdk-go)
 
 > [!NOTE]
 > 所有接口的 Go 示例都可以在 [UApi](https://uapis.cn/docs/introduction) 的接口文档页面，向下滚动至 **快速启动** 区块后直接复制。
@@ -74,3 +75,4 @@ func main() {
 ## 文档
 
 访问 [UApi文档首页](https://uapis.cn/docs/introduction) 并选择任意接口，向下滚动到 **快速启动** 区块即可看到最新的 Go 示例代码。
+
