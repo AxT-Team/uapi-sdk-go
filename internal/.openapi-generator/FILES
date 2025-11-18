@@ -280,6 +280,9 @@ docs/PostTextMd5Request.md
 docs/PostTextMd5Verify200Response.md
 docs/PostTextMd5Verify400Response.md
 docs/PostTextMd5VerifyRequest.md
+docs/PostTranslateStream400Response.md
+docs/PostTranslateStream500Response.md
+docs/PostTranslateStreamRequest.md
 docs/PostTranslateText200Response.md
 docs/PostTranslateText400Response.md
 docs/PostTranslateText500Response.md
@@ -548,6 +551,9 @@ model_post_text_md5_request.go
 model_post_text_md5_verify_200_response.go
 model_post_text_md5_verify_400_response.go
 model_post_text_md5_verify_request.go
+model_post_translate_stream_400_response.go
+model_post_translate_stream_500_response.go
+model_post_translate_stream_request.go
 model_post_translate_text_200_response.go
 model_post_translate_text_400_response.go
 model_post_translate_text_500_response.go

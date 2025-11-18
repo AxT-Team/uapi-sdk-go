@@ -562,6 +562,12 @@ func (api *TranslateApi) PostAiTranslate(args map[string]any) (any, error) {
 	path := "/ai/translate"
 	return api.c.do("POST", path, q, nil)
 }
+// 流式翻译（中英互译）
+func (api *TranslateApi) PostTranslateStream(args map[string]any) (any, error) {
+	q := map[string]string{}
+	path := "/translate/stream"
+	return api.c.do("POST", path, q, nil)
+}
 // 多语言文本翻译
 func (api *TranslateApi) PostTranslateText(args map[string]any) (any, error) {
 	q := map[string]string{}

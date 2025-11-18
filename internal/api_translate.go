@@ -300,6 +300,153 @@ func (a *TranslateAPIService) PostAiTranslateExecute(r ApiPostAiTranslateRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiPostTranslateStreamRequest struct {
+	ctx context.Context
+	ApiService *TranslateAPIService
+	postTranslateStreamRequest *PostTranslateStreamRequest
+}
+
+// 包含翻译参数的JSON对象
+func (r ApiPostTranslateStreamRequest) PostTranslateStreamRequest(postTranslateStreamRequest PostTranslateStreamRequest) ApiPostTranslateStreamRequest {
+	r.postTranslateStreamRequest = &postTranslateStreamRequest
+	return r
+}
+
+func (r ApiPostTranslateStreamRequest) Execute() (string, *http.Response, error) {
+	return r.ApiService.PostTranslateStreamExecute(r)
+}
+
+/*
+PostTranslateStream 流式翻译（中英互译）
+
+想让翻译结果像打字机一样逐字显示出来？这个流式翻译接口能实现这种效果。
+
+## 功能概述
+不同于传统翻译API一次性返回完整结果，这个接口会实时地、一个字一个字地把翻译内容推给你（就像ChatGPT回复消息那样），非常适合用在聊天应用、直播字幕等需要即时反馈的场景。
+
+## 它能做什么
+- **中英互译**：支持中文和英文之间的双向翻译
+- **自动识别**：不确定源语言？设置为 `auto` 让我们自动检测
+- **逐字返回**：翻译结果会像打字机一样逐字流式返回，用户体验更流畅
+- **音频朗读**：部分翻译结果会附带音频链接，方便朗读
+
+## 支持的语言
+目前专注于中英互译，支持以下选项：
+- `中文`（简体/繁体）
+- `英文`
+- `auto`（自动检测）
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostTranslateStreamRequest
+*/
+func (a *TranslateAPIService) PostTranslateStream(ctx context.Context) ApiPostTranslateStreamRequest {
+	return ApiPostTranslateStreamRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return string
+func (a *TranslateAPIService) PostTranslateStreamExecute(r ApiPostTranslateStreamRequest) (string, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  string
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TranslateAPIService.PostTranslateStream")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/translate/stream"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.postTranslateStreamRequest == nil {
+		return localVarReturnValue, nil, reportError("postTranslateStreamRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"text/event-stream", "application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.postTranslateStreamRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v PostTranslateStream400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v PostTranslateStream500Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiPostTranslateTextRequest struct {
 	ctx context.Context
 	ApiService *TranslateAPIService

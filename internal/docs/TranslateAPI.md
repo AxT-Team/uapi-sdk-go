@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetAiTranslateLanguages**](TranslateAPI.md#GetAiTranslateLanguages) | **Get** /ai/translate/languages | 获取AI翻译支持的语言和配置
 [**PostAiTranslate**](TranslateAPI.md#PostAiTranslate) | **Post** /ai/translate | AI智能翻译
+[**PostTranslateStream**](TranslateAPI.md#PostTranslateStream) | **Post** /translate/stream | 流式翻译（中英互译）
 [**PostTranslateText**](TranslateAPI.md#PostTranslateText) | **Post** /translate/text | 多语言文本翻译
 
 
@@ -133,6 +134,72 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PostTranslateStream
+
+> string PostTranslateStream(ctx).PostTranslateStreamRequest(postTranslateStreamRequest).Execute()
+
+流式翻译（中英互译）
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	postTranslateStreamRequest := *openapiclient.NewPostTranslateStreamRequest("Hello, how are you?", "中文") // PostTranslateStreamRequest | 包含翻译参数的JSON对象
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TranslateAPI.PostTranslateStream(context.Background()).PostTranslateStreamRequest(postTranslateStreamRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TranslateAPI.PostTranslateStream``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostTranslateStream`: string
+	fmt.Fprintf(os.Stdout, "Response from `TranslateAPI.PostTranslateStream`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostTranslateStreamRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postTranslateStreamRequest** | [**PostTranslateStreamRequest**](PostTranslateStreamRequest.md) | 包含翻译参数的JSON对象 | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: text/event-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
