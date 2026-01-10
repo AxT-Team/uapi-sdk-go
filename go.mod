@@ -1,4 +1,4 @@
-module github.com/AxT-Team/uapi-sdk-go
+module github.com/uapis/uapi-sdk-go
 
 go 1.22
 
