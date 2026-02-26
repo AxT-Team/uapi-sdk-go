@@ -33,6 +33,28 @@ type GetSocialQqGroupinfo200Response struct {
 	JoinUrl *string `json:"join_url,omitempty"`
 	// 最后更新时间（ISO 8601格式）
 	LastUpdated *string `json:"last_updated,omitempty"`
+	// 当前成员数
+	MemberCount *int32 `json:"member_count,omitempty"`
+	// 最大成员数
+	MaxMemberCount *int32 `json:"max_member_count,omitempty"`
+	// 活跃成员数（可选，部分群有此数据）
+	ActiveMemberNum *int32 `json:"active_member_num,omitempty"`
+	// 群主QQ号（可选）
+	OwnerUin *string `json:"owner_uin,omitempty"`
+	// 群主UID（可选）
+	OwnerUid *string `json:"owner_uid,omitempty"`
+	// 建群时间戳（Unix时间戳，可选）
+	CreateTime *int32 `json:"create_time,omitempty"`
+	// 建群时间格式化字符串（可选）
+	CreateTimeStr *string `json:"create_time_str,omitempty"`
+	// 群等级（可选）
+	GroupGrade *int32 `json:"group_grade,omitempty"`
+	// 群公告/简介（可选）
+	GroupMemo *string `json:"group_memo,omitempty"`
+	// 认证类型（0=未认证，可选）
+	CertType *int32 `json:"cert_type,omitempty"`
+	// 认证说明文本（可选）
+	CertText *string `json:"cert_text,omitempty"`
 }
 
 // NewGetSocialQqGroupinfo200Response instantiates a new GetSocialQqGroupinfo200Response object
@@ -276,6 +298,358 @@ func (o *GetSocialQqGroupinfo200Response) SetLastUpdated(v string) {
 	o.LastUpdated = &v
 }
 
+// GetMemberCount returns the MemberCount field value if set, zero value otherwise.
+func (o *GetSocialQqGroupinfo200Response) GetMemberCount() int32 {
+	if o == nil || IsNil(o.MemberCount) {
+		var ret int32
+		return ret
+	}
+	return *o.MemberCount
+}
+
+// GetMemberCountOk returns a tuple with the MemberCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialQqGroupinfo200Response) GetMemberCountOk() (*int32, bool) {
+	if o == nil || IsNil(o.MemberCount) {
+		return nil, false
+	}
+	return o.MemberCount, true
+}
+
+// HasMemberCount returns a boolean if a field has been set.
+func (o *GetSocialQqGroupinfo200Response) HasMemberCount() bool {
+	if o != nil && !IsNil(o.MemberCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetMemberCount gets a reference to the given int32 and assigns it to the MemberCount field.
+func (o *GetSocialQqGroupinfo200Response) SetMemberCount(v int32) {
+	o.MemberCount = &v
+}
+
+// GetMaxMemberCount returns the MaxMemberCount field value if set, zero value otherwise.
+func (o *GetSocialQqGroupinfo200Response) GetMaxMemberCount() int32 {
+	if o == nil || IsNil(o.MaxMemberCount) {
+		var ret int32
+		return ret
+	}
+	return *o.MaxMemberCount
+}
+
+// GetMaxMemberCountOk returns a tuple with the MaxMemberCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialQqGroupinfo200Response) GetMaxMemberCountOk() (*int32, bool) {
+	if o == nil || IsNil(o.MaxMemberCount) {
+		return nil, false
+	}
+	return o.MaxMemberCount, true
+}
+
+// HasMaxMemberCount returns a boolean if a field has been set.
+func (o *GetSocialQqGroupinfo200Response) HasMaxMemberCount() bool {
+	if o != nil && !IsNil(o.MaxMemberCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetMaxMemberCount gets a reference to the given int32 and assigns it to the MaxMemberCount field.
+func (o *GetSocialQqGroupinfo200Response) SetMaxMemberCount(v int32) {
+	o.MaxMemberCount = &v
+}
+
+// GetActiveMemberNum returns the ActiveMemberNum field value if set, zero value otherwise.
+func (o *GetSocialQqGroupinfo200Response) GetActiveMemberNum() int32 {
+	if o == nil || IsNil(o.ActiveMemberNum) {
+		var ret int32
+		return ret
+	}
+	return *o.ActiveMemberNum
+}
+
+// GetActiveMemberNumOk returns a tuple with the ActiveMemberNum field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialQqGroupinfo200Response) GetActiveMemberNumOk() (*int32, bool) {
+	if o == nil || IsNil(o.ActiveMemberNum) {
+		return nil, false
+	}
+	return o.ActiveMemberNum, true
+}
+
+// HasActiveMemberNum returns a boolean if a field has been set.
+func (o *GetSocialQqGroupinfo200Response) HasActiveMemberNum() bool {
+	if o != nil && !IsNil(o.ActiveMemberNum) {
+		return true
+	}
+
+	return false
+}
+
+// SetActiveMemberNum gets a reference to the given int32 and assigns it to the ActiveMemberNum field.
+func (o *GetSocialQqGroupinfo200Response) SetActiveMemberNum(v int32) {
+	o.ActiveMemberNum = &v
+}
+
+// GetOwnerUin returns the OwnerUin field value if set, zero value otherwise.
+func (o *GetSocialQqGroupinfo200Response) GetOwnerUin() string {
+	if o == nil || IsNil(o.OwnerUin) {
+		var ret string
+		return ret
+	}
+	return *o.OwnerUin
+}
+
+// GetOwnerUinOk returns a tuple with the OwnerUin field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialQqGroupinfo200Response) GetOwnerUinOk() (*string, bool) {
+	if o == nil || IsNil(o.OwnerUin) {
+		return nil, false
+	}
+	return o.OwnerUin, true
+}
+
+// HasOwnerUin returns a boolean if a field has been set.
+func (o *GetSocialQqGroupinfo200Response) HasOwnerUin() bool {
+	if o != nil && !IsNil(o.OwnerUin) {
+		return true
+	}
+
+	return false
+}
+
+// SetOwnerUin gets a reference to the given string and assigns it to the OwnerUin field.
+func (o *GetSocialQqGroupinfo200Response) SetOwnerUin(v string) {
+	o.OwnerUin = &v
+}
+
+// GetOwnerUid returns the OwnerUid field value if set, zero value otherwise.
+func (o *GetSocialQqGroupinfo200Response) GetOwnerUid() string {
+	if o == nil || IsNil(o.OwnerUid) {
+		var ret string
+		return ret
+	}
+	return *o.OwnerUid
+}
+
+// GetOwnerUidOk returns a tuple with the OwnerUid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialQqGroupinfo200Response) GetOwnerUidOk() (*string, bool) {
+	if o == nil || IsNil(o.OwnerUid) {
+		return nil, false
+	}
+	return o.OwnerUid, true
+}
+
+// HasOwnerUid returns a boolean if a field has been set.
+func (o *GetSocialQqGroupinfo200Response) HasOwnerUid() bool {
+	if o != nil && !IsNil(o.OwnerUid) {
+		return true
+	}
+
+	return false
+}
+
+// SetOwnerUid gets a reference to the given string and assigns it to the OwnerUid field.
+func (o *GetSocialQqGroupinfo200Response) SetOwnerUid(v string) {
+	o.OwnerUid = &v
+}
+
+// GetCreateTime returns the CreateTime field value if set, zero value otherwise.
+func (o *GetSocialQqGroupinfo200Response) GetCreateTime() int32 {
+	if o == nil || IsNil(o.CreateTime) {
+		var ret int32
+		return ret
+	}
+	return *o.CreateTime
+}
+
+// GetCreateTimeOk returns a tuple with the CreateTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialQqGroupinfo200Response) GetCreateTimeOk() (*int32, bool) {
+	if o == nil || IsNil(o.CreateTime) {
+		return nil, false
+	}
+	return o.CreateTime, true
+}
+
+// HasCreateTime returns a boolean if a field has been set.
+func (o *GetSocialQqGroupinfo200Response) HasCreateTime() bool {
+	if o != nil && !IsNil(o.CreateTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreateTime gets a reference to the given int32 and assigns it to the CreateTime field.
+func (o *GetSocialQqGroupinfo200Response) SetCreateTime(v int32) {
+	o.CreateTime = &v
+}
+
+// GetCreateTimeStr returns the CreateTimeStr field value if set, zero value otherwise.
+func (o *GetSocialQqGroupinfo200Response) GetCreateTimeStr() string {
+	if o == nil || IsNil(o.CreateTimeStr) {
+		var ret string
+		return ret
+	}
+	return *o.CreateTimeStr
+}
+
+// GetCreateTimeStrOk returns a tuple with the CreateTimeStr field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialQqGroupinfo200Response) GetCreateTimeStrOk() (*string, bool) {
+	if o == nil || IsNil(o.CreateTimeStr) {
+		return nil, false
+	}
+	return o.CreateTimeStr, true
+}
+
+// HasCreateTimeStr returns a boolean if a field has been set.
+func (o *GetSocialQqGroupinfo200Response) HasCreateTimeStr() bool {
+	if o != nil && !IsNil(o.CreateTimeStr) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreateTimeStr gets a reference to the given string and assigns it to the CreateTimeStr field.
+func (o *GetSocialQqGroupinfo200Response) SetCreateTimeStr(v string) {
+	o.CreateTimeStr = &v
+}
+
+// GetGroupGrade returns the GroupGrade field value if set, zero value otherwise.
+func (o *GetSocialQqGroupinfo200Response) GetGroupGrade() int32 {
+	if o == nil || IsNil(o.GroupGrade) {
+		var ret int32
+		return ret
+	}
+	return *o.GroupGrade
+}
+
+// GetGroupGradeOk returns a tuple with the GroupGrade field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialQqGroupinfo200Response) GetGroupGradeOk() (*int32, bool) {
+	if o == nil || IsNil(o.GroupGrade) {
+		return nil, false
+	}
+	return o.GroupGrade, true
+}
+
+// HasGroupGrade returns a boolean if a field has been set.
+func (o *GetSocialQqGroupinfo200Response) HasGroupGrade() bool {
+	if o != nil && !IsNil(o.GroupGrade) {
+		return true
+	}
+
+	return false
+}
+
+// SetGroupGrade gets a reference to the given int32 and assigns it to the GroupGrade field.
+func (o *GetSocialQqGroupinfo200Response) SetGroupGrade(v int32) {
+	o.GroupGrade = &v
+}
+
+// GetGroupMemo returns the GroupMemo field value if set, zero value otherwise.
+func (o *GetSocialQqGroupinfo200Response) GetGroupMemo() string {
+	if o == nil || IsNil(o.GroupMemo) {
+		var ret string
+		return ret
+	}
+	return *o.GroupMemo
+}
+
+// GetGroupMemoOk returns a tuple with the GroupMemo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialQqGroupinfo200Response) GetGroupMemoOk() (*string, bool) {
+	if o == nil || IsNil(o.GroupMemo) {
+		return nil, false
+	}
+	return o.GroupMemo, true
+}
+
+// HasGroupMemo returns a boolean if a field has been set.
+func (o *GetSocialQqGroupinfo200Response) HasGroupMemo() bool {
+	if o != nil && !IsNil(o.GroupMemo) {
+		return true
+	}
+
+	return false
+}
+
+// SetGroupMemo gets a reference to the given string and assigns it to the GroupMemo field.
+func (o *GetSocialQqGroupinfo200Response) SetGroupMemo(v string) {
+	o.GroupMemo = &v
+}
+
+// GetCertType returns the CertType field value if set, zero value otherwise.
+func (o *GetSocialQqGroupinfo200Response) GetCertType() int32 {
+	if o == nil || IsNil(o.CertType) {
+		var ret int32
+		return ret
+	}
+	return *o.CertType
+}
+
+// GetCertTypeOk returns a tuple with the CertType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialQqGroupinfo200Response) GetCertTypeOk() (*int32, bool) {
+	if o == nil || IsNil(o.CertType) {
+		return nil, false
+	}
+	return o.CertType, true
+}
+
+// HasCertType returns a boolean if a field has been set.
+func (o *GetSocialQqGroupinfo200Response) HasCertType() bool {
+	if o != nil && !IsNil(o.CertType) {
+		return true
+	}
+
+	return false
+}
+
+// SetCertType gets a reference to the given int32 and assigns it to the CertType field.
+func (o *GetSocialQqGroupinfo200Response) SetCertType(v int32) {
+	o.CertType = &v
+}
+
+// GetCertText returns the CertText field value if set, zero value otherwise.
+func (o *GetSocialQqGroupinfo200Response) GetCertText() string {
+	if o == nil || IsNil(o.CertText) {
+		var ret string
+		return ret
+	}
+	return *o.CertText
+}
+
+// GetCertTextOk returns a tuple with the CertText field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialQqGroupinfo200Response) GetCertTextOk() (*string, bool) {
+	if o == nil || IsNil(o.CertText) {
+		return nil, false
+	}
+	return o.CertText, true
+}
+
+// HasCertText returns a boolean if a field has been set.
+func (o *GetSocialQqGroupinfo200Response) HasCertText() bool {
+	if o != nil && !IsNil(o.CertText) {
+		return true
+	}
+
+	return false
+}
+
+// SetCertText gets a reference to the given string and assigns it to the CertText field.
+func (o *GetSocialQqGroupinfo200Response) SetCertText(v string) {
+	o.CertText = &v
+}
+
 func (o GetSocialQqGroupinfo200Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -306,6 +680,39 @@ func (o GetSocialQqGroupinfo200Response) ToMap() (map[string]interface{}, error)
 	}
 	if !IsNil(o.LastUpdated) {
 		toSerialize["last_updated"] = o.LastUpdated
+	}
+	if !IsNil(o.MemberCount) {
+		toSerialize["member_count"] = o.MemberCount
+	}
+	if !IsNil(o.MaxMemberCount) {
+		toSerialize["max_member_count"] = o.MaxMemberCount
+	}
+	if !IsNil(o.ActiveMemberNum) {
+		toSerialize["active_member_num"] = o.ActiveMemberNum
+	}
+	if !IsNil(o.OwnerUin) {
+		toSerialize["owner_uin"] = o.OwnerUin
+	}
+	if !IsNil(o.OwnerUid) {
+		toSerialize["owner_uid"] = o.OwnerUid
+	}
+	if !IsNil(o.CreateTime) {
+		toSerialize["create_time"] = o.CreateTime
+	}
+	if !IsNil(o.CreateTimeStr) {
+		toSerialize["create_time_str"] = o.CreateTimeStr
+	}
+	if !IsNil(o.GroupGrade) {
+		toSerialize["group_grade"] = o.GroupGrade
+	}
+	if !IsNil(o.GroupMemo) {
+		toSerialize["group_memo"] = o.GroupMemo
+	}
+	if !IsNil(o.CertType) {
+		toSerialize["cert_type"] = o.CertType
+	}
+	if !IsNil(o.CertText) {
+		toSerialize["cert_text"] = o.CertText
 	}
 	return toSerialize, nil
 }

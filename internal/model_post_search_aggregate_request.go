@@ -31,6 +31,10 @@ type PostSearchAggregateRequest struct {
 	FetchFull *bool `json:"fetch_full,omitempty"`
 	// 请求超时时间（毫秒），范围 1000-30000
 	TimeoutMs *int32 `json:"timeout_ms,omitempty"`
+	// 排序方式
+	Sort *string `json:"sort,omitempty"`
+	// 时间范围过滤
+	TimeRange *string `json:"time_range,omitempty"`
 }
 
 type _PostSearchAggregateRequest PostSearchAggregateRequest
@@ -44,8 +48,10 @@ func NewPostSearchAggregateRequest(query string) *PostSearchAggregateRequest {
 	this.Query = query
 	var fetchFull bool = false
 	this.FetchFull = &fetchFull
-	var timeoutMs int32 = 3000
+	var timeoutMs int32 = 8000
 	this.TimeoutMs = &timeoutMs
+	var sort string = "relevance"
+	this.Sort = &sort
 	return &this
 }
 
@@ -56,8 +62,10 @@ func NewPostSearchAggregateRequestWithDefaults() *PostSearchAggregateRequest {
 	this := PostSearchAggregateRequest{}
 	var fetchFull bool = false
 	this.FetchFull = &fetchFull
-	var timeoutMs int32 = 3000
+	var timeoutMs int32 = 8000
 	this.TimeoutMs = &timeoutMs
+	var sort string = "relevance"
+	this.Sort = &sort
 	return &this
 }
 
@@ -213,6 +221,70 @@ func (o *PostSearchAggregateRequest) SetTimeoutMs(v int32) {
 	o.TimeoutMs = &v
 }
 
+// GetSort returns the Sort field value if set, zero value otherwise.
+func (o *PostSearchAggregateRequest) GetSort() string {
+	if o == nil || IsNil(o.Sort) {
+		var ret string
+		return ret
+	}
+	return *o.Sort
+}
+
+// GetSortOk returns a tuple with the Sort field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostSearchAggregateRequest) GetSortOk() (*string, bool) {
+	if o == nil || IsNil(o.Sort) {
+		return nil, false
+	}
+	return o.Sort, true
+}
+
+// HasSort returns a boolean if a field has been set.
+func (o *PostSearchAggregateRequest) HasSort() bool {
+	if o != nil && !IsNil(o.Sort) {
+		return true
+	}
+
+	return false
+}
+
+// SetSort gets a reference to the given string and assigns it to the Sort field.
+func (o *PostSearchAggregateRequest) SetSort(v string) {
+	o.Sort = &v
+}
+
+// GetTimeRange returns the TimeRange field value if set, zero value otherwise.
+func (o *PostSearchAggregateRequest) GetTimeRange() string {
+	if o == nil || IsNil(o.TimeRange) {
+		var ret string
+		return ret
+	}
+	return *o.TimeRange
+}
+
+// GetTimeRangeOk returns a tuple with the TimeRange field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostSearchAggregateRequest) GetTimeRangeOk() (*string, bool) {
+	if o == nil || IsNil(o.TimeRange) {
+		return nil, false
+	}
+	return o.TimeRange, true
+}
+
+// HasTimeRange returns a boolean if a field has been set.
+func (o *PostSearchAggregateRequest) HasTimeRange() bool {
+	if o != nil && !IsNil(o.TimeRange) {
+		return true
+	}
+
+	return false
+}
+
+// SetTimeRange gets a reference to the given string and assigns it to the TimeRange field.
+func (o *PostSearchAggregateRequest) SetTimeRange(v string) {
+	o.TimeRange = &v
+}
+
 func (o PostSearchAggregateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -235,6 +307,12 @@ func (o PostSearchAggregateRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.TimeoutMs) {
 		toSerialize["timeout_ms"] = o.TimeoutMs
+	}
+	if !IsNil(o.Sort) {
+		toSerialize["sort"] = o.Sort
+	}
+	if !IsNil(o.TimeRange) {
+		toSerialize["time_range"] = o.TimeRange
 	}
 	return toSerialize, nil
 }

@@ -19,7 +19,6 @@ var _ MappedNullable = &GetRandomString200Response{}
 
 // GetRandomString200Response struct for GetRandomString200Response
 type GetRandomString200Response struct {
-	Code *int32 `json:"code,omitempty"`
 	Text *string `json:"text,omitempty"`
 }
 
@@ -38,38 +37,6 @@ func NewGetRandomString200Response() *GetRandomString200Response {
 func NewGetRandomString200ResponseWithDefaults() *GetRandomString200Response {
 	this := GetRandomString200Response{}
 	return &this
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetRandomString200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetRandomString200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *GetRandomString200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetRandomString200Response) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetText returns the Text field value if set, zero value otherwise.
@@ -114,9 +81,6 @@ func (o GetRandomString200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetRandomString200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
 	if !IsNil(o.Text) {
 		toSerialize["text"] = o.Text
 	}

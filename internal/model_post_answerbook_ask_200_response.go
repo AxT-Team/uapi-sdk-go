@@ -19,7 +19,6 @@ var _ MappedNullable = &PostAnswerbookAsk200Response{}
 
 // PostAnswerbookAsk200Response struct for PostAnswerbookAsk200Response
 type PostAnswerbookAsk200Response struct {
-	Code *int32 `json:"code,omitempty"`
 	Question *string `json:"question,omitempty"`
 	Answer *string `json:"answer,omitempty"`
 }
@@ -39,38 +38,6 @@ func NewPostAnswerbookAsk200Response() *PostAnswerbookAsk200Response {
 func NewPostAnswerbookAsk200ResponseWithDefaults() *PostAnswerbookAsk200Response {
 	this := PostAnswerbookAsk200Response{}
 	return &this
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *PostAnswerbookAsk200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAnswerbookAsk200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *PostAnswerbookAsk200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *PostAnswerbookAsk200Response) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetQuestion returns the Question field value if set, zero value otherwise.
@@ -147,9 +114,6 @@ func (o PostAnswerbookAsk200Response) MarshalJSON() ([]byte, error) {
 
 func (o PostAnswerbookAsk200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
 	if !IsNil(o.Question) {
 		toSerialize["question"] = o.Question
 	}

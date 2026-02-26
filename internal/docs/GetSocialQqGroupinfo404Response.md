@@ -4,9 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code** | Pointer to **string** |  | [optional] 
-**Details** | Pointer to **map[string]interface{}** |  | [optional] 
-**Message** | Pointer to **string** |  | [optional] 
+**Error** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -27,80 +25,30 @@ NewGetSocialQqGroupinfo404ResponseWithDefaults instantiates a new GetSocialQqGro
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetCode
+### GetError
 
-`func (o *GetSocialQqGroupinfo404Response) GetCode() string`
+`func (o *GetSocialQqGroupinfo404Response) GetError() string`
 
-GetCode returns the Code field if non-nil, zero value otherwise.
+GetError returns the Error field if non-nil, zero value otherwise.
 
-### GetCodeOk
+### GetErrorOk
 
-`func (o *GetSocialQqGroupinfo404Response) GetCodeOk() (*string, bool)`
+`func (o *GetSocialQqGroupinfo404Response) GetErrorOk() (*string, bool)`
 
-GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
+GetErrorOk returns a tuple with the Error field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCode
+### SetError
 
-`func (o *GetSocialQqGroupinfo404Response) SetCode(v string)`
+`func (o *GetSocialQqGroupinfo404Response) SetError(v string)`
 
-SetCode sets Code field to given value.
+SetError sets Error field to given value.
 
-### HasCode
+### HasError
 
-`func (o *GetSocialQqGroupinfo404Response) HasCode() bool`
+`func (o *GetSocialQqGroupinfo404Response) HasError() bool`
 
-HasCode returns a boolean if a field has been set.
-
-### GetDetails
-
-`func (o *GetSocialQqGroupinfo404Response) GetDetails() map[string]interface{}`
-
-GetDetails returns the Details field if non-nil, zero value otherwise.
-
-### GetDetailsOk
-
-`func (o *GetSocialQqGroupinfo404Response) GetDetailsOk() (*map[string]interface{}, bool)`
-
-GetDetailsOk returns a tuple with the Details field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDetails
-
-`func (o *GetSocialQqGroupinfo404Response) SetDetails(v map[string]interface{})`
-
-SetDetails sets Details field to given value.
-
-### HasDetails
-
-`func (o *GetSocialQqGroupinfo404Response) HasDetails() bool`
-
-HasDetails returns a boolean if a field has been set.
-
-### GetMessage
-
-`func (o *GetSocialQqGroupinfo404Response) GetMessage() string`
-
-GetMessage returns the Message field if non-nil, zero value otherwise.
-
-### GetMessageOk
-
-`func (o *GetSocialQqGroupinfo404Response) GetMessageOk() (*string, bool)`
-
-GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMessage
-
-`func (o *GetSocialQqGroupinfo404Response) SetMessage(v string)`
-
-SetMessage sets Message field to given value.
-
-### HasMessage
-
-`func (o *GetSocialQqGroupinfo404Response) HasMessage() bool`
-
-HasMessage returns a boolean if a field has been set.
+HasError returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

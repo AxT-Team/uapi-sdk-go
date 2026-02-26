@@ -4,17 +4,21 @@ All URIs are relative to *https://uapis.cn/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetHistoryProgrammer**](MiscAPI.md#GetHistoryProgrammer) | **Get** /history/programmer | 获取指定日期的程序员历史事件
-[**GetHistoryProgrammerToday**](MiscAPI.md#GetHistoryProgrammerToday) | **Get** /history/programmer/today | 获取今天的程序员历史事件
-[**GetMiscHotboard**](MiscAPI.md#GetMiscHotboard) | **Get** /misc/hotboard | 获取多平台实时热榜
-[**GetMiscPhoneinfo**](MiscAPI.md#GetMiscPhoneinfo) | **Get** /misc/phoneinfo | 查询手机号码归属地信息
-[**GetMiscRandomnumber**](MiscAPI.md#GetMiscRandomnumber) | **Get** /misc/randomnumber | 生成高度可定制的随机数
+[**GetHistoryProgrammer**](MiscAPI.md#GetHistoryProgrammer) | **Get** /history/programmer | 程序员历史事件
+[**GetHistoryProgrammerToday**](MiscAPI.md#GetHistoryProgrammerToday) | **Get** /history/programmer/today | 程序员历史上的今天
+[**GetMiscDistrict**](MiscAPI.md#GetMiscDistrict) | **Get** /misc/district | Adcode 国内外行政区域查询
+[**GetMiscHolidayCalendar**](MiscAPI.md#GetMiscHolidayCalendar) | **Get** /misc/holiday-calendar | 查询节假日与万年历
+[**GetMiscHotboard**](MiscAPI.md#GetMiscHotboard) | **Get** /misc/hotboard | 查询热榜
+[**GetMiscLunartime**](MiscAPI.md#GetMiscLunartime) | **Get** /misc/lunartime | 查询农历时间
+[**GetMiscPhoneinfo**](MiscAPI.md#GetMiscPhoneinfo) | **Get** /misc/phoneinfo | 查询手机归属地
+[**GetMiscRandomnumber**](MiscAPI.md#GetMiscRandomnumber) | **Get** /misc/randomnumber | 随机数生成
 [**GetMiscTimestamp**](MiscAPI.md#GetMiscTimestamp) | **Get** /misc/timestamp | 转换时间戳 (旧版，推荐使用/convert/unixtime)
 [**GetMiscTrackingCarriers**](MiscAPI.md#GetMiscTrackingCarriers) | **Get** /misc/tracking/carriers | 获取支持的快递公司列表
 [**GetMiscTrackingDetect**](MiscAPI.md#GetMiscTrackingDetect) | **Get** /misc/tracking/detect | 识别快递公司
 [**GetMiscTrackingQuery**](MiscAPI.md#GetMiscTrackingQuery) | **Get** /misc/tracking/query | 查询快递物流信息
-[**GetMiscWeather**](MiscAPI.md#GetMiscWeather) | **Get** /misc/weather | 查询实时天气信息
-[**GetMiscWorldtime**](MiscAPI.md#GetMiscWorldtime) | **Get** /misc/worldtime | 查询全球任意时区的时间
+[**GetMiscWeather**](MiscAPI.md#GetMiscWeather) | **Get** /misc/weather | 查询天气
+[**GetMiscWorldtime**](MiscAPI.md#GetMiscWorldtime) | **Get** /misc/worldtime | 查询世界时间
+[**PostMiscDateDiff**](MiscAPI.md#PostMiscDateDiff) | **Post** /misc/date-diff | 计算两个日期之间的时间差值
 
 
 
@@ -22,7 +26,7 @@ Method | HTTP request | Description
 
 > GetHistoryProgrammer200Response GetHistoryProgrammer(ctx).Month(month).Day(day).Execute()
 
-获取指定日期的程序员历史事件
+程序员历史事件
 
 
 
@@ -90,7 +94,7 @@ No authorization required
 
 > GetHistoryProgrammerToday200Response GetHistoryProgrammerToday(ctx).Execute()
 
-获取今天的程序员历史事件
+程序员历史上的今天
 
 
 
@@ -147,11 +151,167 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetMiscDistrict
+
+> GetMiscDistrict200Response GetMiscDistrict(ctx).Keywords(keywords).Adcode(adcode).Lat(lat).Lng(lng).Level(level).Country(country).Limit(limit).Execute()
+
+Adcode 国内外行政区域查询
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	keywords := "上海" // string | 关键词搜索（城市名、区县名，支持中英文）。 (optional)
+	adcode := "110000" // string | 中国行政区划代码精确查询（如 `110000`），同时返回下级行政区。 (optional)
+	lat := float32(39.9) // float32 | 纬度，与 `lng` 配合使用，坐标反查附近地点。 (optional)
+	lng := float32(116.4) // float32 | 经度，与 `lat` 配合使用。 (optional)
+	level := "level_example" // string | 过滤行政级别。 (optional)
+	country := "CN" // string | 过滤国家代码（ISO 3166-1 alpha-2），如 `CN`、`JP`、`US`、`GB`。 (optional)
+	limit := int32(20) // int32 | 返回数量上限，默认 `20`，最大 `100`。 (optional) (default to 20)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MiscAPI.GetMiscDistrict(context.Background()).Keywords(keywords).Adcode(adcode).Lat(lat).Lng(lng).Level(level).Country(country).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.GetMiscDistrict``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMiscDistrict`: GetMiscDistrict200Response
+	fmt.Fprintf(os.Stdout, "Response from `MiscAPI.GetMiscDistrict`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMiscDistrictRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **keywords** | **string** | 关键词搜索（城市名、区县名，支持中英文）。 | 
+ **adcode** | **string** | 中国行政区划代码精确查询（如 &#x60;110000&#x60;），同时返回下级行政区。 | 
+ **lat** | **float32** | 纬度，与 &#x60;lng&#x60; 配合使用，坐标反查附近地点。 | 
+ **lng** | **float32** | 经度，与 &#x60;lat&#x60; 配合使用。 | 
+ **level** | **string** | 过滤行政级别。 | 
+ **country** | **string** | 过滤国家代码（ISO 3166-1 alpha-2），如 &#x60;CN&#x60;、&#x60;JP&#x60;、&#x60;US&#x60;、&#x60;GB&#x60;。 | 
+ **limit** | **int32** | 返回数量上限，默认 &#x60;20&#x60;，最大 &#x60;100&#x60;。 | [default to 20]
+
+### Return type
+
+[**GetMiscDistrict200Response**](GetMiscDistrict200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetMiscHolidayCalendar
+
+> GetMiscHolidayCalendar200Response GetMiscHolidayCalendar(ctx).Date(date).Month(month).Year(year).Timezone(timezone).HolidayType(holidayType).IncludeNearby(includeNearby).NearbyLimit(nearbyLimit).Execute()
+
+查询节假日与万年历
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	date := "2025-10-01" // string | 按天查询时填写这个参数，例如查某一天。格式：`YYYY-MM-DD`。和 `month`、`year` 三选一。 (optional)
+	month := "month_example" // string | 按月查询时填写这个参数，例如查某个月。格式：`YYYY-MM`。和 `date`、`year` 三选一。 (optional)
+	year := "year_example" // string | 按年查询时填写这个参数，例如查某一年。格式：`YYYY`。和 `date`、`month` 三选一。 (optional)
+	timezone := "Asia/Shanghai" // string | 时区名称，默认 Asia/Shanghai。 (optional) (default to "Asia/Shanghai")
+	holidayType := "legal" // string | 节日筛选类型，默认 all。 (optional) (default to "all")
+	includeNearby := true // bool | 是否返回前后最近节日，仅 date 模式生效，默认 false。month/year 模式会忽略此参数。 (optional) (default to false)
+	nearbyLimit := int32(7) // int32 | 返回最近节日数量限制，默认 7，最大 30。仅 date 模式 + include_nearby=true 生效。 (optional) (default to 7)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MiscAPI.GetMiscHolidayCalendar(context.Background()).Date(date).Month(month).Year(year).Timezone(timezone).HolidayType(holidayType).IncludeNearby(includeNearby).NearbyLimit(nearbyLimit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.GetMiscHolidayCalendar``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMiscHolidayCalendar`: GetMiscHolidayCalendar200Response
+	fmt.Fprintf(os.Stdout, "Response from `MiscAPI.GetMiscHolidayCalendar`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMiscHolidayCalendarRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **date** | **string** | 按天查询时填写这个参数，例如查某一天。格式：&#x60;YYYY-MM-DD&#x60;。和 &#x60;month&#x60;、&#x60;year&#x60; 三选一。 | 
+ **month** | **string** | 按月查询时填写这个参数，例如查某个月。格式：&#x60;YYYY-MM&#x60;。和 &#x60;date&#x60;、&#x60;year&#x60; 三选一。 | 
+ **year** | **string** | 按年查询时填写这个参数，例如查某一年。格式：&#x60;YYYY&#x60;。和 &#x60;date&#x60;、&#x60;month&#x60; 三选一。 | 
+ **timezone** | **string** | 时区名称，默认 Asia/Shanghai。 | [default to &quot;Asia/Shanghai&quot;]
+ **holidayType** | **string** | 节日筛选类型，默认 all。 | [default to &quot;all&quot;]
+ **includeNearby** | **bool** | 是否返回前后最近节日，仅 date 模式生效，默认 false。month/year 模式会忽略此参数。 | [default to false]
+ **nearbyLimit** | **int32** | 返回最近节日数量限制，默认 7，最大 30。仅 date 模式 + include_nearby&#x3D;true 生效。 | [default to 7]
+
+### Return type
+
+[**GetMiscHolidayCalendar200Response**](GetMiscHolidayCalendar200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetMiscHotboard
 
-> GetMiscHotboard200Response GetMiscHotboard(ctx).Type_(type_).Execute()
+> GetMiscHotboard200Response GetMiscHotboard(ctx).Type_(type_).Time(time).Keyword(keyword).TimeStart(timeStart).TimeEnd(timeEnd).Limit(limit).Sources(sources).Execute()
 
-获取多平台实时热榜
+查询热榜
 
 
 
@@ -169,10 +329,16 @@ import (
 
 func main() {
 	type_ := "weibo" // string | 你想要查询的热榜平台。支持多种主流平台类型，详见下方[可选值](#可选值)表格。
+	time := int64(1700000000000) // int64 | 时光机模式：毫秒时间戳，返回最接近该时间的热榜快照。不传则返回当前实时热榜。 (optional)
+	keyword := "AI" // string | 搜索模式：搜索关键词，在历史热榜中搜索包含该关键词的条目。需配合 time_start 和 time_end 使用。 (optional)
+	timeStart := int64(1699900000000) // int64 | 搜索模式必填：搜索起始时间戳（毫秒）。 (optional)
+	timeEnd := int64(1700100000000) // int64 | 搜索模式必填：搜索结束时间戳（毫秒）。 (optional)
+	limit := int32(50) // int32 | 搜索模式下最大返回条数，默认 50，最大 200。 (optional) (default to 50)
+	sources := true // bool | 设为 true 时列出所有可用的历史数据源，忽略其他参数。 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MiscAPI.GetMiscHotboard(context.Background()).Type_(type_).Execute()
+	resp, r, err := apiClient.MiscAPI.GetMiscHotboard(context.Background()).Type_(type_).Time(time).Keyword(keyword).TimeStart(timeStart).TimeEnd(timeEnd).Limit(limit).Sources(sources).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.GetMiscHotboard``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -194,6 +360,12 @@ Other parameters are passed through a pointer to a apiGetMiscHotboardRequest str
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type_** | **string** | 你想要查询的热榜平台。支持多种主流平台类型，详见下方[可选值](#可选值)表格。 | 
+ **time** | **int64** | 时光机模式：毫秒时间戳，返回最接近该时间的热榜快照。不传则返回当前实时热榜。 | 
+ **keyword** | **string** | 搜索模式：搜索关键词，在历史热榜中搜索包含该关键词的条目。需配合 time_start 和 time_end 使用。 | 
+ **timeStart** | **int64** | 搜索模式必填：搜索起始时间戳（毫秒）。 | 
+ **timeEnd** | **int64** | 搜索模式必填：搜索结束时间戳（毫秒）。 | 
+ **limit** | **int32** | 搜索模式下最大返回条数，默认 50，最大 200。 | [default to 50]
+ **sources** | **bool** | 设为 true 时列出所有可用的历史数据源，忽略其他参数。 | 
 
 ### Return type
 
@@ -213,11 +385,79 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetMiscLunartime
+
+> GetMiscLunartime200Response GetMiscLunartime(ctx).Ts(ts).Timezone(timezone).Execute()
+
+查询农历时间
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	ts := "1707537600" // string | Unix 时间戳，支持 10 位秒级或 13 位毫秒级。不传则默认当前时间。 (optional)
+	timezone := "Asia/Shanghai" // string | 时区名称。支持 IANA 时区（如 Asia/Shanghai）和别名（Shanghai、Beijing）。默认 Asia/Shanghai。 (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MiscAPI.GetMiscLunartime(context.Background()).Ts(ts).Timezone(timezone).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.GetMiscLunartime``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMiscLunartime`: GetMiscLunartime200Response
+	fmt.Fprintf(os.Stdout, "Response from `MiscAPI.GetMiscLunartime`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMiscLunartimeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ts** | **string** | Unix 时间戳，支持 10 位秒级或 13 位毫秒级。不传则默认当前时间。 | 
+ **timezone** | **string** | 时区名称。支持 IANA 时区（如 Asia/Shanghai）和别名（Shanghai、Beijing）。默认 Asia/Shanghai。 | 
+
+### Return type
+
+[**GetMiscLunartime200Response**](GetMiscLunartime200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetMiscPhoneinfo
 
 > GetMiscPhoneinfo200Response GetMiscPhoneinfo(ctx).Phone(phone).Execute()
 
-查询手机号码归属地信息
+查询手机归属地
 
 
 
@@ -283,7 +523,7 @@ No authorization required
 
 > GetMiscRandomnumber200Response GetMiscRandomnumber(ctx).Min(min).Max(max).Count(count).AllowRepeat(allowRepeat).AllowDecimal(allowDecimal).DecimalPlaces(decimalPlaces).Execute()
 
-生成高度可定制的随机数
+随机数生成
 
 
 
@@ -550,7 +790,7 @@ No authorization required
 
 ## GetMiscTrackingQuery
 
-> GetMiscTrackingQuery200Response GetMiscTrackingQuery(ctx).TrackingNumber(trackingNumber).CarrierCode(carrierCode).Execute()
+> GetMiscTrackingQuery200Response GetMiscTrackingQuery(ctx).TrackingNumber(trackingNumber).CarrierCode(carrierCode).Phone(phone).Execute()
 
 查询快递物流信息
 
@@ -571,10 +811,11 @@ import (
 func main() {
 	trackingNumber := "trackingNumber_example" // string | 快递单号，通常是一串10-20位的数字或字母数字组合。
 	carrierCode := "carrierCode_example" // string | 快递公司编码（可选）。不填写时系统会自动识别，填写后可加快查询速度。 (optional)
+	phone := "phone_example" // string | 收件人手机尾号，4位数字（可选）。部分快递公司需要验证手机尾号才能查询详细物流信息。 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MiscAPI.GetMiscTrackingQuery(context.Background()).TrackingNumber(trackingNumber).CarrierCode(carrierCode).Execute()
+	resp, r, err := apiClient.MiscAPI.GetMiscTrackingQuery(context.Background()).TrackingNumber(trackingNumber).CarrierCode(carrierCode).Phone(phone).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.GetMiscTrackingQuery``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -597,6 +838,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **trackingNumber** | **string** | 快递单号，通常是一串10-20位的数字或字母数字组合。 | 
  **carrierCode** | **string** | 快递公司编码（可选）。不填写时系统会自动识别，填写后可加快查询速度。 | 
+ **phone** | **string** | 收件人手机尾号，4位数字（可选）。部分快递公司需要验证手机尾号才能查询详细物流信息。 | 
 
 ### Return type
 
@@ -618,9 +860,9 @@ No authorization required
 
 ## GetMiscWeather
 
-> GetMiscWeather200Response GetMiscWeather(ctx).City(city).Adcode(adcode).Execute()
+> GetMiscWeather200Response GetMiscWeather(ctx).City(city).Adcode(adcode).Extended(extended).Forecast(forecast).Hourly(hourly).Minutely(minutely).Indices(indices).Lang(lang).Execute()
 
-查询实时天气信息
+查询天气
 
 
 
@@ -637,12 +879,18 @@ import (
 )
 
 func main() {
-	city := "北京" // string | 标准的城市名称，如 '北京', '上海市', '福田区'。请使用官方的省、市、区县行政区划名称。 (optional)
-	adcode := "110000" // string | 高德地图的6位数字城市编码。例如，北京市的Adcode是 '110000'。使用Adcode查询更准确、更快速。 (optional)
+	city := "北京" // string | 城市名称，支持中文（`北京`）和英文（`Tokyo`）。可选参数，不传时会尝试 IP 自动定位。 (optional)
+	adcode := "adcode_example" // string | 城市行政区划代码（如 `110000`），优先级高于 city。可选参数，不传时会尝试 IP 自动定位。 (optional)
+	extended := true // bool | 返回扩展气象字段（体感温度、能见度、气压、紫外线、降水量、云量、空气质量指数及污染物分项数据）。 (optional)
+	forecast := true // bool | 返回多天预报数据（最多7天），含白天夜间天气、风向风力、日出日落等。 (optional)
+	hourly := true // bool | 返回逐小时预报（24小时），含温度、天气、风向风速、湿度、降水概率等。 (optional)
+	minutely := true // bool | 返回分钟级降水预报（仅国内城市），每5分钟一个数据点，共24个。 (optional)
+	indices := true // bool | 返回18项生活指数（穿衣、紫外线、洗车、晾晒、空调、感冒、运动、舒适度、出行、钓鱼、过敏、防晒、心情、啤酒、雨伞、交通、空气净化器、花粉）。 (optional)
+	lang := "lang_example" // string | 返回语言。`zh` 返回中文（默认），`en` 返回英文。城市名翻译覆盖 7000+ 城市。生活指数（`indices`）目前仅支持中文。 (optional) (default to "zh")
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MiscAPI.GetMiscWeather(context.Background()).City(city).Adcode(adcode).Execute()
+	resp, r, err := apiClient.MiscAPI.GetMiscWeather(context.Background()).City(city).Adcode(adcode).Extended(extended).Forecast(forecast).Hourly(hourly).Minutely(minutely).Indices(indices).Lang(lang).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.GetMiscWeather``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -663,8 +911,14 @@ Other parameters are passed through a pointer to a apiGetMiscWeatherRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **city** | **string** | 标准的城市名称，如 &#39;北京&#39;, &#39;上海市&#39;, &#39;福田区&#39;。请使用官方的省、市、区县行政区划名称。 | 
- **adcode** | **string** | 高德地图的6位数字城市编码。例如，北京市的Adcode是 &#39;110000&#39;。使用Adcode查询更准确、更快速。 | 
+ **city** | **string** | 城市名称，支持中文（&#x60;北京&#x60;）和英文（&#x60;Tokyo&#x60;）。可选参数，不传时会尝试 IP 自动定位。 | 
+ **adcode** | **string** | 城市行政区划代码（如 &#x60;110000&#x60;），优先级高于 city。可选参数，不传时会尝试 IP 自动定位。 | 
+ **extended** | **bool** | 返回扩展气象字段（体感温度、能见度、气压、紫外线、降水量、云量、空气质量指数及污染物分项数据）。 | 
+ **forecast** | **bool** | 返回多天预报数据（最多7天），含白天夜间天气、风向风力、日出日落等。 | 
+ **hourly** | **bool** | 返回逐小时预报（24小时），含温度、天气、风向风速、湿度、降水概率等。 | 
+ **minutely** | **bool** | 返回分钟级降水预报（仅国内城市），每5分钟一个数据点，共24个。 | 
+ **indices** | **bool** | 返回18项生活指数（穿衣、紫外线、洗车、晾晒、空调、感冒、运动、舒适度、出行、钓鱼、过敏、防晒、心情、啤酒、雨伞、交通、空气净化器、花粉）。 | 
+ **lang** | **string** | 返回语言。&#x60;zh&#x60; 返回中文（默认），&#x60;en&#x60; 返回英文。城市名翻译覆盖 7000+ 城市。生活指数（&#x60;indices&#x60;）目前仅支持中文。 | [default to &quot;zh&quot;]
 
 ### Return type
 
@@ -688,7 +942,7 @@ No authorization required
 
 > GetMiscWorldtime200Response GetMiscWorldtime(ctx).City(city).Execute()
 
-查询全球任意时区的时间
+查询世界时间
 
 
 
@@ -743,6 +997,72 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PostMiscDateDiff
+
+> PostMiscDateDiff200Response PostMiscDateDiff(ctx).PostMiscDateDiffRequest(postMiscDateDiffRequest).Execute()
+
+计算两个日期之间的时间差值
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	postMiscDateDiffRequest := *openapiclient.NewPostMiscDateDiffRequest("2025-01-01", "2025-12-31") // PostMiscDateDiffRequest | 包含日期信息的JSON对象
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MiscAPI.PostMiscDateDiff(context.Background()).PostMiscDateDiffRequest(postMiscDateDiffRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.PostMiscDateDiff``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostMiscDateDiff`: PostMiscDateDiff200Response
+	fmt.Fprintf(os.Stdout, "Response from `MiscAPI.PostMiscDateDiff`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostMiscDateDiffRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postMiscDateDiffRequest** | [**PostMiscDateDiffRequest**](PostMiscDateDiffRequest.md) | 包含日期信息的JSON对象 | 
+
+### Return type
+
+[**PostMiscDateDiff200Response**](PostMiscDateDiff200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

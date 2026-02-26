@@ -20,11 +20,9 @@ var _ MappedNullable = &PostSensitiveWordAnalyze200ResponseResultsInner{}
 // PostSensitiveWordAnalyze200ResponseResultsInner struct for PostSensitiveWordAnalyze200ResponseResultsInner
 type PostSensitiveWordAnalyze200ResponseResultsInner struct {
 	K *string `json:"k,omitempty"`
-	R *string `json:"r,omitempty"`
-	S []float32 `json:"s,omitempty"`
-	V []string `json:"v,omitempty"`
-	T []string `json:"t,omitempty"`
-	D *string `json:"d,omitempty"`
+	Label *string `json:"label,omitempty"`
+	Category *string `json:"category,omitempty"`
+	Confidence *float32 `json:"confidence,omitempty"`
 }
 
 // NewPostSensitiveWordAnalyze200ResponseResultsInner instantiates a new PostSensitiveWordAnalyze200ResponseResultsInner object
@@ -76,164 +74,100 @@ func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetK(v string) {
 	o.K = &v
 }
 
-// GetR returns the R field value if set, zero value otherwise.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetR() string {
-	if o == nil || IsNil(o.R) {
+// GetLabel returns the Label field value if set, zero value otherwise.
+func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetLabel() string {
+	if o == nil || IsNil(o.Label) {
 		var ret string
 		return ret
 	}
-	return *o.R
+	return *o.Label
 }
 
-// GetROk returns a tuple with the R field value if set, nil otherwise
+// GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetROk() (*string, bool) {
-	if o == nil || IsNil(o.R) {
+func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetLabelOk() (*string, bool) {
+	if o == nil || IsNil(o.Label) {
 		return nil, false
 	}
-	return o.R, true
+	return o.Label, true
 }
 
-// HasR returns a boolean if a field has been set.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasR() bool {
-	if o != nil && !IsNil(o.R) {
+// HasLabel returns a boolean if a field has been set.
+func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasLabel() bool {
+	if o != nil && !IsNil(o.Label) {
 		return true
 	}
 
 	return false
 }
 
-// SetR gets a reference to the given string and assigns it to the R field.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetR(v string) {
-	o.R = &v
+// SetLabel gets a reference to the given string and assigns it to the Label field.
+func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetLabel(v string) {
+	o.Label = &v
 }
 
-// GetS returns the S field value if set, zero value otherwise.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetS() []float32 {
-	if o == nil || IsNil(o.S) {
-		var ret []float32
-		return ret
-	}
-	return o.S
-}
-
-// GetSOk returns a tuple with the S field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetSOk() ([]float32, bool) {
-	if o == nil || IsNil(o.S) {
-		return nil, false
-	}
-	return o.S, true
-}
-
-// HasS returns a boolean if a field has been set.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasS() bool {
-	if o != nil && !IsNil(o.S) {
-		return true
-	}
-
-	return false
-}
-
-// SetS gets a reference to the given []float32 and assigns it to the S field.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetS(v []float32) {
-	o.S = v
-}
-
-// GetV returns the V field value if set, zero value otherwise.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetV() []string {
-	if o == nil || IsNil(o.V) {
-		var ret []string
-		return ret
-	}
-	return o.V
-}
-
-// GetVOk returns a tuple with the V field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetVOk() ([]string, bool) {
-	if o == nil || IsNil(o.V) {
-		return nil, false
-	}
-	return o.V, true
-}
-
-// HasV returns a boolean if a field has been set.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasV() bool {
-	if o != nil && !IsNil(o.V) {
-		return true
-	}
-
-	return false
-}
-
-// SetV gets a reference to the given []string and assigns it to the V field.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetV(v []string) {
-	o.V = v
-}
-
-// GetT returns the T field value if set, zero value otherwise.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetT() []string {
-	if o == nil || IsNil(o.T) {
-		var ret []string
-		return ret
-	}
-	return o.T
-}
-
-// GetTOk returns a tuple with the T field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetTOk() ([]string, bool) {
-	if o == nil || IsNil(o.T) {
-		return nil, false
-	}
-	return o.T, true
-}
-
-// HasT returns a boolean if a field has been set.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasT() bool {
-	if o != nil && !IsNil(o.T) {
-		return true
-	}
-
-	return false
-}
-
-// SetT gets a reference to the given []string and assigns it to the T field.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetT(v []string) {
-	o.T = v
-}
-
-// GetD returns the D field value if set, zero value otherwise.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetD() string {
-	if o == nil || IsNil(o.D) {
+// GetCategory returns the Category field value if set, zero value otherwise.
+func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetCategory() string {
+	if o == nil || IsNil(o.Category) {
 		var ret string
 		return ret
 	}
-	return *o.D
+	return *o.Category
 }
 
-// GetDOk returns a tuple with the D field value if set, nil otherwise
+// GetCategoryOk returns a tuple with the Category field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetDOk() (*string, bool) {
-	if o == nil || IsNil(o.D) {
+func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetCategoryOk() (*string, bool) {
+	if o == nil || IsNil(o.Category) {
 		return nil, false
 	}
-	return o.D, true
+	return o.Category, true
 }
 
-// HasD returns a boolean if a field has been set.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasD() bool {
-	if o != nil && !IsNil(o.D) {
+// HasCategory returns a boolean if a field has been set.
+func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasCategory() bool {
+	if o != nil && !IsNil(o.Category) {
 		return true
 	}
 
 	return false
 }
 
-// SetD gets a reference to the given string and assigns it to the D field.
-func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetD(v string) {
-	o.D = &v
+// SetCategory gets a reference to the given string and assigns it to the Category field.
+func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetCategory(v string) {
+	o.Category = &v
+}
+
+// GetConfidence returns the Confidence field value if set, zero value otherwise.
+func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetConfidence() float32 {
+	if o == nil || IsNil(o.Confidence) {
+		var ret float32
+		return ret
+	}
+	return *o.Confidence
+}
+
+// GetConfidenceOk returns a tuple with the Confidence field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetConfidenceOk() (*float32, bool) {
+	if o == nil || IsNil(o.Confidence) {
+		return nil, false
+	}
+	return o.Confidence, true
+}
+
+// HasConfidence returns a boolean if a field has been set.
+func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasConfidence() bool {
+	if o != nil && !IsNil(o.Confidence) {
+		return true
+	}
+
+	return false
+}
+
+// SetConfidence gets a reference to the given float32 and assigns it to the Confidence field.
+func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetConfidence(v float32) {
+	o.Confidence = &v
 }
 
 func (o PostSensitiveWordAnalyze200ResponseResultsInner) MarshalJSON() ([]byte, error) {
@@ -249,20 +183,14 @@ func (o PostSensitiveWordAnalyze200ResponseResultsInner) ToMap() (map[string]int
 	if !IsNil(o.K) {
 		toSerialize["k"] = o.K
 	}
-	if !IsNil(o.R) {
-		toSerialize["r"] = o.R
+	if !IsNil(o.Label) {
+		toSerialize["label"] = o.Label
 	}
-	if !IsNil(o.S) {
-		toSerialize["s"] = o.S
+	if !IsNil(o.Category) {
+		toSerialize["category"] = o.Category
 	}
-	if !IsNil(o.V) {
-		toSerialize["v"] = o.V
-	}
-	if !IsNil(o.T) {
-		toSerialize["t"] = o.T
-	}
-	if !IsNil(o.D) {
-		toSerialize["d"] = o.D
+	if !IsNil(o.Confidence) {
+		toSerialize["confidence"] = o.Confidence
 	}
 	return toSerialize, nil
 }

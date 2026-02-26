@@ -4,7 +4,7 @@ All URIs are relative to *https://uapis.cn/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetStatusRatelimit**](StatusAPI.md#GetStatusRatelimit) | **Get** /status/ratelimit | 获取API限流器实时状态
+[**GetStatusRatelimit**](StatusAPI.md#GetStatusRatelimit) | **Get** /status/ratelimit | 限流状态
 [**GetStatusUsage**](StatusAPI.md#GetStatusUsage) | **Get** /status/usage | 获取API端点使用统计
 
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 > GetStatusRatelimit200Response GetStatusRatelimit(ctx).Authorization(authorization).Execute()
 
-获取API限流器实时状态
+限流状态
 
 
 

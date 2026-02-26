@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **Languages** | Pointer to **map[string]int32** |  | [optional] 
 **Collaborators** | Pointer to [**[]GetGithubRepo200ResponseCollaboratorsInner**](GetGithubRepo200ResponseCollaboratorsInner.md) |  | [optional] 
 **Maintainers** | Pointer to [**[]GetGithubRepo200ResponseCollaboratorsInner**](GetGithubRepo200ResponseCollaboratorsInner.md) |  | [optional] 
+**LatestRelease** | Pointer to [**NullableGetGithubRepo200ResponseLatestRelease**](GetGithubRepo200ResponseLatestRelease.md) |  | [optional] 
 
 ## Methods
 
@@ -632,6 +633,41 @@ SetMaintainers sets Maintainers field to given value.
 
 HasMaintainers returns a boolean if a field has been set.
 
+### GetLatestRelease
+
+`func (o *GetGithubRepo200Response) GetLatestRelease() GetGithubRepo200ResponseLatestRelease`
+
+GetLatestRelease returns the LatestRelease field if non-nil, zero value otherwise.
+
+### GetLatestReleaseOk
+
+`func (o *GetGithubRepo200Response) GetLatestReleaseOk() (*GetGithubRepo200ResponseLatestRelease, bool)`
+
+GetLatestReleaseOk returns a tuple with the LatestRelease field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLatestRelease
+
+`func (o *GetGithubRepo200Response) SetLatestRelease(v GetGithubRepo200ResponseLatestRelease)`
+
+SetLatestRelease sets LatestRelease field to given value.
+
+### HasLatestRelease
+
+`func (o *GetGithubRepo200Response) HasLatestRelease() bool`
+
+HasLatestRelease returns a boolean if a field has been set.
+
+### SetLatestReleaseNil
+
+`func (o *GetGithubRepo200Response) SetLatestReleaseNil(b bool)`
+
+ SetLatestReleaseNil sets the value for LatestRelease to be an explicit nil
+
+### UnsetLatestRelease
+`func (o *GetGithubRepo200Response) UnsetLatestRelease()`
+
+UnsetLatestRelease ensures that no value is present for LatestRelease, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

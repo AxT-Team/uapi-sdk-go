@@ -19,8 +19,6 @@ var _ MappedNullable = &PostImageFrombase64200Response{}
 
 // PostImageFrombase64200Response struct for PostImageFrombase64200Response
 type PostImageFrombase64200Response struct {
-	// 状态码，200代表成功。
-	Code *int32 `json:"code,omitempty"`
 	// 图片保存后在服务器上的绝对访问URL。
 	ImageUrl *string `json:"image_url,omitempty"`
 	// 操作结果描述。
@@ -42,38 +40,6 @@ func NewPostImageFrombase64200Response() *PostImageFrombase64200Response {
 func NewPostImageFrombase64200ResponseWithDefaults() *PostImageFrombase64200Response {
 	this := PostImageFrombase64200Response{}
 	return &this
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *PostImageFrombase64200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostImageFrombase64200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *PostImageFrombase64200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *PostImageFrombase64200Response) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetImageUrl returns the ImageUrl field value if set, zero value otherwise.
@@ -150,9 +116,6 @@ func (o PostImageFrombase64200Response) MarshalJSON() ([]byte, error) {
 
 func (o PostImageFrombase64200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
 	if !IsNil(o.ImageUrl) {
 		toSerialize["image_url"] = o.ImageUrl
 	}

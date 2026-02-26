@@ -19,7 +19,6 @@ var _ MappedNullable = &GetHistoryProgrammerToday200Response{}
 
 // GetHistoryProgrammerToday200Response struct for GetHistoryProgrammerToday200Response
 type GetHistoryProgrammerToday200Response struct {
-	Code *int32 `json:"code,omitempty"`
 	Message *string `json:"message,omitempty"`
 	Date *string `json:"date,omitempty"`
 	Events []GetHistoryProgrammerToday200ResponseEventsInner `json:"events,omitempty"`
@@ -40,38 +39,6 @@ func NewGetHistoryProgrammerToday200Response() *GetHistoryProgrammerToday200Resp
 func NewGetHistoryProgrammerToday200ResponseWithDefaults() *GetHistoryProgrammerToday200Response {
 	this := GetHistoryProgrammerToday200Response{}
 	return &this
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetHistoryProgrammerToday200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetHistoryProgrammerToday200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *GetHistoryProgrammerToday200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetHistoryProgrammerToday200Response) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetMessage returns the Message field value if set, zero value otherwise.
@@ -180,9 +147,6 @@ func (o GetHistoryProgrammerToday200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetHistoryProgrammerToday200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}

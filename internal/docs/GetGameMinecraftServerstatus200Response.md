@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code** | Pointer to **int32** | 状态码，200代表成功。 | [optional] 
 **FaviconUrl** | Pointer to **string** | 服务器图标的 Base64 Data URI。你可以直接在 &#x60;&lt;img&gt;&#x60; 标签的 &#x60;src&#x60; 属性中使用它。 | [optional] 
 **Ip** | Pointer to **string** | 服务器解析后的IP地址。 | [optional] 
 **MaxPlayers** | Pointer to **int32** | 服务器配置的最大玩家容量。 | [optional] 
@@ -33,31 +32,6 @@ will change when the set of required properties is changed
 NewGetGameMinecraftServerstatus200ResponseWithDefaults instantiates a new GetGameMinecraftServerstatus200Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetCode
-
-`func (o *GetGameMinecraftServerstatus200Response) GetCode() int32`
-
-GetCode returns the Code field if non-nil, zero value otherwise.
-
-### GetCodeOk
-
-`func (o *GetGameMinecraftServerstatus200Response) GetCodeOk() (*int32, bool)`
-
-GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCode
-
-`func (o *GetGameMinecraftServerstatus200Response) SetCode(v int32)`
-
-SetCode sets Code field to given value.
-
-### HasCode
-
-`func (o *GetGameMinecraftServerstatus200Response) HasCode() bool`
-
-HasCode returns a boolean if a field has been set.
 
 ### GetFaviconUrl
 

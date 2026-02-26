@@ -19,8 +19,6 @@ var _ MappedNullable = &GetGameEpicFree200Response{}
 
 // GetGameEpicFree200Response struct for GetGameEpicFree200Response
 type GetGameEpicFree200Response struct {
-	// 状态码，200代表成功。
-	Code *int32 `json:"code,omitempty"`
 	// 免费游戏列表数组。
 	Data []GetGameEpicFree200ResponseDataInner `json:"data,omitempty"`
 }
@@ -40,38 +38,6 @@ func NewGetGameEpicFree200Response() *GetGameEpicFree200Response {
 func NewGetGameEpicFree200ResponseWithDefaults() *GetGameEpicFree200Response {
 	this := GetGameEpicFree200Response{}
 	return &this
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetGameEpicFree200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetGameEpicFree200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *GetGameEpicFree200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetGameEpicFree200Response) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
@@ -116,9 +82,6 @@ func (o GetGameEpicFree200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetGameEpicFree200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
 	if !IsNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}

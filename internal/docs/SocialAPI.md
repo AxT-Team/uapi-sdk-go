@@ -4,14 +4,14 @@ All URIs are relative to *https://uapis.cn/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetGithubRepo**](SocialAPI.md#GetGithubRepo) | **Get** /github/repo | 获取GitHub仓库信息
-[**GetSocialBilibiliArchives**](SocialAPI.md#GetSocialBilibiliArchives) | **Get** /social/bilibili/archives | 获取Bilibili用户投稿列表
-[**GetSocialBilibiliLiveroom**](SocialAPI.md#GetSocialBilibiliLiveroom) | **Get** /social/bilibili/liveroom | 获取Bilibili直播间信息
-[**GetSocialBilibiliReplies**](SocialAPI.md#GetSocialBilibiliReplies) | **Get** /social/bilibili/replies | 获取Bilibili视频评论
-[**GetSocialBilibiliUserinfo**](SocialAPI.md#GetSocialBilibiliUserinfo) | **Get** /social/bilibili/userinfo | 查询Bilibili用户信息
-[**GetSocialBilibiliVideoinfo**](SocialAPI.md#GetSocialBilibiliVideoinfo) | **Get** /social/bilibili/videoinfo | 获取Bilibili视频详细信息
-[**GetSocialQqGroupinfo**](SocialAPI.md#GetSocialQqGroupinfo) | **Get** /social/qq/groupinfo | 获取QQ群名称、头像、简介
-[**GetSocialQqUserinfo**](SocialAPI.md#GetSocialQqUserinfo) | **Get** /social/qq/userinfo | 独家获取QQ号头像、昵称
+[**GetGithubRepo**](SocialAPI.md#GetGithubRepo) | **Get** /github/repo | 查询 GitHub 仓库
+[**GetSocialBilibiliArchives**](SocialAPI.md#GetSocialBilibiliArchives) | **Get** /social/bilibili/archives | 查询 B站投稿
+[**GetSocialBilibiliLiveroom**](SocialAPI.md#GetSocialBilibiliLiveroom) | **Get** /social/bilibili/liveroom | 查询 B站直播间
+[**GetSocialBilibiliReplies**](SocialAPI.md#GetSocialBilibiliReplies) | **Get** /social/bilibili/replies | 查询 B站评论
+[**GetSocialBilibiliUserinfo**](SocialAPI.md#GetSocialBilibiliUserinfo) | **Get** /social/bilibili/userinfo | 查询 B站用户
+[**GetSocialBilibiliVideoinfo**](SocialAPI.md#GetSocialBilibiliVideoinfo) | **Get** /social/bilibili/videoinfo | 查询 B站视频
+[**GetSocialQqGroupinfo**](SocialAPI.md#GetSocialQqGroupinfo) | **Get** /social/qq/groupinfo | 查询 QQ 群信息
+[**GetSocialQqUserinfo**](SocialAPI.md#GetSocialQqUserinfo) | **Get** /social/qq/userinfo | 查询 QQ 信息
 
 
 
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 > GetGithubRepo200Response GetGithubRepo(ctx).Repo(repo).Execute()
 
-获取GitHub仓库信息
+查询 GitHub 仓库
 
 
 
@@ -85,7 +85,7 @@ No authorization required
 
 > GetSocialBilibiliArchives200Response GetSocialBilibiliArchives(ctx).Mid(mid).Keywords(keywords).Orderby(orderby).Ps(ps).Pn(pn).Execute()
 
-获取Bilibili用户投稿列表
+查询 B站投稿
 
 
 
@@ -159,7 +159,7 @@ No authorization required
 
 > GetSocialBilibiliLiveroom200Response GetSocialBilibiliLiveroom(ctx).Mid(mid).RoomId(roomId).Execute()
 
-获取Bilibili直播间信息
+查询 B站直播间
 
 
 
@@ -227,7 +227,7 @@ No authorization required
 
 > GetSocialBilibiliReplies200Response GetSocialBilibiliReplies(ctx).Oid(oid).Sort(sort).Ps(ps).Pn(pn).Execute()
 
-获取Bilibili视频评论
+查询 B站评论
 
 
 
@@ -245,7 +245,7 @@ import (
 
 func main() {
 	oid := "1706416465" // string | 目标评论区的ID。对于视频，这通常就是它的 `aid`。
-	sort := "1" // string | 排序方式。`0`=按时间, `1`=按点赞, `2`=按回复。默认为 `0`。 (optional)
+	sort := "hot" // string | 排序方式。支持 `0/time`（按时间）、`1/like`（按点赞）、`2/reply`（按回复数）、`3/hot/hottest/最热`（按最热）。默认为 `0/time`。 (optional)
 	ps := "5" // string | 每页获取的评论数量，范围是1到20。默认为 `20`。 (optional)
 	pn := "1" // string | 要获取的页码，从1开始。默认为 `1`。 (optional)
 
@@ -273,7 +273,7 @@ Other parameters are passed through a pointer to a apiGetSocialBilibiliRepliesRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **oid** | **string** | 目标评论区的ID。对于视频，这通常就是它的 &#x60;aid&#x60;。 | 
- **sort** | **string** | 排序方式。&#x60;0&#x60;&#x3D;按时间, &#x60;1&#x60;&#x3D;按点赞, &#x60;2&#x60;&#x3D;按回复。默认为 &#x60;0&#x60;。 | 
+ **sort** | **string** | 排序方式。支持 &#x60;0/time&#x60;（按时间）、&#x60;1/like&#x60;（按点赞）、&#x60;2/reply&#x60;（按回复数）、&#x60;3/hot/hottest/最热&#x60;（按最热）。默认为 &#x60;0/time&#x60;。 | 
  **ps** | **string** | 每页获取的评论数量，范围是1到20。默认为 &#x60;20&#x60;。 | 
  **pn** | **string** | 要获取的页码，从1开始。默认为 &#x60;1&#x60;。 | 
 
@@ -299,7 +299,7 @@ No authorization required
 
 > GetSocialBilibiliUserinfo200Response GetSocialBilibiliUserinfo(ctx).Uid(uid).Execute()
 
-查询Bilibili用户信息
+查询 B站用户
 
 
 
@@ -365,7 +365,7 @@ No authorization required
 
 > GetSocialBilibiliVideoinfo200Response GetSocialBilibiliVideoinfo(ctx).Aid(aid).Bvid(bvid).Execute()
 
-获取Bilibili视频详细信息
+查询 B站视频
 
 
 
@@ -433,7 +433,7 @@ No authorization required
 
 > GetSocialQqGroupinfo200Response GetSocialQqGroupinfo(ctx).GroupId(groupId).Execute()
 
-获取QQ群名称、头像、简介
+查询 QQ 群信息
 
 
 
@@ -499,7 +499,7 @@ No authorization required
 
 > GetSocialQqUserinfo200Response GetSocialQqUserinfo(ctx).Qq(qq).Execute()
 
-独家获取QQ号头像、昵称
+查询 QQ 信息
 
 
 

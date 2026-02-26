@@ -21,7 +21,6 @@ var _ MappedNullable = &GetNetworkPing200Response{}
 type GetNetworkPing200Response struct {
 	// 平均延迟(ms)
 	Avg *float32 `json:"avg,omitempty"`
-	Code *int32 `json:"code,omitempty"`
 	Host *string `json:"host,omitempty"`
 	Ip *string `json:"ip,omitempty"`
 	Location *string `json:"location,omitempty"`
@@ -78,38 +77,6 @@ func (o *GetNetworkPing200Response) HasAvg() bool {
 // SetAvg gets a reference to the given float32 and assigns it to the Avg field.
 func (o *GetNetworkPing200Response) SetAvg(v float32) {
 	o.Avg = &v
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetNetworkPing200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkPing200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *GetNetworkPing200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetNetworkPing200Response) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetHost returns the Host field value if set, zero value otherwise.
@@ -284,9 +251,6 @@ func (o GetNetworkPing200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Avg) {
 		toSerialize["avg"] = o.Avg
-	}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
 	}
 	if !IsNil(o.Host) {
 		toSerialize["host"] = o.Host

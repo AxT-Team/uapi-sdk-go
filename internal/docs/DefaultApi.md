@@ -4,8 +4,8 @@ All URIs are relative to *https://uapis.cn/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetSearchEngines**](DefaultApi.md#GetSearchEngines) | **Get** /search/engines | 获取搜索引擎信息
-[**GetSensitiveWordAnalyzeQuery**](DefaultApi.md#GetSensitiveWordAnalyzeQuery) | **Get** /sensitive-word/analyze-query | 查询参数分析
+[**GetSearchEngines**](DefaultApi.md#GetSearchEngines) | **Get** /search/engines | 搜索引擎配置
+[**GetSensitiveWordAnalyzeQuery**](DefaultApi.md#GetSensitiveWordAnalyzeQuery) | **Get** /sensitive-word/analyze-query | 敏感词分析 (GET)
 [**PostSearchAggregate**](DefaultApi.md#PostSearchAggregate) | **Post** /search/aggregate | 智能搜索
 [**PostSensitiveWordAnalyze**](DefaultApi.md#PostSensitiveWordAnalyze) | **Post** /sensitive-word/analyze | 分析敏感词
 [**PostSensitiveWordQuickCheck**](DefaultApi.md#PostSensitiveWordQuickCheck) | **Post** /text/profanitycheck | 敏感词检测（快速）
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 > GetSearchEngines200Response GetSearchEngines(ctx).Execute()
 
-获取搜索引擎信息
+搜索引擎配置
 
 
 
@@ -77,7 +77,7 @@ No authorization required
 
 > PostSensitiveWordAnalyze200Response GetSensitiveWordAnalyzeQuery(ctx).Keyword(keyword).Execute()
 
-查询参数分析
+敏感词分析 (GET)
 
 
 

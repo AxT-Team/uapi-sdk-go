@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code** | Pointer to **int32** |  | [optional] 
 **Ip** | Pointer to **string** |  | [optional] 
 **Port** | Pointer to **int32** |  | [optional] 
 **PortStatus** | Pointer to **string** | \&quot;open\&quot;, \&quot;closed\&quot;, 或 \&quot;timeout\&quot; | [optional] 
@@ -28,31 +27,6 @@ will change when the set of required properties is changed
 NewGetNetworkPortscan200ResponseWithDefaults instantiates a new GetNetworkPortscan200Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetCode
-
-`func (o *GetNetworkPortscan200Response) GetCode() int32`
-
-GetCode returns the Code field if non-nil, zero value otherwise.
-
-### GetCodeOk
-
-`func (o *GetNetworkPortscan200Response) GetCodeOk() (*int32, bool)`
-
-GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCode
-
-`func (o *GetNetworkPortscan200Response) SetCode(v int32)`
-
-SetCode sets Code field to given value.
-
-### HasCode
-
-`func (o *GetNetworkPortscan200Response) HasCode() bool`
-
-HasCode returns a boolean if a field has been set.
 
 ### GetIp
 

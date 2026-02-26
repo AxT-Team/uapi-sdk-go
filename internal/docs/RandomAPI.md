@@ -4,10 +4,10 @@ All URIs are relative to *https://uapis.cn/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAnswerbookAsk**](RandomAPI.md#GetAnswerbookAsk) | **Get** /answerbook/ask | 获取答案之书的神秘答案 (GET)
-[**GetRandomImage**](RandomAPI.md#GetRandomImage) | **Get** /random/image | 随机二次元、风景、动漫图片壁纸
-[**GetRandomString**](RandomAPI.md#GetRandomString) | **Get** /random/string | 生成高度可定制的随机字符串
-[**PostAnswerbookAsk**](RandomAPI.md#PostAnswerbookAsk) | **Post** /answerbook/ask | 获取答案之书的神秘答案 (POST)
+[**GetAnswerbookAsk**](RandomAPI.md#GetAnswerbookAsk) | **Get** /answerbook/ask | 答案之书
+[**GetRandomImage**](RandomAPI.md#GetRandomImage) | **Get** /random/image | 随机图片
+[**GetRandomString**](RandomAPI.md#GetRandomString) | **Get** /random/string | 随机字符串
+[**PostAnswerbookAsk**](RandomAPI.md#PostAnswerbookAsk) | **Post** /answerbook/ask | 答案之书 (POST)
 
 
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 > GetAnswerbookAsk200Response GetAnswerbookAsk(ctx).Question(question).Execute()
 
-获取答案之书的神秘答案 (GET)
+答案之书
 
 
 
@@ -81,7 +81,7 @@ No authorization required
 
 > *os.File GetRandomImage(ctx).Category(category).Type_(type_).Execute()
 
-随机二次元、风景、动漫图片壁纸
+随机图片
 
 
 
@@ -98,8 +98,8 @@ import (
 )
 
 func main() {
-	category := "acg" // string | （可选）指定图片主类别。  **支持的主类别：** - `furry`（福瑞，UapiPro服务器） - `bq`（表情包/趣图，UapiPro服务器） - `acg`（二次元动漫，UapiPro服务器） - `ai_drawing`（AI绘画，外部图床） - `general_anime`（动漫图，外部图床） - `landscape`（风景图，外部图床） - `mobile_wallpaper`（手机壁纸，外部图床） - `pc_wallpaper`（电脑壁纸，外部图床） - `anime`（混合动漫，UapiPro服务器acg + 外部图床general_anime）  > [!TIP] > 如果不指定，将从所有图片中随机抽取（不包含 `ikun` 和 `ai_drawing`）。  (optional)
-	type_ := "pc" // string | （可选，仅UapiPro服务器图片支持）指定图片子类别。  - **furry**: `z4k`, `szs8k`, `s4k`, `4k` - **bq**: `youshou`, `xiongmao`, `waiguoren`, `maomao`, `ikun`, `eciyuan` - **acg**: `pc`, `mb`  > [!TIP] > 外部图床类别和 `anime` 混合类别不支持 `type` 参数。  (optional)
+	category := "acg" // string | （可选）指定图片主类别。  **支持的主类别：** - `acg`（二次元动漫，UapiPro服务器） - `landscape`（风景图，外部图床） - `anime`（混合动漫） - `pc_wallpaper`（电脑壁纸，外部图床） - `mobile_wallpaper`（手机壁纸，外部图床） - `general_anime`（动漫图，外部图床） - `ai_drawing`（AI绘画，外部图床） - `bq`（表情包/趣图，UapiPro服务器） - `furry`（福瑞，UapiPro服务器）  > [!TIP] > 如果不指定，将从所有图片中随机抽取（不包含 `ikun` 和 `ai_drawing`）。  (optional)
+	type_ := "pc" // string | （可选，仅UapiPro服务器图片支持）指定图片子类别。  - **bq**: `xiongmao`, `waiguoren`, `maomao`, `ikun`, `eciyuan` - **acg**: `pc`, `mb` - **furry**: `z4k`, `szs8k`, `s4k`, `4k`  > [!TIP] > 外部图床类别和 `anime` 混合类别不支持 `type` 参数。  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -124,8 +124,8 @@ Other parameters are passed through a pointer to a apiGetRandomImageRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **category** | **string** | （可选）指定图片主类别。  **支持的主类别：** - &#x60;furry&#x60;（福瑞，UapiPro服务器） - &#x60;bq&#x60;（表情包/趣图，UapiPro服务器） - &#x60;acg&#x60;（二次元动漫，UapiPro服务器） - &#x60;ai_drawing&#x60;（AI绘画，外部图床） - &#x60;general_anime&#x60;（动漫图，外部图床） - &#x60;landscape&#x60;（风景图，外部图床） - &#x60;mobile_wallpaper&#x60;（手机壁纸，外部图床） - &#x60;pc_wallpaper&#x60;（电脑壁纸，外部图床） - &#x60;anime&#x60;（混合动漫，UapiPro服务器acg + 外部图床general_anime）  &gt; [!TIP] &gt; 如果不指定，将从所有图片中随机抽取（不包含 &#x60;ikun&#x60; 和 &#x60;ai_drawing&#x60;）。  | 
- **type_** | **string** | （可选，仅UapiPro服务器图片支持）指定图片子类别。  - **furry**: &#x60;z4k&#x60;, &#x60;szs8k&#x60;, &#x60;s4k&#x60;, &#x60;4k&#x60; - **bq**: &#x60;youshou&#x60;, &#x60;xiongmao&#x60;, &#x60;waiguoren&#x60;, &#x60;maomao&#x60;, &#x60;ikun&#x60;, &#x60;eciyuan&#x60; - **acg**: &#x60;pc&#x60;, &#x60;mb&#x60;  &gt; [!TIP] &gt; 外部图床类别和 &#x60;anime&#x60; 混合类别不支持 &#x60;type&#x60; 参数。  | 
+ **category** | **string** | （可选）指定图片主类别。  **支持的主类别：** - &#x60;acg&#x60;（二次元动漫，UapiPro服务器） - &#x60;landscape&#x60;（风景图，外部图床） - &#x60;anime&#x60;（混合动漫） - &#x60;pc_wallpaper&#x60;（电脑壁纸，外部图床） - &#x60;mobile_wallpaper&#x60;（手机壁纸，外部图床） - &#x60;general_anime&#x60;（动漫图，外部图床） - &#x60;ai_drawing&#x60;（AI绘画，外部图床） - &#x60;bq&#x60;（表情包/趣图，UapiPro服务器） - &#x60;furry&#x60;（福瑞，UapiPro服务器）  &gt; [!TIP] &gt; 如果不指定，将从所有图片中随机抽取（不包含 &#x60;ikun&#x60; 和 &#x60;ai_drawing&#x60;）。  | 
+ **type_** | **string** | （可选，仅UapiPro服务器图片支持）指定图片子类别。  - **bq**: &#x60;xiongmao&#x60;, &#x60;waiguoren&#x60;, &#x60;maomao&#x60;, &#x60;ikun&#x60;, &#x60;eciyuan&#x60; - **acg**: &#x60;pc&#x60;, &#x60;mb&#x60; - **furry**: &#x60;z4k&#x60;, &#x60;szs8k&#x60;, &#x60;s4k&#x60;, &#x60;4k&#x60;  &gt; [!TIP] &gt; 外部图床类别和 &#x60;anime&#x60; 混合类别不支持 &#x60;type&#x60; 参数。  | 
 
 ### Return type
 
@@ -149,7 +149,7 @@ No authorization required
 
 > GetRandomString200Response GetRandomString(ctx).Length(length).Type_(type_).Execute()
 
-生成高度可定制的随机字符串
+随机字符串
 
 
 
@@ -217,7 +217,7 @@ No authorization required
 
 > PostAnswerbookAsk200Response PostAnswerbookAsk(ctx).PostAnswerbookAskRequest(postAnswerbookAskRequest).Execute()
 
-获取答案之书的神秘答案 (POST)
+答案之书 (POST)
 
 
 

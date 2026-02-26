@@ -4,10 +4,10 @@ All URIs are relative to *https://uapis.cn/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetWebTomarkdownAsyncStatus**](WebParseAPI.md#GetWebTomarkdownAsyncStatus) | **Get** /web/tomarkdown/async/{task_id} | 查询网页转换任务状态和结果
-[**GetWebparseExtractimages**](WebParseAPI.md#GetWebparseExtractimages) | **Get** /webparse/extractimages | 提取网页中的所有图片
-[**GetWebparseMetadata**](WebParseAPI.md#GetWebparseMetadata) | **Get** /webparse/metadata | 抓取并解析网页的元数据
-[**PostWebTomarkdownAsync**](WebParseAPI.md#PostWebTomarkdownAsync) | **Post** /web/tomarkdown/async | 深度抓取网页转Markdown
+[**GetWebTomarkdownAsyncStatus**](WebParseAPI.md#GetWebTomarkdownAsyncStatus) | **Get** /web/tomarkdown/async/{task_id} | 转换任务状态
+[**GetWebparseExtractimages**](WebParseAPI.md#GetWebparseExtractimages) | **Get** /webparse/extractimages | 提取网页图片
+[**GetWebparseMetadata**](WebParseAPI.md#GetWebparseMetadata) | **Get** /webparse/metadata | 提取网页元数据
+[**PostWebTomarkdownAsync**](WebParseAPI.md#PostWebTomarkdownAsync) | **Post** /web/tomarkdown/async | 网页转 Markdown
 
 
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 > GetWebTomarkdownAsyncStatus200Response GetWebTomarkdownAsyncStatus(ctx, taskId).Execute()
 
-查询网页转换任务状态和结果
+转换任务状态
 
 
 
@@ -85,7 +85,7 @@ No authorization required
 
 > GetWebparseExtractimages200Response GetWebparseExtractimages(ctx).Url(url).Execute()
 
-提取网页中的所有图片
+提取网页图片
 
 
 
@@ -151,7 +151,7 @@ No authorization required
 
 > GetWebparseMetadata200Response GetWebparseMetadata(ctx).Url(url).Execute()
 
-抓取并解析网页的元数据
+提取网页元数据
 
 
 
@@ -217,7 +217,7 @@ No authorization required
 
 > PostWebTomarkdownAsync202Response PostWebTomarkdownAsync(ctx).Url(url).Execute()
 
-深度抓取网页转Markdown
+网页转 Markdown
 
 
 

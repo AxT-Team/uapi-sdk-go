@@ -23,6 +23,16 @@ type GetMiscHotboard200Response struct {
 	List []GetMiscHotboard200ResponseListInner `json:"list,omitempty"`
 	Type *string `json:"type,omitempty"`
 	UpdateTime *string `json:"update_time,omitempty"`
+	// 时光机模式返回的快照实际时间戳（毫秒）。
+	SnapshotTime *int32 `json:"snapshot_time,omitempty"`
+	// 搜索模式返回的搜索关键词。
+	Keyword *string `json:"keyword,omitempty"`
+	// 搜索模式返回的结果数量。
+	Count *int32 `json:"count,omitempty"`
+	// 搜索模式返回的结果数组。
+	Results []GetMiscHotboard200ResponseResultsInner `json:"results,omitempty"`
+	// 数据源列表模式返回的可用历史数据源数组。
+	Sources []string `json:"sources,omitempty"`
 }
 
 // NewGetMiscHotboard200Response instantiates a new GetMiscHotboard200Response object
@@ -138,6 +148,166 @@ func (o *GetMiscHotboard200Response) SetUpdateTime(v string) {
 	o.UpdateTime = &v
 }
 
+// GetSnapshotTime returns the SnapshotTime field value if set, zero value otherwise.
+func (o *GetMiscHotboard200Response) GetSnapshotTime() int32 {
+	if o == nil || IsNil(o.SnapshotTime) {
+		var ret int32
+		return ret
+	}
+	return *o.SnapshotTime
+}
+
+// GetSnapshotTimeOk returns a tuple with the SnapshotTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscHotboard200Response) GetSnapshotTimeOk() (*int32, bool) {
+	if o == nil || IsNil(o.SnapshotTime) {
+		return nil, false
+	}
+	return o.SnapshotTime, true
+}
+
+// HasSnapshotTime returns a boolean if a field has been set.
+func (o *GetMiscHotboard200Response) HasSnapshotTime() bool {
+	if o != nil && !IsNil(o.SnapshotTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetSnapshotTime gets a reference to the given int32 and assigns it to the SnapshotTime field.
+func (o *GetMiscHotboard200Response) SetSnapshotTime(v int32) {
+	o.SnapshotTime = &v
+}
+
+// GetKeyword returns the Keyword field value if set, zero value otherwise.
+func (o *GetMiscHotboard200Response) GetKeyword() string {
+	if o == nil || IsNil(o.Keyword) {
+		var ret string
+		return ret
+	}
+	return *o.Keyword
+}
+
+// GetKeywordOk returns a tuple with the Keyword field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscHotboard200Response) GetKeywordOk() (*string, bool) {
+	if o == nil || IsNil(o.Keyword) {
+		return nil, false
+	}
+	return o.Keyword, true
+}
+
+// HasKeyword returns a boolean if a field has been set.
+func (o *GetMiscHotboard200Response) HasKeyword() bool {
+	if o != nil && !IsNil(o.Keyword) {
+		return true
+	}
+
+	return false
+}
+
+// SetKeyword gets a reference to the given string and assigns it to the Keyword field.
+func (o *GetMiscHotboard200Response) SetKeyword(v string) {
+	o.Keyword = &v
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *GetMiscHotboard200Response) GetCount() int32 {
+	if o == nil || IsNil(o.Count) {
+		var ret int32
+		return ret
+	}
+	return *o.Count
+}
+
+// GetCountOk returns a tuple with the Count field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscHotboard200Response) GetCountOk() (*int32, bool) {
+	if o == nil || IsNil(o.Count) {
+		return nil, false
+	}
+	return o.Count, true
+}
+
+// HasCount returns a boolean if a field has been set.
+func (o *GetMiscHotboard200Response) HasCount() bool {
+	if o != nil && !IsNil(o.Count) {
+		return true
+	}
+
+	return false
+}
+
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *GetMiscHotboard200Response) SetCount(v int32) {
+	o.Count = &v
+}
+
+// GetResults returns the Results field value if set, zero value otherwise.
+func (o *GetMiscHotboard200Response) GetResults() []GetMiscHotboard200ResponseResultsInner {
+	if o == nil || IsNil(o.Results) {
+		var ret []GetMiscHotboard200ResponseResultsInner
+		return ret
+	}
+	return o.Results
+}
+
+// GetResultsOk returns a tuple with the Results field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscHotboard200Response) GetResultsOk() ([]GetMiscHotboard200ResponseResultsInner, bool) {
+	if o == nil || IsNil(o.Results) {
+		return nil, false
+	}
+	return o.Results, true
+}
+
+// HasResults returns a boolean if a field has been set.
+func (o *GetMiscHotboard200Response) HasResults() bool {
+	if o != nil && !IsNil(o.Results) {
+		return true
+	}
+
+	return false
+}
+
+// SetResults gets a reference to the given []GetMiscHotboard200ResponseResultsInner and assigns it to the Results field.
+func (o *GetMiscHotboard200Response) SetResults(v []GetMiscHotboard200ResponseResultsInner) {
+	o.Results = v
+}
+
+// GetSources returns the Sources field value if set, zero value otherwise.
+func (o *GetMiscHotboard200Response) GetSources() []string {
+	if o == nil || IsNil(o.Sources) {
+		var ret []string
+		return ret
+	}
+	return o.Sources
+}
+
+// GetSourcesOk returns a tuple with the Sources field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscHotboard200Response) GetSourcesOk() ([]string, bool) {
+	if o == nil || IsNil(o.Sources) {
+		return nil, false
+	}
+	return o.Sources, true
+}
+
+// HasSources returns a boolean if a field has been set.
+func (o *GetMiscHotboard200Response) HasSources() bool {
+	if o != nil && !IsNil(o.Sources) {
+		return true
+	}
+
+	return false
+}
+
+// SetSources gets a reference to the given []string and assigns it to the Sources field.
+func (o *GetMiscHotboard200Response) SetSources(v []string) {
+	o.Sources = v
+}
+
 func (o GetMiscHotboard200Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -156,6 +326,21 @@ func (o GetMiscHotboard200Response) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.UpdateTime) {
 		toSerialize["update_time"] = o.UpdateTime
+	}
+	if !IsNil(o.SnapshotTime) {
+		toSerialize["snapshot_time"] = o.SnapshotTime
+	}
+	if !IsNil(o.Keyword) {
+		toSerialize["keyword"] = o.Keyword
+	}
+	if !IsNil(o.Count) {
+		toSerialize["count"] = o.Count
+	}
+	if !IsNil(o.Results) {
+		toSerialize["results"] = o.Results
+	}
+	if !IsNil(o.Sources) {
+		toSerialize["sources"] = o.Sources
 	}
 	return toSerialize, nil
 }

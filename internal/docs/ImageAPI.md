@@ -5,13 +5,14 @@ All URIs are relative to *https://uapis.cn/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetAvatarGravatar**](ImageAPI.md#GetAvatarGravatar) | **Get** /avatar/gravatar | 获取Gravatar头像
-[**GetImageBingDaily**](ImageAPI.md#GetImageBingDaily) | **Get** /image/bing-daily | 获取必应每日壁纸
-[**GetImageMotou**](ImageAPI.md#GetImageMotou) | **Get** /image/motou | 生成摸摸头GIF (QQ号方式)
-[**GetImageQrcode**](ImageAPI.md#GetImageQrcode) | **Get** /image/qrcode | 动态生成二维码
-[**GetImageTobase64**](ImageAPI.md#GetImageTobase64) | **Get** /image/tobase64 | 将在线图片转换为Base64
+[**GetImageBingDaily**](ImageAPI.md#GetImageBingDaily) | **Get** /image/bing-daily | 必应壁纸
+[**GetImageMotou**](ImageAPI.md#GetImageMotou) | **Get** /image/motou | 生成摸摸头GIF (QQ号)
+[**GetImageQrcode**](ImageAPI.md#GetImageQrcode) | **Get** /image/qrcode | 生成二维码
+[**GetImageTobase64**](ImageAPI.md#GetImageTobase64) | **Get** /image/tobase64 | 图片转 Base64
 [**PostImageCompress**](ImageAPI.md#PostImageCompress) | **Post** /image/compress | 无损压缩图片
 [**PostImageFrombase64**](ImageAPI.md#PostImageFrombase64) | **Post** /image/frombase64 | 通过Base64编码上传图片
-[**PostImageMotou**](ImageAPI.md#PostImageMotou) | **Post** /image/motou | 生成摸摸头GIF (图片上传或URL方式)
+[**PostImageMotou**](ImageAPI.md#PostImageMotou) | **Post** /image/motou | 生成摸摸头GIF
+[**PostImageNsfw**](ImageAPI.md#PostImageNsfw) | **Post** /image/nsfw | 图片敏感检测
 [**PostImageSpeechless**](ImageAPI.md#PostImageSpeechless) | **Post** /image/speechless | 生成你们怎么不说话了表情包
 [**PostImageSvg**](ImageAPI.md#PostImageSvg) | **Post** /image/svg | SVG转图片
 
@@ -95,7 +96,7 @@ No authorization required
 
 > *os.File GetImageBingDaily(ctx).Execute()
 
-获取必应每日壁纸
+必应壁纸
 
 
 
@@ -156,7 +157,7 @@ No authorization required
 
 > *os.File GetImageMotou(ctx).Qq(qq).BgColor(bgColor).Execute()
 
-生成摸摸头GIF (QQ号方式)
+生成摸摸头GIF (QQ号)
 
 
 
@@ -222,9 +223,9 @@ No authorization required
 
 ## GetImageQrcode
 
-> *os.File GetImageQrcode(ctx).Text(text).Size(size).Format(format).Execute()
+> *os.File GetImageQrcode(ctx).Text(text).Size(size).Format(format).Transparent(transparent).Fgcolor(fgcolor).Bgcolor(bgcolor).Execute()
 
-动态生成二维码
+生成二维码
 
 
 
@@ -242,12 +243,15 @@ import (
 
 func main() {
 	text := "https://www.bilibili.com/video/BV1uT4y1P7CX/" // string | 你希望编码到二维码中的任何文本内容，比如一个URL、一段话或者一个JSON字符串。
-	size := int32(512) // int32 | 二维码图片的边长（正方形），单位是像素。有效范围是 256 到 1024 之间。 (optional) (default to 256)
+	size := int32(512) // int32 | 二维码图片的边长（正方形），单位是像素。有效范围是 256 到 2048 之间。 (optional) (default to 256)
 	format := "image" // string | 指定响应内容的格式。可选值为 `image`, `json`, `json_url`。 (optional) (default to "image")
+	transparent := true // bool | 是否使用透明背景。启用后生成的 PNG 图片将具有 alpha 通道，背景透明。 (optional) (default to false)
+	fgcolor := "fgcolor_example" // string | 二维码前景色（即二维码本身的颜色），使用十六进制格式。URL 中需要将 `#` 编码为 `%23`。 (optional) (default to "#000000")
+	bgcolor := "bgcolor_example" // string | 二维码背景色，使用十六进制格式。当 `transparent=true` 时此参数会被忽略。URL 中需要将 `#` 编码为 `%23`。 (optional) (default to "#FFFFFF")
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ImageAPI.GetImageQrcode(context.Background()).Text(text).Size(size).Format(format).Execute()
+	resp, r, err := apiClient.ImageAPI.GetImageQrcode(context.Background()).Text(text).Size(size).Format(format).Transparent(transparent).Fgcolor(fgcolor).Bgcolor(bgcolor).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageAPI.GetImageQrcode``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -269,8 +273,11 @@ Other parameters are passed through a pointer to a apiGetImageQrcodeRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **text** | **string** | 你希望编码到二维码中的任何文本内容，比如一个URL、一段话或者一个JSON字符串。 | 
- **size** | **int32** | 二维码图片的边长（正方形），单位是像素。有效范围是 256 到 1024 之间。 | [default to 256]
+ **size** | **int32** | 二维码图片的边长（正方形），单位是像素。有效范围是 256 到 2048 之间。 | [default to 256]
  **format** | **string** | 指定响应内容的格式。可选值为 &#x60;image&#x60;, &#x60;json&#x60;, &#x60;json_url&#x60;。 | [default to &quot;image&quot;]
+ **transparent** | **bool** | 是否使用透明背景。启用后生成的 PNG 图片将具有 alpha 通道，背景透明。 | [default to false]
+ **fgcolor** | **string** | 二维码前景色（即二维码本身的颜色），使用十六进制格式。URL 中需要将 &#x60;#&#x60; 编码为 &#x60;%23&#x60;。 | [default to &quot;#000000&quot;]
+ **bgcolor** | **string** | 二维码背景色，使用十六进制格式。当 &#x60;transparent&#x3D;true&#x60; 时此参数会被忽略。URL 中需要将 &#x60;#&#x60; 编码为 &#x60;%23&#x60;。 | [default to &quot;#FFFFFF&quot;]
 
 ### Return type
 
@@ -294,7 +301,7 @@ No authorization required
 
 > GetImageTobase64200Response GetImageTobase64(ctx).Url(url).Execute()
 
-将在线图片转换为Base64
+图片转 Base64
 
 
 
@@ -496,7 +503,7 @@ No authorization required
 
 > *os.File PostImageMotou(ctx).ImageUrl(imageUrl).File(file).BgColor(bgColor).Execute()
 
-生成摸摸头GIF (图片上传或URL方式)
+生成摸摸头GIF
 
 
 
@@ -556,6 +563,74 @@ No authorization required
 
 - **Content-Type**: multipart/form-data
 - **Accept**: image/gif, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PostImageNsfw
+
+> PostImageNsfw200Response PostImageNsfw(ctx).File(file).Url(url).Execute()
+
+图片敏感检测
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	file := os.NewFile(1234, "some_file") // *os.File | 要检测的图片文件。支持 JPG、JPEG、PNG、GIF、WebP 格式，最大 20MB。 (optional)
+	url := "url_example" // string | 图片的 URL 地址。如果同时提供 file 和 url，将优先使用 file。 (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ImageAPI.PostImageNsfw(context.Background()).File(file).Url(url).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ImageAPI.PostImageNsfw``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostImageNsfw`: PostImageNsfw200Response
+	fmt.Fprintf(os.Stdout, "Response from `ImageAPI.PostImageNsfw`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostImageNsfwRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **file** | ***os.File** | 要检测的图片文件。支持 JPG、JPEG、PNG、GIF、WebP 格式，最大 20MB。 | 
+ **url** | **string** | 图片的 URL 地址。如果同时提供 file 和 url，将优先使用 file。 | 
+
+### Return type
+
+[**PostImageNsfw200Response**](PostImageNsfw200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

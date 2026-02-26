@@ -33,7 +33,7 @@ func (r ApiGetDailyNewsImageRequest) Execute() (*os.File, *http.Response, error)
 }
 
 /*
-GetDailyNewsImage 生成每日新闻摘要图片
+GetDailyNewsImage 每日新闻图
 
 想用一张图快速了解天下大事？这个接口为你一键生成今日新闻摘要，非常适合用在早报、数字看板或应用首页等场景。
 

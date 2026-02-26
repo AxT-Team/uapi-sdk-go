@@ -39,7 +39,7 @@ func (r ApiGetTextMd5Request) Execute() (*GetTextMd5200Response, *http.Response,
 }
 
 /*
-GetTextMd5 计算文本的MD5哈希值(GET)
+GetTextMd5 MD5 哈希
 
 一个快速计算文本 MD5 哈希值的工具，适用于短文本且不关心参数暴露的场景。
 
@@ -165,7 +165,7 @@ func (r ApiPostTextAesDecryptRequest) Execute() (*PostTextAesDecrypt200Response,
 }
 
 /*
-PostTextAesDecrypt 使用AES算法解密文本
+PostTextAesDecrypt AES 解密
 
 收到了用AES加密的密文？把它、密钥和随机数（nonce）交给我们，就能还原出原始内容。
 
@@ -290,6 +290,166 @@ func (a *TextAPIService) PostTextAesDecryptExecute(r ApiPostTextAesDecryptReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiPostTextAesDecryptAdvancedRequest struct {
+	ctx context.Context
+	ApiService *TextAPIService
+	postTextAesDecryptAdvancedRequest *PostTextAesDecryptAdvancedRequest
+}
+
+// 包含解密配置的JSON对象
+func (r ApiPostTextAesDecryptAdvancedRequest) PostTextAesDecryptAdvancedRequest(postTextAesDecryptAdvancedRequest PostTextAesDecryptAdvancedRequest) ApiPostTextAesDecryptAdvancedRequest {
+	r.postTextAesDecryptAdvancedRequest = &postTextAesDecryptAdvancedRequest
+	return r
+}
+
+func (r ApiPostTextAesDecryptAdvancedRequest) Execute() (*PostTextAesDecryptAdvanced200Response, *http.Response, error) {
+	return r.ApiService.PostTextAesDecryptAdvancedExecute(r)
+}
+
+/*
+PostTextAesDecryptAdvanced AES高级解密
+
+需要解密通过高级加密接口加密的数据？这个接口提供与加密接口完全配对的解密功能，支持相同的6种加密模式和3种填充方式。
+
+> [!IMPORTANT]
+> **解密参数必须与加密时一致**
+> 解密时，必须提供与加密时相同的密钥、模式和填充方式。对于非GCM模式，还需要提供加密时返回的IV。
+
+## 功能概述
+这是一个功能完整的AES解密接口，能够解密通过高级加密接口加密的所有密文。支持所有6种加密模式和3种填充方式，与加密接口完全配对。
+
+### 解密流程
+1. 获取加密时返回的密文和配置参数
+2. 使用相同的密钥、模式、填充方式和IV（如需要）
+3. 调用本接口进行解密
+4. 获取原始明文
+
+### 支持的解密模式
+- **GCM模式**（推荐）：自动验证数据完整性，如果密文被篡改会解密失败
+- **CBC模式**：经典块解密模式，需要提供加密时的IV
+- **CTR/OFB/CFB模式**：流密码解密，需要提供加密时的IV
+- **ECB模式**：不需要IV，但安全性较低
+
+### 填充方式处理
+- **PKCS7填充**：解密后自动移除填充
+- **Zero填充**：解密后自动移除0x00填充
+- **None填充**：无填充处理
+
+## 参数说明
+- **`text`**: 待解密的密文（Base64编码，来自加密接口返回的ciphertext字段）
+- **`key`**: 解密密钥（必须与加密时相同）
+- **`mode`**: 加密模式（必须与加密时相同）
+- **`padding`**: 填充方式（可选，默认PKCS7，必须与加密时相同）
+- **`iv`**: 初始化向量（非GCM模式必须提供，Base64编码）
+
+## 常见错误处理
+如果解密失败，请检查以下几点：
+- 密钥是否与加密时完全相同
+- 模式和填充方式是否匹配
+- 非GCM模式下是否提供了正确的IV
+- 密文是否完整且未被修改
+- GCM模式下密文是否被篡改
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostTextAesDecryptAdvancedRequest
+*/
+func (a *TextAPIService) PostTextAesDecryptAdvanced(ctx context.Context) ApiPostTextAesDecryptAdvancedRequest {
+	return ApiPostTextAesDecryptAdvancedRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return PostTextAesDecryptAdvanced200Response
+func (a *TextAPIService) PostTextAesDecryptAdvancedExecute(r ApiPostTextAesDecryptAdvancedRequest) (*PostTextAesDecryptAdvanced200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostTextAesDecryptAdvanced200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TextAPIService.PostTextAesDecryptAdvanced")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/text/aes/decrypt-advanced"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.postTextAesDecryptAdvancedRequest == nil {
+		return localVarReturnValue, nil, reportError("postTextAesDecryptAdvancedRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.postTextAesDecryptAdvancedRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v PostTextAesDecryptAdvanced400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiPostTextAesEncryptRequest struct {
 	ctx context.Context
 	ApiService *TextAPIService
@@ -307,7 +467,7 @@ func (r ApiPostTextAesEncryptRequest) Execute() (*PostTextAesEncrypt200Response,
 }
 
 /*
-PostTextAesEncrypt 使用AES算法加密文本
+PostTextAesEncrypt AES 加密
 
 需要安全地传输或存储一些文本信息？AES加密是一个可靠的选择。
 
@@ -429,6 +589,218 @@ func (a *TextAPIService) PostTextAesEncryptExecute(r ApiPostTextAesEncryptReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiPostTextAesEncryptAdvancedRequest struct {
+	ctx context.Context
+	ApiService *TextAPIService
+	postTextAesEncryptAdvancedRequest *PostTextAesEncryptAdvancedRequest
+}
+
+// 包含加密配置的JSON对象
+func (r ApiPostTextAesEncryptAdvancedRequest) PostTextAesEncryptAdvancedRequest(postTextAesEncryptAdvancedRequest PostTextAesEncryptAdvancedRequest) ApiPostTextAesEncryptAdvancedRequest {
+	r.postTextAesEncryptAdvancedRequest = &postTextAesEncryptAdvancedRequest
+	return r
+}
+
+func (r ApiPostTextAesEncryptAdvancedRequest) Execute() (*PostTextAesEncryptAdvanced200Response, *http.Response, error) {
+	return r.ApiService.PostTextAesEncryptAdvancedExecute(r)
+}
+
+/*
+PostTextAesEncryptAdvanced AES高级加密
+
+需要更灵活的AES加密方案？这个高级接口支持6种加密模式和3种填充方式，让你根据具体场景选择最合适的加密配置。
+
+> [!IMPORTANT]
+> **推荐使用GCM模式**
+> GCM模式提供认证加密(AEAD)，不仅能加密数据，还能验证数据完整性，防止密文被篡改。这是目前最推荐的加密模式。
+
+## 功能概述
+这是一个功能全面的AES加密接口，支持多种加密模式和填充方式。你可以根据不同的安全需求和性能要求，灵活选择合适的加密配置。
+
+### 支持的加密模式
+- **GCM模式**（推荐）：认证加密模式，提供完整性保护
+- **CBC模式**：经典块加密模式，需要IV和填充，适用于文件加密
+- **CTR模式**：流密码模式，无需填充，适用于实时数据加密
+- **OFB/CFB模式**：流密码模式，无需填充，适用于流数据加密
+- **ECB模式**（不推荐）：仅用于兼容性需求
+
+### 支持的填充方式
+- **PKCS7填充**（推荐）：标准填充方式
+- **Zero填充**：使用0x00字节填充
+- **None填充**：无填充，用于流密码模式
+
+### 输出格式支持
+- **base64**（默认）：标准Base64编码输出，适合传输和存储
+- **hex**：十六进制编码输出，方便与在线加密工具对比验证
+
+通过 `output_format` 参数可以直接获取HEX格式的密文，无需额外调用转换接口。
+
+## 参数说明
+- **`text`**: 待加密的明文文本
+- **`key`**: 加密密钥（支持任意长度）
+- **`mode`**: 加密模式（可选，默认GCM）
+- **`padding`**: 填充方式（可选，默认PKCS7）
+- **`iv`**: 自定义IV（可选，Base64编码，16字节）
+- **`output_format`**: 输出格式（可选，默认base64）
+
+## 使用示例
+
+**示例1：HEX格式输出**
+```json
+{
+  "text": "测试文本123",
+  "key": "1234567890123456",
+  "mode": "ECB",
+  "padding": "PKCS7",
+  "output_format": "hex"
+}
+```
+返回示例：
+```json
+{
+  "ciphertext": "aaaca6027da10918bb5d23d81939552c",
+  "mode": "ECB",
+  "padding": "PKCS7"
+}
+```
+
+**示例2：Base64格式输出（默认）**
+```json
+{
+  "text": "测试文本123",
+  "key": "1234567890123456",
+  "mode": "ECB",
+  "padding": "PKCS7"
+}
+```
+返回示例：
+```json
+{
+  "ciphertext": "qqymAn2hCRi7XSPYGTlVLA==",
+  "mode": "ECB",
+  "padding": "PKCS7"
+}
+```
+
+## 技术规格
+- **加密算法**: AES-256
+- **编码格式**: Base64/HEX（输入/输出）
+- **IV长度**: 16字节（128位）
+- **版本标注**: v3.4.8+
+
+> [!NOTE]
+> **关于IV（初始化向量）**
+> - GCM模式无需提供IV
+> - CBC/CTR/OFB/CFB模式可选提供IV
+> - ECB模式不使用IV
+> - 建议每次加密使用不同的IV以确保安全性
+
+> [!TIP]
+> **关于输出格式**
+> - 如需与在线加密工具（如 toolhelper.cn）对比结果，建议使用 `output_format: "hex"` 
+> - Base64格式更适合网络传输和API调用
+> - 两种格式可以相互转换，数据完全一致
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostTextAesEncryptAdvancedRequest
+*/
+func (a *TextAPIService) PostTextAesEncryptAdvanced(ctx context.Context) ApiPostTextAesEncryptAdvancedRequest {
+	return ApiPostTextAesEncryptAdvancedRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return PostTextAesEncryptAdvanced200Response
+func (a *TextAPIService) PostTextAesEncryptAdvancedExecute(r ApiPostTextAesEncryptAdvancedRequest) (*PostTextAesEncryptAdvanced200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostTextAesEncryptAdvanced200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TextAPIService.PostTextAesEncryptAdvanced")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/text/aes/encrypt-advanced"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.postTextAesEncryptAdvancedRequest == nil {
+		return localVarReturnValue, nil, reportError("postTextAesEncryptAdvancedRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.postTextAesEncryptAdvancedRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v PostTextAesEncryptAdvanced400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiPostTextAnalyzeRequest struct {
 	ctx context.Context
 	ApiService *TextAPIService
@@ -446,7 +818,7 @@ func (r ApiPostTextAnalyzeRequest) Execute() (*PostTextAnalyze200Response, *http
 }
 
 /*
-PostTextAnalyze 多维度分析文本内容
+PostTextAnalyze 文本分析
 
 想知道一篇文章有多少字、多少个词、或者多少行？这个接口可以帮你快速统计。
 
@@ -570,7 +942,7 @@ func (r ApiPostTextBase64DecodeRequest) Execute() (*PostTextBase64Decode200Respo
 }
 
 /*
-PostTextBase64Decode 解码Base64编码的文本
+PostTextBase64Decode Base64 解码
 
 这是一个简单实用的 Base64 解码工具。
 
@@ -694,7 +1066,7 @@ func (r ApiPostTextBase64EncodeRequest) Execute() (*PostTextBase64Encode200Respo
 }
 
 /*
-PostTextBase64Encode 将文本进行Base64编码
+PostTextBase64Encode Base64 编码
 
 这是一个简单实用的 Base64 编码工具。
 
@@ -801,6 +1173,138 @@ func (a *TextAPIService) PostTextBase64EncodeExecute(r ApiPostTextBase64EncodeRe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiPostTextConvertRequest struct {
+	ctx context.Context
+	ApiService *TextAPIService
+	postTextConvertRequest *PostTextConvertRequest
+}
+
+// 包含转换配置的JSON对象
+func (r ApiPostTextConvertRequest) PostTextConvertRequest(postTextConvertRequest PostTextConvertRequest) ApiPostTextConvertRequest {
+	r.postTextConvertRequest = &postTextConvertRequest
+	return r
+}
+
+func (r ApiPostTextConvertRequest) Execute() (*PostTextConvert200Response, *http.Response, error) {
+	return r.ApiService.PostTextConvertExecute(r)
+}
+
+/*
+PostTextConvert 格式转换
+
+需要在不同文本格式之间转换？这个接口支持Base64、Hex、URL、HTML、Unicode等多种格式互转，还能生成MD5、SHA256等哈希值。
+
+## 功能概述
+你提供待转换的文本、源格式和目标格式，接口会自动完成转换。支持7种双向格式（plain、base64、hex、url、html、unicode、binary）和4种单向哈希（md5、sha1、sha256、sha512）。
+
+## 格式说明
+**双向转换格式**：plain（纯文本）、base64、hex（十六进制）、url、html（HTML实体）、unicode（\uXXXX转义）、binary（二进制字符串）
+
+**单向哈希格式**：md5、sha1、sha256、sha512（仅可作为目标格式，不可逆）
+
+## 链式转换
+支持多次调用实现复杂转换，如先将文本转为base64，再将base64转为hex。
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostTextConvertRequest
+*/
+func (a *TextAPIService) PostTextConvert(ctx context.Context) ApiPostTextConvertRequest {
+	return ApiPostTextConvertRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return PostTextConvert200Response
+func (a *TextAPIService) PostTextConvertExecute(r ApiPostTextConvertRequest) (*PostTextConvert200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostTextConvert200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TextAPIService.PostTextConvert")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/text/convert"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.postTextConvertRequest == nil {
+		return localVarReturnValue, nil, reportError("postTextConvertRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.postTextConvertRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v PostTextConvert400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiPostTextMd5Request struct {
 	ctx context.Context
 	ApiService *TextAPIService
@@ -817,7 +1321,7 @@ func (r ApiPostTextMd5Request) Execute() (*GetTextMd5200Response, *http.Response
 }
 
 /*
-PostTextMd5 计算文本的MD5哈希值 (POST)
+PostTextMd5 MD5 哈希 (POST)
 
 一个用于计算文本 MD5 哈希值的标准工具，推荐使用此版本。
 
@@ -941,7 +1445,7 @@ func (r ApiPostTextMd5VerifyRequest) Execute() (*PostTextMd5Verify200Response, *
 }
 
 /*
-PostTextMd5Verify 校验MD5哈希值
+PostTextMd5Verify MD5 校验
 
 下载了一个文件，想确认它在传输过程中有没有损坏？校验MD5值是最常用的方法。
 

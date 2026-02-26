@@ -25,8 +25,6 @@ type GetGameSteamSummary200Response struct {
 	Avatarfull *string `json:"avatarfull,omitempty"`
 	// 64x64 像素的中等尺寸头像URL。
 	Avatarmedium *string `json:"avatarmedium,omitempty"`
-	// 状态码，200代表成功。
-	Code *int32 `json:"code,omitempty"`
 	// 社区资料的可见性状态: 1=私密, 3=公开。
 	Communityvisibilitystate *int32 `json:"communityvisibilitystate,omitempty"`
 	// 用户个人资料中设置的国家代码 (ISO 3166-1)，前提是用户已设置并公开。
@@ -162,38 +160,6 @@ func (o *GetGameSteamSummary200Response) HasAvatarmedium() bool {
 // SetAvatarmedium gets a reference to the given string and assigns it to the Avatarmedium field.
 func (o *GetGameSteamSummary200Response) SetAvatarmedium(v string) {
 	o.Avatarmedium = &v
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetGameSteamSummary200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetGameSteamSummary200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *GetGameSteamSummary200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetGameSteamSummary200Response) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetCommunityvisibilitystate returns the Communityvisibilitystate field value if set, zero value otherwise.
@@ -566,9 +532,6 @@ func (o GetGameSteamSummary200Response) ToMap() (map[string]interface{}, error) 
 	}
 	if !IsNil(o.Avatarmedium) {
 		toSerialize["avatarmedium"] = o.Avatarmedium
-	}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
 	}
 	if !IsNil(o.Communityvisibilitystate) {
 		toSerialize["communityvisibilitystate"] = o.Communityvisibilitystate

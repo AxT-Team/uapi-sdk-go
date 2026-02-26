@@ -4,8 +4,8 @@ All URIs are relative to *https://uapis.cn/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetConvertUnixtime**](ConvertAPI.md#GetConvertUnixtime) | **Get** /convert/unixtime | Unix时间戳与日期字符串双向转换
-[**PostConvertJson**](ConvertAPI.md#PostConvertJson) | **Post** /convert/json | 美化并格式化JSON字符串
+[**GetConvertUnixtime**](ConvertAPI.md#GetConvertUnixtime) | **Get** /convert/unixtime | 时间戳转换
+[**PostConvertJson**](ConvertAPI.md#PostConvertJson) | **Post** /convert/json | JSON 格式化
 
 
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 > GetConvertUnixtime200Response GetConvertUnixtime(ctx).Time(time).Execute()
 
-Unix时间戳与日期字符串双向转换
+时间戳转换
 
 
 
@@ -79,7 +79,7 @@ No authorization required
 
 > PostConvertJson200Response PostConvertJson(ctx).PostConvertJsonRequest(postConvertJsonRequest).Execute()
 
-美化并格式化JSON字符串
+JSON 格式化
 
 
 

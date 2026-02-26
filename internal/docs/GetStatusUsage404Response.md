@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | Pointer to **string** |  | [optional] 
-**Details** | Pointer to **map[string]interface{}** |  | [optional] 
 **Message** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -51,31 +50,6 @@ SetCode sets Code field to given value.
 `func (o *GetStatusUsage404Response) HasCode() bool`
 
 HasCode returns a boolean if a field has been set.
-
-### GetDetails
-
-`func (o *GetStatusUsage404Response) GetDetails() map[string]interface{}`
-
-GetDetails returns the Details field if non-nil, zero value otherwise.
-
-### GetDetailsOk
-
-`func (o *GetStatusUsage404Response) GetDetailsOk() (*map[string]interface{}, bool)`
-
-GetDetailsOk returns a tuple with the Details field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDetails
-
-`func (o *GetStatusUsage404Response) SetDetails(v map[string]interface{})`
-
-SetDetails sets Details field to given value.
-
-### HasDetails
-
-`func (o *GetStatusUsage404Response) HasDetails() bool`
-
-HasDetails returns a boolean if a field has been set.
 
 ### GetMessage
 

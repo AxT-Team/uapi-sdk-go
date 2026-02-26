@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code** | Pointer to **int32** | 状态码，200代表操作成功。 | [optional] 
 **Datetime** | Pointer to **string** | 标准格式（YYYY-MM-DD HH:mm:ss）的日期时间字符串。 | [optional] 
 **Timestamp** | Pointer to **int32** | 转换后的10位秒级Unix时间戳。 | [optional] 
 
@@ -26,31 +25,6 @@ will change when the set of required properties is changed
 NewGetConvertUnixtime200ResponseWithDefaults instantiates a new GetConvertUnixtime200Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetCode
-
-`func (o *GetConvertUnixtime200Response) GetCode() int32`
-
-GetCode returns the Code field if non-nil, zero value otherwise.
-
-### GetCodeOk
-
-`func (o *GetConvertUnixtime200Response) GetCodeOk() (*int32, bool)`
-
-GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCode
-
-`func (o *GetConvertUnixtime200Response) SetCode(v int32)`
-
-SetCode sets Code field to given value.
-
-### HasCode
-
-`func (o *GetConvertUnixtime200Response) HasCode() bool`
-
-HasCode returns a boolean if a field has been set.
 
 ### GetDatetime
 

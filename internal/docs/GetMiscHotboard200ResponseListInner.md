@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Index** | Pointer to **int32** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
+**Cover** | Pointer to **string** | 封面图 URL，音乐类热榜返回专辑封面，其他平台无此字段。 | [optional] 
 
 ## Methods
 
@@ -153,6 +154,31 @@ SetUrl sets Url field to given value.
 `func (o *GetMiscHotboard200ResponseListInner) HasUrl() bool`
 
 HasUrl returns a boolean if a field has been set.
+
+### GetCover
+
+`func (o *GetMiscHotboard200ResponseListInner) GetCover() string`
+
+GetCover returns the Cover field if non-nil, zero value otherwise.
+
+### GetCoverOk
+
+`func (o *GetMiscHotboard200ResponseListInner) GetCoverOk() (*string, bool)`
+
+GetCoverOk returns a tuple with the Cover field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCover
+
+`func (o *GetMiscHotboard200ResponseListInner) SetCover(v string)`
+
+SetCover sets Cover field to given value.
+
+### HasCover
+
+`func (o *GetMiscHotboard200ResponseListInner) HasCover() bool`
+
+HasCover returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

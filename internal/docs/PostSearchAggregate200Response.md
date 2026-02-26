@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Query** | Pointer to **string** | 实际执行的搜索查询 | [optional] 
 **TotalResults** | Pointer to **int32** | 搜索结果总数 | [optional] 
 **Results** | Pointer to [**[]PostSearchAggregate200ResponseResultsInner**](PostSearchAggregate200ResponseResultsInner.md) | 搜索结果列表 | [optional] 
-**Sources** | Pointer to [**[]PostSearchAggregate200ResponseSourcesInner**](PostSearchAggregate200ResponseSourcesInner.md) | 各搜索引擎的结果数量统计 | [optional] 
+**Sources** | Pointer to [**[]PostSearchAggregate200ResponseSourcesInner**](PostSearchAggregate200ResponseSourcesInner.md) | 各搜索源的结果统计 | [optional] 
 **ProcessTimeMs** | Pointer to **int32** | 处理耗时（毫秒） | [optional] 
 **Cached** | Pointer to **bool** | 结果是否来自缓存 | [optional] 
 

@@ -25,7 +25,7 @@ type PostSearchAggregate200Response struct {
 	TotalResults *int32 `json:"total_results,omitempty"`
 	// 搜索结果列表
 	Results []PostSearchAggregate200ResponseResultsInner `json:"results,omitempty"`
-	// 各搜索引擎的结果数量统计
+	// 各搜索源的结果统计
 	Sources []PostSearchAggregate200ResponseSourcesInner `json:"sources,omitempty"`
 	// 处理耗时（毫秒）
 	ProcessTimeMs *int32 `json:"process_time_ms,omitempty"`

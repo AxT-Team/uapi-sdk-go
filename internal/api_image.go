@@ -215,7 +215,7 @@ func (r ApiGetImageBingDailyRequest) Execute() (*os.File, *http.Response, error)
 }
 
 /*
-GetImageBingDaily 获取必应每日壁纸
+GetImageBingDaily 必应壁纸
 
 每天都想换张新壁纸？让必应的美图点亮你的一天吧！
 
@@ -349,7 +349,7 @@ func (r ApiGetImageMotouRequest) Execute() (*os.File, *http.Response, error) {
 }
 
 /*
-GetImageMotou 生成摸摸头GIF (QQ号方式)
+GetImageMotou 生成摸摸头GIF (QQ号)
 
 想在线rua一下好友的头像吗？这个趣味接口可以满足你。
 
@@ -479,6 +479,9 @@ type ApiGetImageQrcodeRequest struct {
 	text *string
 	size *int32
 	format *string
+	transparent *bool
+	fgcolor *string
+	bgcolor *string
 }
 
 // 你希望编码到二维码中的任何文本内容，比如一个URL、一段话或者一个JSON字符串。
@@ -487,7 +490,7 @@ func (r ApiGetImageQrcodeRequest) Text(text string) ApiGetImageQrcodeRequest {
 	return r
 }
 
-// 二维码图片的边长（正方形），单位是像素。有效范围是 256 到 1024 之间。
+// 二维码图片的边长（正方形），单位是像素。有效范围是 256 到 2048 之间。
 func (r ApiGetImageQrcodeRequest) Size(size int32) ApiGetImageQrcodeRequest {
 	r.size = &size
 	return r
@@ -499,17 +502,35 @@ func (r ApiGetImageQrcodeRequest) Format(format string) ApiGetImageQrcodeRequest
 	return r
 }
 
+// 是否使用透明背景。启用后生成的 PNG 图片将具有 alpha 通道，背景透明。
+func (r ApiGetImageQrcodeRequest) Transparent(transparent bool) ApiGetImageQrcodeRequest {
+	r.transparent = &transparent
+	return r
+}
+
+// 二维码前景色（即二维码本身的颜色），使用十六进制格式。URL 中需要将 &#x60;#&#x60; 编码为 &#x60;%23&#x60;。
+func (r ApiGetImageQrcodeRequest) Fgcolor(fgcolor string) ApiGetImageQrcodeRequest {
+	r.fgcolor = &fgcolor
+	return r
+}
+
+// 二维码背景色，使用十六进制格式。当 &#x60;transparent&#x3D;true&#x60; 时此参数会被忽略。URL 中需要将 &#x60;#&#x60; 编码为 &#x60;%23&#x60;。
+func (r ApiGetImageQrcodeRequest) Bgcolor(bgcolor string) ApiGetImageQrcodeRequest {
+	r.bgcolor = &bgcolor
+	return r
+}
+
 func (r ApiGetImageQrcodeRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.GetImageQrcodeExecute(r)
 }
 
 /*
-GetImageQrcode 动态生成二维码
+GetImageQrcode 生成二维码
 
 无论是网址、文本还是联系方式，通通可以变成一个二维码！这是一个非常灵活的二维码生成工具。
 
 ## 功能概述
-你提供一段文本内容，我们为你生成对应的二维码图片。你可以自定义尺寸，并选择不同的返回格式以适应不同场景。
+你提供一段文本内容，我们为你生成对应的二维码图片。你可以自定义尺寸、前景色、背景色，还支持透明背景，并选择不同的返回格式以适应不同场景。
 
 ## 使用须知
 
@@ -519,6 +540,12 @@ GetImageQrcode 动态生成二维码
 > - **`image`** (默认): 直接返回 `image/png` 格式的图片二进制数据，适合在 `<img>` 标签中直接使用。
 > - **`json`**: 返回一个包含 Base64 Data URI 的 JSON 对象，适合需要在前端直接嵌入CSS或HTML的场景。
 > - **`json_url`**: 返回一个包含图片临时URL的JSON对象，适合需要图片链接的场景。
+
+> [!TIP]
+> **颜色参数说明**
+> - 颜色参数使用十六进制格式（如 `#FF0000`）
+> - URL 中需要对 `#` 进行编码，即 `%23`（例如：`fgcolor=%23FF0000`）
+> - 当 `transparent=true` 时，`bgcolor` 参数会被忽略
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetImageQrcodeRequest
@@ -568,6 +595,27 @@ func (a *ImageAPIService) GetImageQrcodeExecute(r ApiGetImageQrcodeRequest) (*os
         var defaultValue string = "image"
         parameterAddToHeaderOrQuery(localVarQueryParams, "format", defaultValue, "form", "")
         r.format = &defaultValue
+	}
+	if r.transparent != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "transparent", r.transparent, "form", "")
+	} else {
+        var defaultValue bool = false
+        parameterAddToHeaderOrQuery(localVarQueryParams, "transparent", defaultValue, "form", "")
+        r.transparent = &defaultValue
+	}
+	if r.fgcolor != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fgcolor", r.fgcolor, "form", "")
+	} else {
+        var defaultValue string = "#000000"
+        parameterAddToHeaderOrQuery(localVarQueryParams, "fgcolor", defaultValue, "form", "")
+        r.fgcolor = &defaultValue
+	}
+	if r.bgcolor != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "bgcolor", r.bgcolor, "form", "")
+	} else {
+        var defaultValue string = "#FFFFFF"
+        parameterAddToHeaderOrQuery(localVarQueryParams, "bgcolor", defaultValue, "form", "")
+        r.bgcolor = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -661,7 +709,7 @@ func (r ApiGetImageTobase64Request) Execute() (*GetImageTobase64200Response, *ht
 }
 
 /*
-GetImageTobase64 将在线图片转换为Base64
+GetImageTobase64 图片转 Base64
 
 看到一张网上的图片，想把它转换成 Base64 编码以便嵌入到你的 HTML 或 CSS 中？用这个接口就对了。
 
@@ -826,7 +874,7 @@ PostImageCompress 无损压缩图片
 
 ### 请求与响应格式
 - 请求必须使用 `multipart/form-data` 格式上传文件。
-- 成功响应将直接返回压缩后的文件二进制流 (`application/octet-stream`)，并附带 `Content-Disposition` 头，建议客户端根据此头信息保存文件。
+- 成功响应将直接返回压缩后的文件二进制流 (`image/*`)，并附带 `Content-Disposition` 头，建议客户端根据此头信息保存文件。
 
 ## 参数详解
 ### `level` (压缩等级)
@@ -1151,7 +1199,7 @@ func (r ApiPostImageMotouRequest) Execute() (*os.File, *http.Response, error) {
 }
 
 /*
-PostImageMotou 生成摸摸头GIF (图片上传或URL方式)
+PostImageMotou 生成摸摸头GIF
 
 除了使用QQ头像，你还可以通过上传自己的图片或提供图片URL来制作独一无二的摸摸头GIF。
 
@@ -1292,6 +1340,191 @@ func (a *ImageAPIService) PostImageMotouExecute(r ApiPostImageMotouRequest) (*os
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiPostImageNsfwRequest struct {
+	ctx context.Context
+	ApiService *ImageAPIService
+	file *os.File
+	url *string
+}
+
+// 要检测的图片文件。支持 JPG、JPEG、PNG、GIF、WebP 格式，最大 20MB。
+func (r ApiPostImageNsfwRequest) File(file *os.File) ApiPostImageNsfwRequest {
+	r.file = file
+	return r
+}
+
+// 图片的 URL 地址。如果同时提供 file 和 url，将优先使用 file。
+func (r ApiPostImageNsfwRequest) Url(url string) ApiPostImageNsfwRequest {
+	r.url = &url
+	return r
+}
+
+func (r ApiPostImageNsfwRequest) Execute() (*PostImageNsfw200Response, *http.Response, error) {
+	return r.ApiService.PostImageNsfwExecute(r)
+}
+
+/*
+PostImageNsfw 图片敏感检测
+
+这是一个图片内容审核接口，自动识别图片中的违规内容并返回处理建议。
+
+> [!VIP]
+> 此接口限时免费开放，无需企业认证即可使用。
+
+## 功能概述
+上传图片文件或提供图片URL，接口会自动分析图片内容，返回是否违规、风险等级和处理建议。适合对接到用户上传流程中，实现自动化内容审核。
+
+## 返回字段说明
+- **is_nsfw**: 是否判定为违规内容，`true` 表示违规，`false` 表示正常
+- **nsfw_score**: 违规内容置信度，0-1 之间，越高表示越可能违规
+- **normal_score**: 正常内容置信度，0-1 之间，与 nsfw_score 互补
+- **suggestion**: 处理建议
+  - `pass`: 内容正常，可以直接放行
+  - `review`: 存在风险，建议转人工复核
+  - `block`: 高风险内容，建议直接拦截
+- **risk_level**: 风险等级
+  - `low`: 低风险
+  - `medium`: 中风险
+  - `high`: 高风险
+- **label**: 内容标签，`nsfw` 或 `normal`
+- **confidence**: 模型对当前判断的整体置信度
+- **inference_time_ms**: 模型推理耗时，单位毫秒
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostImageNsfwRequest
+*/
+func (a *ImageAPIService) PostImageNsfw(ctx context.Context) ApiPostImageNsfwRequest {
+	return ApiPostImageNsfwRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return PostImageNsfw200Response
+func (a *ImageAPIService) PostImageNsfwExecute(r ApiPostImageNsfwRequest) (*PostImageNsfw200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostImageNsfw200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ImageAPIService.PostImageNsfw")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/image/nsfw"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"multipart/form-data"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	var fileLocalVarFormFileName string
+	var fileLocalVarFileName     string
+	var fileLocalVarFileBytes    []byte
+
+	fileLocalVarFormFileName = "file"
+	fileLocalVarFile := r.file
+
+	if fileLocalVarFile != nil {
+		fbs, _ := io.ReadAll(fileLocalVarFile)
+
+		fileLocalVarFileBytes = fbs
+		fileLocalVarFileName = fileLocalVarFile.Name()
+		fileLocalVarFile.Close()
+		formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
+	}
+	if r.url != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "url", r.url, "", "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v PostImageNsfw400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 413 {
+			var v PostImageNsfw413Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v PostImageNsfw500Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiPostImageSpeechlessRequest struct {
 	ctx context.Context
 	ApiService *ImageAPIService
@@ -1313,11 +1546,8 @@ PostImageSpeechless 生成你们怎么不说话了表情包
 
 你们怎么不说话了？是不是都在偷偷玩Uapi，求求你们不要玩Uapi了
 
-## 效果展示
-![示例](https://uapis.cn/static/uploads/33580466897f1e5815296f235b582815.png)
-
 ## 使用须知
-- **响应格式**：接口成功时直接返回 `image/jpeg` 格式的二进制数据。
+- **响应格式**：接口成功时直接返回 `image/png` 格式的二进制数据。
 - **文字内容**：至少需要提供 `top_text`（上方文字）或 `bottom_text`（下方文字）之一。
 - **梗图逻辑**：上方描述某个行为，下方通常以「们」开头表示劝阻，形成戏谑的对比效果。
 

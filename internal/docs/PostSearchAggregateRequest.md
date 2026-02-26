@@ -8,7 +8,9 @@ Name | Type | Description | Notes
 **Site** | Pointer to **string** | 限制搜索特定网站，不需要 &#x60;site:&#x60; 前缀 | [optional] 
 **Filetype** | Pointer to **string** | 限制文件类型，不需要 &#x60;filetype:&#x60; 前缀。支持 pdf、doc、docx、ppt、pptx、xls、xlsx、txt 等 | [optional] 
 **FetchFull** | Pointer to **bool** | 是否获取页面完整正文（会影响响应时间） | [optional] [default to false]
-**TimeoutMs** | Pointer to **int32** | 请求超时时间（毫秒），范围 1000-30000 | [optional] [default to 3000]
+**TimeoutMs** | Pointer to **int32** | 请求超时时间（毫秒），范围 1000-30000 | [optional] [default to 8000]
+**Sort** | Pointer to **string** | 排序方式 | [optional] [default to "relevance"]
+**TimeRange** | Pointer to **string** | 时间范围过滤 | [optional] 
 
 ## Methods
 
@@ -148,6 +150,56 @@ SetTimeoutMs sets TimeoutMs field to given value.
 `func (o *PostSearchAggregateRequest) HasTimeoutMs() bool`
 
 HasTimeoutMs returns a boolean if a field has been set.
+
+### GetSort
+
+`func (o *PostSearchAggregateRequest) GetSort() string`
+
+GetSort returns the Sort field if non-nil, zero value otherwise.
+
+### GetSortOk
+
+`func (o *PostSearchAggregateRequest) GetSortOk() (*string, bool)`
+
+GetSortOk returns a tuple with the Sort field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSort
+
+`func (o *PostSearchAggregateRequest) SetSort(v string)`
+
+SetSort sets Sort field to given value.
+
+### HasSort
+
+`func (o *PostSearchAggregateRequest) HasSort() bool`
+
+HasSort returns a boolean if a field has been set.
+
+### GetTimeRange
+
+`func (o *PostSearchAggregateRequest) GetTimeRange() string`
+
+GetTimeRange returns the TimeRange field if non-nil, zero value otherwise.
+
+### GetTimeRangeOk
+
+`func (o *PostSearchAggregateRequest) GetTimeRangeOk() (*string, bool)`
+
+GetTimeRangeOk returns a tuple with the TimeRange field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimeRange
+
+`func (o *PostSearchAggregateRequest) SetTimeRange(v string)`
+
+SetTimeRange sets TimeRange field to given value.
+
+### HasTimeRange
+
+`func (o *PostSearchAggregateRequest) HasTimeRange() bool`
+
+HasTimeRange returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

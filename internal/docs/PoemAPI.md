@@ -4,7 +4,7 @@ All URIs are relative to *https://uapis.cn/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetSaying**](PoemAPI.md#GetSaying) | **Get** /saying | 随机获取一句诗词或名言
+[**GetSaying**](PoemAPI.md#GetSaying) | **Get** /saying | 一言
 
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 > GetSaying200Response GetSaying(ctx).Execute()
 
-随机获取一句诗词或名言
+一言
 
 
 

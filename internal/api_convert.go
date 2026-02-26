@@ -39,7 +39,7 @@ func (r ApiGetConvertUnixtimeRequest) Execute() (*GetConvertUnixtime200Response,
 }
 
 /*
-GetConvertUnixtime Unix时间戳与日期字符串双向转换
+GetConvertUnixtime 时间戳转换
 
 时间戳和日期字符串，哪个用着更顺手？别纠结了，这个接口让你轻松拥有两种格式！
 
@@ -174,7 +174,7 @@ func (r ApiPostConvertJsonRequest) Execute() (*PostConvertJson200Response, *http
 }
 
 /*
-PostConvertJson 美化并格式化JSON字符串
+PostConvertJson JSON 格式化
 
 还在为一团乱麻的 JSON 字符串头疼吗？这个接口能瞬间让它变得井井有条，赏心悦目。
 

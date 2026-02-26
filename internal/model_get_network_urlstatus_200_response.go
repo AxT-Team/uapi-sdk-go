@@ -12,152 +12,124 @@ package uapi
 
 import (
 	"encoding/json"
+	"fmt"
+	"gopkg.in/validator.v2"
 )
 
-// checks if the GetNetworkUrlstatus200Response type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &GetNetworkUrlstatus200Response{}
-
-// GetNetworkUrlstatus200Response struct for GetNetworkUrlstatus200Response
+// GetNetworkUrlstatus200Response - struct for GetNetworkUrlstatus200Response
 type GetNetworkUrlstatus200Response struct {
-	Code *int32 `json:"code,omitempty"`
-	// HTTP响应状态码
-	Status *int32 `json:"status,omitempty"`
-	Url *string `json:"url,omitempty"`
+	GetNetworkUrlstatus200ResponseOneOf *GetNetworkUrlstatus200ResponseOneOf
+	GetNetworkUrlstatus200ResponseOneOf1 *GetNetworkUrlstatus200ResponseOneOf1
 }
 
-// NewGetNetworkUrlstatus200Response instantiates a new GetNetworkUrlstatus200Response object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewGetNetworkUrlstatus200Response() *GetNetworkUrlstatus200Response {
-	this := GetNetworkUrlstatus200Response{}
-	return &this
-}
-
-// NewGetNetworkUrlstatus200ResponseWithDefaults instantiates a new GetNetworkUrlstatus200Response object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewGetNetworkUrlstatus200ResponseWithDefaults() *GetNetworkUrlstatus200Response {
-	this := GetNetworkUrlstatus200Response{}
-	return &this
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetNetworkUrlstatus200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
+// GetNetworkUrlstatus200ResponseOneOfAsGetNetworkUrlstatus200Response is a convenience function that returns GetNetworkUrlstatus200ResponseOneOf wrapped in GetNetworkUrlstatus200Response
+func GetNetworkUrlstatus200ResponseOneOfAsGetNetworkUrlstatus200Response(v *GetNetworkUrlstatus200ResponseOneOf) GetNetworkUrlstatus200Response {
+	return GetNetworkUrlstatus200Response{
+		GetNetworkUrlstatus200ResponseOneOf: v,
 	}
-	return *o.Code
 }
 
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkUrlstatus200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
+// GetNetworkUrlstatus200ResponseOneOf1AsGetNetworkUrlstatus200Response is a convenience function that returns GetNetworkUrlstatus200ResponseOneOf1 wrapped in GetNetworkUrlstatus200Response
+func GetNetworkUrlstatus200ResponseOneOf1AsGetNetworkUrlstatus200Response(v *GetNetworkUrlstatus200ResponseOneOf1) GetNetworkUrlstatus200Response {
+	return GetNetworkUrlstatus200Response{
+		GetNetworkUrlstatus200ResponseOneOf1: v,
 	}
-	return o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *GetNetworkUrlstatus200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
+
+// Unmarshal JSON data into one of the pointers in the struct
+func (dst *GetNetworkUrlstatus200Response) UnmarshalJSON(data []byte) error {
+	var err error
+	match := 0
+	// try to unmarshal data into GetNetworkUrlstatus200ResponseOneOf
+	err = newStrictDecoder(data).Decode(&dst.GetNetworkUrlstatus200ResponseOneOf)
+	if err == nil {
+		jsonGetNetworkUrlstatus200ResponseOneOf, _ := json.Marshal(dst.GetNetworkUrlstatus200ResponseOneOf)
+		if string(jsonGetNetworkUrlstatus200ResponseOneOf) == "{}" { // empty struct
+			dst.GetNetworkUrlstatus200ResponseOneOf = nil
+		} else {
+			if err = validator.Validate(dst.GetNetworkUrlstatus200ResponseOneOf); err != nil {
+				dst.GetNetworkUrlstatus200ResponseOneOf = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.GetNetworkUrlstatus200ResponseOneOf = nil
 	}
 
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetNetworkUrlstatus200Response) SetCode(v int32) {
-	o.Code = &v
-}
-
-// GetStatus returns the Status field value if set, zero value otherwise.
-func (o *GetNetworkUrlstatus200Response) GetStatus() int32 {
-	if o == nil || IsNil(o.Status) {
-		var ret int32
-		return ret
-	}
-	return *o.Status
-}
-
-// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkUrlstatus200Response) GetStatusOk() (*int32, bool) {
-	if o == nil || IsNil(o.Status) {
-		return nil, false
-	}
-	return o.Status, true
-}
-
-// HasStatus returns a boolean if a field has been set.
-func (o *GetNetworkUrlstatus200Response) HasStatus() bool {
-	if o != nil && !IsNil(o.Status) {
-		return true
+	// try to unmarshal data into GetNetworkUrlstatus200ResponseOneOf1
+	err = newStrictDecoder(data).Decode(&dst.GetNetworkUrlstatus200ResponseOneOf1)
+	if err == nil {
+		jsonGetNetworkUrlstatus200ResponseOneOf1, _ := json.Marshal(dst.GetNetworkUrlstatus200ResponseOneOf1)
+		if string(jsonGetNetworkUrlstatus200ResponseOneOf1) == "{}" { // empty struct
+			dst.GetNetworkUrlstatus200ResponseOneOf1 = nil
+		} else {
+			if err = validator.Validate(dst.GetNetworkUrlstatus200ResponseOneOf1); err != nil {
+				dst.GetNetworkUrlstatus200ResponseOneOf1 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.GetNetworkUrlstatus200ResponseOneOf1 = nil
 	}
 
-	return false
+	if match > 1 { // more than 1 match
+		// reset to nil
+		dst.GetNetworkUrlstatus200ResponseOneOf = nil
+		dst.GetNetworkUrlstatus200ResponseOneOf1 = nil
+
+		return fmt.Errorf("data matches more than one schema in oneOf(GetNetworkUrlstatus200Response)")
+	} else if match == 1 {
+		return nil // exactly one match
+	} else { // no match
+		return fmt.Errorf("data failed to match schemas in oneOf(GetNetworkUrlstatus200Response)")
+	}
 }
 
-// SetStatus gets a reference to the given int32 and assigns it to the Status field.
-func (o *GetNetworkUrlstatus200Response) SetStatus(v int32) {
-	o.Status = &v
+// Marshal data from the first non-nil pointers in the struct to JSON
+func (src GetNetworkUrlstatus200Response) MarshalJSON() ([]byte, error) {
+	if src.GetNetworkUrlstatus200ResponseOneOf != nil {
+		return json.Marshal(&src.GetNetworkUrlstatus200ResponseOneOf)
+	}
+
+	if src.GetNetworkUrlstatus200ResponseOneOf1 != nil {
+		return json.Marshal(&src.GetNetworkUrlstatus200ResponseOneOf1)
+	}
+
+	return nil, nil // no data in oneOf schemas
 }
 
-// GetUrl returns the Url field value if set, zero value otherwise.
-func (o *GetNetworkUrlstatus200Response) GetUrl() string {
-	if o == nil || IsNil(o.Url) {
-		var ret string
-		return ret
+// Get the actual instance
+func (obj *GetNetworkUrlstatus200Response) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
 	}
-	return *o.Url
+	if obj.GetNetworkUrlstatus200ResponseOneOf != nil {
+		return obj.GetNetworkUrlstatus200ResponseOneOf
+	}
+
+	if obj.GetNetworkUrlstatus200ResponseOneOf1 != nil {
+		return obj.GetNetworkUrlstatus200ResponseOneOf1
+	}
+
+	// all schemas are nil
+	return nil
 }
 
-// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkUrlstatus200Response) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url) {
-		return nil, false
-	}
-	return o.Url, true
-}
-
-// HasUrl returns a boolean if a field has been set.
-func (o *GetNetworkUrlstatus200Response) HasUrl() bool {
-	if o != nil && !IsNil(o.Url) {
-		return true
+// Get the actual instance value
+func (obj GetNetworkUrlstatus200Response) GetActualInstanceValue() (interface{}) {
+	if obj.GetNetworkUrlstatus200ResponseOneOf != nil {
+		return *obj.GetNetworkUrlstatus200ResponseOneOf
 	}
 
-	return false
-}
+	if obj.GetNetworkUrlstatus200ResponseOneOf1 != nil {
+		return *obj.GetNetworkUrlstatus200ResponseOneOf1
+	}
 
-// SetUrl gets a reference to the given string and assigns it to the Url field.
-func (o *GetNetworkUrlstatus200Response) SetUrl(v string) {
-	o.Url = &v
-}
-
-func (o GetNetworkUrlstatus200Response) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
-	if err != nil {
-		return []byte{}, err
-	}
-	return json.Marshal(toSerialize)
-}
-
-func (o GetNetworkUrlstatus200Response) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
-	}
-	if !IsNil(o.Url) {
-		toSerialize["url"] = o.Url
-	}
-	return toSerialize, nil
+	// all schemas are nil
+	return nil
 }
 
 type NullableGetNetworkUrlstatus200Response struct {

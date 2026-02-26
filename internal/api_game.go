@@ -32,7 +32,7 @@ func (r ApiGetGameEpicFreeRequest) Execute() (*GetGameEpicFree200Response, *http
 }
 
 /*
-GetGameEpicFree 获取Epic Games免费游戏
+GetGameEpicFree Epic 免费游戏
 
 白嫖党的福音来了！想第一时间知道Epic商店本周送了哪些游戏大作吗？
 
@@ -147,10 +147,17 @@ func (a *GameAPIService) GetGameEpicFreeExecute(r ApiGetGameEpicFreeRequest) (*G
 type ApiGetGameMinecraftHistoryidRequest struct {
 	ctx context.Context
 	ApiService *GameAPIService
+	name *string
 	uuid *string
 }
 
-// 玩家的 Minecraft UUID，请务必使用32位无破折号的格式。
+// 玩家的 Minecraft 用户名。使用此参数查询时，会返回所有匹配用户的列表（包括当前用户名或曾用名匹配的玩家）。
+func (r ApiGetGameMinecraftHistoryidRequest) Name(name string) ApiGetGameMinecraftHistoryidRequest {
+	r.name = &name
+	return r
+}
+
+// 玩家的 Minecraft UUID，支持带连字符或不带连字符格式。
 func (r ApiGetGameMinecraftHistoryidRequest) Uuid(uuid string) ApiGetGameMinecraftHistoryidRequest {
 	r.uuid = &uuid
 	return r
@@ -161,17 +168,23 @@ func (r ApiGetGameMinecraftHistoryidRequest) Execute() (*GetGameMinecraftHistory
 }
 
 /*
-GetGameMinecraftHistoryid 查询Minecraft玩家历史用户名
+GetGameMinecraftHistoryid 查询 MC 曾用名
 
 想知道某个大佬以前叫什么名字吗？这个接口可以帮你追溯一个 Minecraft 玩家的“黑历史”！
 
 ## 功能概述
-通过提供一个玩家的 UUID，你可以获取到该玩家所有曾用名及其变更时间的列表。这对于识别回归的老玩家或者社区管理非常有用。
+通过提供玩家的用户名或 UUID，你可以获取到该玩家所有曾用名及其变更时间的列表。这对于识别回归的老玩家或者社区管理非常有用。
 
 ## 使用须知
 > [!NOTE]
-> **UUID 格式**
-> 查询时，请务必提供玩家的 **32位无破折号** Minecraft UUID，例如 `ee9b4ed1aac1491eb7611471be374b80`。
+> **参数说明**
+> - `name` 和 `uuid` 二选一
+> - UUID 支持带连字符（如 `ee9b4ed1-aac1-491e-b761-1471be374b80`）或不带连字符格式
+
+> [!IMPORTANT]
+> **响应结构差异**
+> - 使用 `uuid` 查询：返回单个用户的历史记录
+> - 使用 `name` 查询：返回所有匹配用户的列表（包括当前用户名或曾用名匹配的玩家），需判断响应中是否有 `results` 字段来区分两种模式
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetGameMinecraftHistoryidRequest
@@ -203,11 +216,13 @@ func (a *GameAPIService) GetGameMinecraftHistoryidExecute(r ApiGetGameMinecraftH
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.uuid == nil {
-		return localVarReturnValue, nil, reportError("uuid is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "uuid", r.uuid, "form", "")
+	if r.name != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "name", r.name, "form", "")
+	}
+	if r.uuid != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "uuid", r.uuid, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -311,7 +326,7 @@ func (r ApiGetGameMinecraftServerstatusRequest) Execute() (*GetGameMinecraftServ
 }
 
 /*
-GetGameMinecraftServerstatus 查询Minecraft服务器状态
+GetGameMinecraftServerstatus 查询 MC 服务器
 
 想在加入服务器前看看有多少人在线？或者检查一下服务器开没开？用这个接口就对了！
 
@@ -456,7 +471,7 @@ func (r ApiGetGameMinecraftUserinfoRequest) Execute() (*GetGameMinecraftUserinfo
 }
 
 /*
-GetGameMinecraftUserinfo 查询Minecraft玩家信息
+GetGameMinecraftUserinfo 查询 MC 玩家
 
 只需要一个玩家的用户名，就能快速获取到他的正版皮肤和独一无二的UUID！
 
@@ -560,7 +575,7 @@ func (a *GameAPIService) GetGameMinecraftUserinfoExecute(r ApiGetGameMinecraftUs
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 502 {
-			var v GetGameMinecraftHistoryid502Response
+			var v GetGameMinecraftUserinfo502Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -622,7 +637,7 @@ func (r ApiGetGameSteamSummaryRequest) Execute() (*GetGameSteamSummary200Respons
 }
 
 /*
-GetGameSteamSummary 获取Steam用户公开摘要
+GetGameSteamSummary 查询 Steam 用户
 
 想在你的网站或应用中展示用户的 Steam 个人资料？这个接口就是为你准备的。
 

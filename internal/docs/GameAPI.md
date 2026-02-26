@@ -4,11 +4,11 @@ All URIs are relative to *https://uapis.cn/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetGameEpicFree**](GameAPI.md#GetGameEpicFree) | **Get** /game/epic-free | 获取Epic Games免费游戏
-[**GetGameMinecraftHistoryid**](GameAPI.md#GetGameMinecraftHistoryid) | **Get** /game/minecraft/historyid | 查询Minecraft玩家历史用户名
-[**GetGameMinecraftServerstatus**](GameAPI.md#GetGameMinecraftServerstatus) | **Get** /game/minecraft/serverstatus | 查询Minecraft服务器状态
-[**GetGameMinecraftUserinfo**](GameAPI.md#GetGameMinecraftUserinfo) | **Get** /game/minecraft/userinfo | 查询Minecraft玩家信息
-[**GetGameSteamSummary**](GameAPI.md#GetGameSteamSummary) | **Get** /game/steam/summary | 获取Steam用户公开摘要
+[**GetGameEpicFree**](GameAPI.md#GetGameEpicFree) | **Get** /game/epic-free | Epic 免费游戏
+[**GetGameMinecraftHistoryid**](GameAPI.md#GetGameMinecraftHistoryid) | **Get** /game/minecraft/historyid | 查询 MC 曾用名
+[**GetGameMinecraftServerstatus**](GameAPI.md#GetGameMinecraftServerstatus) | **Get** /game/minecraft/serverstatus | 查询 MC 服务器
+[**GetGameMinecraftUserinfo**](GameAPI.md#GetGameMinecraftUserinfo) | **Get** /game/minecraft/userinfo | 查询 MC 玩家
+[**GetGameSteamSummary**](GameAPI.md#GetGameSteamSummary) | **Get** /game/steam/summary | 查询 Steam 用户
 
 
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 > GetGameEpicFree200Response GetGameEpicFree(ctx).Execute()
 
-获取Epic Games免费游戏
+Epic 免费游戏
 
 
 
@@ -75,9 +75,9 @@ No authorization required
 
 ## GetGameMinecraftHistoryid
 
-> GetGameMinecraftHistoryid200Response GetGameMinecraftHistoryid(ctx).Uuid(uuid).Execute()
+> GetGameMinecraftHistoryid200Response GetGameMinecraftHistoryid(ctx).Name(name).Uuid(uuid).Execute()
 
-查询Minecraft玩家历史用户名
+查询 MC 曾用名
 
 
 
@@ -94,11 +94,12 @@ import (
 )
 
 func main() {
-	uuid := "ee9b4ed1aac1491eb7611471be374b80" // string | 玩家的 Minecraft UUID，请务必使用32位无破折号的格式。
+	name := "ExamplePlayer" // string | 玩家的 Minecraft 用户名。使用此参数查询时，会返回所有匹配用户的列表（包括当前用户名或曾用名匹配的玩家）。 (optional)
+	uuid := "ee9b4ed1-aac1-491e-b761-1471be374b80" // string | 玩家的 Minecraft UUID，支持带连字符或不带连字符格式。 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.GameAPI.GetGameMinecraftHistoryid(context.Background()).Uuid(uuid).Execute()
+	resp, r, err := apiClient.GameAPI.GetGameMinecraftHistoryid(context.Background()).Name(name).Uuid(uuid).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GameAPI.GetGameMinecraftHistoryid``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -119,7 +120,8 @@ Other parameters are passed through a pointer to a apiGetGameMinecraftHistoryidR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uuid** | **string** | 玩家的 Minecraft UUID，请务必使用32位无破折号的格式。 | 
+ **name** | **string** | 玩家的 Minecraft 用户名。使用此参数查询时，会返回所有匹配用户的列表（包括当前用户名或曾用名匹配的玩家）。 | 
+ **uuid** | **string** | 玩家的 Minecraft UUID，支持带连字符或不带连字符格式。 | 
 
 ### Return type
 
@@ -143,7 +145,7 @@ No authorization required
 
 > GetGameMinecraftServerstatus200Response GetGameMinecraftServerstatus(ctx).Server(server).Execute()
 
-查询Minecraft服务器状态
+查询 MC 服务器
 
 
 
@@ -209,7 +211,7 @@ No authorization required
 
 > GetGameMinecraftUserinfo200Response GetGameMinecraftUserinfo(ctx).Username(username).Execute()
 
-查询Minecraft玩家信息
+查询 MC 玩家
 
 
 
@@ -275,7 +277,7 @@ No authorization required
 
 > GetGameSteamSummary200Response GetGameSteamSummary(ctx).Steamid(steamid).Id(id).Id3(id3).Key(key).Execute()
 
-获取Steam用户公开摘要
+查询 Steam 用户
 
 
 

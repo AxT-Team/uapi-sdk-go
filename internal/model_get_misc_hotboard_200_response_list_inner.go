@@ -25,6 +25,8 @@ type GetMiscHotboard200ResponseListInner struct {
 	Index *int32 `json:"index,omitempty"`
 	Title *string `json:"title,omitempty"`
 	Url *string `json:"url,omitempty"`
+	// 封面图 URL，音乐类热榜返回专辑封面，其他平台无此字段。
+	Cover *string `json:"cover,omitempty"`
 }
 
 // NewGetMiscHotboard200ResponseListInner instantiates a new GetMiscHotboard200ResponseListInner object
@@ -204,6 +206,38 @@ func (o *GetMiscHotboard200ResponseListInner) SetUrl(v string) {
 	o.Url = &v
 }
 
+// GetCover returns the Cover field value if set, zero value otherwise.
+func (o *GetMiscHotboard200ResponseListInner) GetCover() string {
+	if o == nil || IsNil(o.Cover) {
+		var ret string
+		return ret
+	}
+	return *o.Cover
+}
+
+// GetCoverOk returns a tuple with the Cover field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscHotboard200ResponseListInner) GetCoverOk() (*string, bool) {
+	if o == nil || IsNil(o.Cover) {
+		return nil, false
+	}
+	return o.Cover, true
+}
+
+// HasCover returns a boolean if a field has been set.
+func (o *GetMiscHotboard200ResponseListInner) HasCover() bool {
+	if o != nil && !IsNil(o.Cover) {
+		return true
+	}
+
+	return false
+}
+
+// SetCover gets a reference to the given string and assigns it to the Cover field.
+func (o *GetMiscHotboard200ResponseListInner) SetCover(v string) {
+	o.Cover = &v
+}
+
 func (o GetMiscHotboard200ResponseListInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -228,6 +262,9 @@ func (o GetMiscHotboard200ResponseListInner) ToMap() (map[string]interface{}, er
 	}
 	if !IsNil(o.Url) {
 		toSerialize["url"] = o.Url
+	}
+	if !IsNil(o.Cover) {
+		toSerialize["cover"] = o.Cover
 	}
 	return toSerialize, nil
 }

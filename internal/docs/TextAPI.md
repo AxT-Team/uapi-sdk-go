@@ -4,14 +4,17 @@ All URIs are relative to *https://uapis.cn/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetTextMd5**](TextAPI.md#GetTextMd5) | **Get** /text/md5 | 计算文本的MD5哈希值(GET)
-[**PostTextAesDecrypt**](TextAPI.md#PostTextAesDecrypt) | **Post** /text/aes/decrypt | 使用AES算法解密文本
-[**PostTextAesEncrypt**](TextAPI.md#PostTextAesEncrypt) | **Post** /text/aes/encrypt | 使用AES算法加密文本
-[**PostTextAnalyze**](TextAPI.md#PostTextAnalyze) | **Post** /text/analyze | 多维度分析文本内容
-[**PostTextBase64Decode**](TextAPI.md#PostTextBase64Decode) | **Post** /text/base64/decode | 解码Base64编码的文本
-[**PostTextBase64Encode**](TextAPI.md#PostTextBase64Encode) | **Post** /text/base64/encode | 将文本进行Base64编码
-[**PostTextMd5**](TextAPI.md#PostTextMd5) | **Post** /text/md5 | 计算文本的MD5哈希值 (POST)
-[**PostTextMd5Verify**](TextAPI.md#PostTextMd5Verify) | **Post** /text/md5/verify | 校验MD5哈希值
+[**GetTextMd5**](TextAPI.md#GetTextMd5) | **Get** /text/md5 | MD5 哈希
+[**PostTextAesDecrypt**](TextAPI.md#PostTextAesDecrypt) | **Post** /text/aes/decrypt | AES 解密
+[**PostTextAesDecryptAdvanced**](TextAPI.md#PostTextAesDecryptAdvanced) | **Post** /text/aes/decrypt-advanced | AES高级解密
+[**PostTextAesEncrypt**](TextAPI.md#PostTextAesEncrypt) | **Post** /text/aes/encrypt | AES 加密
+[**PostTextAesEncryptAdvanced**](TextAPI.md#PostTextAesEncryptAdvanced) | **Post** /text/aes/encrypt-advanced | AES高级加密
+[**PostTextAnalyze**](TextAPI.md#PostTextAnalyze) | **Post** /text/analyze | 文本分析
+[**PostTextBase64Decode**](TextAPI.md#PostTextBase64Decode) | **Post** /text/base64/decode | Base64 解码
+[**PostTextBase64Encode**](TextAPI.md#PostTextBase64Encode) | **Post** /text/base64/encode | Base64 编码
+[**PostTextConvert**](TextAPI.md#PostTextConvert) | **Post** /text/convert | 格式转换
+[**PostTextMd5**](TextAPI.md#PostTextMd5) | **Post** /text/md5 | MD5 哈希 (POST)
+[**PostTextMd5Verify**](TextAPI.md#PostTextMd5Verify) | **Post** /text/md5/verify | MD5 校验
 
 
 
@@ -19,7 +22,7 @@ Method | HTTP request | Description
 
 > GetTextMd5200Response GetTextMd5(ctx).Text(text).Execute()
 
-计算文本的MD5哈希值(GET)
+MD5 哈希
 
 
 
@@ -85,7 +88,7 @@ No authorization required
 
 > PostTextAesDecrypt200Response PostTextAesDecrypt(ctx).PostTextAesDecryptRequest(postTextAesDecryptRequest).Execute()
 
-使用AES算法解密文本
+AES 解密
 
 
 
@@ -147,11 +150,77 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## PostTextAesDecryptAdvanced
+
+> PostTextAesDecryptAdvanced200Response PostTextAesDecryptAdvanced(ctx).PostTextAesDecryptAdvancedRequest(postTextAesDecryptAdvancedRequest).Execute()
+
+AES高级解密
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	postTextAesDecryptAdvancedRequest := *openapiclient.NewPostTextAesDecryptAdvancedRequest("68vWkaxJPg1vx0LWJONpEfYdvW3Wz7V5uXiYg0WWfGJHIZWBmVVghHg=", "my-super-secret-key", "GCM") // PostTextAesDecryptAdvancedRequest | 包含解密配置的JSON对象
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TextAPI.PostTextAesDecryptAdvanced(context.Background()).PostTextAesDecryptAdvancedRequest(postTextAesDecryptAdvancedRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TextAPI.PostTextAesDecryptAdvanced``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostTextAesDecryptAdvanced`: PostTextAesDecryptAdvanced200Response
+	fmt.Fprintf(os.Stdout, "Response from `TextAPI.PostTextAesDecryptAdvanced`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostTextAesDecryptAdvancedRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postTextAesDecryptAdvancedRequest** | [**PostTextAesDecryptAdvancedRequest**](PostTextAesDecryptAdvancedRequest.md) | 包含解密配置的JSON对象 | 
+
+### Return type
+
+[**PostTextAesDecryptAdvanced200Response**](PostTextAesDecryptAdvanced200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## PostTextAesEncrypt
 
 > PostTextAesEncrypt200Response PostTextAesEncrypt(ctx).PostTextAesEncryptRequest(postTextAesEncryptRequest).Execute()
 
-使用AES算法加密文本
+AES 加密
 
 
 
@@ -213,11 +282,77 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## PostTextAesEncryptAdvanced
+
+> PostTextAesEncryptAdvanced200Response PostTextAesEncryptAdvanced(ctx).PostTextAesEncryptAdvancedRequest(postTextAesEncryptAdvancedRequest).Execute()
+
+AES高级加密
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	postTextAesEncryptAdvancedRequest := *openapiclient.NewPostTextAesEncryptAdvancedRequest("Hello, World! 你好世界！", "my-super-secret-key") // PostTextAesEncryptAdvancedRequest | 包含加密配置的JSON对象
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TextAPI.PostTextAesEncryptAdvanced(context.Background()).PostTextAesEncryptAdvancedRequest(postTextAesEncryptAdvancedRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TextAPI.PostTextAesEncryptAdvanced``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostTextAesEncryptAdvanced`: PostTextAesEncryptAdvanced200Response
+	fmt.Fprintf(os.Stdout, "Response from `TextAPI.PostTextAesEncryptAdvanced`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostTextAesEncryptAdvancedRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postTextAesEncryptAdvancedRequest** | [**PostTextAesEncryptAdvancedRequest**](PostTextAesEncryptAdvancedRequest.md) | 包含加密配置的JSON对象 | 
+
+### Return type
+
+[**PostTextAesEncryptAdvanced200Response**](PostTextAesEncryptAdvanced200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## PostTextAnalyze
 
 > PostTextAnalyze200Response PostTextAnalyze(ctx).PostTextAnalyzeRequest(postTextAnalyzeRequest).Execute()
 
-多维度分析文本内容
+文本分析
 
 
 
@@ -284,7 +419,7 @@ No authorization required
 
 > PostTextBase64Decode200Response PostTextBase64Decode(ctx).PostTextBase64DecodeRequest(postTextBase64DecodeRequest).Execute()
 
-解码Base64编码的文本
+Base64 解码
 
 
 
@@ -350,7 +485,7 @@ No authorization required
 
 > PostTextBase64Encode200Response PostTextBase64Encode(ctx).PostTextBase64EncodeRequest(postTextBase64EncodeRequest).Execute()
 
-将文本进行Base64编码
+Base64 编码
 
 
 
@@ -412,11 +547,77 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## PostTextConvert
+
+> PostTextConvert200Response PostTextConvert(ctx).PostTextConvertRequest(postTextConvertRequest).Execute()
+
+格式转换
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	postTextConvertRequest := *openapiclient.NewPostTextConvertRequest("hello world", "plain", "base64") // PostTextConvertRequest | 包含转换配置的JSON对象
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TextAPI.PostTextConvert(context.Background()).PostTextConvertRequest(postTextConvertRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TextAPI.PostTextConvert``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostTextConvert`: PostTextConvert200Response
+	fmt.Fprintf(os.Stdout, "Response from `TextAPI.PostTextConvert`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostTextConvertRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postTextConvertRequest** | [**PostTextConvertRequest**](PostTextConvertRequest.md) | 包含转换配置的JSON对象 | 
+
+### Return type
+
+[**PostTextConvert200Response**](PostTextConvert200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## PostTextMd5
 
 > GetTextMd5200Response PostTextMd5(ctx).PostTextMd5Request(postTextMd5Request).Execute()
 
-计算文本的MD5哈希值 (POST)
+MD5 哈希 (POST)
 
 
 
@@ -482,7 +683,7 @@ No authorization required
 
 > PostTextMd5Verify200Response PostTextMd5Verify(ctx).PostTextMd5VerifyRequest(postTextMd5VerifyRequest).Execute()
 
-校验MD5哈希值
+MD5 校验
 
 
 

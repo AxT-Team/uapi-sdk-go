@@ -39,7 +39,7 @@ func (r ApiGetGithubRepoRequest) Execute() (*GetGithubRepo200Response, *http.Res
 }
 
 /*
-GetGithubRepo 获取GitHub仓库信息
+GetGithubRepo 查询 GitHub 仓库
 
 需要快速获取一个GitHub仓库的核心信息？这个接口为你聚合了最有价值的数据，避免了多次调用GitHub官方API的麻烦，并且内置了缓存优化，速度更快、更稳定。
 
@@ -210,7 +210,7 @@ func (r ApiGetSocialBilibiliArchivesRequest) Execute() (*GetSocialBilibiliArchiv
 }
 
 /*
-GetSocialBilibiliArchives 获取Bilibili用户投稿列表
+GetSocialBilibiliArchives 查询 B站投稿
 
 想要获取UP主的所有投稿视频？或者想在你的应用里展示创作者的作品集？这个接口能帮你轻松实现。
 
@@ -400,7 +400,7 @@ func (r ApiGetSocialBilibiliLiveroomRequest) Execute() (*GetSocialBilibiliLivero
 }
 
 /*
-GetSocialBilibiliLiveroom 获取Bilibili直播间信息
+GetSocialBilibiliLiveroom 查询 B站直播间
 
 想知道你喜欢的主播开播了吗？或者想在你的应用里集成B站直播间状态？这个接口能满足你。
 
@@ -516,7 +516,7 @@ func (r ApiGetSocialBilibiliRepliesRequest) Oid(oid string) ApiGetSocialBilibili
 	return r
 }
 
-// 排序方式。&#x60;0&#x60;&#x3D;按时间, &#x60;1&#x60;&#x3D;按点赞, &#x60;2&#x60;&#x3D;按回复。默认为 &#x60;0&#x60;。
+// 排序方式。支持 &#x60;0/time&#x60;（按时间）、&#x60;1/like&#x60;（按点赞）、&#x60;2/reply&#x60;（按回复数）、&#x60;3/hot/hottest/最热&#x60;（按最热）。默认为 &#x60;0/time&#x60;。
 func (r ApiGetSocialBilibiliRepliesRequest) Sort(sort string) ApiGetSocialBilibiliRepliesRequest {
 	r.sort = &sort
 	return r
@@ -539,7 +539,7 @@ func (r ApiGetSocialBilibiliRepliesRequest) Execute() (*GetSocialBilibiliReplies
 }
 
 /*
-GetSocialBilibiliReplies 获取Bilibili视频评论
+GetSocialBilibiliReplies 查询 B站评论
 
 想要分析B站视频的评论区？这个接口可以帮你轻松获取评论数据，包括热门评论和最新评论，还支持分页加载。
 
@@ -547,7 +547,11 @@ GetSocialBilibiliReplies 获取Bilibili视频评论
 通过视频的 `oid`（通常就是视频的`aid`），你可以分页获取该视频的评论区内容。你可以指定排序方式和分页参数，来精确地获取你需要的数据。
 
 ## 参数说明
-- **`sort` (排序方式)**: `0`=按时间排序, `1`=按点赞数排序, `2`=按回复数排序。默认为按时间排序。
+- **`sort` (排序方式)**
+  - `0` 或 `time`：按时间排序
+  - `1` 或 `like`：按点赞排序
+  - `2` 或 `reply`：按回复数排序
+  - `3` 或 `hot`（也支持 `hottest`、`最热`）：按最热排序
 
 ## 响应体字段说明
 - **`hots` (热门评论)**: 仅在请求第一页时，可能会返回热门评论列表。其结构与 `replies` 中的对象一致。
@@ -670,7 +674,7 @@ func (r ApiGetSocialBilibiliUserinfoRequest) Execute() (*GetSocialBilibiliUserin
 }
 
 /*
-GetSocialBilibiliUserinfo 查询Bilibili用户信息
+GetSocialBilibiliUserinfo 查询 B站用户
 
 想在你的应用里集成B站用户资料展示？这个接口可以轻松获取用户的公开信息。
 
@@ -822,7 +826,7 @@ func (r ApiGetSocialBilibiliVideoinfoRequest) Execute() (*GetSocialBilibiliVideo
 }
 
 /*
-GetSocialBilibiliVideoinfo 获取Bilibili视频详细信息
+GetSocialBilibiliVideoinfo 查询 B站视频
 
 想在你的应用里展示B站视频的详细信息吗？无论是封面、标题，还是播放量、UP主信息，这个接口都能一网打尽。
 
@@ -943,25 +947,36 @@ func (r ApiGetSocialQqGroupinfoRequest) Execute() (*GetSocialQqGroupinfo200Respo
 }
 
 /*
-GetSocialQqGroupinfo 获取QQ群名称、头像、简介
+GetSocialQqGroupinfo 查询 QQ 群信息
 
-想在你的应用里展示QQ群信息？这个接口让你轻松获取群名称、群头像、群简介等公开信息。它能帮你快速构建社群导航站、群聊推荐系统，或是为你的数据分析工具提供可靠的数据源。无论是展示群聊卡片、生成加群链接，还是进行社群数据统计，这个接口都能满足你的需求。
+想在你的应用里展示QQ群信息？这个接口让你轻松获取群名称、群头像、群简介、成员数量等详细公开信息。它能帮你快速构建社群导航站、群聊推荐系统，或是为你的数据分析工具提供可靠的数据源。
 
 > [!VIP]
 > 本API目前处于**限时免费**阶段，我们鼓励开发者集成和测试。未来，它将转为付费API，为用户提供更稳定和强大的服务。
 
 ## 功能概述
-你只需要提供一个QQ群号（5-12位纯数字），接口就会返回该群的完整公开信息。我们会先验证群号的有效性，确保返回的数据准确可靠。接口的响应速度快，数据结构清晰，非常适合集成到各类应用场景中。
+你只需要提供一个QQ群号（5-12位纯数字），接口就会返回该群的完整公开信息。我们会先验证群号的有效性，确保返回的数据准确可靠。接口响应速度快，数据结构清晰，非常适合集成到各类应用场景中。
 
 ## 返回数据说明
 接口会返回以下QQ群的关键信息：
-- **群基础信息**: 包括群号、群名称，让你能够准确识别和展示群聊。
-- **视觉素材**: 提供群头像URL（标准100x100尺寸），可直接用于在你的界面中展示群聊图标。
-- **群介绍资料**: 包含群描述/简介和群标签，帮助用户了解群聊的主题和特色。
-- **便捷入口**: 返回加群链接（二维码URL），方便用户一键加入感兴趣的群聊。
-- **数据时效**: 提供最后更新时间戳，让你了解数据的新鲜度。
 
-所有返回的数据都遵循标准的JSON格式，字段命名清晰，便于解析和使用。无论你是在做网页端、移动端还是后端服务，都能轻松集成。
+### 基础字段（所有群都有）
+- **群基础信息**: 包括群号、群名称，让你能够准确识别和展示群聊
+- **视觉素材**: 提供群头像URL（支持多种尺寸），可直接用于在你的界面中展示群聊图标
+- **群介绍资料**: 包含群描述/简介和群标签，帮助用户了解群聊的主题和特色
+- **便捷入口**: 返回加群链接（二维码URL），方便用户一键加入感兴趣的群聊
+- **成员统计**: 当前成员数和最大成员数，直观了解群规模
+- **数据时效**: 提供最后更新时间戳，让你了解数据的新鲜度
+
+### 扩展字段（部分群有）
+- **活跃度**: 活跃成员数量（可选）
+- **群主信息**: 群主QQ号和UID（可选）
+- **时间信息**: 建群时间戳和格式化时间（可选）
+- **群等级**: 群等级数值（可选）
+- **群公告**: 群公告/简介内容（可选）
+- **认证信息**: 官方认证类型和说明（可选）
+
+所有返回的数据都遵循标准的JSON格式，字段命名清晰，便于解析和使用。扩展字段仅在数据可用时返回，保持响应体精简。
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetSocialQqGroupinfoRequest
@@ -1057,17 +1072,6 @@ func (a *SocialAPIService) GetSocialQqGroupinfoExecute(r ApiGetSocialQqGroupinfo
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetSocialQqGroupinfo500Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1101,7 +1105,7 @@ func (r ApiGetSocialQqUserinfoRequest) Execute() (*GetSocialQqUserinfo200Respons
 }
 
 /*
-GetSocialQqUserinfo 独家获取QQ号头像、昵称
+GetSocialQqUserinfo 查询 QQ 信息
 
 这是一个功能丰富的QQ用户信息查询接口，能够获取QQ用户的详细公开信息。
 

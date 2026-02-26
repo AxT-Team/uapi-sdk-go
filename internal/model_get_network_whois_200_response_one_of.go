@@ -19,7 +19,6 @@ var _ MappedNullable = &GetNetworkWhois200ResponseOneOf{}
 
 // GetNetworkWhois200ResponseOneOf ### 文本格式响应 当 `format=text` 或未指定时，`whois` 字段包含原始的WHOIS查询文本。这保留了最完整的信息，适合需要自行解析或展示原始数据的场景。
 type GetNetworkWhois200ResponseOneOf struct {
-	Code *int32 `json:"code,omitempty"`
 	// **WHOIS原始文本**  返回未经处理的原始WHOIS查询结果文本。
 	Whois *string `json:"whois,omitempty"`
 }
@@ -39,38 +38,6 @@ func NewGetNetworkWhois200ResponseOneOf() *GetNetworkWhois200ResponseOneOf {
 func NewGetNetworkWhois200ResponseOneOfWithDefaults() *GetNetworkWhois200ResponseOneOf {
 	this := GetNetworkWhois200ResponseOneOf{}
 	return &this
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetNetworkWhois200ResponseOneOf) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkWhois200ResponseOneOf) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *GetNetworkWhois200ResponseOneOf) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetNetworkWhois200ResponseOneOf) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetWhois returns the Whois field value if set, zero value otherwise.
@@ -115,9 +82,6 @@ func (o GetNetworkWhois200ResponseOneOf) MarshalJSON() ([]byte, error) {
 
 func (o GetNetworkWhois200ResponseOneOf) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
 	if !IsNil(o.Whois) {
 		toSerialize["whois"] = o.Whois
 	}

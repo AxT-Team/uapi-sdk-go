@@ -19,15 +19,55 @@ var _ MappedNullable = &GetMiscWeather200Response{}
 
 // GetMiscWeather200Response struct for GetMiscWeather200Response
 type GetMiscWeather200Response struct {
-	Adcode *string `json:"adcode,omitempty"`
-	City *string `json:"city,omitempty"`
-	Humidity *int32 `json:"humidity,omitempty"`
+	// 省份
 	Province *string `json:"province,omitempty"`
-	ReportTime *string `json:"report_time,omitempty"`
-	Temperature *int32 `json:"temperature,omitempty"`
+	// 城市名
+	City *string `json:"city,omitempty"`
+	// 行政区划代码（部分数据源可能为空）
+	Adcode *string `json:"adcode,omitempty"`
+	// 天气状况描述。默认返回中文，传 `lang=en` 时返回英文。非固定枚举。
 	Weather *string `json:"weather,omitempty"`
+	// 当前温度 °C
+	Temperature *float32 `json:"temperature,omitempty"`
+	// 风向
 	WindDirection *string `json:"wind_direction,omitempty"`
+	// 风力等级
 	WindPower *string `json:"wind_power,omitempty"`
+	// 相对湿度 %
+	Humidity *float32 `json:"humidity,omitempty"`
+	// 数据更新时间
+	ReportTime *string `json:"report_time,omitempty"`
+	// 体感温度 °C（extended=true 时返回）
+	FeelsLike *float32 `json:"feels_like,omitempty"`
+	// 能见度 km（extended=true 时返回）
+	Visibility *float32 `json:"visibility,omitempty"`
+	// 气压 hPa（extended=true 时返回）
+	Pressure *float32 `json:"pressure,omitempty"`
+	// 紫外线指数（extended=true 时返回）
+	Uv *float32 `json:"uv,omitempty"`
+	// 当前降水量 mm（extended=true 时返回）
+	Precipitation *float32 `json:"precipitation,omitempty"`
+	// 云量 %（extended=true 时返回）
+	Cloud *float32 `json:"cloud,omitempty"`
+	// 空气质量指数 0-500（extended=true 时返回）
+	Aqi *float32 `json:"aqi,omitempty"`
+	// AQI 等级 1-6（extended=true 时返回）
+	AqiLevel *float32 `json:"aqi_level,omitempty"`
+	// AQI 等级描述（优/良/轻度污染/中度污染/重度污染/严重污染）（extended=true 时返回）
+	AqiCategory *string `json:"aqi_category,omitempty"`
+	// 主要污染物（如 PM2.5、PM10、O3 等）（extended=true 时返回）
+	AqiPrimary *string `json:"aqi_primary,omitempty"`
+	AirPollutants *GetMiscWeather200ResponseAirPollutants `json:"air_pollutants,omitempty"`
+	// 当天最高温 °C（forecast=true 时返回）
+	TempMax *float32 `json:"temp_max,omitempty"`
+	// 当天最低温 °C（forecast=true 时返回）
+	TempMin *float32 `json:"temp_min,omitempty"`
+	// 多天天气预报，最多7天（forecast=true 时返回）
+	Forecast []GetMiscWeather200ResponseForecastInner `json:"forecast,omitempty"`
+	// 逐小时预报，最多24小时（hourly=true 时返回）
+	HourlyForecast []GetMiscWeather200ResponseHourlyForecastInner `json:"hourly_forecast,omitempty"`
+	MinutelyPrecip *GetMiscWeather200ResponseMinutelyPrecip `json:"minutely_precip,omitempty"`
+	LifeIndices *GetMiscWeather200ResponseLifeIndices `json:"life_indices,omitempty"`
 }
 
 // NewGetMiscWeather200Response instantiates a new GetMiscWeather200Response object
@@ -45,102 +85,6 @@ func NewGetMiscWeather200Response() *GetMiscWeather200Response {
 func NewGetMiscWeather200ResponseWithDefaults() *GetMiscWeather200Response {
 	this := GetMiscWeather200Response{}
 	return &this
-}
-
-// GetAdcode returns the Adcode field value if set, zero value otherwise.
-func (o *GetMiscWeather200Response) GetAdcode() string {
-	if o == nil || IsNil(o.Adcode) {
-		var ret string
-		return ret
-	}
-	return *o.Adcode
-}
-
-// GetAdcodeOk returns a tuple with the Adcode field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetMiscWeather200Response) GetAdcodeOk() (*string, bool) {
-	if o == nil || IsNil(o.Adcode) {
-		return nil, false
-	}
-	return o.Adcode, true
-}
-
-// HasAdcode returns a boolean if a field has been set.
-func (o *GetMiscWeather200Response) HasAdcode() bool {
-	if o != nil && !IsNil(o.Adcode) {
-		return true
-	}
-
-	return false
-}
-
-// SetAdcode gets a reference to the given string and assigns it to the Adcode field.
-func (o *GetMiscWeather200Response) SetAdcode(v string) {
-	o.Adcode = &v
-}
-
-// GetCity returns the City field value if set, zero value otherwise.
-func (o *GetMiscWeather200Response) GetCity() string {
-	if o == nil || IsNil(o.City) {
-		var ret string
-		return ret
-	}
-	return *o.City
-}
-
-// GetCityOk returns a tuple with the City field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetMiscWeather200Response) GetCityOk() (*string, bool) {
-	if o == nil || IsNil(o.City) {
-		return nil, false
-	}
-	return o.City, true
-}
-
-// HasCity returns a boolean if a field has been set.
-func (o *GetMiscWeather200Response) HasCity() bool {
-	if o != nil && !IsNil(o.City) {
-		return true
-	}
-
-	return false
-}
-
-// SetCity gets a reference to the given string and assigns it to the City field.
-func (o *GetMiscWeather200Response) SetCity(v string) {
-	o.City = &v
-}
-
-// GetHumidity returns the Humidity field value if set, zero value otherwise.
-func (o *GetMiscWeather200Response) GetHumidity() int32 {
-	if o == nil || IsNil(o.Humidity) {
-		var ret int32
-		return ret
-	}
-	return *o.Humidity
-}
-
-// GetHumidityOk returns a tuple with the Humidity field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetMiscWeather200Response) GetHumidityOk() (*int32, bool) {
-	if o == nil || IsNil(o.Humidity) {
-		return nil, false
-	}
-	return o.Humidity, true
-}
-
-// HasHumidity returns a boolean if a field has been set.
-func (o *GetMiscWeather200Response) HasHumidity() bool {
-	if o != nil && !IsNil(o.Humidity) {
-		return true
-	}
-
-	return false
-}
-
-// SetHumidity gets a reference to the given int32 and assigns it to the Humidity field.
-func (o *GetMiscWeather200Response) SetHumidity(v int32) {
-	o.Humidity = &v
 }
 
 // GetProvince returns the Province field value if set, zero value otherwise.
@@ -175,68 +119,68 @@ func (o *GetMiscWeather200Response) SetProvince(v string) {
 	o.Province = &v
 }
 
-// GetReportTime returns the ReportTime field value if set, zero value otherwise.
-func (o *GetMiscWeather200Response) GetReportTime() string {
-	if o == nil || IsNil(o.ReportTime) {
+// GetCity returns the City field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetCity() string {
+	if o == nil || IsNil(o.City) {
 		var ret string
 		return ret
 	}
-	return *o.ReportTime
+	return *o.City
 }
 
-// GetReportTimeOk returns a tuple with the ReportTime field value if set, nil otherwise
+// GetCityOk returns a tuple with the City field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMiscWeather200Response) GetReportTimeOk() (*string, bool) {
-	if o == nil || IsNil(o.ReportTime) {
+func (o *GetMiscWeather200Response) GetCityOk() (*string, bool) {
+	if o == nil || IsNil(o.City) {
 		return nil, false
 	}
-	return o.ReportTime, true
+	return o.City, true
 }
 
-// HasReportTime returns a boolean if a field has been set.
-func (o *GetMiscWeather200Response) HasReportTime() bool {
-	if o != nil && !IsNil(o.ReportTime) {
+// HasCity returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasCity() bool {
+	if o != nil && !IsNil(o.City) {
 		return true
 	}
 
 	return false
 }
 
-// SetReportTime gets a reference to the given string and assigns it to the ReportTime field.
-func (o *GetMiscWeather200Response) SetReportTime(v string) {
-	o.ReportTime = &v
+// SetCity gets a reference to the given string and assigns it to the City field.
+func (o *GetMiscWeather200Response) SetCity(v string) {
+	o.City = &v
 }
 
-// GetTemperature returns the Temperature field value if set, zero value otherwise.
-func (o *GetMiscWeather200Response) GetTemperature() int32 {
-	if o == nil || IsNil(o.Temperature) {
-		var ret int32
+// GetAdcode returns the Adcode field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetAdcode() string {
+	if o == nil || IsNil(o.Adcode) {
+		var ret string
 		return ret
 	}
-	return *o.Temperature
+	return *o.Adcode
 }
 
-// GetTemperatureOk returns a tuple with the Temperature field value if set, nil otherwise
+// GetAdcodeOk returns a tuple with the Adcode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMiscWeather200Response) GetTemperatureOk() (*int32, bool) {
-	if o == nil || IsNil(o.Temperature) {
+func (o *GetMiscWeather200Response) GetAdcodeOk() (*string, bool) {
+	if o == nil || IsNil(o.Adcode) {
 		return nil, false
 	}
-	return o.Temperature, true
+	return o.Adcode, true
 }
 
-// HasTemperature returns a boolean if a field has been set.
-func (o *GetMiscWeather200Response) HasTemperature() bool {
-	if o != nil && !IsNil(o.Temperature) {
+// HasAdcode returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasAdcode() bool {
+	if o != nil && !IsNil(o.Adcode) {
 		return true
 	}
 
 	return false
 }
 
-// SetTemperature gets a reference to the given int32 and assigns it to the Temperature field.
-func (o *GetMiscWeather200Response) SetTemperature(v int32) {
-	o.Temperature = &v
+// SetAdcode gets a reference to the given string and assigns it to the Adcode field.
+func (o *GetMiscWeather200Response) SetAdcode(v string) {
+	o.Adcode = &v
 }
 
 // GetWeather returns the Weather field value if set, zero value otherwise.
@@ -269,6 +213,38 @@ func (o *GetMiscWeather200Response) HasWeather() bool {
 // SetWeather gets a reference to the given string and assigns it to the Weather field.
 func (o *GetMiscWeather200Response) SetWeather(v string) {
 	o.Weather = &v
+}
+
+// GetTemperature returns the Temperature field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetTemperature() float32 {
+	if o == nil || IsNil(o.Temperature) {
+		var ret float32
+		return ret
+	}
+	return *o.Temperature
+}
+
+// GetTemperatureOk returns a tuple with the Temperature field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetTemperatureOk() (*float32, bool) {
+	if o == nil || IsNil(o.Temperature) {
+		return nil, false
+	}
+	return o.Temperature, true
+}
+
+// HasTemperature returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasTemperature() bool {
+	if o != nil && !IsNil(o.Temperature) {
+		return true
+	}
+
+	return false
+}
+
+// SetTemperature gets a reference to the given float32 and assigns it to the Temperature field.
+func (o *GetMiscWeather200Response) SetTemperature(v float32) {
+	o.Temperature = &v
 }
 
 // GetWindDirection returns the WindDirection field value if set, zero value otherwise.
@@ -335,6 +311,614 @@ func (o *GetMiscWeather200Response) SetWindPower(v string) {
 	o.WindPower = &v
 }
 
+// GetHumidity returns the Humidity field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetHumidity() float32 {
+	if o == nil || IsNil(o.Humidity) {
+		var ret float32
+		return ret
+	}
+	return *o.Humidity
+}
+
+// GetHumidityOk returns a tuple with the Humidity field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetHumidityOk() (*float32, bool) {
+	if o == nil || IsNil(o.Humidity) {
+		return nil, false
+	}
+	return o.Humidity, true
+}
+
+// HasHumidity returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasHumidity() bool {
+	if o != nil && !IsNil(o.Humidity) {
+		return true
+	}
+
+	return false
+}
+
+// SetHumidity gets a reference to the given float32 and assigns it to the Humidity field.
+func (o *GetMiscWeather200Response) SetHumidity(v float32) {
+	o.Humidity = &v
+}
+
+// GetReportTime returns the ReportTime field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetReportTime() string {
+	if o == nil || IsNil(o.ReportTime) {
+		var ret string
+		return ret
+	}
+	return *o.ReportTime
+}
+
+// GetReportTimeOk returns a tuple with the ReportTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetReportTimeOk() (*string, bool) {
+	if o == nil || IsNil(o.ReportTime) {
+		return nil, false
+	}
+	return o.ReportTime, true
+}
+
+// HasReportTime returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasReportTime() bool {
+	if o != nil && !IsNil(o.ReportTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetReportTime gets a reference to the given string and assigns it to the ReportTime field.
+func (o *GetMiscWeather200Response) SetReportTime(v string) {
+	o.ReportTime = &v
+}
+
+// GetFeelsLike returns the FeelsLike field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetFeelsLike() float32 {
+	if o == nil || IsNil(o.FeelsLike) {
+		var ret float32
+		return ret
+	}
+	return *o.FeelsLike
+}
+
+// GetFeelsLikeOk returns a tuple with the FeelsLike field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetFeelsLikeOk() (*float32, bool) {
+	if o == nil || IsNil(o.FeelsLike) {
+		return nil, false
+	}
+	return o.FeelsLike, true
+}
+
+// HasFeelsLike returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasFeelsLike() bool {
+	if o != nil && !IsNil(o.FeelsLike) {
+		return true
+	}
+
+	return false
+}
+
+// SetFeelsLike gets a reference to the given float32 and assigns it to the FeelsLike field.
+func (o *GetMiscWeather200Response) SetFeelsLike(v float32) {
+	o.FeelsLike = &v
+}
+
+// GetVisibility returns the Visibility field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetVisibility() float32 {
+	if o == nil || IsNil(o.Visibility) {
+		var ret float32
+		return ret
+	}
+	return *o.Visibility
+}
+
+// GetVisibilityOk returns a tuple with the Visibility field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetVisibilityOk() (*float32, bool) {
+	if o == nil || IsNil(o.Visibility) {
+		return nil, false
+	}
+	return o.Visibility, true
+}
+
+// HasVisibility returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasVisibility() bool {
+	if o != nil && !IsNil(o.Visibility) {
+		return true
+	}
+
+	return false
+}
+
+// SetVisibility gets a reference to the given float32 and assigns it to the Visibility field.
+func (o *GetMiscWeather200Response) SetVisibility(v float32) {
+	o.Visibility = &v
+}
+
+// GetPressure returns the Pressure field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetPressure() float32 {
+	if o == nil || IsNil(o.Pressure) {
+		var ret float32
+		return ret
+	}
+	return *o.Pressure
+}
+
+// GetPressureOk returns a tuple with the Pressure field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetPressureOk() (*float32, bool) {
+	if o == nil || IsNil(o.Pressure) {
+		return nil, false
+	}
+	return o.Pressure, true
+}
+
+// HasPressure returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasPressure() bool {
+	if o != nil && !IsNil(o.Pressure) {
+		return true
+	}
+
+	return false
+}
+
+// SetPressure gets a reference to the given float32 and assigns it to the Pressure field.
+func (o *GetMiscWeather200Response) SetPressure(v float32) {
+	o.Pressure = &v
+}
+
+// GetUv returns the Uv field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetUv() float32 {
+	if o == nil || IsNil(o.Uv) {
+		var ret float32
+		return ret
+	}
+	return *o.Uv
+}
+
+// GetUvOk returns a tuple with the Uv field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetUvOk() (*float32, bool) {
+	if o == nil || IsNil(o.Uv) {
+		return nil, false
+	}
+	return o.Uv, true
+}
+
+// HasUv returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasUv() bool {
+	if o != nil && !IsNil(o.Uv) {
+		return true
+	}
+
+	return false
+}
+
+// SetUv gets a reference to the given float32 and assigns it to the Uv field.
+func (o *GetMiscWeather200Response) SetUv(v float32) {
+	o.Uv = &v
+}
+
+// GetPrecipitation returns the Precipitation field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetPrecipitation() float32 {
+	if o == nil || IsNil(o.Precipitation) {
+		var ret float32
+		return ret
+	}
+	return *o.Precipitation
+}
+
+// GetPrecipitationOk returns a tuple with the Precipitation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetPrecipitationOk() (*float32, bool) {
+	if o == nil || IsNil(o.Precipitation) {
+		return nil, false
+	}
+	return o.Precipitation, true
+}
+
+// HasPrecipitation returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasPrecipitation() bool {
+	if o != nil && !IsNil(o.Precipitation) {
+		return true
+	}
+
+	return false
+}
+
+// SetPrecipitation gets a reference to the given float32 and assigns it to the Precipitation field.
+func (o *GetMiscWeather200Response) SetPrecipitation(v float32) {
+	o.Precipitation = &v
+}
+
+// GetCloud returns the Cloud field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetCloud() float32 {
+	if o == nil || IsNil(o.Cloud) {
+		var ret float32
+		return ret
+	}
+	return *o.Cloud
+}
+
+// GetCloudOk returns a tuple with the Cloud field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetCloudOk() (*float32, bool) {
+	if o == nil || IsNil(o.Cloud) {
+		return nil, false
+	}
+	return o.Cloud, true
+}
+
+// HasCloud returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasCloud() bool {
+	if o != nil && !IsNil(o.Cloud) {
+		return true
+	}
+
+	return false
+}
+
+// SetCloud gets a reference to the given float32 and assigns it to the Cloud field.
+func (o *GetMiscWeather200Response) SetCloud(v float32) {
+	o.Cloud = &v
+}
+
+// GetAqi returns the Aqi field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetAqi() float32 {
+	if o == nil || IsNil(o.Aqi) {
+		var ret float32
+		return ret
+	}
+	return *o.Aqi
+}
+
+// GetAqiOk returns a tuple with the Aqi field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetAqiOk() (*float32, bool) {
+	if o == nil || IsNil(o.Aqi) {
+		return nil, false
+	}
+	return o.Aqi, true
+}
+
+// HasAqi returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasAqi() bool {
+	if o != nil && !IsNil(o.Aqi) {
+		return true
+	}
+
+	return false
+}
+
+// SetAqi gets a reference to the given float32 and assigns it to the Aqi field.
+func (o *GetMiscWeather200Response) SetAqi(v float32) {
+	o.Aqi = &v
+}
+
+// GetAqiLevel returns the AqiLevel field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetAqiLevel() float32 {
+	if o == nil || IsNil(o.AqiLevel) {
+		var ret float32
+		return ret
+	}
+	return *o.AqiLevel
+}
+
+// GetAqiLevelOk returns a tuple with the AqiLevel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetAqiLevelOk() (*float32, bool) {
+	if o == nil || IsNil(o.AqiLevel) {
+		return nil, false
+	}
+	return o.AqiLevel, true
+}
+
+// HasAqiLevel returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasAqiLevel() bool {
+	if o != nil && !IsNil(o.AqiLevel) {
+		return true
+	}
+
+	return false
+}
+
+// SetAqiLevel gets a reference to the given float32 and assigns it to the AqiLevel field.
+func (o *GetMiscWeather200Response) SetAqiLevel(v float32) {
+	o.AqiLevel = &v
+}
+
+// GetAqiCategory returns the AqiCategory field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetAqiCategory() string {
+	if o == nil || IsNil(o.AqiCategory) {
+		var ret string
+		return ret
+	}
+	return *o.AqiCategory
+}
+
+// GetAqiCategoryOk returns a tuple with the AqiCategory field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetAqiCategoryOk() (*string, bool) {
+	if o == nil || IsNil(o.AqiCategory) {
+		return nil, false
+	}
+	return o.AqiCategory, true
+}
+
+// HasAqiCategory returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasAqiCategory() bool {
+	if o != nil && !IsNil(o.AqiCategory) {
+		return true
+	}
+
+	return false
+}
+
+// SetAqiCategory gets a reference to the given string and assigns it to the AqiCategory field.
+func (o *GetMiscWeather200Response) SetAqiCategory(v string) {
+	o.AqiCategory = &v
+}
+
+// GetAqiPrimary returns the AqiPrimary field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetAqiPrimary() string {
+	if o == nil || IsNil(o.AqiPrimary) {
+		var ret string
+		return ret
+	}
+	return *o.AqiPrimary
+}
+
+// GetAqiPrimaryOk returns a tuple with the AqiPrimary field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetAqiPrimaryOk() (*string, bool) {
+	if o == nil || IsNil(o.AqiPrimary) {
+		return nil, false
+	}
+	return o.AqiPrimary, true
+}
+
+// HasAqiPrimary returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasAqiPrimary() bool {
+	if o != nil && !IsNil(o.AqiPrimary) {
+		return true
+	}
+
+	return false
+}
+
+// SetAqiPrimary gets a reference to the given string and assigns it to the AqiPrimary field.
+func (o *GetMiscWeather200Response) SetAqiPrimary(v string) {
+	o.AqiPrimary = &v
+}
+
+// GetAirPollutants returns the AirPollutants field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetAirPollutants() GetMiscWeather200ResponseAirPollutants {
+	if o == nil || IsNil(o.AirPollutants) {
+		var ret GetMiscWeather200ResponseAirPollutants
+		return ret
+	}
+	return *o.AirPollutants
+}
+
+// GetAirPollutantsOk returns a tuple with the AirPollutants field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetAirPollutantsOk() (*GetMiscWeather200ResponseAirPollutants, bool) {
+	if o == nil || IsNil(o.AirPollutants) {
+		return nil, false
+	}
+	return o.AirPollutants, true
+}
+
+// HasAirPollutants returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasAirPollutants() bool {
+	if o != nil && !IsNil(o.AirPollutants) {
+		return true
+	}
+
+	return false
+}
+
+// SetAirPollutants gets a reference to the given GetMiscWeather200ResponseAirPollutants and assigns it to the AirPollutants field.
+func (o *GetMiscWeather200Response) SetAirPollutants(v GetMiscWeather200ResponseAirPollutants) {
+	o.AirPollutants = &v
+}
+
+// GetTempMax returns the TempMax field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetTempMax() float32 {
+	if o == nil || IsNil(o.TempMax) {
+		var ret float32
+		return ret
+	}
+	return *o.TempMax
+}
+
+// GetTempMaxOk returns a tuple with the TempMax field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetTempMaxOk() (*float32, bool) {
+	if o == nil || IsNil(o.TempMax) {
+		return nil, false
+	}
+	return o.TempMax, true
+}
+
+// HasTempMax returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasTempMax() bool {
+	if o != nil && !IsNil(o.TempMax) {
+		return true
+	}
+
+	return false
+}
+
+// SetTempMax gets a reference to the given float32 and assigns it to the TempMax field.
+func (o *GetMiscWeather200Response) SetTempMax(v float32) {
+	o.TempMax = &v
+}
+
+// GetTempMin returns the TempMin field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetTempMin() float32 {
+	if o == nil || IsNil(o.TempMin) {
+		var ret float32
+		return ret
+	}
+	return *o.TempMin
+}
+
+// GetTempMinOk returns a tuple with the TempMin field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetTempMinOk() (*float32, bool) {
+	if o == nil || IsNil(o.TempMin) {
+		return nil, false
+	}
+	return o.TempMin, true
+}
+
+// HasTempMin returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasTempMin() bool {
+	if o != nil && !IsNil(o.TempMin) {
+		return true
+	}
+
+	return false
+}
+
+// SetTempMin gets a reference to the given float32 and assigns it to the TempMin field.
+func (o *GetMiscWeather200Response) SetTempMin(v float32) {
+	o.TempMin = &v
+}
+
+// GetForecast returns the Forecast field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetForecast() []GetMiscWeather200ResponseForecastInner {
+	if o == nil || IsNil(o.Forecast) {
+		var ret []GetMiscWeather200ResponseForecastInner
+		return ret
+	}
+	return o.Forecast
+}
+
+// GetForecastOk returns a tuple with the Forecast field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetForecastOk() ([]GetMiscWeather200ResponseForecastInner, bool) {
+	if o == nil || IsNil(o.Forecast) {
+		return nil, false
+	}
+	return o.Forecast, true
+}
+
+// HasForecast returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasForecast() bool {
+	if o != nil && !IsNil(o.Forecast) {
+		return true
+	}
+
+	return false
+}
+
+// SetForecast gets a reference to the given []GetMiscWeather200ResponseForecastInner and assigns it to the Forecast field.
+func (o *GetMiscWeather200Response) SetForecast(v []GetMiscWeather200ResponseForecastInner) {
+	o.Forecast = v
+}
+
+// GetHourlyForecast returns the HourlyForecast field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetHourlyForecast() []GetMiscWeather200ResponseHourlyForecastInner {
+	if o == nil || IsNil(o.HourlyForecast) {
+		var ret []GetMiscWeather200ResponseHourlyForecastInner
+		return ret
+	}
+	return o.HourlyForecast
+}
+
+// GetHourlyForecastOk returns a tuple with the HourlyForecast field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetHourlyForecastOk() ([]GetMiscWeather200ResponseHourlyForecastInner, bool) {
+	if o == nil || IsNil(o.HourlyForecast) {
+		return nil, false
+	}
+	return o.HourlyForecast, true
+}
+
+// HasHourlyForecast returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasHourlyForecast() bool {
+	if o != nil && !IsNil(o.HourlyForecast) {
+		return true
+	}
+
+	return false
+}
+
+// SetHourlyForecast gets a reference to the given []GetMiscWeather200ResponseHourlyForecastInner and assigns it to the HourlyForecast field.
+func (o *GetMiscWeather200Response) SetHourlyForecast(v []GetMiscWeather200ResponseHourlyForecastInner) {
+	o.HourlyForecast = v
+}
+
+// GetMinutelyPrecip returns the MinutelyPrecip field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetMinutelyPrecip() GetMiscWeather200ResponseMinutelyPrecip {
+	if o == nil || IsNil(o.MinutelyPrecip) {
+		var ret GetMiscWeather200ResponseMinutelyPrecip
+		return ret
+	}
+	return *o.MinutelyPrecip
+}
+
+// GetMinutelyPrecipOk returns a tuple with the MinutelyPrecip field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetMinutelyPrecipOk() (*GetMiscWeather200ResponseMinutelyPrecip, bool) {
+	if o == nil || IsNil(o.MinutelyPrecip) {
+		return nil, false
+	}
+	return o.MinutelyPrecip, true
+}
+
+// HasMinutelyPrecip returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasMinutelyPrecip() bool {
+	if o != nil && !IsNil(o.MinutelyPrecip) {
+		return true
+	}
+
+	return false
+}
+
+// SetMinutelyPrecip gets a reference to the given GetMiscWeather200ResponseMinutelyPrecip and assigns it to the MinutelyPrecip field.
+func (o *GetMiscWeather200Response) SetMinutelyPrecip(v GetMiscWeather200ResponseMinutelyPrecip) {
+	o.MinutelyPrecip = &v
+}
+
+// GetLifeIndices returns the LifeIndices field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetLifeIndices() GetMiscWeather200ResponseLifeIndices {
+	if o == nil || IsNil(o.LifeIndices) {
+		var ret GetMiscWeather200ResponseLifeIndices
+		return ret
+	}
+	return *o.LifeIndices
+}
+
+// GetLifeIndicesOk returns a tuple with the LifeIndices field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetLifeIndicesOk() (*GetMiscWeather200ResponseLifeIndices, bool) {
+	if o == nil || IsNil(o.LifeIndices) {
+		return nil, false
+	}
+	return o.LifeIndices, true
+}
+
+// HasLifeIndices returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasLifeIndices() bool {
+	if o != nil && !IsNil(o.LifeIndices) {
+		return true
+	}
+
+	return false
+}
+
+// SetLifeIndices gets a reference to the given GetMiscWeather200ResponseLifeIndices and assigns it to the LifeIndices field.
+func (o *GetMiscWeather200Response) SetLifeIndices(v GetMiscWeather200ResponseLifeIndices) {
+	o.LifeIndices = &v
+}
+
 func (o GetMiscWeather200Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -345,32 +929,83 @@ func (o GetMiscWeather200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetMiscWeather200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Adcode) {
-		toSerialize["adcode"] = o.Adcode
+	if !IsNil(o.Province) {
+		toSerialize["province"] = o.Province
 	}
 	if !IsNil(o.City) {
 		toSerialize["city"] = o.City
 	}
-	if !IsNil(o.Humidity) {
-		toSerialize["humidity"] = o.Humidity
-	}
-	if !IsNil(o.Province) {
-		toSerialize["province"] = o.Province
-	}
-	if !IsNil(o.ReportTime) {
-		toSerialize["report_time"] = o.ReportTime
-	}
-	if !IsNil(o.Temperature) {
-		toSerialize["temperature"] = o.Temperature
+	if !IsNil(o.Adcode) {
+		toSerialize["adcode"] = o.Adcode
 	}
 	if !IsNil(o.Weather) {
 		toSerialize["weather"] = o.Weather
+	}
+	if !IsNil(o.Temperature) {
+		toSerialize["temperature"] = o.Temperature
 	}
 	if !IsNil(o.WindDirection) {
 		toSerialize["wind_direction"] = o.WindDirection
 	}
 	if !IsNil(o.WindPower) {
 		toSerialize["wind_power"] = o.WindPower
+	}
+	if !IsNil(o.Humidity) {
+		toSerialize["humidity"] = o.Humidity
+	}
+	if !IsNil(o.ReportTime) {
+		toSerialize["report_time"] = o.ReportTime
+	}
+	if !IsNil(o.FeelsLike) {
+		toSerialize["feels_like"] = o.FeelsLike
+	}
+	if !IsNil(o.Visibility) {
+		toSerialize["visibility"] = o.Visibility
+	}
+	if !IsNil(o.Pressure) {
+		toSerialize["pressure"] = o.Pressure
+	}
+	if !IsNil(o.Uv) {
+		toSerialize["uv"] = o.Uv
+	}
+	if !IsNil(o.Precipitation) {
+		toSerialize["precipitation"] = o.Precipitation
+	}
+	if !IsNil(o.Cloud) {
+		toSerialize["cloud"] = o.Cloud
+	}
+	if !IsNil(o.Aqi) {
+		toSerialize["aqi"] = o.Aqi
+	}
+	if !IsNil(o.AqiLevel) {
+		toSerialize["aqi_level"] = o.AqiLevel
+	}
+	if !IsNil(o.AqiCategory) {
+		toSerialize["aqi_category"] = o.AqiCategory
+	}
+	if !IsNil(o.AqiPrimary) {
+		toSerialize["aqi_primary"] = o.AqiPrimary
+	}
+	if !IsNil(o.AirPollutants) {
+		toSerialize["air_pollutants"] = o.AirPollutants
+	}
+	if !IsNil(o.TempMax) {
+		toSerialize["temp_max"] = o.TempMax
+	}
+	if !IsNil(o.TempMin) {
+		toSerialize["temp_min"] = o.TempMin
+	}
+	if !IsNil(o.Forecast) {
+		toSerialize["forecast"] = o.Forecast
+	}
+	if !IsNil(o.HourlyForecast) {
+		toSerialize["hourly_forecast"] = o.HourlyForecast
+	}
+	if !IsNil(o.MinutelyPrecip) {
+		toSerialize["minutely_precip"] = o.MinutelyPrecip
+	}
+	if !IsNil(o.LifeIndices) {
+		toSerialize["life_indices"] = o.LifeIndices
 	}
 	return toSerialize, nil
 }

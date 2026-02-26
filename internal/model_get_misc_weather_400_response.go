@@ -20,7 +20,6 @@ var _ MappedNullable = &GetMiscWeather400Response{}
 // GetMiscWeather400Response struct for GetMiscWeather400Response
 type GetMiscWeather400Response struct {
 	Code *string `json:"code,omitempty"`
-	Details map[string]interface{} `json:"details,omitempty"`
 	Message *string `json:"message,omitempty"`
 }
 
@@ -73,38 +72,6 @@ func (o *GetMiscWeather400Response) SetCode(v string) {
 	o.Code = &v
 }
 
-// GetDetails returns the Details field value if set, zero value otherwise.
-func (o *GetMiscWeather400Response) GetDetails() map[string]interface{} {
-	if o == nil || IsNil(o.Details) {
-		var ret map[string]interface{}
-		return ret
-	}
-	return o.Details
-}
-
-// GetDetailsOk returns a tuple with the Details field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetMiscWeather400Response) GetDetailsOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Details) {
-		return map[string]interface{}{}, false
-	}
-	return o.Details, true
-}
-
-// HasDetails returns a boolean if a field has been set.
-func (o *GetMiscWeather400Response) HasDetails() bool {
-	if o != nil && !IsNil(o.Details) {
-		return true
-	}
-
-	return false
-}
-
-// SetDetails gets a reference to the given map[string]interface{} and assigns it to the Details field.
-func (o *GetMiscWeather400Response) SetDetails(v map[string]interface{}) {
-	o.Details = v
-}
-
 // GetMessage returns the Message field value if set, zero value otherwise.
 func (o *GetMiscWeather400Response) GetMessage() string {
 	if o == nil || IsNil(o.Message) {
@@ -149,9 +116,6 @@ func (o GetMiscWeather400Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Code) {
 		toSerialize["code"] = o.Code
-	}
-	if !IsNil(o.Details) {
-		toSerialize["details"] = o.Details
 	}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message

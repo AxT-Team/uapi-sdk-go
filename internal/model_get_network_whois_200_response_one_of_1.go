@@ -19,7 +19,6 @@ var _ MappedNullable = &GetNetworkWhois200ResponseOneOf1{}
 
 // GetNetworkWhois200ResponseOneOf1 ### JSON格式响应 当 `format=json` 时，`whois` 字段返回结构化的JSON对象。  > [!NOTE] > **注意**：返回的具体字段可能因域名注册局和隐私保护设置而异。某些敏感信息可能会被部分隐藏或标记为 `REDACTED FOR PRIVACY`。
 type GetNetworkWhois200ResponseOneOf1 struct {
-	Code *int32 `json:"code,omitempty"`
 	// ### 结构化WHOIS信息  返回经过解析的JSON对象，包含以下主要部分：  - **域名信息**: 包含域名ID、注册状态、DNS服务器等 - **注册商信息**: 注册服务商的详细信息 - **注册人信息**: 域名所有者的相关信息（可能因隐私保护而部分隐藏） - **重要日期**: 包括注册日期、更新日期和到期日期
 	Whois map[string]interface{} `json:"whois,omitempty"`
 }
@@ -39,38 +38,6 @@ func NewGetNetworkWhois200ResponseOneOf1() *GetNetworkWhois200ResponseOneOf1 {
 func NewGetNetworkWhois200ResponseOneOf1WithDefaults() *GetNetworkWhois200ResponseOneOf1 {
 	this := GetNetworkWhois200ResponseOneOf1{}
 	return &this
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetNetworkWhois200ResponseOneOf1) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkWhois200ResponseOneOf1) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *GetNetworkWhois200ResponseOneOf1) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetNetworkWhois200ResponseOneOf1) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetWhois returns the Whois field value if set, zero value otherwise.
@@ -115,9 +82,6 @@ func (o GetNetworkWhois200ResponseOneOf1) MarshalJSON() ([]byte, error) {
 
 func (o GetNetworkWhois200ResponseOneOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
 	if !IsNil(o.Whois) {
 		toSerialize["whois"] = o.Whois
 	}

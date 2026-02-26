@@ -6,11 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetNetworkDns**](NetworkAPI.md#GetNetworkDns) | **Get** /network/dns | 执行DNS解析查询
 [**GetNetworkIcp**](NetworkAPI.md#GetNetworkIcp) | **Get** /network/icp | 查询域名ICP备案信息
-[**GetNetworkIpinfo**](NetworkAPI.md#GetNetworkIpinfo) | **Get** /network/ipinfo | 查询指定IP或域名的归属信息
-[**GetNetworkMyip**](NetworkAPI.md#GetNetworkMyip) | **Get** /network/myip | 获取你的公网IP及归属信息
-[**GetNetworkPing**](NetworkAPI.md#GetNetworkPing) | **Get** /network/ping | 从服务器Ping指定主机
-[**GetNetworkPingmyip**](NetworkAPI.md#GetNetworkPingmyip) | **Get** /network/pingmyip | 从服务器Ping你的客户端IP
-[**GetNetworkPortscan**](NetworkAPI.md#GetNetworkPortscan) | **Get** /network/portscan | 扫描远程主机的指定端口
+[**GetNetworkIpinfo**](NetworkAPI.md#GetNetworkIpinfo) | **Get** /network/ipinfo | 查询 IP
+[**GetNetworkMyip**](NetworkAPI.md#GetNetworkMyip) | **Get** /network/myip | 查询我的 IP
+[**GetNetworkPing**](NetworkAPI.md#GetNetworkPing) | **Get** /network/ping | Ping 主机
+[**GetNetworkPingmyip**](NetworkAPI.md#GetNetworkPingmyip) | **Get** /network/pingmyip | Ping 我的 IP
+[**GetNetworkPortscan**](NetworkAPI.md#GetNetworkPortscan) | **Get** /network/portscan | 端口扫描
 [**GetNetworkUrlstatus**](NetworkAPI.md#GetNetworkUrlstatus) | **Get** /network/urlstatus | 检查URL的可访问性状态
 [**GetNetworkWhois**](NetworkAPI.md#GetNetworkWhois) | **Get** /network/whois | 查询域名的WHOIS注册信息
 [**GetNetworkWxdomain**](NetworkAPI.md#GetNetworkWxdomain) | **Get** /network/wxdomain | 检查域名在微信中的访问状态
@@ -155,7 +155,7 @@ No authorization required
 
 > GetNetworkIpinfo200Response GetNetworkIpinfo(ctx).Ip(ip).Source(source).Execute()
 
-查询指定IP或域名的归属信息
+查询 IP
 
 
 
@@ -221,9 +221,9 @@ No authorization required
 
 ## GetNetworkMyip
 
-> GetNetworkIpinfo200Response GetNetworkMyip(ctx).Source(source).Execute()
+> GetNetworkMyip200Response GetNetworkMyip(ctx).Source(source).Execute()
 
-获取你的公网IP及归属信息
+查询我的 IP
 
 
 
@@ -249,7 +249,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `NetworkAPI.GetNetworkMyip``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetNetworkMyip`: GetNetworkIpinfo200Response
+	// response from `GetNetworkMyip`: GetNetworkMyip200Response
 	fmt.Fprintf(os.Stdout, "Response from `NetworkAPI.GetNetworkMyip`: %v\n", resp)
 }
 ```
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetNetworkIpinfo200Response**](GetNetworkIpinfo200Response.md)
+[**GetNetworkMyip200Response**](GetNetworkMyip200Response.md)
 
 ### Authorization
 
@@ -289,7 +289,7 @@ No authorization required
 
 > GetNetworkPing200Response GetNetworkPing(ctx).Host(host).Execute()
 
-从服务器Ping指定主机
+Ping 主机
 
 
 
@@ -355,7 +355,7 @@ No authorization required
 
 > GetNetworkPingmyip200Response GetNetworkPingmyip(ctx).Execute()
 
-从服务器Ping你的客户端IP
+Ping 我的 IP
 
 
 
@@ -416,7 +416,7 @@ No authorization required
 
 > GetNetworkPortscan200Response GetNetworkPortscan(ctx).Host(host).Port(port).Protocol(protocol).Execute()
 
-扫描远程主机的指定端口
+端口扫描
 
 
 

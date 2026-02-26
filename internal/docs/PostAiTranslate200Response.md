@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code** | Pointer to **int32** |  | [optional] 
 **Message** | Pointer to **string** |  | [optional] 
 **IsBatch** | Pointer to **bool** | 标识是否为批量翻译请求。 | [optional] 
 **Data** | Pointer to [**PostAiTranslate200ResponseData**](PostAiTranslate200ResponseData.md) |  | [optional] 
@@ -31,31 +30,6 @@ will change when the set of required properties is changed
 NewPostAiTranslate200ResponseWithDefaults instantiates a new PostAiTranslate200Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetCode
-
-`func (o *PostAiTranslate200Response) GetCode() int32`
-
-GetCode returns the Code field if non-nil, zero value otherwise.
-
-### GetCodeOk
-
-`func (o *PostAiTranslate200Response) GetCodeOk() (*int32, bool)`
-
-GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCode
-
-`func (o *PostAiTranslate200Response) SetCode(v int32)`
-
-SetCode sets Code field to given value.
-
-### HasCode
-
-`func (o *PostAiTranslate200Response) HasCode() bool`
-
-HasCode returns a boolean if a field has been set.
 
 ### GetMessage
 

@@ -19,7 +19,6 @@ var _ MappedNullable = &GetNetworkPortscan200Response{}
 
 // GetNetworkPortscan200Response struct for GetNetworkPortscan200Response
 type GetNetworkPortscan200Response struct {
-	Code *int32 `json:"code,omitempty"`
 	Ip *string `json:"ip,omitempty"`
 	Port *int32 `json:"port,omitempty"`
 	// \"open\", \"closed\", 或 \"timeout\"
@@ -42,38 +41,6 @@ func NewGetNetworkPortscan200Response() *GetNetworkPortscan200Response {
 func NewGetNetworkPortscan200ResponseWithDefaults() *GetNetworkPortscan200Response {
 	this := GetNetworkPortscan200Response{}
 	return &this
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetNetworkPortscan200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkPortscan200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *GetNetworkPortscan200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetNetworkPortscan200Response) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetIp returns the Ip field value if set, zero value otherwise.
@@ -214,9 +181,6 @@ func (o GetNetworkPortscan200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetNetworkPortscan200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
 	if !IsNil(o.Ip) {
 		toSerialize["ip"] = o.Ip
 	}

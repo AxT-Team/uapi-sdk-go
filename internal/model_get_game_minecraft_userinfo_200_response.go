@@ -19,8 +19,6 @@ var _ MappedNullable = &GetGameMinecraftUserinfo200Response{}
 
 // GetGameMinecraftUserinfo200Response struct for GetGameMinecraftUserinfo200Response
 type GetGameMinecraftUserinfo200Response struct {
-	// 状态码，200代表成功。
-	Code *int32 `json:"code,omitempty"`
 	// 玩家当前使用的皮肤图片URL。
 	SkinUrl *string `json:"skin_url,omitempty"`
 	// 玩家当前的准确用户名（注意大小写可能与输入不同）。
@@ -44,38 +42,6 @@ func NewGetGameMinecraftUserinfo200Response() *GetGameMinecraftUserinfo200Respon
 func NewGetGameMinecraftUserinfo200ResponseWithDefaults() *GetGameMinecraftUserinfo200Response {
 	this := GetGameMinecraftUserinfo200Response{}
 	return &this
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetGameMinecraftUserinfo200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetGameMinecraftUserinfo200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *GetGameMinecraftUserinfo200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetGameMinecraftUserinfo200Response) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetSkinUrl returns the SkinUrl field value if set, zero value otherwise.
@@ -184,9 +150,6 @@ func (o GetGameMinecraftUserinfo200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetGameMinecraftUserinfo200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
 	if !IsNil(o.SkinUrl) {
 		toSerialize["skin_url"] = o.SkinUrl
 	}

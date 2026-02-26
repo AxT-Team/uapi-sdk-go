@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Endpoints** | Pointer to [**[]EndpointsAggregateEndpointsInner**](EndpointsAggregateEndpointsInner.md) |  | [optional] 
-**Unaggregated** | Pointer to [**EndpointsAggregateUnaggregated**](EndpointsAggregateUnaggregated.md) |  | [optional] 
+**Endpoints** | Pointer to [**[]GetStatusUsage200ResponseAnyOfEndpointsInner**](GetStatusUsage200ResponseAnyOfEndpointsInner.md) |  | [optional] 
+**Unaggregated** | Pointer to [**GetStatusUsage200ResponseAnyOfUnaggregated**](GetStatusUsage200ResponseAnyOfUnaggregated.md) |  | [optional] 
 **Path** | Pointer to **string** |  | [optional] 
 **Count** | Pointer to **int32** |  | [optional] 
 
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetEndpoints
 
-`func (o *GetStatusUsage200Response) GetEndpoints() []EndpointsAggregateEndpointsInner`
+`func (o *GetStatusUsage200Response) GetEndpoints() []GetStatusUsage200ResponseAnyOfEndpointsInner`
 
 GetEndpoints returns the Endpoints field if non-nil, zero value otherwise.
 
 ### GetEndpointsOk
 
-`func (o *GetStatusUsage200Response) GetEndpointsOk() (*[]EndpointsAggregateEndpointsInner, bool)`
+`func (o *GetStatusUsage200Response) GetEndpointsOk() (*[]GetStatusUsage200ResponseAnyOfEndpointsInner, bool)`
 
 GetEndpointsOk returns a tuple with the Endpoints field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEndpoints
 
-`func (o *GetStatusUsage200Response) SetEndpoints(v []EndpointsAggregateEndpointsInner)`
+`func (o *GetStatusUsage200Response) SetEndpoints(v []GetStatusUsage200ResponseAnyOfEndpointsInner)`
 
 SetEndpoints sets Endpoints field to given value.
 
@@ -55,20 +55,20 @@ HasEndpoints returns a boolean if a field has been set.
 
 ### GetUnaggregated
 
-`func (o *GetStatusUsage200Response) GetUnaggregated() EndpointsAggregateUnaggregated`
+`func (o *GetStatusUsage200Response) GetUnaggregated() GetStatusUsage200ResponseAnyOfUnaggregated`
 
 GetUnaggregated returns the Unaggregated field if non-nil, zero value otherwise.
 
 ### GetUnaggregatedOk
 
-`func (o *GetStatusUsage200Response) GetUnaggregatedOk() (*EndpointsAggregateUnaggregated, bool)`
+`func (o *GetStatusUsage200Response) GetUnaggregatedOk() (*GetStatusUsage200ResponseAnyOfUnaggregated, bool)`
 
 GetUnaggregatedOk returns a tuple with the Unaggregated field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUnaggregated
 
-`func (o *GetStatusUsage200Response) SetUnaggregated(v EndpointsAggregateUnaggregated)`
+`func (o *GetStatusUsage200Response) SetUnaggregated(v GetStatusUsage200ResponseAnyOfUnaggregated)`
 
 SetUnaggregated sets Unaggregated field to given value.
 

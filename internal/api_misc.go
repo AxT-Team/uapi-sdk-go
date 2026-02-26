@@ -46,7 +46,7 @@ func (r ApiGetHistoryProgrammerRequest) Execute() (*GetHistoryProgrammer200Respo
 }
 
 /*
-GetHistoryProgrammer 获取指定日期的程序员历史事件
+GetHistoryProgrammer 程序员历史事件
 
 想查看程序员历史上某个特定日期发生的大事件？指定月份和日期，我们就能告诉你！
 
@@ -189,7 +189,7 @@ func (r ApiGetHistoryProgrammerTodayRequest) Execute() (*GetHistoryProgrammerTod
 }
 
 /*
-GetHistoryProgrammerToday 获取今天的程序员历史事件
+GetHistoryProgrammerToday 程序员历史上的今天
 
 想知道程序员历史上的今天发生了什么大事吗？这个接口告诉你答案！
 
@@ -291,10 +291,415 @@ func (a *MiscAPIService) GetHistoryProgrammerTodayExecute(r ApiGetHistoryProgram
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetMiscDistrictRequest struct {
+	ctx context.Context
+	ApiService *MiscAPIService
+	keywords *string
+	adcode *string
+	lat *float32
+	lng *float32
+	level *string
+	country *string
+	limit *int32
+}
+
+// 关键词搜索（城市名、区县名，支持中英文）。
+func (r ApiGetMiscDistrictRequest) Keywords(keywords string) ApiGetMiscDistrictRequest {
+	r.keywords = &keywords
+	return r
+}
+
+// 中国行政区划代码精确查询（如 &#x60;110000&#x60;），同时返回下级行政区。
+func (r ApiGetMiscDistrictRequest) Adcode(adcode string) ApiGetMiscDistrictRequest {
+	r.adcode = &adcode
+	return r
+}
+
+// 纬度，与 &#x60;lng&#x60; 配合使用，坐标反查附近地点。
+func (r ApiGetMiscDistrictRequest) Lat(lat float32) ApiGetMiscDistrictRequest {
+	r.lat = &lat
+	return r
+}
+
+// 经度，与 &#x60;lat&#x60; 配合使用。
+func (r ApiGetMiscDistrictRequest) Lng(lng float32) ApiGetMiscDistrictRequest {
+	r.lng = &lng
+	return r
+}
+
+// 过滤行政级别。
+func (r ApiGetMiscDistrictRequest) Level(level string) ApiGetMiscDistrictRequest {
+	r.level = &level
+	return r
+}
+
+// 过滤国家代码（ISO 3166-1 alpha-2），如 &#x60;CN&#x60;、&#x60;JP&#x60;、&#x60;US&#x60;、&#x60;GB&#x60;。
+func (r ApiGetMiscDistrictRequest) Country(country string) ApiGetMiscDistrictRequest {
+	r.country = &country
+	return r
+}
+
+// 返回数量上限，默认 &#x60;20&#x60;，最大 &#x60;100&#x60;。
+func (r ApiGetMiscDistrictRequest) Limit(limit int32) ApiGetMiscDistrictRequest {
+	r.limit = &limit
+	return r
+}
+
+func (r ApiGetMiscDistrictRequest) Execute() (*GetMiscDistrict200Response, *http.Response, error) {
+	return r.ApiService.GetMiscDistrictExecute(r)
+}
+
+/*
+GetMiscDistrict Adcode 国内外行政区域查询
+
+一个接口，覆盖全球 243 个国家、中国省/市/区/街道四级行政区划，支持关键词搜索、行政编码查询、坐标反查三种查询模式（必须至少传入一种查询参数）。
+
+## 功能概述
+根据用户输入的搜索条件快速查找行政区域信息。例如：中国 > 山东省 > 济南市 > 历下区 > 舜华路街道。
+
+无需注册、无需密钥，直接调用即可获取结构化的行政区域数据。支持三种查询方式：
+- 传 `adcode`，按行政编码精确查询，同时返回下级区划列表
+- 传 `lat` + `lng`，坐标反查附近地点
+- 传 `keywords`，按关键词搜索，支持中英文
+
+## 中国与国际数据差异
+中国数据包含 `adcode`、`citycode` 等字段，支持省/市/区/街道四级逐级查询；国际城市数据不含这些字段，但额外提供 `population`（人口）和 `timezone`（时区）。
+
+> [!NOTE]
+> 部分城市（如东莞、文昌）没有区县层级，市级下方直接显示街道。街道级别的 `adcode` 返回的是所属区县的 `adcode`。
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetMiscDistrictRequest
+*/
+func (a *MiscAPIService) GetMiscDistrict(ctx context.Context) ApiGetMiscDistrictRequest {
+	return ApiGetMiscDistrictRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return GetMiscDistrict200Response
+func (a *MiscAPIService) GetMiscDistrictExecute(r ApiGetMiscDistrictRequest) (*GetMiscDistrict200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetMiscDistrict200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MiscAPIService.GetMiscDistrict")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/misc/district"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.keywords != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "keywords", r.keywords, "form", "")
+	}
+	if r.adcode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "adcode", r.adcode, "form", "")
+	}
+	if r.lat != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "lat", r.lat, "form", "")
+	}
+	if r.lng != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "lng", r.lng, "form", "")
+	}
+	if r.level != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "level", r.level, "form", "")
+	}
+	if r.country != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "country", r.country, "form", "")
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+        var defaultValue int32 = 20
+        parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
+        r.limit = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v GetMiscDistrict400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetMiscHolidayCalendarRequest struct {
+	ctx context.Context
+	ApiService *MiscAPIService
+	date *string
+	month *string
+	year *string
+	timezone *string
+	holidayType *string
+	includeNearby *bool
+	nearbyLimit *int32
+}
+
+// 按天查询时填写这个参数，例如查某一天。格式：&#x60;YYYY-MM-DD&#x60;。和 &#x60;month&#x60;、&#x60;year&#x60; 三选一。
+func (r ApiGetMiscHolidayCalendarRequest) Date(date string) ApiGetMiscHolidayCalendarRequest {
+	r.date = &date
+	return r
+}
+
+// 按月查询时填写这个参数，例如查某个月。格式：&#x60;YYYY-MM&#x60;。和 &#x60;date&#x60;、&#x60;year&#x60; 三选一。
+func (r ApiGetMiscHolidayCalendarRequest) Month(month string) ApiGetMiscHolidayCalendarRequest {
+	r.month = &month
+	return r
+}
+
+// 按年查询时填写这个参数，例如查某一年。格式：&#x60;YYYY&#x60;。和 &#x60;date&#x60;、&#x60;month&#x60; 三选一。
+func (r ApiGetMiscHolidayCalendarRequest) Year(year string) ApiGetMiscHolidayCalendarRequest {
+	r.year = &year
+	return r
+}
+
+// 时区名称，默认 Asia/Shanghai。
+func (r ApiGetMiscHolidayCalendarRequest) Timezone(timezone string) ApiGetMiscHolidayCalendarRequest {
+	r.timezone = &timezone
+	return r
+}
+
+// 节日筛选类型，默认 all。
+func (r ApiGetMiscHolidayCalendarRequest) HolidayType(holidayType string) ApiGetMiscHolidayCalendarRequest {
+	r.holidayType = &holidayType
+	return r
+}
+
+// 是否返回前后最近节日，仅 date 模式生效，默认 false。month/year 模式会忽略此参数。
+func (r ApiGetMiscHolidayCalendarRequest) IncludeNearby(includeNearby bool) ApiGetMiscHolidayCalendarRequest {
+	r.includeNearby = &includeNearby
+	return r
+}
+
+// 返回最近节日数量限制，默认 7，最大 30。仅 date 模式 + include_nearby&#x3D;true 生效。
+func (r ApiGetMiscHolidayCalendarRequest) NearbyLimit(nearbyLimit int32) ApiGetMiscHolidayCalendarRequest {
+	r.nearbyLimit = &nearbyLimit
+	return r
+}
+
+func (r ApiGetMiscHolidayCalendarRequest) Execute() (*GetMiscHolidayCalendar200Response, *http.Response, error) {
+	return r.ApiService.GetMiscHolidayCalendarExecute(r)
+}
+
+/*
+GetMiscHolidayCalendar 查询节假日与万年历
+
+查询指定日期、月份或年份的万年历与节假日信息。
+
+## 功能概述
+这个接口支持三种查询方式：按天（`date`）、按月（`month`）和按年（`year`）。调用时三者选一个传入即可。
+
+如果你只关心某一类事件，可以通过 `holiday_type` 进行筛选，例如只看法定休假/调休、公历节日、农历节日或节气。
+
+在 `date` 模式下，传 `include_nearby=true` 可以额外返回该日期前后最近的节日；返回数量由 `nearby_limit` 控制，默认 7，最大 30。
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetMiscHolidayCalendarRequest
+*/
+func (a *MiscAPIService) GetMiscHolidayCalendar(ctx context.Context) ApiGetMiscHolidayCalendarRequest {
+	return ApiGetMiscHolidayCalendarRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return GetMiscHolidayCalendar200Response
+func (a *MiscAPIService) GetMiscHolidayCalendarExecute(r ApiGetMiscHolidayCalendarRequest) (*GetMiscHolidayCalendar200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetMiscHolidayCalendar200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MiscAPIService.GetMiscHolidayCalendar")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/misc/holiday-calendar"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.date != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
+	}
+	if r.month != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "month", r.month, "form", "")
+	}
+	if r.year != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "year", r.year, "form", "")
+	}
+	if r.timezone != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "timezone", r.timezone, "form", "")
+	} else {
+        var defaultValue string = "Asia/Shanghai"
+        parameterAddToHeaderOrQuery(localVarQueryParams, "timezone", defaultValue, "form", "")
+        r.timezone = &defaultValue
+	}
+	if r.holidayType != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "holiday_type", r.holidayType, "form", "")
+	} else {
+        var defaultValue string = "all"
+        parameterAddToHeaderOrQuery(localVarQueryParams, "holiday_type", defaultValue, "form", "")
+        r.holidayType = &defaultValue
+	}
+	if r.includeNearby != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_nearby", r.includeNearby, "form", "")
+	} else {
+        var defaultValue bool = false
+        parameterAddToHeaderOrQuery(localVarQueryParams, "include_nearby", defaultValue, "form", "")
+        r.includeNearby = &defaultValue
+	}
+	if r.nearbyLimit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "nearby_limit", r.nearbyLimit, "form", "")
+	} else {
+        var defaultValue int32 = 7
+        parameterAddToHeaderOrQuery(localVarQueryParams, "nearby_limit", defaultValue, "form", "")
+        r.nearbyLimit = &defaultValue
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v GetMiscHolidayCalendar400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetMiscHotboardRequest struct {
 	ctx context.Context
 	ApiService *MiscAPIService
 	type_ *string
+	time *int64
+	keyword *string
+	timeStart *int64
+	timeEnd *int64
+	limit *int32
+	sources *bool
 }
 
 // 你想要查询的热榜平台。支持多种主流平台类型，详见下方[可选值](#可选值)表格。
@@ -303,27 +708,78 @@ func (r ApiGetMiscHotboardRequest) Type_(type_ string) ApiGetMiscHotboardRequest
 	return r
 }
 
+// 时光机模式：毫秒时间戳，返回最接近该时间的热榜快照。不传则返回当前实时热榜。
+func (r ApiGetMiscHotboardRequest) Time(time int64) ApiGetMiscHotboardRequest {
+	r.time = &time
+	return r
+}
+
+// 搜索模式：搜索关键词，在历史热榜中搜索包含该关键词的条目。需配合 time_start 和 time_end 使用。
+func (r ApiGetMiscHotboardRequest) Keyword(keyword string) ApiGetMiscHotboardRequest {
+	r.keyword = &keyword
+	return r
+}
+
+// 搜索模式必填：搜索起始时间戳（毫秒）。
+func (r ApiGetMiscHotboardRequest) TimeStart(timeStart int64) ApiGetMiscHotboardRequest {
+	r.timeStart = &timeStart
+	return r
+}
+
+// 搜索模式必填：搜索结束时间戳（毫秒）。
+func (r ApiGetMiscHotboardRequest) TimeEnd(timeEnd int64) ApiGetMiscHotboardRequest {
+	r.timeEnd = &timeEnd
+	return r
+}
+
+// 搜索模式下最大返回条数，默认 50，最大 200。
+func (r ApiGetMiscHotboardRequest) Limit(limit int32) ApiGetMiscHotboardRequest {
+	r.limit = &limit
+	return r
+}
+
+// 设为 true 时列出所有可用的历史数据源，忽略其他参数。
+func (r ApiGetMiscHotboardRequest) Sources(sources bool) ApiGetMiscHotboardRequest {
+	r.sources = &sources
+	return r
+}
+
 func (r ApiGetMiscHotboardRequest) Execute() (*GetMiscHotboard200Response, *http.Response, error) {
 	return r.ApiService.GetMiscHotboardExecute(r)
 }
 
 /*
-GetMiscHotboard 获取多平台实时热榜
+GetMiscHotboard 查询热榜
 
 想快速跟上网络热点？这个接口让你一网打尽各大主流平台的实时热榜/热搜！
 
 ## 功能概述
 你只需要指定一个平台类型，就能获取到该平台当前的热榜数据列表。每个热榜条目都包含标题、热度值和原始链接。非常适合用于制作信息聚合类应用或看板。
 
+## 三种使用模式
+
+### 默认模式
+只传 `type` 参数，返回该平台当前的实时热榜。
+
+### 时光机模式
+传 `type` + `time` 参数，返回最接近指定时间的热榜快照。如果不可用或无数据，会返回空。
+
+### 搜索模式
+传 `type` + `keyword` + `time_start` + `time_end` 参数，在指定时间范围内搜索包含关键词的热榜条目。可选传 `limit` 限制返回数量。
+
+### 数据源列表
+传 `sources=true`，返回所有支持历史数据的平台列表。
+
 ## 可选值
 `type` 参数接受多种不同的值，每种值对应一个不同的热榜来源。以下是目前支持的所有值：
 
 | 分类       | 支持的 type 值 |
 |------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| 视频/社区  | bilibili（哔哩哔哩弹幕网）, acfun（A站弹幕视频网站）, weibo（新浪微博热搜）, zhihu（知乎热榜）, zhihu-daily（知乎日报热榜）, douyin（抖音热榜）, kuaishou（快手热榜）, douban-movie（豆瓣电影榜单）, douban-group（豆瓣小组话题）, tieba（百度贴吧热帖）, hupu（虎扑热帖）, miyoushe（米游社话题榜）, ngabbs（NGA游戏论坛热帖）, v2ex（V2EX技术社区热帖）, 52pojie（吾爱破解热帖）, hostloc（全球主机交流论坛）, coolapk（酷安热榜） |
+| 视频/社区  | bilibili（哔哩哔哩弹幕网）, acfun（A站弹幕视频网站）, weibo（新浪微博热搜）, zhihu（知乎热榜）, zhihu-daily（知乎日报热榜）, douyin（抖音热榜）, kuaishou（快手热榜）, douban-movie（豆瓣电影榜单）, douban-group（豆瓣小组话题）, tieba（百度贴吧热帖）, hupu（虎扑热帖）, ngabbs（NGA游戏论坛热帖）, v2ex（V2EX技术社区热帖）, 52pojie（吾爱破解热帖）, hostloc（全球主机交流论坛）, coolapk（酷安热榜） |
 | 新闻/资讯  | baidu（百度热搜）, thepaper（澎湃新闻热榜）, toutiao（今日头条热榜）, qq-news（腾讯新闻热榜）, sina（新浪热搜）, sina-news（新浪新闻热榜）, netease-news（网易新闻热榜）, huxiu（虎嗅网热榜）, ifanr（爱范儿热榜） |
 | 技术/IT    | sspai（少数派热榜）, ithome（IT之家热榜）, ithome-xijiayi（IT之家·喜加一栏目）, juejin（掘金社区热榜）, jianshu（简书热榜）, guokr（果壳热榜）, 36kr（36氪热榜）, 51cto（51CTO热榜）, csdn（CSDN博客热榜）, nodeseek（NodeSeek 技术社区）, hellogithub（HelloGitHub 项目推荐） |
 | 游戏       | lol（英雄联盟热帖）, genshin（原神热榜）, honkai（崩坏3热榜）, starrail（星穹铁道热榜） |
+| 音乐       | netease-music（网易云音乐热歌榜）, qq-music（QQ音乐热歌榜） |
 | 其他       | weread（微信读书热门书籍）, weatheralarm（天气预警信息）, earthquake（地震速报）, history（历史上的今天） |
 
 
@@ -362,6 +818,28 @@ func (a *MiscAPIService) GetMiscHotboardExecute(r ApiGetMiscHotboardRequest) (*G
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "form", "")
+	if r.time != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "time", r.time, "form", "")
+	}
+	if r.keyword != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "keyword", r.keyword, "form", "")
+	}
+	if r.timeStart != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "time_start", r.timeStart, "form", "")
+	}
+	if r.timeEnd != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "time_end", r.timeEnd, "form", "")
+	}
+	if r.limit != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "limit", r.limit, "form", "")
+	} else {
+        var defaultValue int32 = 50
+        parameterAddToHeaderOrQuery(localVarQueryParams, "limit", defaultValue, "form", "")
+        r.limit = &defaultValue
+	}
+	if r.sources != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sources", r.sources, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -448,6 +926,143 @@ func (a *MiscAPIService) GetMiscHotboardExecute(r ApiGetMiscHotboardRequest) (*G
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetMiscLunartimeRequest struct {
+	ctx context.Context
+	ApiService *MiscAPIService
+	ts *string
+	timezone *string
+}
+
+// Unix 时间戳，支持 10 位秒级或 13 位毫秒级。不传则默认当前时间。
+func (r ApiGetMiscLunartimeRequest) Ts(ts string) ApiGetMiscLunartimeRequest {
+	r.ts = &ts
+	return r
+}
+
+// 时区名称。支持 IANA 时区（如 Asia/Shanghai）和别名（Shanghai、Beijing）。默认 Asia/Shanghai。
+func (r ApiGetMiscLunartimeRequest) Timezone(timezone string) ApiGetMiscLunartimeRequest {
+	r.timezone = &timezone
+	return r
+}
+
+func (r ApiGetMiscLunartimeRequest) Execute() (*GetMiscLunartime200Response, *http.Response, error) {
+	return r.ApiService.GetMiscLunartimeExecute(r)
+}
+
+/*
+GetMiscLunartime 查询农历时间
+
+需要在指定时区下查看某个时间点的农历信息？这个接口可以直接返回完整结果。
+
+## 功能概述
+支持传入 Unix 时间戳（秒或毫秒）和 IANA 时区名，返回公历时间、星期、农历年月日、干支、生肖、节气与节日信息。不传 `ts` 时默认使用当前时间，不传 `timezone` 时默认 `Asia/Shanghai`。
+
+## 时区说明
+- 支持标准 IANA 时区，例如 `Asia/Shanghai`、`Asia/Tokyo`
+- 也支持别名：`Shanghai`、`Beijing`
+- 时区非法时返回 400 并提示 `invalid timezone: xxx`
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiGetMiscLunartimeRequest
+*/
+func (a *MiscAPIService) GetMiscLunartime(ctx context.Context) ApiGetMiscLunartimeRequest {
+	return ApiGetMiscLunartimeRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return GetMiscLunartime200Response
+func (a *MiscAPIService) GetMiscLunartimeExecute(r ApiGetMiscLunartimeRequest) (*GetMiscLunartime200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetMiscLunartime200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MiscAPIService.GetMiscLunartime")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/misc/lunartime"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.ts != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ts", r.ts, "form", "")
+	}
+	if r.timezone != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "timezone", r.timezone, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v GetMiscLunartime400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetMiscPhoneinfoRequest struct {
 	ctx context.Context
 	ApiService *MiscAPIService
@@ -465,7 +1080,7 @@ func (r ApiGetMiscPhoneinfoRequest) Execute() (*GetMiscPhoneinfo200Response, *ht
 }
 
 /*
-GetMiscPhoneinfo 查询手机号码归属地信息
+GetMiscPhoneinfo 查询手机归属地
 
 想知道一个手机号码来自哪里？是移动、联通还是电信？这个接口可以告诉你答案。
 
@@ -634,7 +1249,7 @@ func (r ApiGetMiscRandomnumberRequest) Execute() (*GetMiscRandomnumber200Respons
 }
 
 /*
-GetMiscRandomnumber 生成高度可定制的随机数
+GetMiscRandomnumber 随机数生成
 
 需要一个简单的随机数，还是需要一串不重复的、带小数的随机数？这个接口都能满足你！
 
@@ -825,7 +1440,7 @@ GetMiscTimestamp 转换时间戳 (旧版，推荐使用/convert/unixtime)
 > [!WARNING]
 > **接口已过时**：这个接口已被新的 `/convert/unixtime` 取代。新接口功能更强大，支持双向转换。我们建议你迁移到新接口。
 
-[👉 前往新版接口文档](/docs/api-reference/get-convert-unixtime)
+[➡️ 前往新版接口文档](/docs/api-reference/get-convert-unixtime)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetMiscTimestampRequest
@@ -1172,6 +1787,7 @@ type ApiGetMiscTrackingQueryRequest struct {
 	ApiService *MiscAPIService
 	trackingNumber *string
 	carrierCode *string
+	phone *string
 }
 
 // 快递单号，通常是一串10-20位的数字或字母数字组合。
@@ -1183,6 +1799,12 @@ func (r ApiGetMiscTrackingQueryRequest) TrackingNumber(trackingNumber string) Ap
 // 快递公司编码（可选）。不填写时系统会自动识别，填写后可加快查询速度。
 func (r ApiGetMiscTrackingQueryRequest) CarrierCode(carrierCode string) ApiGetMiscTrackingQueryRequest {
 	r.carrierCode = &carrierCode
+	return r
+}
+
+// 收件人手机尾号，4位数字（可选）。部分快递公司需要验证手机尾号才能查询详细物流信息。
+func (r ApiGetMiscTrackingQueryRequest) Phone(phone string) ApiGetMiscTrackingQueryRequest {
+	r.phone = &phone
 	return r
 }
 
@@ -1204,6 +1826,7 @@ GetMiscTrackingQuery 查询快递物流信息
 ## 使用须知
 - **自动识别**：不知道是哪家快递？系统会根据单号规则自动识别快递公司（推荐使用）
 - **手动指定**：如果已知快递公司，可以传递 `carrier_code` 参数，查询速度会更快
+- **手机尾号验证**：部分快递公司需要验证收件人手机尾号才能查询详细物流，如果返回「暂无物流信息」，建议尝试传入 `phone` 参数
 - **查询时效**：物流信息实时查询，响应时间通常在1-2秒内
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1243,6 +1866,9 @@ func (a *MiscAPIService) GetMiscTrackingQueryExecute(r ApiGetMiscTrackingQueryRe
 	parameterAddToHeaderOrQuery(localVarQueryParams, "tracking_number", r.trackingNumber, "form", "")
 	if r.carrierCode != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "carrier_code", r.carrierCode, "form", "")
+	}
+	if r.phone != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "phone", r.phone, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1324,17 +1950,59 @@ type ApiGetMiscWeatherRequest struct {
 	ApiService *MiscAPIService
 	city *string
 	adcode *string
+	extended *bool
+	forecast *bool
+	hourly *bool
+	minutely *bool
+	indices *bool
+	lang *string
 }
 
-// 标准的城市名称，如 &#39;北京&#39;, &#39;上海市&#39;, &#39;福田区&#39;。请使用官方的省、市、区县行政区划名称。
+// 城市名称，支持中文（&#x60;北京&#x60;）和英文（&#x60;Tokyo&#x60;）。可选参数，不传时会尝试 IP 自动定位。
 func (r ApiGetMiscWeatherRequest) City(city string) ApiGetMiscWeatherRequest {
 	r.city = &city
 	return r
 }
 
-// 高德地图的6位数字城市编码。例如，北京市的Adcode是 &#39;110000&#39;。使用Adcode查询更准确、更快速。
+// 城市行政区划代码（如 &#x60;110000&#x60;），优先级高于 city。可选参数，不传时会尝试 IP 自动定位。
 func (r ApiGetMiscWeatherRequest) Adcode(adcode string) ApiGetMiscWeatherRequest {
 	r.adcode = &adcode
+	return r
+}
+
+// 返回扩展气象字段（体感温度、能见度、气压、紫外线、降水量、云量、空气质量指数及污染物分项数据）。
+func (r ApiGetMiscWeatherRequest) Extended(extended bool) ApiGetMiscWeatherRequest {
+	r.extended = &extended
+	return r
+}
+
+// 返回多天预报数据（最多7天），含白天夜间天气、风向风力、日出日落等。
+func (r ApiGetMiscWeatherRequest) Forecast(forecast bool) ApiGetMiscWeatherRequest {
+	r.forecast = &forecast
+	return r
+}
+
+// 返回逐小时预报（24小时），含温度、天气、风向风速、湿度、降水概率等。
+func (r ApiGetMiscWeatherRequest) Hourly(hourly bool) ApiGetMiscWeatherRequest {
+	r.hourly = &hourly
+	return r
+}
+
+// 返回分钟级降水预报（仅国内城市），每5分钟一个数据点，共24个。
+func (r ApiGetMiscWeatherRequest) Minutely(minutely bool) ApiGetMiscWeatherRequest {
+	r.minutely = &minutely
+	return r
+}
+
+// 返回18项生活指数（穿衣、紫外线、洗车、晾晒、空调、感冒、运动、舒适度、出行、钓鱼、过敏、防晒、心情、啤酒、雨伞、交通、空气净化器、花粉）。
+func (r ApiGetMiscWeatherRequest) Indices(indices bool) ApiGetMiscWeatherRequest {
+	r.indices = &indices
+	return r
+}
+
+// 返回语言。&#x60;zh&#x60; 返回中文（默认），&#x60;en&#x60; 返回英文。城市名翻译覆盖 7000+ 城市。生活指数（&#x60;indices&#x60;）目前仅支持中文。
+func (r ApiGetMiscWeatherRequest) Lang(lang string) ApiGetMiscWeatherRequest {
+	r.lang = &lang
 	return r
 }
 
@@ -1343,19 +2011,31 @@ func (r ApiGetMiscWeatherRequest) Execute() (*GetMiscWeather200Response, *http.R
 }
 
 /*
-GetMiscWeather 查询实时天气信息
+GetMiscWeather 查询天气
 
-出门前，查一下天气总是个好习惯。这个接口为你提供精准、实时的天气数据。
+出门前，查一下天气总是个好习惯。这个接口为你提供精准、实时的天气数据，支持国内和国际城市。
 
 ## 功能概述
-你可以通过城市名称或高德地图的Adcode来查询指定地区的实时天气状况，包括天气现象、温度、湿度、风向和风力等。
+这个接口支持三种查询方式：
+- 可以传 `adcode`，按行政区编码查询（优先级最高）
+- 可以传 `city`，按城市名称查询，支持中文（`北京`）和英文（`Tokyo`）
+- 两个都不传时，按客户端 IP 自动定位查询
 
-## 使用须知
-- **参数优先级**：当你同时提供了 `city` (城市名) 和 `adcode` (城市编码) 两个参数时，系统会 **优先使用 `adcode`** 进行查询，因为它更精确。
-- **查询范围**：为了保证查询的准确性，我们的服务仅支持标准的“省”、“市”、“区/县”级别的行政区划名称查询，不保证能查询到乡镇或具体地点。
+支持 `lang` 参数，可选 `zh`（默认）和 `en`，城市名翻译覆盖 7000+ 城市。
 
-## 错误处理指南
-- **410 Gone**: 这个特殊的错误码意味着你查询的地区无效或不受我们支持。比如你输入了“火星”，或者某个我们无法识别的村庄名称。这个状态码告诉你，这个“资源”是永久性地不可用了。
+## 可选功能模块
+- `extended=true`：扩展气象字段（体感温度、能见度、气压、紫外线、空气质量及污染物分项数据）
+- `forecast=true`：多天预报（最多7天，含日出日落、风速等详细数据）
+- `hourly=true`：逐小时预报（24小时）
+- `minutely=true`：分钟级降水预报（仅国内城市）
+- `indices=true`：18项生活指数（穿衣、紫外线、洗车、运动、花粉等）
+
+## 天气字段说明
+`weather` 是天气现象文本，不是固定枚举。
+
+常见值包括：晴、多云、阴、小雨、中雨、大雨、雷阵雨、小雪、中雪、大雪、雨夹雪、雾、霾、沙尘。
+
+如果你的业务需要稳定分类，建议结合 `weather_code` 做自己的映射归类。
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetMiscWeatherRequest
@@ -1393,6 +2073,28 @@ func (a *MiscAPIService) GetMiscWeatherExecute(r ApiGetMiscWeatherRequest) (*Get
 	}
 	if r.adcode != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "adcode", r.adcode, "form", "")
+	}
+	if r.extended != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "extended", r.extended, "form", "")
+	}
+	if r.forecast != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "forecast", r.forecast, "form", "")
+	}
+	if r.hourly != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hourly", r.hourly, "form", "")
+	}
+	if r.minutely != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "minutely", r.minutely, "form", "")
+	}
+	if r.indices != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "indices", r.indices, "form", "")
+	}
+	if r.lang != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "lang", r.lang, "form", "")
+	} else {
+        var defaultValue string = "zh"
+        parameterAddToHeaderOrQuery(localVarQueryParams, "lang", defaultValue, "form", "")
+        r.lang = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1444,8 +2146,8 @@ func (a *MiscAPIService) GetMiscWeatherExecute(r ApiGetMiscWeatherRequest) (*Get
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 410 {
-			var v GetMiscWeather410Response
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v GetMiscWeather404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1466,8 +2168,8 @@ func (a *MiscAPIService) GetMiscWeatherExecute(r ApiGetMiscWeatherRequest) (*Get
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 502 {
-			var v GetMiscWeather502Response
+		if localVarHTTPResponse.StatusCode == 503 {
+			var v GetMiscWeather503Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1508,7 +2210,7 @@ func (r ApiGetMiscWorldtimeRequest) Execute() (*GetMiscWorldtime200Response, *ht
 }
 
 /*
-GetMiscWorldtime 查询全球任意时区的时间
+GetMiscWorldtime 查询世界时间
 
 需要和国外的朋友开会，想知道他那边现在几点？用这个接口一查便知。
 
@@ -1602,6 +2304,136 @@ func (a *MiscAPIService) GetMiscWorldtimeExecute(r ApiGetMiscWorldtimeRequest) (
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v GetMiscWorldtime404Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPostMiscDateDiffRequest struct {
+	ctx context.Context
+	ApiService *MiscAPIService
+	postMiscDateDiffRequest *PostMiscDateDiffRequest
+}
+
+// 包含日期信息的JSON对象
+func (r ApiPostMiscDateDiffRequest) PostMiscDateDiffRequest(postMiscDateDiffRequest PostMiscDateDiffRequest) ApiPostMiscDateDiffRequest {
+	r.postMiscDateDiffRequest = &postMiscDateDiffRequest
+	return r
+}
+
+func (r ApiPostMiscDateDiffRequest) Execute() (*PostMiscDateDiff200Response, *http.Response, error) {
+	return r.ApiService.PostMiscDateDiffExecute(r)
+}
+
+/*
+PostMiscDateDiff 计算两个日期之间的时间差值
+
+想知道两个日期之间相差多久？这个接口帮你精确计算时间差值。
+
+## 功能概述
+输入开始日期和结束日期，返回它们之间的时间差，包括总天数、总小时数、总分钟数、总秒数、总周数，以及人性化显示格式（如"1年2月3天"）。
+
+## 日期格式
+接口支持自动识别常见日期格式，包括：YYYY-MM-DD、YYYY/MM/DD、DD-MM-YYYY、ISO 8601（带时区）等。也可以通过`format`参数显式指定格式（如DD-MM-YYYY）。
+
+> [!NOTE]
+> 当结束日期早于开始日期时，返回的数值为负数。
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiPostMiscDateDiffRequest
+*/
+func (a *MiscAPIService) PostMiscDateDiff(ctx context.Context) ApiPostMiscDateDiffRequest {
+	return ApiPostMiscDateDiffRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return PostMiscDateDiff200Response
+func (a *MiscAPIService) PostMiscDateDiffExecute(r ApiPostMiscDateDiffRequest) (*PostMiscDateDiff200Response, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PostMiscDateDiff200Response
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MiscAPIService.PostMiscDateDiff")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/misc/date-diff"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.postMiscDateDiffRequest == nil {
+		return localVarReturnValue, nil, reportError("postMiscDateDiffRequest is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.postMiscDateDiffRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v PostMiscDateDiff400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

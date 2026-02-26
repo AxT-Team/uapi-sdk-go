@@ -78,91 +78,96 @@ All URIs are relative to *https://uapis.cn/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**GetSearchEngines**](docs/DefaultApi.md#getsearchengines) | **Get** /search/engines | 获取搜索引擎信息
-*DefaultApi* | [**GetSensitiveWordAnalyzeQuery**](docs/DefaultApi.md#getsensitivewordanalyzequery) | **Get** /sensitive-word/analyze-query | 查询参数分析
+*DefaultApi* | [**GetSearchEngines**](docs/DefaultApi.md#getsearchengines) | **Get** /search/engines | 搜索引擎配置
+*DefaultApi* | [**GetSensitiveWordAnalyzeQuery**](docs/DefaultApi.md#getsensitivewordanalyzequery) | **Get** /sensitive-word/analyze-query | 敏感词分析 (GET)
 *DefaultApi* | [**PostSearchAggregate**](docs/DefaultApi.md#postsearchaggregate) | **Post** /search/aggregate | 智能搜索
 *DefaultApi* | [**PostSensitiveWordAnalyze**](docs/DefaultApi.md#postsensitivewordanalyze) | **Post** /sensitive-word/analyze | 分析敏感词
 *DefaultApi* | [**PostSensitiveWordQuickCheck**](docs/DefaultApi.md#postsensitivewordquickcheck) | **Post** /text/profanitycheck | 敏感词检测（快速）
 *ClipzyAPI* | [**GetClipzyGet**](docs/ClipzyAPI.md#getclipzyget) | **Get** /api/get | 步骤2 (方法一): 获取加密数据
 *ClipzyAPI* | [**GetClipzyRaw**](docs/ClipzyAPI.md#getclipzyraw) | **Get** /api/raw/{id} | 步骤2 (方法二): 获取原始文本
 *ClipzyAPI* | [**PostClipzyStore**](docs/ClipzyAPI.md#postclipzystore) | **Post** /api/store | 步骤1：上传加密数据
-*ConvertAPI* | [**GetConvertUnixtime**](docs/ConvertAPI.md#getconvertunixtime) | **Get** /convert/unixtime | Unix时间戳与日期字符串双向转换
-*ConvertAPI* | [**PostConvertJson**](docs/ConvertAPI.md#postconvertjson) | **Post** /convert/json | 美化并格式化JSON字符串
-*DailyAPI* | [**GetDailyNewsImage**](docs/DailyAPI.md#getdailynewsimage) | **Get** /daily/news-image | 生成每日新闻摘要图片
-*GameAPI* | [**GetGameEpicFree**](docs/GameAPI.md#getgameepicfree) | **Get** /game/epic-free | 获取Epic Games免费游戏
-*GameAPI* | [**GetGameMinecraftHistoryid**](docs/GameAPI.md#getgameminecrafthistoryid) | **Get** /game/minecraft/historyid | 查询Minecraft玩家历史用户名
-*GameAPI* | [**GetGameMinecraftServerstatus**](docs/GameAPI.md#getgameminecraftserverstatus) | **Get** /game/minecraft/serverstatus | 查询Minecraft服务器状态
-*GameAPI* | [**GetGameMinecraftUserinfo**](docs/GameAPI.md#getgameminecraftuserinfo) | **Get** /game/minecraft/userinfo | 查询Minecraft玩家信息
-*GameAPI* | [**GetGameSteamSummary**](docs/GameAPI.md#getgamesteamsummary) | **Get** /game/steam/summary | 获取Steam用户公开摘要
+*ConvertAPI* | [**GetConvertUnixtime**](docs/ConvertAPI.md#getconvertunixtime) | **Get** /convert/unixtime | 时间戳转换
+*ConvertAPI* | [**PostConvertJson**](docs/ConvertAPI.md#postconvertjson) | **Post** /convert/json | JSON 格式化
+*DailyAPI* | [**GetDailyNewsImage**](docs/DailyAPI.md#getdailynewsimage) | **Get** /daily/news-image | 每日新闻图
+*GameAPI* | [**GetGameEpicFree**](docs/GameAPI.md#getgameepicfree) | **Get** /game/epic-free | Epic 免费游戏
+*GameAPI* | [**GetGameMinecraftHistoryid**](docs/GameAPI.md#getgameminecrafthistoryid) | **Get** /game/minecraft/historyid | 查询 MC 曾用名
+*GameAPI* | [**GetGameMinecraftServerstatus**](docs/GameAPI.md#getgameminecraftserverstatus) | **Get** /game/minecraft/serverstatus | 查询 MC 服务器
+*GameAPI* | [**GetGameMinecraftUserinfo**](docs/GameAPI.md#getgameminecraftuserinfo) | **Get** /game/minecraft/userinfo | 查询 MC 玩家
+*GameAPI* | [**GetGameSteamSummary**](docs/GameAPI.md#getgamesteamsummary) | **Get** /game/steam/summary | 查询 Steam 用户
 *ImageAPI* | [**GetAvatarGravatar**](docs/ImageAPI.md#getavatargravatar) | **Get** /avatar/gravatar | 获取Gravatar头像
-*ImageAPI* | [**GetImageBingDaily**](docs/ImageAPI.md#getimagebingdaily) | **Get** /image/bing-daily | 获取必应每日壁纸
-*ImageAPI* | [**GetImageMotou**](docs/ImageAPI.md#getimagemotou) | **Get** /image/motou | 生成摸摸头GIF (QQ号方式)
-*ImageAPI* | [**GetImageQrcode**](docs/ImageAPI.md#getimageqrcode) | **Get** /image/qrcode | 动态生成二维码
-*ImageAPI* | [**GetImageTobase64**](docs/ImageAPI.md#getimagetobase64) | **Get** /image/tobase64 | 将在线图片转换为Base64
+*ImageAPI* | [**GetImageBingDaily**](docs/ImageAPI.md#getimagebingdaily) | **Get** /image/bing-daily | 必应壁纸
+*ImageAPI* | [**GetImageMotou**](docs/ImageAPI.md#getimagemotou) | **Get** /image/motou | 生成摸摸头GIF (QQ号)
+*ImageAPI* | [**GetImageQrcode**](docs/ImageAPI.md#getimageqrcode) | **Get** /image/qrcode | 生成二维码
+*ImageAPI* | [**GetImageTobase64**](docs/ImageAPI.md#getimagetobase64) | **Get** /image/tobase64 | 图片转 Base64
 *ImageAPI* | [**PostImageCompress**](docs/ImageAPI.md#postimagecompress) | **Post** /image/compress | 无损压缩图片
 *ImageAPI* | [**PostImageFrombase64**](docs/ImageAPI.md#postimagefrombase64) | **Post** /image/frombase64 | 通过Base64编码上传图片
-*ImageAPI* | [**PostImageMotou**](docs/ImageAPI.md#postimagemotou) | **Post** /image/motou | 生成摸摸头GIF (图片上传或URL方式)
+*ImageAPI* | [**PostImageMotou**](docs/ImageAPI.md#postimagemotou) | **Post** /image/motou | 生成摸摸头GIF
+*ImageAPI* | [**PostImageNsfw**](docs/ImageAPI.md#postimagensfw) | **Post** /image/nsfw | 图片敏感检测
 *ImageAPI* | [**PostImageSpeechless**](docs/ImageAPI.md#postimagespeechless) | **Post** /image/speechless | 生成你们怎么不说话了表情包
 *ImageAPI* | [**PostImageSvg**](docs/ImageAPI.md#postimagesvg) | **Post** /image/svg | SVG转图片
-*MiscAPI* | [**GetHistoryProgrammer**](docs/MiscAPI.md#gethistoryprogrammer) | **Get** /history/programmer | 获取指定日期的程序员历史事件
-*MiscAPI* | [**GetHistoryProgrammerToday**](docs/MiscAPI.md#gethistoryprogrammertoday) | **Get** /history/programmer/today | 获取今天的程序员历史事件
-*MiscAPI* | [**GetMiscHotboard**](docs/MiscAPI.md#getmischotboard) | **Get** /misc/hotboard | 获取多平台实时热榜
-*MiscAPI* | [**GetMiscPhoneinfo**](docs/MiscAPI.md#getmiscphoneinfo) | **Get** /misc/phoneinfo | 查询手机号码归属地信息
-*MiscAPI* | [**GetMiscRandomnumber**](docs/MiscAPI.md#getmiscrandomnumber) | **Get** /misc/randomnumber | 生成高度可定制的随机数
+*MiscAPI* | [**GetHistoryProgrammer**](docs/MiscAPI.md#gethistoryprogrammer) | **Get** /history/programmer | 程序员历史事件
+*MiscAPI* | [**GetHistoryProgrammerToday**](docs/MiscAPI.md#gethistoryprogrammertoday) | **Get** /history/programmer/today | 程序员历史上的今天
+*MiscAPI* | [**GetMiscDistrict**](docs/MiscAPI.md#getmiscdistrict) | **Get** /misc/district | Adcode 国内外行政区域查询
+*MiscAPI* | [**GetMiscHolidayCalendar**](docs/MiscAPI.md#getmischolidaycalendar) | **Get** /misc/holiday-calendar | 查询节假日与万年历
+*MiscAPI* | [**GetMiscHotboard**](docs/MiscAPI.md#getmischotboard) | **Get** /misc/hotboard | 查询热榜
+*MiscAPI* | [**GetMiscLunartime**](docs/MiscAPI.md#getmisclunartime) | **Get** /misc/lunartime | 查询农历时间
+*MiscAPI* | [**GetMiscPhoneinfo**](docs/MiscAPI.md#getmiscphoneinfo) | **Get** /misc/phoneinfo | 查询手机归属地
+*MiscAPI* | [**GetMiscRandomnumber**](docs/MiscAPI.md#getmiscrandomnumber) | **Get** /misc/randomnumber | 随机数生成
 *MiscAPI* | [**GetMiscTimestamp**](docs/MiscAPI.md#getmisctimestamp) | **Get** /misc/timestamp | 转换时间戳 (旧版，推荐使用/convert/unixtime)
 *MiscAPI* | [**GetMiscTrackingCarriers**](docs/MiscAPI.md#getmisctrackingcarriers) | **Get** /misc/tracking/carriers | 获取支持的快递公司列表
 *MiscAPI* | [**GetMiscTrackingDetect**](docs/MiscAPI.md#getmisctrackingdetect) | **Get** /misc/tracking/detect | 识别快递公司
 *MiscAPI* | [**GetMiscTrackingQuery**](docs/MiscAPI.md#getmisctrackingquery) | **Get** /misc/tracking/query | 查询快递物流信息
-*MiscAPI* | [**GetMiscWeather**](docs/MiscAPI.md#getmiscweather) | **Get** /misc/weather | 查询实时天气信息
-*MiscAPI* | [**GetMiscWorldtime**](docs/MiscAPI.md#getmiscworldtime) | **Get** /misc/worldtime | 查询全球任意时区的时间
+*MiscAPI* | [**GetMiscWeather**](docs/MiscAPI.md#getmiscweather) | **Get** /misc/weather | 查询天气
+*MiscAPI* | [**GetMiscWorldtime**](docs/MiscAPI.md#getmiscworldtime) | **Get** /misc/worldtime | 查询世界时间
+*MiscAPI* | [**PostMiscDateDiff**](docs/MiscAPI.md#postmiscdatediff) | **Post** /misc/date-diff | 计算两个日期之间的时间差值
 *NetworkAPI* | [**GetNetworkDns**](docs/NetworkAPI.md#getnetworkdns) | **Get** /network/dns | 执行DNS解析查询
 *NetworkAPI* | [**GetNetworkIcp**](docs/NetworkAPI.md#getnetworkicp) | **Get** /network/icp | 查询域名ICP备案信息
-*NetworkAPI* | [**GetNetworkIpinfo**](docs/NetworkAPI.md#getnetworkipinfo) | **Get** /network/ipinfo | 查询指定IP或域名的归属信息
-*NetworkAPI* | [**GetNetworkMyip**](docs/NetworkAPI.md#getnetworkmyip) | **Get** /network/myip | 获取你的公网IP及归属信息
-*NetworkAPI* | [**GetNetworkPing**](docs/NetworkAPI.md#getnetworkping) | **Get** /network/ping | 从服务器Ping指定主机
-*NetworkAPI* | [**GetNetworkPingmyip**](docs/NetworkAPI.md#getnetworkpingmyip) | **Get** /network/pingmyip | 从服务器Ping你的客户端IP
-*NetworkAPI* | [**GetNetworkPortscan**](docs/NetworkAPI.md#getnetworkportscan) | **Get** /network/portscan | 扫描远程主机的指定端口
+*NetworkAPI* | [**GetNetworkIpinfo**](docs/NetworkAPI.md#getnetworkipinfo) | **Get** /network/ipinfo | 查询 IP
+*NetworkAPI* | [**GetNetworkMyip**](docs/NetworkAPI.md#getnetworkmyip) | **Get** /network/myip | 查询我的 IP
+*NetworkAPI* | [**GetNetworkPing**](docs/NetworkAPI.md#getnetworkping) | **Get** /network/ping | Ping 主机
+*NetworkAPI* | [**GetNetworkPingmyip**](docs/NetworkAPI.md#getnetworkpingmyip) | **Get** /network/pingmyip | Ping 我的 IP
+*NetworkAPI* | [**GetNetworkPortscan**](docs/NetworkAPI.md#getnetworkportscan) | **Get** /network/portscan | 端口扫描
 *NetworkAPI* | [**GetNetworkUrlstatus**](docs/NetworkAPI.md#getnetworkurlstatus) | **Get** /network/urlstatus | 检查URL的可访问性状态
 *NetworkAPI* | [**GetNetworkWhois**](docs/NetworkAPI.md#getnetworkwhois) | **Get** /network/whois | 查询域名的WHOIS注册信息
 *NetworkAPI* | [**GetNetworkWxdomain**](docs/NetworkAPI.md#getnetworkwxdomain) | **Get** /network/wxdomain | 检查域名在微信中的访问状态
-*PoemAPI* | [**GetSaying**](docs/PoemAPI.md#getsaying) | **Get** /saying | 随机获取一句诗词或名言
-*RandomAPI* | [**GetAnswerbookAsk**](docs/RandomAPI.md#getanswerbookask) | **Get** /answerbook/ask | 获取答案之书的神秘答案 (GET)
-*RandomAPI* | [**GetRandomImage**](docs/RandomAPI.md#getrandomimage) | **Get** /random/image | 随机二次元、风景、动漫图片壁纸
-*RandomAPI* | [**GetRandomString**](docs/RandomAPI.md#getrandomstring) | **Get** /random/string | 生成高度可定制的随机字符串
-*RandomAPI* | [**PostAnswerbookAsk**](docs/RandomAPI.md#postanswerbookask) | **Post** /answerbook/ask | 获取答案之书的神秘答案 (POST)
-*SocialAPI* | [**GetGithubRepo**](docs/SocialAPI.md#getgithubrepo) | **Get** /github/repo | 获取GitHub仓库信息
-*SocialAPI* | [**GetSocialBilibiliArchives**](docs/SocialAPI.md#getsocialbilibiliarchives) | **Get** /social/bilibili/archives | 获取Bilibili用户投稿列表
-*SocialAPI* | [**GetSocialBilibiliLiveroom**](docs/SocialAPI.md#getsocialbilibililiveroom) | **Get** /social/bilibili/liveroom | 获取Bilibili直播间信息
-*SocialAPI* | [**GetSocialBilibiliReplies**](docs/SocialAPI.md#getsocialbilibilireplies) | **Get** /social/bilibili/replies | 获取Bilibili视频评论
-*SocialAPI* | [**GetSocialBilibiliUserinfo**](docs/SocialAPI.md#getsocialbilibiliuserinfo) | **Get** /social/bilibili/userinfo | 查询Bilibili用户信息
-*SocialAPI* | [**GetSocialBilibiliVideoinfo**](docs/SocialAPI.md#getsocialbilibilivideoinfo) | **Get** /social/bilibili/videoinfo | 获取Bilibili视频详细信息
-*SocialAPI* | [**GetSocialQqGroupinfo**](docs/SocialAPI.md#getsocialqqgroupinfo) | **Get** /social/qq/groupinfo | 获取QQ群名称、头像、简介
-*SocialAPI* | [**GetSocialQqUserinfo**](docs/SocialAPI.md#getsocialqquserinfo) | **Get** /social/qq/userinfo | 独家获取QQ号头像、昵称
-*StatusAPI* | [**GetStatusRatelimit**](docs/StatusAPI.md#getstatusratelimit) | **Get** /status/ratelimit | 获取API限流器实时状态
+*PoemAPI* | [**GetSaying**](docs/PoemAPI.md#getsaying) | **Get** /saying | 一言
+*RandomAPI* | [**GetAnswerbookAsk**](docs/RandomAPI.md#getanswerbookask) | **Get** /answerbook/ask | 答案之书
+*RandomAPI* | [**GetRandomImage**](docs/RandomAPI.md#getrandomimage) | **Get** /random/image | 随机图片
+*RandomAPI* | [**GetRandomString**](docs/RandomAPI.md#getrandomstring) | **Get** /random/string | 随机字符串
+*RandomAPI* | [**PostAnswerbookAsk**](docs/RandomAPI.md#postanswerbookask) | **Post** /answerbook/ask | 答案之书 (POST)
+*SocialAPI* | [**GetGithubRepo**](docs/SocialAPI.md#getgithubrepo) | **Get** /github/repo | 查询 GitHub 仓库
+*SocialAPI* | [**GetSocialBilibiliArchives**](docs/SocialAPI.md#getsocialbilibiliarchives) | **Get** /social/bilibili/archives | 查询 B站投稿
+*SocialAPI* | [**GetSocialBilibiliLiveroom**](docs/SocialAPI.md#getsocialbilibililiveroom) | **Get** /social/bilibili/liveroom | 查询 B站直播间
+*SocialAPI* | [**GetSocialBilibiliReplies**](docs/SocialAPI.md#getsocialbilibilireplies) | **Get** /social/bilibili/replies | 查询 B站评论
+*SocialAPI* | [**GetSocialBilibiliUserinfo**](docs/SocialAPI.md#getsocialbilibiliuserinfo) | **Get** /social/bilibili/userinfo | 查询 B站用户
+*SocialAPI* | [**GetSocialBilibiliVideoinfo**](docs/SocialAPI.md#getsocialbilibilivideoinfo) | **Get** /social/bilibili/videoinfo | 查询 B站视频
+*SocialAPI* | [**GetSocialQqGroupinfo**](docs/SocialAPI.md#getsocialqqgroupinfo) | **Get** /social/qq/groupinfo | 查询 QQ 群信息
+*SocialAPI* | [**GetSocialQqUserinfo**](docs/SocialAPI.md#getsocialqquserinfo) | **Get** /social/qq/userinfo | 查询 QQ 信息
+*StatusAPI* | [**GetStatusRatelimit**](docs/StatusAPI.md#getstatusratelimit) | **Get** /status/ratelimit | 限流状态
 *StatusAPI* | [**GetStatusUsage**](docs/StatusAPI.md#getstatususage) | **Get** /status/usage | 获取API端点使用统计
-*TextAPI* | [**GetTextMd5**](docs/TextAPI.md#gettextmd5) | **Get** /text/md5 | 计算文本的MD5哈希值(GET)
-*TextAPI* | [**PostTextAesDecrypt**](docs/TextAPI.md#posttextaesdecrypt) | **Post** /text/aes/decrypt | 使用AES算法解密文本
-*TextAPI* | [**PostTextAesEncrypt**](docs/TextAPI.md#posttextaesencrypt) | **Post** /text/aes/encrypt | 使用AES算法加密文本
-*TextAPI* | [**PostTextAnalyze**](docs/TextAPI.md#posttextanalyze) | **Post** /text/analyze | 多维度分析文本内容
-*TextAPI* | [**PostTextBase64Decode**](docs/TextAPI.md#posttextbase64decode) | **Post** /text/base64/decode | 解码Base64编码的文本
-*TextAPI* | [**PostTextBase64Encode**](docs/TextAPI.md#posttextbase64encode) | **Post** /text/base64/encode | 将文本进行Base64编码
-*TextAPI* | [**PostTextMd5**](docs/TextAPI.md#posttextmd5) | **Post** /text/md5 | 计算文本的MD5哈希值 (POST)
-*TextAPI* | [**PostTextMd5Verify**](docs/TextAPI.md#posttextmd5verify) | **Post** /text/md5/verify | 校验MD5哈希值
-*TranslateAPI* | [**GetAiTranslateLanguages**](docs/TranslateAPI.md#getaitranslatelanguages) | **Get** /ai/translate/languages | 获取AI翻译支持的语言和配置
+*TextAPI* | [**GetTextMd5**](docs/TextAPI.md#gettextmd5) | **Get** /text/md5 | MD5 哈希
+*TextAPI* | [**PostTextAesDecrypt**](docs/TextAPI.md#posttextaesdecrypt) | **Post** /text/aes/decrypt | AES 解密
+*TextAPI* | [**PostTextAesDecryptAdvanced**](docs/TextAPI.md#posttextaesdecryptadvanced) | **Post** /text/aes/decrypt-advanced | AES高级解密
+*TextAPI* | [**PostTextAesEncrypt**](docs/TextAPI.md#posttextaesencrypt) | **Post** /text/aes/encrypt | AES 加密
+*TextAPI* | [**PostTextAesEncryptAdvanced**](docs/TextAPI.md#posttextaesencryptadvanced) | **Post** /text/aes/encrypt-advanced | AES高级加密
+*TextAPI* | [**PostTextAnalyze**](docs/TextAPI.md#posttextanalyze) | **Post** /text/analyze | 文本分析
+*TextAPI* | [**PostTextBase64Decode**](docs/TextAPI.md#posttextbase64decode) | **Post** /text/base64/decode | Base64 解码
+*TextAPI* | [**PostTextBase64Encode**](docs/TextAPI.md#posttextbase64encode) | **Post** /text/base64/encode | Base64 编码
+*TextAPI* | [**PostTextConvert**](docs/TextAPI.md#posttextconvert) | **Post** /text/convert | 格式转换
+*TextAPI* | [**PostTextMd5**](docs/TextAPI.md#posttextmd5) | **Post** /text/md5 | MD5 哈希 (POST)
+*TextAPI* | [**PostTextMd5Verify**](docs/TextAPI.md#posttextmd5verify) | **Post** /text/md5/verify | MD5 校验
+*TranslateAPI* | [**GetAiTranslateLanguages**](docs/TranslateAPI.md#getaitranslatelanguages) | **Get** /ai/translate/languages | AI翻译配置
 *TranslateAPI* | [**PostAiTranslate**](docs/TranslateAPI.md#postaitranslate) | **Post** /ai/translate | AI智能翻译
 *TranslateAPI* | [**PostTranslateStream**](docs/TranslateAPI.md#posttranslatestream) | **Post** /translate/stream | 流式翻译（中英互译）
-*TranslateAPI* | [**PostTranslateText**](docs/TranslateAPI.md#posttranslatetext) | **Post** /translate/text | 多语言文本翻译
-*WebParseAPI* | [**GetWebTomarkdownAsyncStatus**](docs/WebParseAPI.md#getwebtomarkdownasyncstatus) | **Get** /web/tomarkdown/async/{task_id} | 查询网页转换任务状态和结果
-*WebParseAPI* | [**GetWebparseExtractimages**](docs/WebParseAPI.md#getwebparseextractimages) | **Get** /webparse/extractimages | 提取网页中的所有图片
-*WebParseAPI* | [**GetWebparseMetadata**](docs/WebParseAPI.md#getwebparsemetadata) | **Get** /webparse/metadata | 抓取并解析网页的元数据
-*WebParseAPI* | [**PostWebTomarkdownAsync**](docs/WebParseAPI.md#postwebtomarkdownasync) | **Post** /web/tomarkdown/async | 深度抓取网页转Markdown
+*TranslateAPI* | [**PostTranslateText**](docs/TranslateAPI.md#posttranslatetext) | **Post** /translate/text | 翻译
+*WebParseAPI* | [**GetWebTomarkdownAsyncStatus**](docs/WebParseAPI.md#getwebtomarkdownasyncstatus) | **Get** /web/tomarkdown/async/{task_id} | 转换任务状态
+*WebParseAPI* | [**GetWebparseExtractimages**](docs/WebParseAPI.md#getwebparseextractimages) | **Get** /webparse/extractimages | 提取网页图片
+*WebParseAPI* | [**GetWebparseMetadata**](docs/WebParseAPI.md#getwebparsemetadata) | **Get** /webparse/metadata | 提取网页元数据
+*WebParseAPI* | [**PostWebTomarkdownAsync**](docs/WebParseAPI.md#postwebtomarkdownasync) | **Post** /web/tomarkdown/async | 网页转 Markdown
 
 
 ## Documentation For Models
 
- - [EndpointsAggregate](docs/EndpointsAggregate.md)
- - [EndpointsAggregateEndpointsInner](docs/EndpointsAggregateEndpointsInner.md)
- - [EndpointsAggregateUnaggregated](docs/EndpointsAggregateUnaggregated.md)
  - [GetAiTranslateLanguages200Response](docs/GetAiTranslateLanguages200Response.md)
  - [GetAiTranslateLanguages200ResponseData](docs/GetAiTranslateLanguages200ResponseData.md)
  - [GetAiTranslateLanguages200ResponseDataContextsInner](docs/GetAiTranslateLanguages200ResponseDataContextsInner.md)
@@ -189,6 +194,8 @@ Class | Method | HTTP request | Description
  - [GetGameEpicFree500Response](docs/GetGameEpicFree500Response.md)
  - [GetGameMinecraftHistoryid200Response](docs/GetGameMinecraftHistoryid200Response.md)
  - [GetGameMinecraftHistoryid200ResponseHistoryInner](docs/GetGameMinecraftHistoryid200ResponseHistoryInner.md)
+ - [GetGameMinecraftHistoryid200ResponseResultsInner](docs/GetGameMinecraftHistoryid200ResponseResultsInner.md)
+ - [GetGameMinecraftHistoryid200ResponseResultsInnerHistoryInner](docs/GetGameMinecraftHistoryid200ResponseResultsInnerHistoryInner.md)
  - [GetGameMinecraftHistoryid400Response](docs/GetGameMinecraftHistoryid400Response.md)
  - [GetGameMinecraftHistoryid404Response](docs/GetGameMinecraftHistoryid404Response.md)
  - [GetGameMinecraftHistoryid502Response](docs/GetGameMinecraftHistoryid502Response.md)
@@ -199,6 +206,7 @@ Class | Method | HTTP request | Description
  - [GetGameMinecraftUserinfo200Response](docs/GetGameMinecraftUserinfo200Response.md)
  - [GetGameMinecraftUserinfo400Response](docs/GetGameMinecraftUserinfo400Response.md)
  - [GetGameMinecraftUserinfo404Response](docs/GetGameMinecraftUserinfo404Response.md)
+ - [GetGameMinecraftUserinfo502Response](docs/GetGameMinecraftUserinfo502Response.md)
  - [GetGameSteamSummary200Response](docs/GetGameSteamSummary200Response.md)
  - [GetGameSteamSummary400Response](docs/GetGameSteamSummary400Response.md)
  - [GetGameSteamSummary401Response](docs/GetGameSteamSummary401Response.md)
@@ -206,6 +214,7 @@ Class | Method | HTTP request | Description
  - [GetGameSteamSummary502Response](docs/GetGameSteamSummary502Response.md)
  - [GetGithubRepo200Response](docs/GetGithubRepo200Response.md)
  - [GetGithubRepo200ResponseCollaboratorsInner](docs/GetGithubRepo200ResponseCollaboratorsInner.md)
+ - [GetGithubRepo200ResponseLatestRelease](docs/GetGithubRepo200ResponseLatestRelease.md)
  - [GetGithubRepo400Response](docs/GetGithubRepo400Response.md)
  - [GetGithubRepo502Response](docs/GetGithubRepo502Response.md)
  - [GetHistoryProgrammer200Response](docs/GetHistoryProgrammer200Response.md)
@@ -223,11 +232,29 @@ Class | Method | HTTP request | Description
  - [GetImageTobase64200Response](docs/GetImageTobase64200Response.md)
  - [GetImageTobase64400Response](docs/GetImageTobase64400Response.md)
  - [GetImageTobase64502Response](docs/GetImageTobase64502Response.md)
+ - [GetMiscDistrict200Response](docs/GetMiscDistrict200Response.md)
+ - [GetMiscDistrict200ResponseResultsInner](docs/GetMiscDistrict200ResponseResultsInner.md)
+ - [GetMiscDistrict200ResponseResultsInnerCenter](docs/GetMiscDistrict200ResponseResultsInnerCenter.md)
+ - [GetMiscDistrict400Response](docs/GetMiscDistrict400Response.md)
+ - [GetMiscHolidayCalendar200Response](docs/GetMiscHolidayCalendar200Response.md)
+ - [GetMiscHolidayCalendar200ResponseData](docs/GetMiscHolidayCalendar200ResponseData.md)
+ - [GetMiscHolidayCalendar200ResponseDataDaysInner](docs/GetMiscHolidayCalendar200ResponseDataDaysInner.md)
+ - [GetMiscHolidayCalendar200ResponseDataHolidaysInner](docs/GetMiscHolidayCalendar200ResponseDataHolidaysInner.md)
+ - [GetMiscHolidayCalendar200ResponseDataNearby](docs/GetMiscHolidayCalendar200ResponseDataNearby.md)
+ - [GetMiscHolidayCalendar200ResponseDataNearbyNextInner](docs/GetMiscHolidayCalendar200ResponseDataNearbyNextInner.md)
+ - [GetMiscHolidayCalendar200ResponseDataNearbyPreviousInner](docs/GetMiscHolidayCalendar200ResponseDataNearbyPreviousInner.md)
+ - [GetMiscHolidayCalendar200ResponseDataQuery](docs/GetMiscHolidayCalendar200ResponseDataQuery.md)
+ - [GetMiscHolidayCalendar200ResponseDataSummary](docs/GetMiscHolidayCalendar200ResponseDataSummary.md)
+ - [GetMiscHolidayCalendar400Response](docs/GetMiscHolidayCalendar400Response.md)
  - [GetMiscHotboard200Response](docs/GetMiscHotboard200Response.md)
  - [GetMiscHotboard200ResponseListInner](docs/GetMiscHotboard200ResponseListInner.md)
+ - [GetMiscHotboard200ResponseResultsInner](docs/GetMiscHotboard200ResponseResultsInner.md)
  - [GetMiscHotboard400Response](docs/GetMiscHotboard400Response.md)
  - [GetMiscHotboard500Response](docs/GetMiscHotboard500Response.md)
  - [GetMiscHotboard502Response](docs/GetMiscHotboard502Response.md)
+ - [GetMiscLunartime200Response](docs/GetMiscLunartime200Response.md)
+ - [GetMiscLunartime200ResponseData](docs/GetMiscLunartime200ResponseData.md)
+ - [GetMiscLunartime400Response](docs/GetMiscLunartime400Response.md)
  - [GetMiscPhoneinfo200Response](docs/GetMiscPhoneinfo200Response.md)
  - [GetMiscPhoneinfo400Response](docs/GetMiscPhoneinfo400Response.md)
  - [GetMiscPhoneinfo500Response](docs/GetMiscPhoneinfo500Response.md)
@@ -248,10 +275,34 @@ Class | Method | HTTP request | Description
  - [GetMiscTrackingQuery400Response](docs/GetMiscTrackingQuery400Response.md)
  - [GetMiscTrackingQuery404Response](docs/GetMiscTrackingQuery404Response.md)
  - [GetMiscWeather200Response](docs/GetMiscWeather200Response.md)
+ - [GetMiscWeather200ResponseAirPollutants](docs/GetMiscWeather200ResponseAirPollutants.md)
+ - [GetMiscWeather200ResponseForecastInner](docs/GetMiscWeather200ResponseForecastInner.md)
+ - [GetMiscWeather200ResponseHourlyForecastInner](docs/GetMiscWeather200ResponseHourlyForecastInner.md)
+ - [GetMiscWeather200ResponseLifeIndices](docs/GetMiscWeather200ResponseLifeIndices.md)
+ - [GetMiscWeather200ResponseLifeIndicesAirConditioner](docs/GetMiscWeather200ResponseLifeIndicesAirConditioner.md)
+ - [GetMiscWeather200ResponseLifeIndicesAirPurifier](docs/GetMiscWeather200ResponseLifeIndicesAirPurifier.md)
+ - [GetMiscWeather200ResponseLifeIndicesAllergy](docs/GetMiscWeather200ResponseLifeIndicesAllergy.md)
+ - [GetMiscWeather200ResponseLifeIndicesBeer](docs/GetMiscWeather200ResponseLifeIndicesBeer.md)
+ - [GetMiscWeather200ResponseLifeIndicesCarWash](docs/GetMiscWeather200ResponseLifeIndicesCarWash.md)
+ - [GetMiscWeather200ResponseLifeIndicesClothing](docs/GetMiscWeather200ResponseLifeIndicesClothing.md)
+ - [GetMiscWeather200ResponseLifeIndicesColdRisk](docs/GetMiscWeather200ResponseLifeIndicesColdRisk.md)
+ - [GetMiscWeather200ResponseLifeIndicesComfort](docs/GetMiscWeather200ResponseLifeIndicesComfort.md)
+ - [GetMiscWeather200ResponseLifeIndicesDrying](docs/GetMiscWeather200ResponseLifeIndicesDrying.md)
+ - [GetMiscWeather200ResponseLifeIndicesExercise](docs/GetMiscWeather200ResponseLifeIndicesExercise.md)
+ - [GetMiscWeather200ResponseLifeIndicesFishing](docs/GetMiscWeather200ResponseLifeIndicesFishing.md)
+ - [GetMiscWeather200ResponseLifeIndicesMood](docs/GetMiscWeather200ResponseLifeIndicesMood.md)
+ - [GetMiscWeather200ResponseLifeIndicesPollen](docs/GetMiscWeather200ResponseLifeIndicesPollen.md)
+ - [GetMiscWeather200ResponseLifeIndicesSunscreen](docs/GetMiscWeather200ResponseLifeIndicesSunscreen.md)
+ - [GetMiscWeather200ResponseLifeIndicesTraffic](docs/GetMiscWeather200ResponseLifeIndicesTraffic.md)
+ - [GetMiscWeather200ResponseLifeIndicesTravel](docs/GetMiscWeather200ResponseLifeIndicesTravel.md)
+ - [GetMiscWeather200ResponseLifeIndicesUmbrella](docs/GetMiscWeather200ResponseLifeIndicesUmbrella.md)
+ - [GetMiscWeather200ResponseLifeIndicesUv](docs/GetMiscWeather200ResponseLifeIndicesUv.md)
+ - [GetMiscWeather200ResponseMinutelyPrecip](docs/GetMiscWeather200ResponseMinutelyPrecip.md)
+ - [GetMiscWeather200ResponseMinutelyPrecipDataInner](docs/GetMiscWeather200ResponseMinutelyPrecipDataInner.md)
  - [GetMiscWeather400Response](docs/GetMiscWeather400Response.md)
- - [GetMiscWeather410Response](docs/GetMiscWeather410Response.md)
+ - [GetMiscWeather404Response](docs/GetMiscWeather404Response.md)
  - [GetMiscWeather500Response](docs/GetMiscWeather500Response.md)
- - [GetMiscWeather502Response](docs/GetMiscWeather502Response.md)
+ - [GetMiscWeather503Response](docs/GetMiscWeather503Response.md)
  - [GetMiscWorldtime200Response](docs/GetMiscWorldtime200Response.md)
  - [GetMiscWorldtime400Response](docs/GetMiscWorldtime400Response.md)
  - [GetMiscWorldtime404Response](docs/GetMiscWorldtime404Response.md)
@@ -265,6 +316,7 @@ Class | Method | HTTP request | Description
  - [GetNetworkIpinfo400Response](docs/GetNetworkIpinfo400Response.md)
  - [GetNetworkIpinfo404Response](docs/GetNetworkIpinfo404Response.md)
  - [GetNetworkIpinfo500Response](docs/GetNetworkIpinfo500Response.md)
+ - [GetNetworkMyip200Response](docs/GetNetworkMyip200Response.md)
  - [GetNetworkMyip400Response](docs/GetNetworkMyip400Response.md)
  - [GetNetworkMyip500Response](docs/GetNetworkMyip500Response.md)
  - [GetNetworkPing200Response](docs/GetNetworkPing200Response.md)
@@ -276,6 +328,8 @@ Class | Method | HTTP request | Description
  - [GetNetworkPortscan400Response](docs/GetNetworkPortscan400Response.md)
  - [GetNetworkPortscan500Response](docs/GetNetworkPortscan500Response.md)
  - [GetNetworkUrlstatus200Response](docs/GetNetworkUrlstatus200Response.md)
+ - [GetNetworkUrlstatus200ResponseOneOf](docs/GetNetworkUrlstatus200ResponseOneOf.md)
+ - [GetNetworkUrlstatus200ResponseOneOf1](docs/GetNetworkUrlstatus200ResponseOneOf1.md)
  - [GetNetworkUrlstatus502Response](docs/GetNetworkUrlstatus502Response.md)
  - [GetNetworkWhois200Response](docs/GetNetworkWhois200Response.md)
  - [GetNetworkWhois200ResponseOneOf](docs/GetNetworkWhois200ResponseOneOf.md)
@@ -318,15 +372,17 @@ Class | Method | HTTP request | Description
  - [GetSocialQqGroupinfo200Response](docs/GetSocialQqGroupinfo200Response.md)
  - [GetSocialQqGroupinfo400Response](docs/GetSocialQqGroupinfo400Response.md)
  - [GetSocialQqGroupinfo404Response](docs/GetSocialQqGroupinfo404Response.md)
- - [GetSocialQqGroupinfo500Response](docs/GetSocialQqGroupinfo500Response.md)
  - [GetSocialQqUserinfo200Response](docs/GetSocialQqUserinfo200Response.md)
  - [GetSocialQqUserinfo400Response](docs/GetSocialQqUserinfo400Response.md)
  - [GetSocialQqUserinfo404Response](docs/GetSocialQqUserinfo404Response.md)
  - [GetStatusRatelimit200Response](docs/GetStatusRatelimit200Response.md)
  - [GetStatusRatelimit401Response](docs/GetStatusRatelimit401Response.md)
  - [GetStatusUsage200Response](docs/GetStatusUsage200Response.md)
+ - [GetStatusUsage200ResponseAnyOf](docs/GetStatusUsage200ResponseAnyOf.md)
+ - [GetStatusUsage200ResponseAnyOf1](docs/GetStatusUsage200ResponseAnyOf1.md)
+ - [GetStatusUsage200ResponseAnyOfEndpointsInner](docs/GetStatusUsage200ResponseAnyOfEndpointsInner.md)
+ - [GetStatusUsage200ResponseAnyOfUnaggregated](docs/GetStatusUsage200ResponseAnyOfUnaggregated.md)
  - [GetStatusUsage404Response](docs/GetStatusUsage404Response.md)
- - [GetStatusUsage500Response](docs/GetStatusUsage500Response.md)
  - [GetTextMd5200Response](docs/GetTextMd5200Response.md)
  - [GetTextMd5400Response](docs/GetTextMd5400Response.md)
  - [GetWebTomarkdownAsyncStatus200Response](docs/GetWebTomarkdownAsyncStatus200Response.md)
@@ -369,11 +425,18 @@ Class | Method | HTTP request | Description
  - [PostImageFrombase64Request](docs/PostImageFrombase64Request.md)
  - [PostImageMotou400Response](docs/PostImageMotou400Response.md)
  - [PostImageMotou500Response](docs/PostImageMotou500Response.md)
+ - [PostImageNsfw200Response](docs/PostImageNsfw200Response.md)
+ - [PostImageNsfw400Response](docs/PostImageNsfw400Response.md)
+ - [PostImageNsfw413Response](docs/PostImageNsfw413Response.md)
+ - [PostImageNsfw500Response](docs/PostImageNsfw500Response.md)
  - [PostImageSpeechless400Response](docs/PostImageSpeechless400Response.md)
  - [PostImageSpeechless500Response](docs/PostImageSpeechless500Response.md)
  - [PostImageSpeechlessRequest](docs/PostImageSpeechlessRequest.md)
  - [PostImageSvg400Response](docs/PostImageSvg400Response.md)
  - [PostImageSvg500Response](docs/PostImageSvg500Response.md)
+ - [PostMiscDateDiff200Response](docs/PostMiscDateDiff200Response.md)
+ - [PostMiscDateDiff400Response](docs/PostMiscDateDiff400Response.md)
+ - [PostMiscDateDiffRequest](docs/PostMiscDateDiffRequest.md)
  - [PostSearchAggregate200Response](docs/PostSearchAggregate200Response.md)
  - [PostSearchAggregate200ResponseResultsInner](docs/PostSearchAggregate200ResponseResultsInner.md)
  - [PostSearchAggregate200ResponseSourcesInner](docs/PostSearchAggregate200ResponseSourcesInner.md)
@@ -393,10 +456,16 @@ Class | Method | HTTP request | Description
  - [PostTextAesDecrypt200Response](docs/PostTextAesDecrypt200Response.md)
  - [PostTextAesDecrypt400Response](docs/PostTextAesDecrypt400Response.md)
  - [PostTextAesDecrypt500Response](docs/PostTextAesDecrypt500Response.md)
+ - [PostTextAesDecryptAdvanced200Response](docs/PostTextAesDecryptAdvanced200Response.md)
+ - [PostTextAesDecryptAdvanced400Response](docs/PostTextAesDecryptAdvanced400Response.md)
+ - [PostTextAesDecryptAdvancedRequest](docs/PostTextAesDecryptAdvancedRequest.md)
  - [PostTextAesDecryptRequest](docs/PostTextAesDecryptRequest.md)
  - [PostTextAesEncrypt200Response](docs/PostTextAesEncrypt200Response.md)
  - [PostTextAesEncrypt400Response](docs/PostTextAesEncrypt400Response.md)
  - [PostTextAesEncrypt500Response](docs/PostTextAesEncrypt500Response.md)
+ - [PostTextAesEncryptAdvanced200Response](docs/PostTextAesEncryptAdvanced200Response.md)
+ - [PostTextAesEncryptAdvanced400Response](docs/PostTextAesEncryptAdvanced400Response.md)
+ - [PostTextAesEncryptAdvancedRequest](docs/PostTextAesEncryptAdvancedRequest.md)
  - [PostTextAesEncryptRequest](docs/PostTextAesEncryptRequest.md)
  - [PostTextAnalyze200Response](docs/PostTextAnalyze200Response.md)
  - [PostTextAnalyze400Response](docs/PostTextAnalyze400Response.md)
@@ -407,6 +476,9 @@ Class | Method | HTTP request | Description
  - [PostTextBase64Encode200Response](docs/PostTextBase64Encode200Response.md)
  - [PostTextBase64Encode400Response](docs/PostTextBase64Encode400Response.md)
  - [PostTextBase64EncodeRequest](docs/PostTextBase64EncodeRequest.md)
+ - [PostTextConvert200Response](docs/PostTextConvert200Response.md)
+ - [PostTextConvert400Response](docs/PostTextConvert400Response.md)
+ - [PostTextConvertRequest](docs/PostTextConvertRequest.md)
  - [PostTextMd5400Response](docs/PostTextMd5400Response.md)
  - [PostTextMd5Request](docs/PostTextMd5Request.md)
  - [PostTextMd5Verify200Response](docs/PostTextMd5Verify200Response.md)
@@ -421,7 +493,6 @@ Class | Method | HTTP request | Description
  - [PostTranslateTextRequest](docs/PostTranslateTextRequest.md)
  - [PostWebTomarkdownAsync202Response](docs/PostWebTomarkdownAsync202Response.md)
  - [PostWebTomarkdownAsync400Response](docs/PostWebTomarkdownAsync400Response.md)
- - [SingleEndpoint](docs/SingleEndpoint.md)
 
 
 ## Documentation For Authorization

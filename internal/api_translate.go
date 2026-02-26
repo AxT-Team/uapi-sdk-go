@@ -32,9 +32,9 @@ func (r ApiGetAiTranslateLanguagesRequest) Execute() (*GetAiTranslateLanguages20
 }
 
 /*
-GetAiTranslateLanguages 获取AI翻译支持的语言和配置
+GetAiTranslateLanguages AI翻译配置
 
-获取AI智能翻译服务支持的完整语言列表、翻译风格选项、上下文场景选项以及性能指标信息。这个接口对于需要在前端动态展示翻译配置选项的应用非常有用，它会返回当前AI翻译服务所支持的所有语言代码、原生名称、翻译风格说明、上下文场景描述，以及服务的性能特征和限制信息。通过此接口，开发者可以构建用户友好的翻译界面，让用户选择合适的翻译参数。
+获取AI智能翻译服务支持的完整语言列表、翻译风格选项、上下文场景选项以及性能指标信息。
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetAiTranslateLanguagesRequest
@@ -147,7 +147,7 @@ func (r ApiPostAiTranslateRequest) Execute() (*PostAiTranslate200Response, *http
 /*
 PostAiTranslate AI智能翻译
 
-这是一个商业级的AI智能翻译服务，采用最新的神经网络翻译技术和大语言模型，提供远超传统机器翻译的质量。它不仅能够智能处理单个文本翻译，还支持高效的批量文本翻译，并且具备上下文感知、风格适配、格式保留等高级功能。
+这是一个商业级的AI智能翻译服务，采用最新的神经网络翻译技术和大语言模型，提供远超传统机器翻译的质量。
 
 > [!VIP]
 > 本API目前处于**限时免费**阶段，我们鼓励开发者深度集成和测试。未来，它将转为付费API，为用户提供更稳定、更智能的翻译服务。
@@ -380,7 +380,7 @@ func (a *TranslateAPIService) PostTranslateStreamExecute(r ApiPostTranslateStrea
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/event-stream", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -471,7 +471,7 @@ func (r ApiPostTranslateTextRequest) Execute() (*PostTranslateText200Response, *
 }
 
 /*
-PostTranslateText 多语言文本翻译
+PostTranslateText 翻译
 
 需要跨越语言的鸿沟进行交流？这个翻译接口是你可靠的'同声传译'。
 

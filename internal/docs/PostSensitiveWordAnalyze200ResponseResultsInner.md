@@ -5,11 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **K** | Pointer to **string** |  | [optional] 
-**R** | Pointer to **string** |  | [optional] 
-**S** | Pointer to **[]float32** |  | [optional] 
-**V** | Pointer to **[]string** |  | [optional] 
-**T** | Pointer to **[]string** |  | [optional] 
-**D** | Pointer to **string** |  | [optional] 
+**Label** | Pointer to **string** |  | [optional] 
+**Category** | Pointer to **string** |  | [optional] 
+**Confidence** | Pointer to **float32** |  | [optional] 
 
 ## Methods
 
@@ -55,130 +53,80 @@ SetK sets K field to given value.
 
 HasK returns a boolean if a field has been set.
 
-### GetR
+### GetLabel
 
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetR() string`
+`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetLabel() string`
 
-GetR returns the R field if non-nil, zero value otherwise.
+GetLabel returns the Label field if non-nil, zero value otherwise.
 
-### GetROk
+### GetLabelOk
 
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetROk() (*string, bool)`
+`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetLabelOk() (*string, bool)`
 
-GetROk returns a tuple with the R field if it's non-nil, zero value otherwise
+GetLabelOk returns a tuple with the Label field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetR
+### SetLabel
 
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetR(v string)`
+`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetLabel(v string)`
 
-SetR sets R field to given value.
+SetLabel sets Label field to given value.
 
-### HasR
+### HasLabel
 
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasR() bool`
+`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasLabel() bool`
 
-HasR returns a boolean if a field has been set.
+HasLabel returns a boolean if a field has been set.
 
-### GetS
+### GetCategory
 
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetS() []float32`
+`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetCategory() string`
 
-GetS returns the S field if non-nil, zero value otherwise.
+GetCategory returns the Category field if non-nil, zero value otherwise.
 
-### GetSOk
+### GetCategoryOk
 
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetSOk() (*[]float32, bool)`
+`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetCategoryOk() (*string, bool)`
 
-GetSOk returns a tuple with the S field if it's non-nil, zero value otherwise
+GetCategoryOk returns a tuple with the Category field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetS
+### SetCategory
 
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetS(v []float32)`
+`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetCategory(v string)`
 
-SetS sets S field to given value.
+SetCategory sets Category field to given value.
 
-### HasS
+### HasCategory
 
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasS() bool`
+`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasCategory() bool`
 
-HasS returns a boolean if a field has been set.
+HasCategory returns a boolean if a field has been set.
 
-### GetV
+### GetConfidence
 
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetV() []string`
+`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetConfidence() float32`
 
-GetV returns the V field if non-nil, zero value otherwise.
+GetConfidence returns the Confidence field if non-nil, zero value otherwise.
 
-### GetVOk
+### GetConfidenceOk
 
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetVOk() (*[]string, bool)`
+`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetConfidenceOk() (*float32, bool)`
 
-GetVOk returns a tuple with the V field if it's non-nil, zero value otherwise
+GetConfidenceOk returns a tuple with the Confidence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetV
+### SetConfidence
 
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetV(v []string)`
+`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetConfidence(v float32)`
 
-SetV sets V field to given value.
+SetConfidence sets Confidence field to given value.
 
-### HasV
+### HasConfidence
 
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasV() bool`
+`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasConfidence() bool`
 
-HasV returns a boolean if a field has been set.
-
-### GetT
-
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetT() []string`
-
-GetT returns the T field if non-nil, zero value otherwise.
-
-### GetTOk
-
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetTOk() (*[]string, bool)`
-
-GetTOk returns a tuple with the T field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetT
-
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetT(v []string)`
-
-SetT sets T field to given value.
-
-### HasT
-
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasT() bool`
-
-HasT returns a boolean if a field has been set.
-
-### GetD
-
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetD() string`
-
-GetD returns the D field if non-nil, zero value otherwise.
-
-### GetDOk
-
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) GetDOk() (*string, bool)`
-
-GetDOk returns a tuple with the D field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetD
-
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) SetD(v string)`
-
-SetD sets D field to given value.
-
-### HasD
-
-`func (o *PostSensitiveWordAnalyze200ResponseResultsInner) HasD() bool`
-
-HasD returns a boolean if a field has been set.
+HasConfidence returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

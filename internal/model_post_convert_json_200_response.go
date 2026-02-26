@@ -19,8 +19,6 @@ var _ MappedNullable = &PostConvertJson200Response{}
 
 // PostConvertJson200Response struct for PostConvertJson200Response
 type PostConvertJson200Response struct {
-	// 状态码，200代表操作成功。
-	Code *int32 `json:"code,omitempty"`
 	// 格式化后的JSON字符串，带有标准缩进和换行。
 	Content *string `json:"content,omitempty"`
 }
@@ -40,38 +38,6 @@ func NewPostConvertJson200Response() *PostConvertJson200Response {
 func NewPostConvertJson200ResponseWithDefaults() *PostConvertJson200Response {
 	this := PostConvertJson200Response{}
 	return &this
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *PostConvertJson200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostConvertJson200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *PostConvertJson200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *PostConvertJson200Response) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetContent returns the Content field value if set, zero value otherwise.
@@ -116,9 +82,6 @@ func (o PostConvertJson200Response) MarshalJSON() ([]byte, error) {
 
 func (o PostConvertJson200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
 	if !IsNil(o.Content) {
 		toSerialize["content"] = o.Content
 	}

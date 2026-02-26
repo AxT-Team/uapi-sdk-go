@@ -17,18 +17,22 @@ import (
 // checks if the GetGameMinecraftHistoryid200Response type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &GetGameMinecraftHistoryid200Response{}
 
-// GetGameMinecraftHistoryid200Response struct for GetGameMinecraftHistoryid200Response
+// GetGameMinecraftHistoryid200Response 响应结构根据查询参数不同而变化
 type GetGameMinecraftHistoryid200Response struct {
-	// 状态码，200代表成功。
-	Code *int32 `json:"code,omitempty"`
-	// 一个包含所有历史用户名的数组，按时间倒序排列。
-	History []GetGameMinecraftHistoryid200ResponseHistoryInner `json:"history,omitempty"`
-	// 玩家当前的用户名。
+	// 【name 查询时返回】查询的用户名。
+	Query *string `json:"query,omitempty"`
+	// 【name 查询时返回】匹配到的用户数量，为 0 时表示未找到。
+	Count *int32 `json:"count,omitempty"`
+	// 【name 查询时返回】匹配用户列表，包含当前用户名或曾用名匹配的所有玩家。
+	Results []GetGameMinecraftHistoryid200ResponseResultsInner `json:"results,omitempty"`
+	// 【uuid 查询时返回】玩家当前的用户名。
 	Id *string `json:"id,omitempty"`
-	// 历史名称的总数（包含当前名称）。
-	NameNum *int32 `json:"name_num,omitempty"`
-	// 被查询玩家的32位无破折号UUID。
+	// 【uuid 查询时返回】被查询玩家的UUID（带连字符格式）。
 	Uuid *string `json:"uuid,omitempty"`
+	// 【uuid 查询时返回】历史名称的总数（包含当前名称）。
+	NameNum *int32 `json:"name_num,omitempty"`
+	// 【uuid 查询时返回】包含所有历史用户名的数组，按时间倒序排列。
+	History []GetGameMinecraftHistoryid200ResponseHistoryInner `json:"history,omitempty"`
 }
 
 // NewGetGameMinecraftHistoryid200Response instantiates a new GetGameMinecraftHistoryid200Response object
@@ -48,68 +52,100 @@ func NewGetGameMinecraftHistoryid200ResponseWithDefaults() *GetGameMinecraftHist
 	return &this
 }
 
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetGameMinecraftHistoryid200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
+// GetQuery returns the Query field value if set, zero value otherwise.
+func (o *GetGameMinecraftHistoryid200Response) GetQuery() string {
+	if o == nil || IsNil(o.Query) {
+		var ret string
+		return ret
+	}
+	return *o.Query
+}
+
+// GetQueryOk returns a tuple with the Query field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetGameMinecraftHistoryid200Response) GetQueryOk() (*string, bool) {
+	if o == nil || IsNil(o.Query) {
+		return nil, false
+	}
+	return o.Query, true
+}
+
+// HasQuery returns a boolean if a field has been set.
+func (o *GetGameMinecraftHistoryid200Response) HasQuery() bool {
+	if o != nil && !IsNil(o.Query) {
+		return true
+	}
+
+	return false
+}
+
+// SetQuery gets a reference to the given string and assigns it to the Query field.
+func (o *GetGameMinecraftHistoryid200Response) SetQuery(v string) {
+	o.Query = &v
+}
+
+// GetCount returns the Count field value if set, zero value otherwise.
+func (o *GetGameMinecraftHistoryid200Response) GetCount() int32 {
+	if o == nil || IsNil(o.Count) {
 		var ret int32
 		return ret
 	}
-	return *o.Code
+	return *o.Count
 }
 
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// GetCountOk returns a tuple with the Count field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetGameMinecraftHistoryid200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
+func (o *GetGameMinecraftHistoryid200Response) GetCountOk() (*int32, bool) {
+	if o == nil || IsNil(o.Count) {
 		return nil, false
 	}
-	return o.Code, true
+	return o.Count, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *GetGameMinecraftHistoryid200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
+// HasCount returns a boolean if a field has been set.
+func (o *GetGameMinecraftHistoryid200Response) HasCount() bool {
+	if o != nil && !IsNil(o.Count) {
 		return true
 	}
 
 	return false
 }
 
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetGameMinecraftHistoryid200Response) SetCode(v int32) {
-	o.Code = &v
+// SetCount gets a reference to the given int32 and assigns it to the Count field.
+func (o *GetGameMinecraftHistoryid200Response) SetCount(v int32) {
+	o.Count = &v
 }
 
-// GetHistory returns the History field value if set, zero value otherwise.
-func (o *GetGameMinecraftHistoryid200Response) GetHistory() []GetGameMinecraftHistoryid200ResponseHistoryInner {
-	if o == nil || IsNil(o.History) {
-		var ret []GetGameMinecraftHistoryid200ResponseHistoryInner
+// GetResults returns the Results field value if set, zero value otherwise.
+func (o *GetGameMinecraftHistoryid200Response) GetResults() []GetGameMinecraftHistoryid200ResponseResultsInner {
+	if o == nil || IsNil(o.Results) {
+		var ret []GetGameMinecraftHistoryid200ResponseResultsInner
 		return ret
 	}
-	return o.History
+	return o.Results
 }
 
-// GetHistoryOk returns a tuple with the History field value if set, nil otherwise
+// GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetGameMinecraftHistoryid200Response) GetHistoryOk() ([]GetGameMinecraftHistoryid200ResponseHistoryInner, bool) {
-	if o == nil || IsNil(o.History) {
+func (o *GetGameMinecraftHistoryid200Response) GetResultsOk() ([]GetGameMinecraftHistoryid200ResponseResultsInner, bool) {
+	if o == nil || IsNil(o.Results) {
 		return nil, false
 	}
-	return o.History, true
+	return o.Results, true
 }
 
-// HasHistory returns a boolean if a field has been set.
-func (o *GetGameMinecraftHistoryid200Response) HasHistory() bool {
-	if o != nil && !IsNil(o.History) {
+// HasResults returns a boolean if a field has been set.
+func (o *GetGameMinecraftHistoryid200Response) HasResults() bool {
+	if o != nil && !IsNil(o.Results) {
 		return true
 	}
 
 	return false
 }
 
-// SetHistory gets a reference to the given []GetGameMinecraftHistoryid200ResponseHistoryInner and assigns it to the History field.
-func (o *GetGameMinecraftHistoryid200Response) SetHistory(v []GetGameMinecraftHistoryid200ResponseHistoryInner) {
-	o.History = v
+// SetResults gets a reference to the given []GetGameMinecraftHistoryid200ResponseResultsInner and assigns it to the Results field.
+func (o *GetGameMinecraftHistoryid200Response) SetResults(v []GetGameMinecraftHistoryid200ResponseResultsInner) {
+	o.Results = v
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
@@ -144,38 +180,6 @@ func (o *GetGameMinecraftHistoryid200Response) SetId(v string) {
 	o.Id = &v
 }
 
-// GetNameNum returns the NameNum field value if set, zero value otherwise.
-func (o *GetGameMinecraftHistoryid200Response) GetNameNum() int32 {
-	if o == nil || IsNil(o.NameNum) {
-		var ret int32
-		return ret
-	}
-	return *o.NameNum
-}
-
-// GetNameNumOk returns a tuple with the NameNum field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetGameMinecraftHistoryid200Response) GetNameNumOk() (*int32, bool) {
-	if o == nil || IsNil(o.NameNum) {
-		return nil, false
-	}
-	return o.NameNum, true
-}
-
-// HasNameNum returns a boolean if a field has been set.
-func (o *GetGameMinecraftHistoryid200Response) HasNameNum() bool {
-	if o != nil && !IsNil(o.NameNum) {
-		return true
-	}
-
-	return false
-}
-
-// SetNameNum gets a reference to the given int32 and assigns it to the NameNum field.
-func (o *GetGameMinecraftHistoryid200Response) SetNameNum(v int32) {
-	o.NameNum = &v
-}
-
 // GetUuid returns the Uuid field value if set, zero value otherwise.
 func (o *GetGameMinecraftHistoryid200Response) GetUuid() string {
 	if o == nil || IsNil(o.Uuid) {
@@ -208,6 +212,70 @@ func (o *GetGameMinecraftHistoryid200Response) SetUuid(v string) {
 	o.Uuid = &v
 }
 
+// GetNameNum returns the NameNum field value if set, zero value otherwise.
+func (o *GetGameMinecraftHistoryid200Response) GetNameNum() int32 {
+	if o == nil || IsNil(o.NameNum) {
+		var ret int32
+		return ret
+	}
+	return *o.NameNum
+}
+
+// GetNameNumOk returns a tuple with the NameNum field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetGameMinecraftHistoryid200Response) GetNameNumOk() (*int32, bool) {
+	if o == nil || IsNil(o.NameNum) {
+		return nil, false
+	}
+	return o.NameNum, true
+}
+
+// HasNameNum returns a boolean if a field has been set.
+func (o *GetGameMinecraftHistoryid200Response) HasNameNum() bool {
+	if o != nil && !IsNil(o.NameNum) {
+		return true
+	}
+
+	return false
+}
+
+// SetNameNum gets a reference to the given int32 and assigns it to the NameNum field.
+func (o *GetGameMinecraftHistoryid200Response) SetNameNum(v int32) {
+	o.NameNum = &v
+}
+
+// GetHistory returns the History field value if set, zero value otherwise.
+func (o *GetGameMinecraftHistoryid200Response) GetHistory() []GetGameMinecraftHistoryid200ResponseHistoryInner {
+	if o == nil || IsNil(o.History) {
+		var ret []GetGameMinecraftHistoryid200ResponseHistoryInner
+		return ret
+	}
+	return o.History
+}
+
+// GetHistoryOk returns a tuple with the History field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetGameMinecraftHistoryid200Response) GetHistoryOk() ([]GetGameMinecraftHistoryid200ResponseHistoryInner, bool) {
+	if o == nil || IsNil(o.History) {
+		return nil, false
+	}
+	return o.History, true
+}
+
+// HasHistory returns a boolean if a field has been set.
+func (o *GetGameMinecraftHistoryid200Response) HasHistory() bool {
+	if o != nil && !IsNil(o.History) {
+		return true
+	}
+
+	return false
+}
+
+// SetHistory gets a reference to the given []GetGameMinecraftHistoryid200ResponseHistoryInner and assigns it to the History field.
+func (o *GetGameMinecraftHistoryid200Response) SetHistory(v []GetGameMinecraftHistoryid200ResponseHistoryInner) {
+	o.History = v
+}
+
 func (o GetGameMinecraftHistoryid200Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -218,20 +286,26 @@ func (o GetGameMinecraftHistoryid200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetGameMinecraftHistoryid200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
+	if !IsNil(o.Query) {
+		toSerialize["query"] = o.Query
 	}
-	if !IsNil(o.History) {
-		toSerialize["history"] = o.History
+	if !IsNil(o.Count) {
+		toSerialize["count"] = o.Count
+	}
+	if !IsNil(o.Results) {
+		toSerialize["results"] = o.Results
 	}
 	if !IsNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
+	if !IsNil(o.Uuid) {
+		toSerialize["uuid"] = o.Uuid
+	}
 	if !IsNil(o.NameNum) {
 		toSerialize["name_num"] = o.NameNum
 	}
-	if !IsNil(o.Uuid) {
-		toSerialize["uuid"] = o.Uuid
+	if !IsNil(o.History) {
+		toSerialize["history"] = o.History
 	}
 	return toSerialize, nil
 }

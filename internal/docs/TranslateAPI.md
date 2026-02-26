@@ -4,10 +4,10 @@ All URIs are relative to *https://uapis.cn/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAiTranslateLanguages**](TranslateAPI.md#GetAiTranslateLanguages) | **Get** /ai/translate/languages | 获取AI翻译支持的语言和配置
+[**GetAiTranslateLanguages**](TranslateAPI.md#GetAiTranslateLanguages) | **Get** /ai/translate/languages | AI翻译配置
 [**PostAiTranslate**](TranslateAPI.md#PostAiTranslate) | **Post** /ai/translate | AI智能翻译
 [**PostTranslateStream**](TranslateAPI.md#PostTranslateStream) | **Post** /translate/stream | 流式翻译（中英互译）
-[**PostTranslateText**](TranslateAPI.md#PostTranslateText) | **Post** /translate/text | 多语言文本翻译
+[**PostTranslateText**](TranslateAPI.md#PostTranslateText) | **Post** /translate/text | 翻译
 
 
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 > GetAiTranslateLanguages200Response GetAiTranslateLanguages(ctx).Execute()
 
-获取AI翻译支持的语言和配置
+AI翻译配置
 
 
 
@@ -199,7 +199,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: text/event-stream, application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -210,7 +210,7 @@ No authorization required
 
 > PostTranslateText200Response PostTranslateText(ctx).ToLang(toLang).PostTranslateTextRequest(postTranslateTextRequest).Execute()
 
-多语言文本翻译
+翻译
 
 
 

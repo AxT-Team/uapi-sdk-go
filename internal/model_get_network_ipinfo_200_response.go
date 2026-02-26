@@ -19,38 +19,26 @@ var _ MappedNullable = &GetNetworkIpinfo200Response{}
 
 // GetNetworkIpinfo200Response struct for GetNetworkIpinfo200Response
 type GetNetworkIpinfo200Response struct {
-	// 自治系统编号 (由GeoLite2或商业版提供)
-	Asn *string `json:"asn,omitempty"`
-	// IP范围起始 (仅在默认查询中提供)
-	Beginip *string `json:"beginip,omitempty"`
-	Code *int32 `json:"code,omitempty"`
-	// IP范围结束 (仅在默认查询中提供)
-	Endip *string `json:"endip,omitempty"`
+	// 查询的IP地址
 	Ip *string `json:"ip,omitempty"`
-	// 运营商
-	Isp *string `json:"isp,omitempty"`
-	Latitude *float32 `json:"latitude,omitempty"`
-	// 归属
-	Llc *string `json:"llc,omitempty"`
-	Longitude *float32 `json:"longitude,omitempty"`
-	// 格式：国家 省份 城市
+	// 地理位置，格式：国家 省份 城市
 	Region *string `json:"region,omitempty"`
-	// 行政区 (仅在商业查询中提供)
+	// 运营商名称
+	Isp *string `json:"isp,omitempty"`
+	// 归属机构
+	Llc *string `json:"llc,omitempty"`
+	// 自治系统编号
+	Asn *string `json:"asn,omitempty"`
+	// 纬度
+	Latitude *float32 `json:"latitude,omitempty"`
+	// 经度
+	Longitude *float32 `json:"longitude,omitempty"`
+	// IP段起始地址（标准查询）
+	Beginip *string `json:"beginip,omitempty"`
+	// IP段结束地址（标准查询）
+	Endip *string `json:"endip,omitempty"`
+	// 行政区（商业查询）
 	District *string `json:"district,omitempty"`
-	// 行政区划代码 (仅在商业查询中提供)
-	AreaCode *string `json:"area_code,omitempty"`
-	// 城市区号 (仅在商业查询中提供)
-	CityCode *string `json:"city_code,omitempty"`
-	// 邮政编码 (仅在商业查询中提供)
-	ZipCode *string `json:"zip_code,omitempty"`
-	// 时区 (仅在商业查询中提供)
-	TimeZone *string `json:"time_zone,omitempty"`
-	// 应用场景 (仅在商业查询中提供)
-	Scenes *string `json:"scenes,omitempty"`
-	// 海拔（米）(仅在商业查询中提供)
-	Elevation *string `json:"elevation,omitempty"`
-	// 气象站代码 (仅在商业查询中提供)
-	WeatherStation *string `json:"weather_station,omitempty"`
 }
 
 // NewGetNetworkIpinfo200Response instantiates a new GetNetworkIpinfo200Response object
@@ -68,134 +56,6 @@ func NewGetNetworkIpinfo200Response() *GetNetworkIpinfo200Response {
 func NewGetNetworkIpinfo200ResponseWithDefaults() *GetNetworkIpinfo200Response {
 	this := GetNetworkIpinfo200Response{}
 	return &this
-}
-
-// GetAsn returns the Asn field value if set, zero value otherwise.
-func (o *GetNetworkIpinfo200Response) GetAsn() string {
-	if o == nil || IsNil(o.Asn) {
-		var ret string
-		return ret
-	}
-	return *o.Asn
-}
-
-// GetAsnOk returns a tuple with the Asn field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkIpinfo200Response) GetAsnOk() (*string, bool) {
-	if o == nil || IsNil(o.Asn) {
-		return nil, false
-	}
-	return o.Asn, true
-}
-
-// HasAsn returns a boolean if a field has been set.
-func (o *GetNetworkIpinfo200Response) HasAsn() bool {
-	if o != nil && !IsNil(o.Asn) {
-		return true
-	}
-
-	return false
-}
-
-// SetAsn gets a reference to the given string and assigns it to the Asn field.
-func (o *GetNetworkIpinfo200Response) SetAsn(v string) {
-	o.Asn = &v
-}
-
-// GetBeginip returns the Beginip field value if set, zero value otherwise.
-func (o *GetNetworkIpinfo200Response) GetBeginip() string {
-	if o == nil || IsNil(o.Beginip) {
-		var ret string
-		return ret
-	}
-	return *o.Beginip
-}
-
-// GetBeginipOk returns a tuple with the Beginip field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkIpinfo200Response) GetBeginipOk() (*string, bool) {
-	if o == nil || IsNil(o.Beginip) {
-		return nil, false
-	}
-	return o.Beginip, true
-}
-
-// HasBeginip returns a boolean if a field has been set.
-func (o *GetNetworkIpinfo200Response) HasBeginip() bool {
-	if o != nil && !IsNil(o.Beginip) {
-		return true
-	}
-
-	return false
-}
-
-// SetBeginip gets a reference to the given string and assigns it to the Beginip field.
-func (o *GetNetworkIpinfo200Response) SetBeginip(v string) {
-	o.Beginip = &v
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetNetworkIpinfo200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkIpinfo200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *GetNetworkIpinfo200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetNetworkIpinfo200Response) SetCode(v int32) {
-	o.Code = &v
-}
-
-// GetEndip returns the Endip field value if set, zero value otherwise.
-func (o *GetNetworkIpinfo200Response) GetEndip() string {
-	if o == nil || IsNil(o.Endip) {
-		var ret string
-		return ret
-	}
-	return *o.Endip
-}
-
-// GetEndipOk returns a tuple with the Endip field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkIpinfo200Response) GetEndipOk() (*string, bool) {
-	if o == nil || IsNil(o.Endip) {
-		return nil, false
-	}
-	return o.Endip, true
-}
-
-// HasEndip returns a boolean if a field has been set.
-func (o *GetNetworkIpinfo200Response) HasEndip() bool {
-	if o != nil && !IsNil(o.Endip) {
-		return true
-	}
-
-	return false
-}
-
-// SetEndip gets a reference to the given string and assigns it to the Endip field.
-func (o *GetNetworkIpinfo200Response) SetEndip(v string) {
-	o.Endip = &v
 }
 
 // GetIp returns the Ip field value if set, zero value otherwise.
@@ -230,6 +90,38 @@ func (o *GetNetworkIpinfo200Response) SetIp(v string) {
 	o.Ip = &v
 }
 
+// GetRegion returns the Region field value if set, zero value otherwise.
+func (o *GetNetworkIpinfo200Response) GetRegion() string {
+	if o == nil || IsNil(o.Region) {
+		var ret string
+		return ret
+	}
+	return *o.Region
+}
+
+// GetRegionOk returns a tuple with the Region field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetNetworkIpinfo200Response) GetRegionOk() (*string, bool) {
+	if o == nil || IsNil(o.Region) {
+		return nil, false
+	}
+	return o.Region, true
+}
+
+// HasRegion returns a boolean if a field has been set.
+func (o *GetNetworkIpinfo200Response) HasRegion() bool {
+	if o != nil && !IsNil(o.Region) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegion gets a reference to the given string and assigns it to the Region field.
+func (o *GetNetworkIpinfo200Response) SetRegion(v string) {
+	o.Region = &v
+}
+
 // GetIsp returns the Isp field value if set, zero value otherwise.
 func (o *GetNetworkIpinfo200Response) GetIsp() string {
 	if o == nil || IsNil(o.Isp) {
@@ -260,38 +152,6 @@ func (o *GetNetworkIpinfo200Response) HasIsp() bool {
 // SetIsp gets a reference to the given string and assigns it to the Isp field.
 func (o *GetNetworkIpinfo200Response) SetIsp(v string) {
 	o.Isp = &v
-}
-
-// GetLatitude returns the Latitude field value if set, zero value otherwise.
-func (o *GetNetworkIpinfo200Response) GetLatitude() float32 {
-	if o == nil || IsNil(o.Latitude) {
-		var ret float32
-		return ret
-	}
-	return *o.Latitude
-}
-
-// GetLatitudeOk returns a tuple with the Latitude field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkIpinfo200Response) GetLatitudeOk() (*float32, bool) {
-	if o == nil || IsNil(o.Latitude) {
-		return nil, false
-	}
-	return o.Latitude, true
-}
-
-// HasLatitude returns a boolean if a field has been set.
-func (o *GetNetworkIpinfo200Response) HasLatitude() bool {
-	if o != nil && !IsNil(o.Latitude) {
-		return true
-	}
-
-	return false
-}
-
-// SetLatitude gets a reference to the given float32 and assigns it to the Latitude field.
-func (o *GetNetworkIpinfo200Response) SetLatitude(v float32) {
-	o.Latitude = &v
 }
 
 // GetLlc returns the Llc field value if set, zero value otherwise.
@@ -326,6 +186,70 @@ func (o *GetNetworkIpinfo200Response) SetLlc(v string) {
 	o.Llc = &v
 }
 
+// GetAsn returns the Asn field value if set, zero value otherwise.
+func (o *GetNetworkIpinfo200Response) GetAsn() string {
+	if o == nil || IsNil(o.Asn) {
+		var ret string
+		return ret
+	}
+	return *o.Asn
+}
+
+// GetAsnOk returns a tuple with the Asn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetNetworkIpinfo200Response) GetAsnOk() (*string, bool) {
+	if o == nil || IsNil(o.Asn) {
+		return nil, false
+	}
+	return o.Asn, true
+}
+
+// HasAsn returns a boolean if a field has been set.
+func (o *GetNetworkIpinfo200Response) HasAsn() bool {
+	if o != nil && !IsNil(o.Asn) {
+		return true
+	}
+
+	return false
+}
+
+// SetAsn gets a reference to the given string and assigns it to the Asn field.
+func (o *GetNetworkIpinfo200Response) SetAsn(v string) {
+	o.Asn = &v
+}
+
+// GetLatitude returns the Latitude field value if set, zero value otherwise.
+func (o *GetNetworkIpinfo200Response) GetLatitude() float32 {
+	if o == nil || IsNil(o.Latitude) {
+		var ret float32
+		return ret
+	}
+	return *o.Latitude
+}
+
+// GetLatitudeOk returns a tuple with the Latitude field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetNetworkIpinfo200Response) GetLatitudeOk() (*float32, bool) {
+	if o == nil || IsNil(o.Latitude) {
+		return nil, false
+	}
+	return o.Latitude, true
+}
+
+// HasLatitude returns a boolean if a field has been set.
+func (o *GetNetworkIpinfo200Response) HasLatitude() bool {
+	if o != nil && !IsNil(o.Latitude) {
+		return true
+	}
+
+	return false
+}
+
+// SetLatitude gets a reference to the given float32 and assigns it to the Latitude field.
+func (o *GetNetworkIpinfo200Response) SetLatitude(v float32) {
+	o.Latitude = &v
+}
+
 // GetLongitude returns the Longitude field value if set, zero value otherwise.
 func (o *GetNetworkIpinfo200Response) GetLongitude() float32 {
 	if o == nil || IsNil(o.Longitude) {
@@ -358,36 +282,68 @@ func (o *GetNetworkIpinfo200Response) SetLongitude(v float32) {
 	o.Longitude = &v
 }
 
-// GetRegion returns the Region field value if set, zero value otherwise.
-func (o *GetNetworkIpinfo200Response) GetRegion() string {
-	if o == nil || IsNil(o.Region) {
+// GetBeginip returns the Beginip field value if set, zero value otherwise.
+func (o *GetNetworkIpinfo200Response) GetBeginip() string {
+	if o == nil || IsNil(o.Beginip) {
 		var ret string
 		return ret
 	}
-	return *o.Region
+	return *o.Beginip
 }
 
-// GetRegionOk returns a tuple with the Region field value if set, nil otherwise
+// GetBeginipOk returns a tuple with the Beginip field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetNetworkIpinfo200Response) GetRegionOk() (*string, bool) {
-	if o == nil || IsNil(o.Region) {
+func (o *GetNetworkIpinfo200Response) GetBeginipOk() (*string, bool) {
+	if o == nil || IsNil(o.Beginip) {
 		return nil, false
 	}
-	return o.Region, true
+	return o.Beginip, true
 }
 
-// HasRegion returns a boolean if a field has been set.
-func (o *GetNetworkIpinfo200Response) HasRegion() bool {
-	if o != nil && !IsNil(o.Region) {
+// HasBeginip returns a boolean if a field has been set.
+func (o *GetNetworkIpinfo200Response) HasBeginip() bool {
+	if o != nil && !IsNil(o.Beginip) {
 		return true
 	}
 
 	return false
 }
 
-// SetRegion gets a reference to the given string and assigns it to the Region field.
-func (o *GetNetworkIpinfo200Response) SetRegion(v string) {
-	o.Region = &v
+// SetBeginip gets a reference to the given string and assigns it to the Beginip field.
+func (o *GetNetworkIpinfo200Response) SetBeginip(v string) {
+	o.Beginip = &v
+}
+
+// GetEndip returns the Endip field value if set, zero value otherwise.
+func (o *GetNetworkIpinfo200Response) GetEndip() string {
+	if o == nil || IsNil(o.Endip) {
+		var ret string
+		return ret
+	}
+	return *o.Endip
+}
+
+// GetEndipOk returns a tuple with the Endip field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetNetworkIpinfo200Response) GetEndipOk() (*string, bool) {
+	if o == nil || IsNil(o.Endip) {
+		return nil, false
+	}
+	return o.Endip, true
+}
+
+// HasEndip returns a boolean if a field has been set.
+func (o *GetNetworkIpinfo200Response) HasEndip() bool {
+	if o != nil && !IsNil(o.Endip) {
+		return true
+	}
+
+	return false
+}
+
+// SetEndip gets a reference to the given string and assigns it to the Endip field.
+func (o *GetNetworkIpinfo200Response) SetEndip(v string) {
+	o.Endip = &v
 }
 
 // GetDistrict returns the District field value if set, zero value otherwise.
@@ -422,230 +378,6 @@ func (o *GetNetworkIpinfo200Response) SetDistrict(v string) {
 	o.District = &v
 }
 
-// GetAreaCode returns the AreaCode field value if set, zero value otherwise.
-func (o *GetNetworkIpinfo200Response) GetAreaCode() string {
-	if o == nil || IsNil(o.AreaCode) {
-		var ret string
-		return ret
-	}
-	return *o.AreaCode
-}
-
-// GetAreaCodeOk returns a tuple with the AreaCode field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkIpinfo200Response) GetAreaCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.AreaCode) {
-		return nil, false
-	}
-	return o.AreaCode, true
-}
-
-// HasAreaCode returns a boolean if a field has been set.
-func (o *GetNetworkIpinfo200Response) HasAreaCode() bool {
-	if o != nil && !IsNil(o.AreaCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetAreaCode gets a reference to the given string and assigns it to the AreaCode field.
-func (o *GetNetworkIpinfo200Response) SetAreaCode(v string) {
-	o.AreaCode = &v
-}
-
-// GetCityCode returns the CityCode field value if set, zero value otherwise.
-func (o *GetNetworkIpinfo200Response) GetCityCode() string {
-	if o == nil || IsNil(o.CityCode) {
-		var ret string
-		return ret
-	}
-	return *o.CityCode
-}
-
-// GetCityCodeOk returns a tuple with the CityCode field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkIpinfo200Response) GetCityCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.CityCode) {
-		return nil, false
-	}
-	return o.CityCode, true
-}
-
-// HasCityCode returns a boolean if a field has been set.
-func (o *GetNetworkIpinfo200Response) HasCityCode() bool {
-	if o != nil && !IsNil(o.CityCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetCityCode gets a reference to the given string and assigns it to the CityCode field.
-func (o *GetNetworkIpinfo200Response) SetCityCode(v string) {
-	o.CityCode = &v
-}
-
-// GetZipCode returns the ZipCode field value if set, zero value otherwise.
-func (o *GetNetworkIpinfo200Response) GetZipCode() string {
-	if o == nil || IsNil(o.ZipCode) {
-		var ret string
-		return ret
-	}
-	return *o.ZipCode
-}
-
-// GetZipCodeOk returns a tuple with the ZipCode field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkIpinfo200Response) GetZipCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.ZipCode) {
-		return nil, false
-	}
-	return o.ZipCode, true
-}
-
-// HasZipCode returns a boolean if a field has been set.
-func (o *GetNetworkIpinfo200Response) HasZipCode() bool {
-	if o != nil && !IsNil(o.ZipCode) {
-		return true
-	}
-
-	return false
-}
-
-// SetZipCode gets a reference to the given string and assigns it to the ZipCode field.
-func (o *GetNetworkIpinfo200Response) SetZipCode(v string) {
-	o.ZipCode = &v
-}
-
-// GetTimeZone returns the TimeZone field value if set, zero value otherwise.
-func (o *GetNetworkIpinfo200Response) GetTimeZone() string {
-	if o == nil || IsNil(o.TimeZone) {
-		var ret string
-		return ret
-	}
-	return *o.TimeZone
-}
-
-// GetTimeZoneOk returns a tuple with the TimeZone field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkIpinfo200Response) GetTimeZoneOk() (*string, bool) {
-	if o == nil || IsNil(o.TimeZone) {
-		return nil, false
-	}
-	return o.TimeZone, true
-}
-
-// HasTimeZone returns a boolean if a field has been set.
-func (o *GetNetworkIpinfo200Response) HasTimeZone() bool {
-	if o != nil && !IsNil(o.TimeZone) {
-		return true
-	}
-
-	return false
-}
-
-// SetTimeZone gets a reference to the given string and assigns it to the TimeZone field.
-func (o *GetNetworkIpinfo200Response) SetTimeZone(v string) {
-	o.TimeZone = &v
-}
-
-// GetScenes returns the Scenes field value if set, zero value otherwise.
-func (o *GetNetworkIpinfo200Response) GetScenes() string {
-	if o == nil || IsNil(o.Scenes) {
-		var ret string
-		return ret
-	}
-	return *o.Scenes
-}
-
-// GetScenesOk returns a tuple with the Scenes field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkIpinfo200Response) GetScenesOk() (*string, bool) {
-	if o == nil || IsNil(o.Scenes) {
-		return nil, false
-	}
-	return o.Scenes, true
-}
-
-// HasScenes returns a boolean if a field has been set.
-func (o *GetNetworkIpinfo200Response) HasScenes() bool {
-	if o != nil && !IsNil(o.Scenes) {
-		return true
-	}
-
-	return false
-}
-
-// SetScenes gets a reference to the given string and assigns it to the Scenes field.
-func (o *GetNetworkIpinfo200Response) SetScenes(v string) {
-	o.Scenes = &v
-}
-
-// GetElevation returns the Elevation field value if set, zero value otherwise.
-func (o *GetNetworkIpinfo200Response) GetElevation() string {
-	if o == nil || IsNil(o.Elevation) {
-		var ret string
-		return ret
-	}
-	return *o.Elevation
-}
-
-// GetElevationOk returns a tuple with the Elevation field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkIpinfo200Response) GetElevationOk() (*string, bool) {
-	if o == nil || IsNil(o.Elevation) {
-		return nil, false
-	}
-	return o.Elevation, true
-}
-
-// HasElevation returns a boolean if a field has been set.
-func (o *GetNetworkIpinfo200Response) HasElevation() bool {
-	if o != nil && !IsNil(o.Elevation) {
-		return true
-	}
-
-	return false
-}
-
-// SetElevation gets a reference to the given string and assigns it to the Elevation field.
-func (o *GetNetworkIpinfo200Response) SetElevation(v string) {
-	o.Elevation = &v
-}
-
-// GetWeatherStation returns the WeatherStation field value if set, zero value otherwise.
-func (o *GetNetworkIpinfo200Response) GetWeatherStation() string {
-	if o == nil || IsNil(o.WeatherStation) {
-		var ret string
-		return ret
-	}
-	return *o.WeatherStation
-}
-
-// GetWeatherStationOk returns a tuple with the WeatherStation field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkIpinfo200Response) GetWeatherStationOk() (*string, bool) {
-	if o == nil || IsNil(o.WeatherStation) {
-		return nil, false
-	}
-	return o.WeatherStation, true
-}
-
-// HasWeatherStation returns a boolean if a field has been set.
-func (o *GetNetworkIpinfo200Response) HasWeatherStation() bool {
-	if o != nil && !IsNil(o.WeatherStation) {
-		return true
-	}
-
-	return false
-}
-
-// SetWeatherStation gets a reference to the given string and assigns it to the WeatherStation field.
-func (o *GetNetworkIpinfo200Response) SetWeatherStation(v string) {
-	o.WeatherStation = &v
-}
-
 func (o GetNetworkIpinfo200Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -656,59 +388,35 @@ func (o GetNetworkIpinfo200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetNetworkIpinfo200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Asn) {
-		toSerialize["asn"] = o.Asn
-	}
-	if !IsNil(o.Beginip) {
-		toSerialize["beginip"] = o.Beginip
-	}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
-	if !IsNil(o.Endip) {
-		toSerialize["endip"] = o.Endip
-	}
 	if !IsNil(o.Ip) {
 		toSerialize["ip"] = o.Ip
-	}
-	if !IsNil(o.Isp) {
-		toSerialize["isp"] = o.Isp
-	}
-	if !IsNil(o.Latitude) {
-		toSerialize["latitude"] = o.Latitude
-	}
-	if !IsNil(o.Llc) {
-		toSerialize["llc"] = o.Llc
-	}
-	if !IsNil(o.Longitude) {
-		toSerialize["longitude"] = o.Longitude
 	}
 	if !IsNil(o.Region) {
 		toSerialize["region"] = o.Region
 	}
+	if !IsNil(o.Isp) {
+		toSerialize["isp"] = o.Isp
+	}
+	if !IsNil(o.Llc) {
+		toSerialize["llc"] = o.Llc
+	}
+	if !IsNil(o.Asn) {
+		toSerialize["asn"] = o.Asn
+	}
+	if !IsNil(o.Latitude) {
+		toSerialize["latitude"] = o.Latitude
+	}
+	if !IsNil(o.Longitude) {
+		toSerialize["longitude"] = o.Longitude
+	}
+	if !IsNil(o.Beginip) {
+		toSerialize["beginip"] = o.Beginip
+	}
+	if !IsNil(o.Endip) {
+		toSerialize["endip"] = o.Endip
+	}
 	if !IsNil(o.District) {
 		toSerialize["district"] = o.District
-	}
-	if !IsNil(o.AreaCode) {
-		toSerialize["area_code"] = o.AreaCode
-	}
-	if !IsNil(o.CityCode) {
-		toSerialize["city_code"] = o.CityCode
-	}
-	if !IsNil(o.ZipCode) {
-		toSerialize["zip_code"] = o.ZipCode
-	}
-	if !IsNil(o.TimeZone) {
-		toSerialize["time_zone"] = o.TimeZone
-	}
-	if !IsNil(o.Scenes) {
-		toSerialize["scenes"] = o.Scenes
-	}
-	if !IsNil(o.Elevation) {
-		toSerialize["elevation"] = o.Elevation
-	}
-	if !IsNil(o.WeatherStation) {
-		toSerialize["weather_station"] = o.WeatherStation
 	}
 	return toSerialize, nil
 }

@@ -43,6 +43,7 @@ type GetGithubRepo200Response struct {
 	Languages *map[string]int32 `json:"languages,omitempty"`
 	Collaborators []GetGithubRepo200ResponseCollaboratorsInner `json:"collaborators,omitempty"`
 	Maintainers []GetGithubRepo200ResponseCollaboratorsInner `json:"maintainers,omitempty"`
+	LatestRelease NullableGetGithubRepo200ResponseLatestRelease `json:"latest_release,omitempty"`
 }
 
 // NewGetGithubRepo200Response instantiates a new GetGithubRepo200Response object
@@ -799,6 +800,48 @@ func (o *GetGithubRepo200Response) SetMaintainers(v []GetGithubRepo200ResponseCo
 	o.Maintainers = v
 }
 
+// GetLatestRelease returns the LatestRelease field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetGithubRepo200Response) GetLatestRelease() GetGithubRepo200ResponseLatestRelease {
+	if o == nil || IsNil(o.LatestRelease.Get()) {
+		var ret GetGithubRepo200ResponseLatestRelease
+		return ret
+	}
+	return *o.LatestRelease.Get()
+}
+
+// GetLatestReleaseOk returns a tuple with the LatestRelease field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetGithubRepo200Response) GetLatestReleaseOk() (*GetGithubRepo200ResponseLatestRelease, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LatestRelease.Get(), o.LatestRelease.IsSet()
+}
+
+// HasLatestRelease returns a boolean if a field has been set.
+func (o *GetGithubRepo200Response) HasLatestRelease() bool {
+	if o != nil && o.LatestRelease.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLatestRelease gets a reference to the given NullableGetGithubRepo200ResponseLatestRelease and assigns it to the LatestRelease field.
+func (o *GetGithubRepo200Response) SetLatestRelease(v GetGithubRepo200ResponseLatestRelease) {
+	o.LatestRelease.Set(&v)
+}
+// SetLatestReleaseNil sets the value for LatestRelease to be an explicit nil
+func (o *GetGithubRepo200Response) SetLatestReleaseNil() {
+	o.LatestRelease.Set(nil)
+}
+
+// UnsetLatestRelease ensures that no value is present for LatestRelease, not even an explicit nil
+func (o *GetGithubRepo200Response) UnsetLatestRelease() {
+	o.LatestRelease.Unset()
+}
+
 func (o GetGithubRepo200Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -877,6 +920,9 @@ func (o GetGithubRepo200Response) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Maintainers) {
 		toSerialize["maintainers"] = o.Maintainers
+	}
+	if o.LatestRelease.IsSet() {
+		toSerialize["latest_release"] = o.LatestRelease.Get()
 	}
 	return toSerialize, nil
 }

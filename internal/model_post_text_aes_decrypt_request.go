@@ -25,7 +25,7 @@ type PostTextAesDecryptRequest struct {
 	Key string `json:"key"`
 	// Base64编码的密文。
 	Text string `json:"text"`
-	// 16�ֽڵ�IV/Nonce����Ϊ16���ַ�
+	// 16字节的IV/Nonce，必须为16个字符
 	Nonce string `json:"nonce"`
 }
 

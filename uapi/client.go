@@ -26,6 +26,15 @@ func (c *Client) do(method, path string, q map[string]string, body any) (any, er
 	defer fasthttp.ReleaseRequest(req); defer fasthttp.ReleaseResponse(resp)
 
 	req.SetRequestURI(url)
+	if len(q) > 0 {
+		query := req.URI().QueryArgs()
+		for k, v := range q {
+			if k == "" {
+				continue
+			}
+			query.Set(k, v)
+		}
+	}
 	req.Header.SetMethod(method)
 	req.Header.Set("Content-Type", "application/json")
 	if c.token != "" { req.Header.Set("Authorization", "Bearer "+c.token) }
@@ -42,7 +51,7 @@ func (c *Client) do(method, path string, q map[string]string, body any) (any, er
 		return nil, mapError(status, resp.Body())
 	}
 	ct := string(resp.Header.ContentType())
-	if ct == "application/json" {
+	if strings.HasPrefix(ct, "application/json") {
 		var v any
 		if err := json.Unmarshal(resp.Body(), &v); err == nil { return v, nil }
 	}
@@ -166,7 +175,7 @@ func (api *ImageApi) GetImageBingDaily(args map[string]any) (any, error) {
 	path := "/api/v1/image/bing-daily"
 	return api.c.do("GET", path, q, nil)
 }
-// 摸头 GIF
+// 生成摸摸头GIF (QQ号)
 func (api *ImageApi) GetImageMotou(args map[string]any) (any, error) {
 	q := map[string]string{}
 	if v, ok := args["qq"]; ok { q["qq"] = fmt.Sprint(v) }
@@ -180,6 +189,9 @@ func (api *ImageApi) GetImageQrcode(args map[string]any) (any, error) {
 	if v, ok := args["text"]; ok { q["text"] = fmt.Sprint(v) }
 	if v, ok := args["size"]; ok { q["size"] = fmt.Sprint(v) }
 	if v, ok := args["format"]; ok { q["format"] = fmt.Sprint(v) }
+	if v, ok := args["transparent"]; ok { q["transparent"] = fmt.Sprint(v) }
+	if v, ok := args["fgcolor"]; ok { q["fgcolor"] = fmt.Sprint(v) }
+	if v, ok := args["bgcolor"]; ok { q["bgcolor"] = fmt.Sprint(v) }
 	path := "/api/v1/image/qrcode"
 	return api.c.do("GET", path, q, nil)
 }
@@ -214,7 +226,7 @@ func (api *ImageApi) PostImageFrombase64(args map[string]any) (any, error) {
 	}
 	return api.c.do("POST", path, q, body)
 }
-// 摸头 GIF (上传)
+// 生成摸摸头GIF
 func (api *ImageApi) PostImageMotou(args map[string]any) (any, error) {
 	q := map[string]string{}
 	path := "/api/v1/image/motou"
@@ -222,6 +234,18 @@ func (api *ImageApi) PostImageMotou(args map[string]any) (any, error) {
 	if v, ok := args["bg_color"]; ok { body["bg_color"] = v }
 	if v, ok := args["file"]; ok { body["file"] = v }
 	if v, ok := args["image_url"]; ok { body["image_url"] = v }
+	if len(body) == 0 {
+		return api.c.do("POST", path, q, nil)
+	}
+	return api.c.do("POST", path, q, body)
+}
+// 图片敏感检测
+func (api *ImageApi) PostImageNsfw(args map[string]any) (any, error) {
+	q := map[string]string{}
+	path := "/api/v1/image/nsfw"
+	body := make(map[string]any)
+	if v, ok := args["file"]; ok { body["file"] = v }
+	if v, ok := args["url"]; ok { body["url"] = v }
 	if len(body) == 0 {
 		return api.c.do("POST", path, q, nil)
 	}
@@ -270,11 +294,51 @@ func (api *MiscApi) GetHistoryProgrammerToday(args map[string]any) (any, error) 
 	path := "/api/v1/history/programmer/today"
 	return api.c.do("GET", path, q, nil)
 }
+// Adcode 国内外行政区域查询
+func (api *MiscApi) GetMiscDistrict(args map[string]any) (any, error) {
+	q := map[string]string{}
+	if v, ok := args["keywords"]; ok { q["keywords"] = fmt.Sprint(v) }
+	if v, ok := args["adcode"]; ok { q["adcode"] = fmt.Sprint(v) }
+	if v, ok := args["lat"]; ok { q["lat"] = fmt.Sprint(v) }
+	if v, ok := args["lng"]; ok { q["lng"] = fmt.Sprint(v) }
+	if v, ok := args["level"]; ok { q["level"] = fmt.Sprint(v) }
+	if v, ok := args["country"]; ok { q["country"] = fmt.Sprint(v) }
+	if v, ok := args["limit"]; ok { q["limit"] = fmt.Sprint(v) }
+	path := "/api/v1/misc/district"
+	return api.c.do("GET", path, q, nil)
+}
+// 查询节假日与万年历
+func (api *MiscApi) GetMiscHolidayCalendar(args map[string]any) (any, error) {
+	q := map[string]string{}
+	if v, ok := args["date"]; ok { q["date"] = fmt.Sprint(v) }
+	if v, ok := args["month"]; ok { q["month"] = fmt.Sprint(v) }
+	if v, ok := args["year"]; ok { q["year"] = fmt.Sprint(v) }
+	if v, ok := args["timezone"]; ok { q["timezone"] = fmt.Sprint(v) }
+	if v, ok := args["holiday_type"]; ok { q["holiday_type"] = fmt.Sprint(v) }
+	if v, ok := args["include_nearby"]; ok { q["include_nearby"] = fmt.Sprint(v) }
+	if v, ok := args["nearby_limit"]; ok { q["nearby_limit"] = fmt.Sprint(v) }
+	path := "/api/v1/misc/holiday-calendar"
+	return api.c.do("GET", path, q, nil)
+}
 // 查询热榜
 func (api *MiscApi) GetMiscHotboard(args map[string]any) (any, error) {
 	q := map[string]string{}
 	if v, ok := args["type"]; ok { q["type"] = fmt.Sprint(v) }
+	if v, ok := args["time"]; ok { q["time"] = fmt.Sprint(v) }
+	if v, ok := args["keyword"]; ok { q["keyword"] = fmt.Sprint(v) }
+	if v, ok := args["time_start"]; ok { q["time_start"] = fmt.Sprint(v) }
+	if v, ok := args["time_end"]; ok { q["time_end"] = fmt.Sprint(v) }
+	if v, ok := args["limit"]; ok { q["limit"] = fmt.Sprint(v) }
+	if v, ok := args["sources"]; ok { q["sources"] = fmt.Sprint(v) }
 	path := "/api/v1/misc/hotboard"
+	return api.c.do("GET", path, q, nil)
+}
+// 查询农历时间
+func (api *MiscApi) GetMiscLunartime(args map[string]any) (any, error) {
+	q := map[string]string{}
+	if v, ok := args["ts"]; ok { q["ts"] = fmt.Sprint(v) }
+	if v, ok := args["timezone"]; ok { q["timezone"] = fmt.Sprint(v) }
+	path := "/api/v1/misc/lunartime"
 	return api.c.do("GET", path, q, nil)
 }
 // 查询手机归属地
@@ -321,6 +385,7 @@ func (api *MiscApi) GetMiscTrackingQuery(args map[string]any) (any, error) {
 	q := map[string]string{}
 	if v, ok := args["tracking_number"]; ok { q["tracking_number"] = fmt.Sprint(v) }
 	if v, ok := args["carrier_code"]; ok { q["carrier_code"] = fmt.Sprint(v) }
+	if v, ok := args["phone"]; ok { q["phone"] = fmt.Sprint(v) }
 	path := "/api/v1/misc/tracking/query"
 	return api.c.do("GET", path, q, nil)
 }
@@ -330,8 +395,11 @@ func (api *MiscApi) GetMiscWeather(args map[string]any) (any, error) {
 	if v, ok := args["city"]; ok { q["city"] = fmt.Sprint(v) }
 	if v, ok := args["adcode"]; ok { q["adcode"] = fmt.Sprint(v) }
 	if v, ok := args["extended"]; ok { q["extended"] = fmt.Sprint(v) }
-	if v, ok := args["indices"]; ok { q["indices"] = fmt.Sprint(v) }
 	if v, ok := args["forecast"]; ok { q["forecast"] = fmt.Sprint(v) }
+	if v, ok := args["hourly"]; ok { q["hourly"] = fmt.Sprint(v) }
+	if v, ok := args["minutely"]; ok { q["minutely"] = fmt.Sprint(v) }
+	if v, ok := args["indices"]; ok { q["indices"] = fmt.Sprint(v) }
+	if v, ok := args["lang"]; ok { q["lang"] = fmt.Sprint(v) }
 	path := "/api/v1/misc/weather"
 	return api.c.do("GET", path, q, nil)
 }
@@ -761,7 +829,7 @@ func (api *WebparseApi) GetWebparseExtractimages(args map[string]any) (any, erro
 	path := "/api/v1/webparse/extractimages"
 	return api.c.do("GET", path, q, nil)
 }
-// 网页元数据
+// 提取网页元数据
 func (api *WebparseApi) GetWebparseMetadata(args map[string]any) (any, error) {
 	q := map[string]string{}
 	if v, ok := args["url"]; ok { q["url"] = fmt.Sprint(v) }

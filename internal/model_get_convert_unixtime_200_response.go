@@ -19,8 +19,6 @@ var _ MappedNullable = &GetConvertUnixtime200Response{}
 
 // GetConvertUnixtime200Response struct for GetConvertUnixtime200Response
 type GetConvertUnixtime200Response struct {
-	// 状态码，200代表操作成功。
-	Code *int32 `json:"code,omitempty"`
 	// 标准格式（YYYY-MM-DD HH:mm:ss）的日期时间字符串。
 	Datetime *string `json:"datetime,omitempty"`
 	// 转换后的10位秒级Unix时间戳。
@@ -42,38 +40,6 @@ func NewGetConvertUnixtime200Response() *GetConvertUnixtime200Response {
 func NewGetConvertUnixtime200ResponseWithDefaults() *GetConvertUnixtime200Response {
 	this := GetConvertUnixtime200Response{}
 	return &this
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetConvertUnixtime200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetConvertUnixtime200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *GetConvertUnixtime200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetConvertUnixtime200Response) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetDatetime returns the Datetime field value if set, zero value otherwise.
@@ -150,9 +116,6 @@ func (o GetConvertUnixtime200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetConvertUnixtime200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
 	if !IsNil(o.Datetime) {
 		toSerialize["datetime"] = o.Datetime
 	}

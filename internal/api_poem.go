@@ -32,7 +32,7 @@ func (r ApiGetSayingRequest) Execute() (*GetSaying200Response, *http.Response, e
 }
 
 /*
-GetSaying 随机获取一句诗词或名言
+GetSaying 一言
 
 想在你的应用里每天展示一句不一样的话，给用户一点小小的惊喜吗？这个“一言”接口就是为此而生。
 

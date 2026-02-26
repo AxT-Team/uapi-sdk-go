@@ -19,8 +19,6 @@ var _ MappedNullable = &GetGameMinecraftServerstatus200Response{}
 
 // GetGameMinecraftServerstatus200Response struct for GetGameMinecraftServerstatus200Response
 type GetGameMinecraftServerstatus200Response struct {
-	// 状态码，200代表成功。
-	Code *int32 `json:"code,omitempty"`
 	// 服务器图标的 Base64 Data URI。你可以直接在 `<img>` 标签的 `src` 属性中使用它。
 	FaviconUrl *string `json:"favicon_url,omitempty"`
 	// 服务器解析后的IP地址。
@@ -56,38 +54,6 @@ func NewGetGameMinecraftServerstatus200Response() *GetGameMinecraftServerstatus2
 func NewGetGameMinecraftServerstatus200ResponseWithDefaults() *GetGameMinecraftServerstatus200Response {
 	this := GetGameMinecraftServerstatus200Response{}
 	return &this
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetGameMinecraftServerstatus200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetGameMinecraftServerstatus200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *GetGameMinecraftServerstatus200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetGameMinecraftServerstatus200Response) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetFaviconUrl returns the FaviconUrl field value if set, zero value otherwise.
@@ -388,9 +354,6 @@ func (o GetGameMinecraftServerstatus200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetGameMinecraftServerstatus200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
 	if !IsNil(o.FaviconUrl) {
 		toSerialize["favicon_url"] = o.FaviconUrl
 	}

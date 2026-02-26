@@ -332,12 +332,12 @@ func (r ApiGetNetworkIpinfoRequest) Execute() (*GetNetworkIpinfo200Response, *ht
 }
 
 /*
-GetNetworkIpinfo 查询指定IP或域名的归属信息
+GetNetworkIpinfo 查询 IP
 
-想知道一个IP地址或域名来自地球的哪个角落？这个接口可以帮你定位它。你可以选择使用默认的GeoIP数据库，也可以指定 `source=commercial` 参数来查询更详细的商业级IP归属信息。
+想知道一个IP地址或域名来自地球的哪个角落？这个接口可以帮你定位它。你可以使用默认数据源，也可以指定 `source=commercial` 参数来查询更详细的商业级IP归属信息。
 
 ## 功能概述
-提供一个公网IPv4、IPv6地址或域名，我们会利用GeoIP数据库查询并返回它的地理位置（国家、省份、城市）、经纬度、以及所属的运营商（ISP）和自治系统（ASN）信息。这在网络安全分析、访问来源统计等领域非常有用。
+提供一个公网IPv4、IPv6地址或域名，我们会查询并返回它的地理位置（国家、省份、城市）、经纬度、以及所属的运营商（ISP）和自治系统（ASN）信息。这在网络安全分析、访问来源统计等领域非常有用。
 
 当使用 `source=commercial` 参数时，接口将调用高性能商业API，提供更精确的市、区、运营商、时区、海拔等信息。请注意，商业查询的响应时间可能会稍长。
 
@@ -477,14 +477,14 @@ func (r ApiGetNetworkMyipRequest) Source(source string) ApiGetNetworkMyipRequest
 	return r
 }
 
-func (r ApiGetNetworkMyipRequest) Execute() (*GetNetworkIpinfo200Response, *http.Response, error) {
+func (r ApiGetNetworkMyipRequest) Execute() (*GetNetworkMyip200Response, *http.Response, error) {
 	return r.ApiService.GetNetworkMyipExecute(r)
 }
 
 /*
-GetNetworkMyip 获取你的公网IP及归属信息
+GetNetworkMyip 查询我的 IP
 
-想知道你自己的出口公网IP是多少吗？这个接口就是你的“网络身份证”。你可以选择使用默认的GeoIP数据库，也可以指定 `source=commercial` 参数来查询更详细的商业级IP归属信息。
+想知道你自己的出口公网IP是多少吗？这个接口就是你的“网络身份证”。你可以使用默认数据源，也可以指定 `source=commercial` 参数来查询更详细的商业级IP归属信息。
 
 ## 功能概述
 调用此接口，它会返回你（即发起请求的客户端）的公网IP地址，并附带与 `/network/ipinfo` 接口相同的地理位置和网络归属信息。非常适合用于在网页上向用户展示他们自己的IP和地理位置。
@@ -502,13 +502,13 @@ func (a *NetworkAPIService) GetNetworkMyip(ctx context.Context) ApiGetNetworkMyi
 }
 
 // Execute executes the request
-//  @return GetNetworkIpinfo200Response
-func (a *NetworkAPIService) GetNetworkMyipExecute(r ApiGetNetworkMyipRequest) (*GetNetworkIpinfo200Response, *http.Response, error) {
+//  @return GetNetworkMyip200Response
+func (a *NetworkAPIService) GetNetworkMyipExecute(r ApiGetNetworkMyipRequest) (*GetNetworkMyip200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *GetNetworkIpinfo200Response
+		localVarReturnValue  *GetNetworkMyip200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NetworkAPIService.GetNetworkMyip")
@@ -617,7 +617,7 @@ func (r ApiGetNetworkPingRequest) Execute() (*GetNetworkPing200Response, *http.R
 }
 
 /*
-GetNetworkPing 从服务器Ping指定主机
+GetNetworkPing Ping 主机
 
 想知道从我们的服务器到你的服务器网络延迟高不高？这个工具可以帮你测试网络连通性。
 
@@ -744,7 +744,7 @@ func (r ApiGetNetworkPingmyipRequest) Execute() (*GetNetworkPingmyip200Response,
 }
 
 /*
-GetNetworkPingmyip 从服务器Ping你的客户端IP
+GetNetworkPingmyip Ping 我的 IP
 
 这是一个非常方便的快捷接口，想知道你的网络到我们服务器的回程延迟吗？点一下就行！
 
@@ -888,7 +888,7 @@ func (r ApiGetNetworkPortscanRequest) Execute() (*GetNetworkPortscan200Response,
 }
 
 /*
-GetNetworkPortscan 扫描远程主机的指定端口
+GetNetworkPortscan 端口扫描
 
 想检查一下你的服务器上某个端口（比如SSH的22端口或者Web的80端口）是否对外开放？这个工具可以帮你快速确认。
 
@@ -1039,9 +1039,6 @@ GetNetworkUrlstatus 检查URL的可访问性状态
 
 ## 功能概述
 提供一个URL，我们会向它发起一个请求，并返回其HTTP响应状态码。这是一种简单而有效的服务可用性监控方法。
-
-> [!TIP]
-> **性能优化**：为了提高效率并减少对目标服务器的负载，我们实际发送的是 `HEAD` 请求，而不是 `GET` 请求。`HEAD` 请求只会获取响应头，而不会下载整个页面内容，因此速度更快。
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetNetworkUrlstatusRequest

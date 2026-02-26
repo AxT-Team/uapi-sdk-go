@@ -18,37 +18,37 @@ import (
 
 // GetStatusUsage200Response struct for GetStatusUsage200Response
 type GetStatusUsage200Response struct {
-	EndpointsAggregate *EndpointsAggregate
-	SingleEndpoint *SingleEndpoint
+	GetStatusUsage200ResponseAnyOf *GetStatusUsage200ResponseAnyOf
+	GetStatusUsage200ResponseAnyOf1 *GetStatusUsage200ResponseAnyOf1
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *GetStatusUsage200Response) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into EndpointsAggregate
-	err = json.Unmarshal(data, &dst.EndpointsAggregate);
+	// try to unmarshal JSON data into GetStatusUsage200ResponseAnyOf
+	err = json.Unmarshal(data, &dst.GetStatusUsage200ResponseAnyOf);
 	if err == nil {
-		jsonEndpointsAggregate, _ := json.Marshal(dst.EndpointsAggregate)
-		if string(jsonEndpointsAggregate) == "{}" { // empty struct
-			dst.EndpointsAggregate = nil
+		jsonGetStatusUsage200ResponseAnyOf, _ := json.Marshal(dst.GetStatusUsage200ResponseAnyOf)
+		if string(jsonGetStatusUsage200ResponseAnyOf) == "{}" { // empty struct
+			dst.GetStatusUsage200ResponseAnyOf = nil
 		} else {
-			return nil // data stored in dst.EndpointsAggregate, return on the first match
+			return nil // data stored in dst.GetStatusUsage200ResponseAnyOf, return on the first match
 		}
 	} else {
-		dst.EndpointsAggregate = nil
+		dst.GetStatusUsage200ResponseAnyOf = nil
 	}
 
-	// try to unmarshal JSON data into SingleEndpoint
-	err = json.Unmarshal(data, &dst.SingleEndpoint);
+	// try to unmarshal JSON data into GetStatusUsage200ResponseAnyOf1
+	err = json.Unmarshal(data, &dst.GetStatusUsage200ResponseAnyOf1);
 	if err == nil {
-		jsonSingleEndpoint, _ := json.Marshal(dst.SingleEndpoint)
-		if string(jsonSingleEndpoint) == "{}" { // empty struct
-			dst.SingleEndpoint = nil
+		jsonGetStatusUsage200ResponseAnyOf1, _ := json.Marshal(dst.GetStatusUsage200ResponseAnyOf1)
+		if string(jsonGetStatusUsage200ResponseAnyOf1) == "{}" { // empty struct
+			dst.GetStatusUsage200ResponseAnyOf1 = nil
 		} else {
-			return nil // data stored in dst.SingleEndpoint, return on the first match
+			return nil // data stored in dst.GetStatusUsage200ResponseAnyOf1, return on the first match
 		}
 	} else {
-		dst.SingleEndpoint = nil
+		dst.GetStatusUsage200ResponseAnyOf1 = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(GetStatusUsage200Response)")
@@ -56,12 +56,12 @@ func (dst *GetStatusUsage200Response) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src GetStatusUsage200Response) MarshalJSON() ([]byte, error) {
-	if src.EndpointsAggregate != nil {
-		return json.Marshal(&src.EndpointsAggregate)
+	if src.GetStatusUsage200ResponseAnyOf != nil {
+		return json.Marshal(&src.GetStatusUsage200ResponseAnyOf)
 	}
 
-	if src.SingleEndpoint != nil {
-		return json.Marshal(&src.SingleEndpoint)
+	if src.GetStatusUsage200ResponseAnyOf1 != nil {
+		return json.Marshal(&src.GetStatusUsage200ResponseAnyOf1)
 	}
 
 	return nil, nil // no data in anyOf schemas

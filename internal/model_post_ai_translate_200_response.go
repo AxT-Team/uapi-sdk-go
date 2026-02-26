@@ -19,7 +19,6 @@ var _ MappedNullable = &PostAiTranslate200Response{}
 
 // PostAiTranslate200Response struct for PostAiTranslate200Response
 type PostAiTranslate200Response struct {
-	Code *int32 `json:"code,omitempty"`
 	Message *string `json:"message,omitempty"`
 	// 标识是否为批量翻译请求。
 	IsBatch *bool `json:"is_batch,omitempty"`
@@ -46,38 +45,6 @@ func NewPostAiTranslate200Response() *PostAiTranslate200Response {
 func NewPostAiTranslate200ResponseWithDefaults() *PostAiTranslate200Response {
 	this := PostAiTranslate200Response{}
 	return &this
-}
-
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *PostAiTranslate200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAiTranslate200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *PostAiTranslate200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *PostAiTranslate200Response) SetCode(v int32) {
-	o.Code = &v
 }
 
 // GetMessage returns the Message field value if set, zero value otherwise.
@@ -314,9 +281,6 @@ func (o PostAiTranslate200Response) MarshalJSON() ([]byte, error) {
 
 func (o PostAiTranslate200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
-	}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}

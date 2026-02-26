@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Avg** | Pointer to **float32** | 平均延迟(ms) | [optional] 
-**Code** | Pointer to **int32** |  | [optional] 
 **Host** | Pointer to **string** |  | [optional] 
 **Ip** | Pointer to **string** |  | [optional] 
 **Location** | Pointer to **string** |  | [optional] 
@@ -55,31 +54,6 @@ SetAvg sets Avg field to given value.
 `func (o *GetNetworkPingmyip200Response) HasAvg() bool`
 
 HasAvg returns a boolean if a field has been set.
-
-### GetCode
-
-`func (o *GetNetworkPingmyip200Response) GetCode() int32`
-
-GetCode returns the Code field if non-nil, zero value otherwise.
-
-### GetCodeOk
-
-`func (o *GetNetworkPingmyip200Response) GetCodeOk() (*int32, bool)`
-
-GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCode
-
-`func (o *GetNetworkPingmyip200Response) SetCode(v int32)`
-
-SetCode sets Code field to given value.
-
-### HasCode
-
-`func (o *GetNetworkPingmyip200Response) HasCode() bool`
-
-HasCode returns a boolean if a field has been set.
 
 ### GetHost
 
