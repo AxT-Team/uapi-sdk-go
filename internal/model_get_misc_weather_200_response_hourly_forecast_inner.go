@@ -47,7 +47,7 @@ type GetMiscWeather200ResponseHourlyForecastInner struct {
 	Visibility *float32 `json:"visibility,omitempty"`
 	// 降水概率 %（可选）
 	Pop *float32 `json:"pop,omitempty"`
-	// 紫外线指数（可选）
+	// 紫外线指数（可选，国内城市通常不返回）
 	UvIndex *float32 `json:"uv_index,omitempty"`
 }
 

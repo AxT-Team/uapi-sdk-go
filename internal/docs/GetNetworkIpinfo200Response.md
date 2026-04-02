@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **Longitude** | Pointer to **float32** | 经度 | [optional] 
 **Beginip** | Pointer to **string** | IP段起始地址（标准查询） | [optional] 
 **Endip** | Pointer to **string** | IP段结束地址（标准查询） | [optional] 
-**District** | Pointer to **string** | 行政区（商业查询） | [optional] 
 
 ## Methods
 
@@ -258,31 +257,6 @@ SetEndip sets Endip field to given value.
 `func (o *GetNetworkIpinfo200Response) HasEndip() bool`
 
 HasEndip returns a boolean if a field has been set.
-
-### GetDistrict
-
-`func (o *GetNetworkIpinfo200Response) GetDistrict() string`
-
-GetDistrict returns the District field if non-nil, zero value otherwise.
-
-### GetDistrictOk
-
-`func (o *GetNetworkIpinfo200Response) GetDistrictOk() (*string, bool)`
-
-GetDistrictOk returns a tuple with the District field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDistrict
-
-`func (o *GetNetworkIpinfo200Response) SetDistrict(v string)`
-
-SetDistrict sets District field to given value.
-
-### HasDistrict
-
-`func (o *GetNetworkIpinfo200Response) HasDistrict() bool`
-
-HasDistrict returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

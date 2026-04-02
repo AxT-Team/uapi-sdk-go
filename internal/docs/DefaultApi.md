@@ -94,7 +94,7 @@ import (
 )
 
 func main() {
-	keyword := "喵" // string | 要分析的关键词，最长50字符。
+	keyword := "喵" // string | 要分析的关键词，最长1,000字符。
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -119,7 +119,7 @@ Other parameters are passed through a pointer to a apiGetSensitiveWordAnalyzeQue
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keyword** | **string** | 要分析的关键词，最长50字符。 | 
+ **keyword** | **string** | 要分析的关键词，最长1,000字符。 | 
 
 ### Return type
 
@@ -160,7 +160,7 @@ import (
 )
 
 func main() {
-	postSearchAggregateRequest := *openapiclient.NewPostSearchAggregateRequest("Go最新的版本是多少") // PostSearchAggregateRequest | 包含搜索参数的JSON对象
+	postSearchAggregateRequest := *openapiclient.NewPostSearchAggregateRequest("Go最新的版本是多少") // PostSearchAggregateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -185,7 +185,7 @@ Other parameters are passed through a pointer to a apiPostSearchAggregateRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postSearchAggregateRequest** | [**PostSearchAggregateRequest**](PostSearchAggregateRequest.md) | 包含搜索参数的JSON对象 | 
+ **postSearchAggregateRequest** | [**PostSearchAggregateRequest**](PostSearchAggregateRequest.md) |  | 
 
 ### Return type
 
@@ -226,7 +226,7 @@ import (
 )
 
 func main() {
-	postSensitiveWordAnalyzeRequest := *openapiclient.NewPostSensitiveWordAnalyzeRequest([]string{"Keywords_example"}) // PostSensitiveWordAnalyzeRequest | 包含待检测文本 'keywords' 的JSON对象
+	postSensitiveWordAnalyzeRequest := *openapiclient.NewPostSensitiveWordAnalyzeRequest([]string{"Keywords_example"}) // PostSensitiveWordAnalyzeRequest | 包含待检测关键词列表 `keywords` 的 JSON 对象。单条关键词最多 1,000 字符，总字符数最多 20,000。
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -251,7 +251,7 @@ Other parameters are passed through a pointer to a apiPostSensitiveWordAnalyzeRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postSensitiveWordAnalyzeRequest** | [**PostSensitiveWordAnalyzeRequest**](PostSensitiveWordAnalyzeRequest.md) | 包含待检测文本 &#39;keywords&#39; 的JSON对象 | 
+ **postSensitiveWordAnalyzeRequest** | [**PostSensitiveWordAnalyzeRequest**](PostSensitiveWordAnalyzeRequest.md) | 包含待检测关键词列表 &#x60;keywords&#x60; 的 JSON 对象。单条关键词最多 1,000 字符，总字符数最多 20,000。 | 
 
 ### Return type
 

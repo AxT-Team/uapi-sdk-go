@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **DewPoint** | Pointer to **float32** | 露点温度 °C（可选） | [optional] 
 **Visibility** | Pointer to **float32** | 能见度 km（可选） | [optional] 
 **Pop** | Pointer to **float32** | 降水概率 %（可选） | [optional] 
-**UvIndex** | Pointer to **float32** | 紫外线指数（可选） | [optional] 
+**UvIndex** | Pointer to **float32** | 紫外线指数（可选，国内城市通常不返回） | [optional] 
 
 ## Methods
 

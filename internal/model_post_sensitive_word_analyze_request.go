@@ -21,7 +21,7 @@ var _ MappedNullable = &PostSensitiveWordAnalyzeRequest{}
 
 // PostSensitiveWordAnalyzeRequest struct for PostSensitiveWordAnalyzeRequest
 type PostSensitiveWordAnalyzeRequest struct {
-	// 要分析的关键词列表，单次最多100个，每个关键词最长50字符。
+	// 要分析的关键词列表，单次最多100个。单条关键词最多1,000字符，总字符数最多20,000。
 	Keywords []string `json:"keywords"`
 }
 

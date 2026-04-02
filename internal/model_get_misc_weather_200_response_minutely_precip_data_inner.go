@@ -21,7 +21,7 @@ var _ MappedNullable = &GetMiscWeather200ResponseMinutelyPrecipDataInner{}
 type GetMiscWeather200ResponseMinutelyPrecipDataInner struct {
 	// 预报时间 ISO8601
 	Time *string `json:"time,omitempty"`
-	// 5分钟累计降水量 mm
+	// 该时间点的降水量 mm
 	Precip *float32 `json:"precip,omitempty"`
 	// 降水类型：rain / snow
 	Type *string `json:"type,omitempty"`

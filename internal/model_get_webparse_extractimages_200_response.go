@@ -19,9 +19,10 @@ var _ MappedNullable = &GetWebparseExtractimages200Response{}
 
 // GetWebparseExtractimages200Response struct for GetWebparseExtractimages200Response
 type GetWebparseExtractimages200Response struct {
-	Count *int32 `json:"count,omitempty"`
-	Images []string `json:"images,omitempty"`
-	Url *string `json:"url,omitempty"`
+	// 实际解析的网页地址。
+	PageUrl *string `json:"page_url,omitempty"`
+	// 页面中提取到的图片链接列表。
+	ImageUrls []string `json:"image_urls,omitempty"`
 }
 
 // NewGetWebparseExtractimages200Response instantiates a new GetWebparseExtractimages200Response object
@@ -41,100 +42,68 @@ func NewGetWebparseExtractimages200ResponseWithDefaults() *GetWebparseExtractima
 	return &this
 }
 
-// GetCount returns the Count field value if set, zero value otherwise.
-func (o *GetWebparseExtractimages200Response) GetCount() int32 {
-	if o == nil || IsNil(o.Count) {
-		var ret int32
-		return ret
-	}
-	return *o.Count
-}
-
-// GetCountOk returns a tuple with the Count field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetWebparseExtractimages200Response) GetCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.Count) {
-		return nil, false
-	}
-	return o.Count, true
-}
-
-// HasCount returns a boolean if a field has been set.
-func (o *GetWebparseExtractimages200Response) HasCount() bool {
-	if o != nil && !IsNil(o.Count) {
-		return true
-	}
-
-	return false
-}
-
-// SetCount gets a reference to the given int32 and assigns it to the Count field.
-func (o *GetWebparseExtractimages200Response) SetCount(v int32) {
-	o.Count = &v
-}
-
-// GetImages returns the Images field value if set, zero value otherwise.
-func (o *GetWebparseExtractimages200Response) GetImages() []string {
-	if o == nil || IsNil(o.Images) {
-		var ret []string
-		return ret
-	}
-	return o.Images
-}
-
-// GetImagesOk returns a tuple with the Images field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetWebparseExtractimages200Response) GetImagesOk() ([]string, bool) {
-	if o == nil || IsNil(o.Images) {
-		return nil, false
-	}
-	return o.Images, true
-}
-
-// HasImages returns a boolean if a field has been set.
-func (o *GetWebparseExtractimages200Response) HasImages() bool {
-	if o != nil && !IsNil(o.Images) {
-		return true
-	}
-
-	return false
-}
-
-// SetImages gets a reference to the given []string and assigns it to the Images field.
-func (o *GetWebparseExtractimages200Response) SetImages(v []string) {
-	o.Images = v
-}
-
-// GetUrl returns the Url field value if set, zero value otherwise.
-func (o *GetWebparseExtractimages200Response) GetUrl() string {
-	if o == nil || IsNil(o.Url) {
+// GetPageUrl returns the PageUrl field value if set, zero value otherwise.
+func (o *GetWebparseExtractimages200Response) GetPageUrl() string {
+	if o == nil || IsNil(o.PageUrl) {
 		var ret string
 		return ret
 	}
-	return *o.Url
+	return *o.PageUrl
 }
 
-// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
+// GetPageUrlOk returns a tuple with the PageUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetWebparseExtractimages200Response) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url) {
+func (o *GetWebparseExtractimages200Response) GetPageUrlOk() (*string, bool) {
+	if o == nil || IsNil(o.PageUrl) {
 		return nil, false
 	}
-	return o.Url, true
+	return o.PageUrl, true
 }
 
-// HasUrl returns a boolean if a field has been set.
-func (o *GetWebparseExtractimages200Response) HasUrl() bool {
-	if o != nil && !IsNil(o.Url) {
+// HasPageUrl returns a boolean if a field has been set.
+func (o *GetWebparseExtractimages200Response) HasPageUrl() bool {
+	if o != nil && !IsNil(o.PageUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetUrl gets a reference to the given string and assigns it to the Url field.
-func (o *GetWebparseExtractimages200Response) SetUrl(v string) {
-	o.Url = &v
+// SetPageUrl gets a reference to the given string and assigns it to the PageUrl field.
+func (o *GetWebparseExtractimages200Response) SetPageUrl(v string) {
+	o.PageUrl = &v
+}
+
+// GetImageUrls returns the ImageUrls field value if set, zero value otherwise.
+func (o *GetWebparseExtractimages200Response) GetImageUrls() []string {
+	if o == nil || IsNil(o.ImageUrls) {
+		var ret []string
+		return ret
+	}
+	return o.ImageUrls
+}
+
+// GetImageUrlsOk returns a tuple with the ImageUrls field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetWebparseExtractimages200Response) GetImageUrlsOk() ([]string, bool) {
+	if o == nil || IsNil(o.ImageUrls) {
+		return nil, false
+	}
+	return o.ImageUrls, true
+}
+
+// HasImageUrls returns a boolean if a field has been set.
+func (o *GetWebparseExtractimages200Response) HasImageUrls() bool {
+	if o != nil && !IsNil(o.ImageUrls) {
+		return true
+	}
+
+	return false
+}
+
+// SetImageUrls gets a reference to the given []string and assigns it to the ImageUrls field.
+func (o *GetWebparseExtractimages200Response) SetImageUrls(v []string) {
+	o.ImageUrls = v
 }
 
 func (o GetWebparseExtractimages200Response) MarshalJSON() ([]byte, error) {
@@ -147,14 +116,11 @@ func (o GetWebparseExtractimages200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetWebparseExtractimages200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Count) {
-		toSerialize["count"] = o.Count
+	if !IsNil(o.PageUrl) {
+		toSerialize["page_url"] = o.PageUrl
 	}
-	if !IsNil(o.Images) {
-		toSerialize["images"] = o.Images
-	}
-	if !IsNil(o.Url) {
-		toSerialize["url"] = o.Url
+	if !IsNil(o.ImageUrls) {
+		toSerialize["image_urls"] = o.ImageUrls
 	}
 	return toSerialize, nil
 }

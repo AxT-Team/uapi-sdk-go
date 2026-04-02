@@ -4,9 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | Pointer to **int32** |  | [optional] 
-**Images** | Pointer to **[]string** |  | [optional] 
-**Url** | Pointer to **string** |  | [optional] 
+**PageUrl** | Pointer to **string** | 实际解析的网页地址。 | [optional] 
+**ImageUrls** | Pointer to **[]string** | 页面中提取到的图片链接列表。 | [optional] 
 
 ## Methods
 
@@ -27,80 +26,55 @@ NewGetWebparseExtractimages200ResponseWithDefaults instantiates a new GetWebpars
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetCount
+### GetPageUrl
 
-`func (o *GetWebparseExtractimages200Response) GetCount() int32`
+`func (o *GetWebparseExtractimages200Response) GetPageUrl() string`
 
-GetCount returns the Count field if non-nil, zero value otherwise.
+GetPageUrl returns the PageUrl field if non-nil, zero value otherwise.
 
-### GetCountOk
+### GetPageUrlOk
 
-`func (o *GetWebparseExtractimages200Response) GetCountOk() (*int32, bool)`
+`func (o *GetWebparseExtractimages200Response) GetPageUrlOk() (*string, bool)`
 
-GetCountOk returns a tuple with the Count field if it's non-nil, zero value otherwise
+GetPageUrlOk returns a tuple with the PageUrl field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCount
+### SetPageUrl
 
-`func (o *GetWebparseExtractimages200Response) SetCount(v int32)`
+`func (o *GetWebparseExtractimages200Response) SetPageUrl(v string)`
 
-SetCount sets Count field to given value.
+SetPageUrl sets PageUrl field to given value.
 
-### HasCount
+### HasPageUrl
 
-`func (o *GetWebparseExtractimages200Response) HasCount() bool`
+`func (o *GetWebparseExtractimages200Response) HasPageUrl() bool`
 
-HasCount returns a boolean if a field has been set.
+HasPageUrl returns a boolean if a field has been set.
 
-### GetImages
+### GetImageUrls
 
-`func (o *GetWebparseExtractimages200Response) GetImages() []string`
+`func (o *GetWebparseExtractimages200Response) GetImageUrls() []string`
 
-GetImages returns the Images field if non-nil, zero value otherwise.
+GetImageUrls returns the ImageUrls field if non-nil, zero value otherwise.
 
-### GetImagesOk
+### GetImageUrlsOk
 
-`func (o *GetWebparseExtractimages200Response) GetImagesOk() (*[]string, bool)`
+`func (o *GetWebparseExtractimages200Response) GetImageUrlsOk() (*[]string, bool)`
 
-GetImagesOk returns a tuple with the Images field if it's non-nil, zero value otherwise
+GetImageUrlsOk returns a tuple with the ImageUrls field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetImages
+### SetImageUrls
 
-`func (o *GetWebparseExtractimages200Response) SetImages(v []string)`
+`func (o *GetWebparseExtractimages200Response) SetImageUrls(v []string)`
 
-SetImages sets Images field to given value.
+SetImageUrls sets ImageUrls field to given value.
 
-### HasImages
+### HasImageUrls
 
-`func (o *GetWebparseExtractimages200Response) HasImages() bool`
+`func (o *GetWebparseExtractimages200Response) HasImageUrls() bool`
 
-HasImages returns a boolean if a field has been set.
-
-### GetUrl
-
-`func (o *GetWebparseExtractimages200Response) GetUrl() string`
-
-GetUrl returns the Url field if non-nil, zero value otherwise.
-
-### GetUrlOk
-
-`func (o *GetWebparseExtractimages200Response) GetUrlOk() (*string, bool)`
-
-GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUrl
-
-`func (o *GetWebparseExtractimages200Response) SetUrl(v string)`
-
-SetUrl sets Url field to given value.
-
-### HasUrl
-
-`func (o *GetWebparseExtractimages200Response) HasUrl() bool`
-
-HasUrl returns a boolean if a field has been set.
+HasImageUrls returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

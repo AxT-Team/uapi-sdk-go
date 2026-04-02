@@ -19,9 +19,15 @@ var _ MappedNullable = &GetMiscHolidayCalendar200Response{}
 
 // GetMiscHolidayCalendar200Response struct for GetMiscHolidayCalendar200Response
 type GetMiscHolidayCalendar200Response struct {
-	Code *int32 `json:"code,omitempty"`
-	Message *string `json:"message,omitempty"`
-	Data *GetMiscHolidayCalendar200ResponseData `json:"data,omitempty"`
+	// 查询模式：day、month、year。
+	Mode *string `json:"mode,omitempty"`
+	Query *GetMiscHolidayCalendar200ResponseQuery `json:"query,omitempty"`
+	Summary *GetMiscHolidayCalendar200ResponseSummary `json:"summary,omitempty"`
+	// 日期明细列表。
+	Days []GetMiscHolidayCalendar200ResponseDaysInner `json:"days,omitempty"`
+	// 节日事件列表。
+	Holidays []GetMiscHolidayCalendar200ResponseHolidaysInner `json:"holidays,omitempty"`
+	Nearby *GetMiscHolidayCalendar200ResponseNearby `json:"nearby,omitempty"`
 }
 
 // NewGetMiscHolidayCalendar200Response instantiates a new GetMiscHolidayCalendar200Response object
@@ -41,100 +47,196 @@ func NewGetMiscHolidayCalendar200ResponseWithDefaults() *GetMiscHolidayCalendar2
 	return &this
 }
 
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetMiscHolidayCalendar200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetMiscHolidayCalendar200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *GetMiscHolidayCalendar200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetMiscHolidayCalendar200Response) SetCode(v int32) {
-	o.Code = &v
-}
-
-// GetMessage returns the Message field value if set, zero value otherwise.
-func (o *GetMiscHolidayCalendar200Response) GetMessage() string {
-	if o == nil || IsNil(o.Message) {
+// GetMode returns the Mode field value if set, zero value otherwise.
+func (o *GetMiscHolidayCalendar200Response) GetMode() string {
+	if o == nil || IsNil(o.Mode) {
 		var ret string
 		return ret
 	}
-	return *o.Message
+	return *o.Mode
 }
 
-// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
+// GetModeOk returns a tuple with the Mode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMiscHolidayCalendar200Response) GetMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.Message) {
+func (o *GetMiscHolidayCalendar200Response) GetModeOk() (*string, bool) {
+	if o == nil || IsNil(o.Mode) {
 		return nil, false
 	}
-	return o.Message, true
+	return o.Mode, true
 }
 
-// HasMessage returns a boolean if a field has been set.
-func (o *GetMiscHolidayCalendar200Response) HasMessage() bool {
-	if o != nil && !IsNil(o.Message) {
+// HasMode returns a boolean if a field has been set.
+func (o *GetMiscHolidayCalendar200Response) HasMode() bool {
+	if o != nil && !IsNil(o.Mode) {
 		return true
 	}
 
 	return false
 }
 
-// SetMessage gets a reference to the given string and assigns it to the Message field.
-func (o *GetMiscHolidayCalendar200Response) SetMessage(v string) {
-	o.Message = &v
+// SetMode gets a reference to the given string and assigns it to the Mode field.
+func (o *GetMiscHolidayCalendar200Response) SetMode(v string) {
+	o.Mode = &v
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
-func (o *GetMiscHolidayCalendar200Response) GetData() GetMiscHolidayCalendar200ResponseData {
-	if o == nil || IsNil(o.Data) {
-		var ret GetMiscHolidayCalendar200ResponseData
+// GetQuery returns the Query field value if set, zero value otherwise.
+func (o *GetMiscHolidayCalendar200Response) GetQuery() GetMiscHolidayCalendar200ResponseQuery {
+	if o == nil || IsNil(o.Query) {
+		var ret GetMiscHolidayCalendar200ResponseQuery
 		return ret
 	}
-	return *o.Data
+	return *o.Query
 }
 
-// GetDataOk returns a tuple with the Data field value if set, nil otherwise
+// GetQueryOk returns a tuple with the Query field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMiscHolidayCalendar200Response) GetDataOk() (*GetMiscHolidayCalendar200ResponseData, bool) {
-	if o == nil || IsNil(o.Data) {
+func (o *GetMiscHolidayCalendar200Response) GetQueryOk() (*GetMiscHolidayCalendar200ResponseQuery, bool) {
+	if o == nil || IsNil(o.Query) {
 		return nil, false
 	}
-	return o.Data, true
+	return o.Query, true
 }
 
-// HasData returns a boolean if a field has been set.
-func (o *GetMiscHolidayCalendar200Response) HasData() bool {
-	if o != nil && !IsNil(o.Data) {
+// HasQuery returns a boolean if a field has been set.
+func (o *GetMiscHolidayCalendar200Response) HasQuery() bool {
+	if o != nil && !IsNil(o.Query) {
 		return true
 	}
 
 	return false
 }
 
-// SetData gets a reference to the given GetMiscHolidayCalendar200ResponseData and assigns it to the Data field.
-func (o *GetMiscHolidayCalendar200Response) SetData(v GetMiscHolidayCalendar200ResponseData) {
-	o.Data = &v
+// SetQuery gets a reference to the given GetMiscHolidayCalendar200ResponseQuery and assigns it to the Query field.
+func (o *GetMiscHolidayCalendar200Response) SetQuery(v GetMiscHolidayCalendar200ResponseQuery) {
+	o.Query = &v
+}
+
+// GetSummary returns the Summary field value if set, zero value otherwise.
+func (o *GetMiscHolidayCalendar200Response) GetSummary() GetMiscHolidayCalendar200ResponseSummary {
+	if o == nil || IsNil(o.Summary) {
+		var ret GetMiscHolidayCalendar200ResponseSummary
+		return ret
+	}
+	return *o.Summary
+}
+
+// GetSummaryOk returns a tuple with the Summary field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscHolidayCalendar200Response) GetSummaryOk() (*GetMiscHolidayCalendar200ResponseSummary, bool) {
+	if o == nil || IsNil(o.Summary) {
+		return nil, false
+	}
+	return o.Summary, true
+}
+
+// HasSummary returns a boolean if a field has been set.
+func (o *GetMiscHolidayCalendar200Response) HasSummary() bool {
+	if o != nil && !IsNil(o.Summary) {
+		return true
+	}
+
+	return false
+}
+
+// SetSummary gets a reference to the given GetMiscHolidayCalendar200ResponseSummary and assigns it to the Summary field.
+func (o *GetMiscHolidayCalendar200Response) SetSummary(v GetMiscHolidayCalendar200ResponseSummary) {
+	o.Summary = &v
+}
+
+// GetDays returns the Days field value if set, zero value otherwise.
+func (o *GetMiscHolidayCalendar200Response) GetDays() []GetMiscHolidayCalendar200ResponseDaysInner {
+	if o == nil || IsNil(o.Days) {
+		var ret []GetMiscHolidayCalendar200ResponseDaysInner
+		return ret
+	}
+	return o.Days
+}
+
+// GetDaysOk returns a tuple with the Days field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscHolidayCalendar200Response) GetDaysOk() ([]GetMiscHolidayCalendar200ResponseDaysInner, bool) {
+	if o == nil || IsNil(o.Days) {
+		return nil, false
+	}
+	return o.Days, true
+}
+
+// HasDays returns a boolean if a field has been set.
+func (o *GetMiscHolidayCalendar200Response) HasDays() bool {
+	if o != nil && !IsNil(o.Days) {
+		return true
+	}
+
+	return false
+}
+
+// SetDays gets a reference to the given []GetMiscHolidayCalendar200ResponseDaysInner and assigns it to the Days field.
+func (o *GetMiscHolidayCalendar200Response) SetDays(v []GetMiscHolidayCalendar200ResponseDaysInner) {
+	o.Days = v
+}
+
+// GetHolidays returns the Holidays field value if set, zero value otherwise.
+func (o *GetMiscHolidayCalendar200Response) GetHolidays() []GetMiscHolidayCalendar200ResponseHolidaysInner {
+	if o == nil || IsNil(o.Holidays) {
+		var ret []GetMiscHolidayCalendar200ResponseHolidaysInner
+		return ret
+	}
+	return o.Holidays
+}
+
+// GetHolidaysOk returns a tuple with the Holidays field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscHolidayCalendar200Response) GetHolidaysOk() ([]GetMiscHolidayCalendar200ResponseHolidaysInner, bool) {
+	if o == nil || IsNil(o.Holidays) {
+		return nil, false
+	}
+	return o.Holidays, true
+}
+
+// HasHolidays returns a boolean if a field has been set.
+func (o *GetMiscHolidayCalendar200Response) HasHolidays() bool {
+	if o != nil && !IsNil(o.Holidays) {
+		return true
+	}
+
+	return false
+}
+
+// SetHolidays gets a reference to the given []GetMiscHolidayCalendar200ResponseHolidaysInner and assigns it to the Holidays field.
+func (o *GetMiscHolidayCalendar200Response) SetHolidays(v []GetMiscHolidayCalendar200ResponseHolidaysInner) {
+	o.Holidays = v
+}
+
+// GetNearby returns the Nearby field value if set, zero value otherwise.
+func (o *GetMiscHolidayCalendar200Response) GetNearby() GetMiscHolidayCalendar200ResponseNearby {
+	if o == nil || IsNil(o.Nearby) {
+		var ret GetMiscHolidayCalendar200ResponseNearby
+		return ret
+	}
+	return *o.Nearby
+}
+
+// GetNearbyOk returns a tuple with the Nearby field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscHolidayCalendar200Response) GetNearbyOk() (*GetMiscHolidayCalendar200ResponseNearby, bool) {
+	if o == nil || IsNil(o.Nearby) {
+		return nil, false
+	}
+	return o.Nearby, true
+}
+
+// HasNearby returns a boolean if a field has been set.
+func (o *GetMiscHolidayCalendar200Response) HasNearby() bool {
+	if o != nil && !IsNil(o.Nearby) {
+		return true
+	}
+
+	return false
+}
+
+// SetNearby gets a reference to the given GetMiscHolidayCalendar200ResponseNearby and assigns it to the Nearby field.
+func (o *GetMiscHolidayCalendar200Response) SetNearby(v GetMiscHolidayCalendar200ResponseNearby) {
+	o.Nearby = &v
 }
 
 func (o GetMiscHolidayCalendar200Response) MarshalJSON() ([]byte, error) {
@@ -147,14 +249,23 @@ func (o GetMiscHolidayCalendar200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetMiscHolidayCalendar200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
+	if !IsNil(o.Mode) {
+		toSerialize["mode"] = o.Mode
 	}
-	if !IsNil(o.Message) {
-		toSerialize["message"] = o.Message
+	if !IsNil(o.Query) {
+		toSerialize["query"] = o.Query
 	}
-	if !IsNil(o.Data) {
-		toSerialize["data"] = o.Data
+	if !IsNil(o.Summary) {
+		toSerialize["summary"] = o.Summary
+	}
+	if !IsNil(o.Days) {
+		toSerialize["days"] = o.Days
+	}
+	if !IsNil(o.Holidays) {
+		toSerialize["holidays"] = o.Holidays
+	}
+	if !IsNil(o.Nearby) {
+		toSerialize["nearby"] = o.Nearby
 	}
 	return toSerialize, nil
 }

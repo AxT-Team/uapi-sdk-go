@@ -19,6 +19,8 @@ var _ MappedNullable = &GetGameEpicFree200Response{}
 
 // GetGameEpicFree200Response struct for GetGameEpicFree200Response
 type GetGameEpicFree200Response struct {
+	// 操作结果描述。
+	Message *string `json:"message,omitempty"`
 	// 免费游戏列表数组。
 	Data []GetGameEpicFree200ResponseDataInner `json:"data,omitempty"`
 }
@@ -38,6 +40,38 @@ func NewGetGameEpicFree200Response() *GetGameEpicFree200Response {
 func NewGetGameEpicFree200ResponseWithDefaults() *GetGameEpicFree200Response {
 	this := GetGameEpicFree200Response{}
 	return &this
+}
+
+// GetMessage returns the Message field value if set, zero value otherwise.
+func (o *GetGameEpicFree200Response) GetMessage() string {
+	if o == nil || IsNil(o.Message) {
+		var ret string
+		return ret
+	}
+	return *o.Message
+}
+
+// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetGameEpicFree200Response) GetMessageOk() (*string, bool) {
+	if o == nil || IsNil(o.Message) {
+		return nil, false
+	}
+	return o.Message, true
+}
+
+// HasMessage returns a boolean if a field has been set.
+func (o *GetGameEpicFree200Response) HasMessage() bool {
+	if o != nil && !IsNil(o.Message) {
+		return true
+	}
+
+	return false
+}
+
+// SetMessage gets a reference to the given string and assigns it to the Message field.
+func (o *GetGameEpicFree200Response) SetMessage(v string) {
+	o.Message = &v
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
@@ -82,6 +116,9 @@ func (o GetGameEpicFree200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetGameEpicFree200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Message) {
+		toSerialize["message"] = o.Message
+	}
 	if !IsNil(o.Data) {
 		toSerialize["data"] = o.Data
 	}

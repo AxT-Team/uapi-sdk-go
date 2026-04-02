@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Time** | Pointer to **string** | 预报时间 ISO8601 | [optional] 
-**Precip** | Pointer to **float32** | 5分钟累计降水量 mm | [optional] 
+**Precip** | Pointer to **float32** | 该时间点的降水量 mm | [optional] 
 **Type** | Pointer to **string** | 降水类型：rain / snow | [optional] 
 
 ## Methods

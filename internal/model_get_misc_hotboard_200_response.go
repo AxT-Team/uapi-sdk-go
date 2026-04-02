@@ -12,337 +12,162 @@ package uapi
 
 import (
 	"encoding/json"
+	"fmt"
+	"gopkg.in/validator.v2"
 )
 
-// checks if the GetMiscHotboard200Response type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &GetMiscHotboard200Response{}
-
-// GetMiscHotboard200Response struct for GetMiscHotboard200Response
+// GetMiscHotboard200Response - struct for GetMiscHotboard200Response
 type GetMiscHotboard200Response struct {
-	// 热榜条目列表。
-	List []GetMiscHotboard200ResponseListInner `json:"list,omitempty"`
-	Type *string `json:"type,omitempty"`
-	UpdateTime *string `json:"update_time,omitempty"`
-	// 时光机模式返回的快照实际时间戳（毫秒）。
-	SnapshotTime *int32 `json:"snapshot_time,omitempty"`
-	// 搜索模式返回的搜索关键词。
-	Keyword *string `json:"keyword,omitempty"`
-	// 搜索模式返回的结果数量。
-	Count *int32 `json:"count,omitempty"`
-	// 搜索模式返回的结果数组。
-	Results []GetMiscHotboard200ResponseResultsInner `json:"results,omitempty"`
-	// 数据源列表模式返回的可用历史数据源数组。
-	Sources []string `json:"sources,omitempty"`
+	GetMiscHotboard200ResponseOneOf *GetMiscHotboard200ResponseOneOf
+	GetMiscHotboard200ResponseOneOf1 *GetMiscHotboard200ResponseOneOf1
+	GetMiscHotboard200ResponseOneOf2 *GetMiscHotboard200ResponseOneOf2
 }
 
-// NewGetMiscHotboard200Response instantiates a new GetMiscHotboard200Response object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewGetMiscHotboard200Response() *GetMiscHotboard200Response {
-	this := GetMiscHotboard200Response{}
-	return &this
-}
-
-// NewGetMiscHotboard200ResponseWithDefaults instantiates a new GetMiscHotboard200Response object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewGetMiscHotboard200ResponseWithDefaults() *GetMiscHotboard200Response {
-	this := GetMiscHotboard200Response{}
-	return &this
-}
-
-// GetList returns the List field value if set, zero value otherwise.
-func (o *GetMiscHotboard200Response) GetList() []GetMiscHotboard200ResponseListInner {
-	if o == nil || IsNil(o.List) {
-		var ret []GetMiscHotboard200ResponseListInner
-		return ret
+// GetMiscHotboard200ResponseOneOfAsGetMiscHotboard200Response is a convenience function that returns GetMiscHotboard200ResponseOneOf wrapped in GetMiscHotboard200Response
+func GetMiscHotboard200ResponseOneOfAsGetMiscHotboard200Response(v *GetMiscHotboard200ResponseOneOf) GetMiscHotboard200Response {
+	return GetMiscHotboard200Response{
+		GetMiscHotboard200ResponseOneOf: v,
 	}
-	return o.List
 }
 
-// GetListOk returns a tuple with the List field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetMiscHotboard200Response) GetListOk() ([]GetMiscHotboard200ResponseListInner, bool) {
-	if o == nil || IsNil(o.List) {
-		return nil, false
+// GetMiscHotboard200ResponseOneOf1AsGetMiscHotboard200Response is a convenience function that returns GetMiscHotboard200ResponseOneOf1 wrapped in GetMiscHotboard200Response
+func GetMiscHotboard200ResponseOneOf1AsGetMiscHotboard200Response(v *GetMiscHotboard200ResponseOneOf1) GetMiscHotboard200Response {
+	return GetMiscHotboard200Response{
+		GetMiscHotboard200ResponseOneOf1: v,
 	}
-	return o.List, true
 }
 
-// HasList returns a boolean if a field has been set.
-func (o *GetMiscHotboard200Response) HasList() bool {
-	if o != nil && !IsNil(o.List) {
-		return true
+// GetMiscHotboard200ResponseOneOf2AsGetMiscHotboard200Response is a convenience function that returns GetMiscHotboard200ResponseOneOf2 wrapped in GetMiscHotboard200Response
+func GetMiscHotboard200ResponseOneOf2AsGetMiscHotboard200Response(v *GetMiscHotboard200ResponseOneOf2) GetMiscHotboard200Response {
+	return GetMiscHotboard200Response{
+		GetMiscHotboard200ResponseOneOf2: v,
+	}
+}
+
+
+// Unmarshal JSON data into one of the pointers in the struct
+func (dst *GetMiscHotboard200Response) UnmarshalJSON(data []byte) error {
+	var err error
+	match := 0
+	// try to unmarshal data into GetMiscHotboard200ResponseOneOf
+	err = newStrictDecoder(data).Decode(&dst.GetMiscHotboard200ResponseOneOf)
+	if err == nil {
+		jsonGetMiscHotboard200ResponseOneOf, _ := json.Marshal(dst.GetMiscHotboard200ResponseOneOf)
+		if string(jsonGetMiscHotboard200ResponseOneOf) == "{}" { // empty struct
+			dst.GetMiscHotboard200ResponseOneOf = nil
+		} else {
+			if err = validator.Validate(dst.GetMiscHotboard200ResponseOneOf); err != nil {
+				dst.GetMiscHotboard200ResponseOneOf = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.GetMiscHotboard200ResponseOneOf = nil
 	}
 
-	return false
-}
-
-// SetList gets a reference to the given []GetMiscHotboard200ResponseListInner and assigns it to the List field.
-func (o *GetMiscHotboard200Response) SetList(v []GetMiscHotboard200ResponseListInner) {
-	o.List = v
-}
-
-// GetType returns the Type field value if set, zero value otherwise.
-func (o *GetMiscHotboard200Response) GetType() string {
-	if o == nil || IsNil(o.Type) {
-		var ret string
-		return ret
-	}
-	return *o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetMiscHotboard200Response) GetTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.Type) {
-		return nil, false
-	}
-	return o.Type, true
-}
-
-// HasType returns a boolean if a field has been set.
-func (o *GetMiscHotboard200Response) HasType() bool {
-	if o != nil && !IsNil(o.Type) {
-		return true
+	// try to unmarshal data into GetMiscHotboard200ResponseOneOf1
+	err = newStrictDecoder(data).Decode(&dst.GetMiscHotboard200ResponseOneOf1)
+	if err == nil {
+		jsonGetMiscHotboard200ResponseOneOf1, _ := json.Marshal(dst.GetMiscHotboard200ResponseOneOf1)
+		if string(jsonGetMiscHotboard200ResponseOneOf1) == "{}" { // empty struct
+			dst.GetMiscHotboard200ResponseOneOf1 = nil
+		} else {
+			if err = validator.Validate(dst.GetMiscHotboard200ResponseOneOf1); err != nil {
+				dst.GetMiscHotboard200ResponseOneOf1 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.GetMiscHotboard200ResponseOneOf1 = nil
 	}
 
-	return false
-}
-
-// SetType gets a reference to the given string and assigns it to the Type field.
-func (o *GetMiscHotboard200Response) SetType(v string) {
-	o.Type = &v
-}
-
-// GetUpdateTime returns the UpdateTime field value if set, zero value otherwise.
-func (o *GetMiscHotboard200Response) GetUpdateTime() string {
-	if o == nil || IsNil(o.UpdateTime) {
-		var ret string
-		return ret
-	}
-	return *o.UpdateTime
-}
-
-// GetUpdateTimeOk returns a tuple with the UpdateTime field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetMiscHotboard200Response) GetUpdateTimeOk() (*string, bool) {
-	if o == nil || IsNil(o.UpdateTime) {
-		return nil, false
-	}
-	return o.UpdateTime, true
-}
-
-// HasUpdateTime returns a boolean if a field has been set.
-func (o *GetMiscHotboard200Response) HasUpdateTime() bool {
-	if o != nil && !IsNil(o.UpdateTime) {
-		return true
+	// try to unmarshal data into GetMiscHotboard200ResponseOneOf2
+	err = newStrictDecoder(data).Decode(&dst.GetMiscHotboard200ResponseOneOf2)
+	if err == nil {
+		jsonGetMiscHotboard200ResponseOneOf2, _ := json.Marshal(dst.GetMiscHotboard200ResponseOneOf2)
+		if string(jsonGetMiscHotboard200ResponseOneOf2) == "{}" { // empty struct
+			dst.GetMiscHotboard200ResponseOneOf2 = nil
+		} else {
+			if err = validator.Validate(dst.GetMiscHotboard200ResponseOneOf2); err != nil {
+				dst.GetMiscHotboard200ResponseOneOf2 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.GetMiscHotboard200ResponseOneOf2 = nil
 	}
 
-	return false
+	if match > 1 { // more than 1 match
+		// reset to nil
+		dst.GetMiscHotboard200ResponseOneOf = nil
+		dst.GetMiscHotboard200ResponseOneOf1 = nil
+		dst.GetMiscHotboard200ResponseOneOf2 = nil
+
+		return fmt.Errorf("data matches more than one schema in oneOf(GetMiscHotboard200Response)")
+	} else if match == 1 {
+		return nil // exactly one match
+	} else { // no match
+		return fmt.Errorf("data failed to match schemas in oneOf(GetMiscHotboard200Response)")
+	}
 }
 
-// SetUpdateTime gets a reference to the given string and assigns it to the UpdateTime field.
-func (o *GetMiscHotboard200Response) SetUpdateTime(v string) {
-	o.UpdateTime = &v
+// Marshal data from the first non-nil pointers in the struct to JSON
+func (src GetMiscHotboard200Response) MarshalJSON() ([]byte, error) {
+	if src.GetMiscHotboard200ResponseOneOf != nil {
+		return json.Marshal(&src.GetMiscHotboard200ResponseOneOf)
+	}
+
+	if src.GetMiscHotboard200ResponseOneOf1 != nil {
+		return json.Marshal(&src.GetMiscHotboard200ResponseOneOf1)
+	}
+
+	if src.GetMiscHotboard200ResponseOneOf2 != nil {
+		return json.Marshal(&src.GetMiscHotboard200ResponseOneOf2)
+	}
+
+	return nil, nil // no data in oneOf schemas
 }
 
-// GetSnapshotTime returns the SnapshotTime field value if set, zero value otherwise.
-func (o *GetMiscHotboard200Response) GetSnapshotTime() int32 {
-	if o == nil || IsNil(o.SnapshotTime) {
-		var ret int32
-		return ret
+// Get the actual instance
+func (obj *GetMiscHotboard200Response) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
 	}
-	return *o.SnapshotTime
+	if obj.GetMiscHotboard200ResponseOneOf != nil {
+		return obj.GetMiscHotboard200ResponseOneOf
+	}
+
+	if obj.GetMiscHotboard200ResponseOneOf1 != nil {
+		return obj.GetMiscHotboard200ResponseOneOf1
+	}
+
+	if obj.GetMiscHotboard200ResponseOneOf2 != nil {
+		return obj.GetMiscHotboard200ResponseOneOf2
+	}
+
+	// all schemas are nil
+	return nil
 }
 
-// GetSnapshotTimeOk returns a tuple with the SnapshotTime field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetMiscHotboard200Response) GetSnapshotTimeOk() (*int32, bool) {
-	if o == nil || IsNil(o.SnapshotTime) {
-		return nil, false
-	}
-	return o.SnapshotTime, true
-}
-
-// HasSnapshotTime returns a boolean if a field has been set.
-func (o *GetMiscHotboard200Response) HasSnapshotTime() bool {
-	if o != nil && !IsNil(o.SnapshotTime) {
-		return true
+// Get the actual instance value
+func (obj GetMiscHotboard200Response) GetActualInstanceValue() (interface{}) {
+	if obj.GetMiscHotboard200ResponseOneOf != nil {
+		return *obj.GetMiscHotboard200ResponseOneOf
 	}
 
-	return false
-}
-
-// SetSnapshotTime gets a reference to the given int32 and assigns it to the SnapshotTime field.
-func (o *GetMiscHotboard200Response) SetSnapshotTime(v int32) {
-	o.SnapshotTime = &v
-}
-
-// GetKeyword returns the Keyword field value if set, zero value otherwise.
-func (o *GetMiscHotboard200Response) GetKeyword() string {
-	if o == nil || IsNil(o.Keyword) {
-		var ret string
-		return ret
-	}
-	return *o.Keyword
-}
-
-// GetKeywordOk returns a tuple with the Keyword field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetMiscHotboard200Response) GetKeywordOk() (*string, bool) {
-	if o == nil || IsNil(o.Keyword) {
-		return nil, false
-	}
-	return o.Keyword, true
-}
-
-// HasKeyword returns a boolean if a field has been set.
-func (o *GetMiscHotboard200Response) HasKeyword() bool {
-	if o != nil && !IsNil(o.Keyword) {
-		return true
+	if obj.GetMiscHotboard200ResponseOneOf1 != nil {
+		return *obj.GetMiscHotboard200ResponseOneOf1
 	}
 
-	return false
-}
-
-// SetKeyword gets a reference to the given string and assigns it to the Keyword field.
-func (o *GetMiscHotboard200Response) SetKeyword(v string) {
-	o.Keyword = &v
-}
-
-// GetCount returns the Count field value if set, zero value otherwise.
-func (o *GetMiscHotboard200Response) GetCount() int32 {
-	if o == nil || IsNil(o.Count) {
-		var ret int32
-		return ret
-	}
-	return *o.Count
-}
-
-// GetCountOk returns a tuple with the Count field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetMiscHotboard200Response) GetCountOk() (*int32, bool) {
-	if o == nil || IsNil(o.Count) {
-		return nil, false
-	}
-	return o.Count, true
-}
-
-// HasCount returns a boolean if a field has been set.
-func (o *GetMiscHotboard200Response) HasCount() bool {
-	if o != nil && !IsNil(o.Count) {
-		return true
+	if obj.GetMiscHotboard200ResponseOneOf2 != nil {
+		return *obj.GetMiscHotboard200ResponseOneOf2
 	}
 
-	return false
-}
-
-// SetCount gets a reference to the given int32 and assigns it to the Count field.
-func (o *GetMiscHotboard200Response) SetCount(v int32) {
-	o.Count = &v
-}
-
-// GetResults returns the Results field value if set, zero value otherwise.
-func (o *GetMiscHotboard200Response) GetResults() []GetMiscHotboard200ResponseResultsInner {
-	if o == nil || IsNil(o.Results) {
-		var ret []GetMiscHotboard200ResponseResultsInner
-		return ret
-	}
-	return o.Results
-}
-
-// GetResultsOk returns a tuple with the Results field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetMiscHotboard200Response) GetResultsOk() ([]GetMiscHotboard200ResponseResultsInner, bool) {
-	if o == nil || IsNil(o.Results) {
-		return nil, false
-	}
-	return o.Results, true
-}
-
-// HasResults returns a boolean if a field has been set.
-func (o *GetMiscHotboard200Response) HasResults() bool {
-	if o != nil && !IsNil(o.Results) {
-		return true
-	}
-
-	return false
-}
-
-// SetResults gets a reference to the given []GetMiscHotboard200ResponseResultsInner and assigns it to the Results field.
-func (o *GetMiscHotboard200Response) SetResults(v []GetMiscHotboard200ResponseResultsInner) {
-	o.Results = v
-}
-
-// GetSources returns the Sources field value if set, zero value otherwise.
-func (o *GetMiscHotboard200Response) GetSources() []string {
-	if o == nil || IsNil(o.Sources) {
-		var ret []string
-		return ret
-	}
-	return o.Sources
-}
-
-// GetSourcesOk returns a tuple with the Sources field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetMiscHotboard200Response) GetSourcesOk() ([]string, bool) {
-	if o == nil || IsNil(o.Sources) {
-		return nil, false
-	}
-	return o.Sources, true
-}
-
-// HasSources returns a boolean if a field has been set.
-func (o *GetMiscHotboard200Response) HasSources() bool {
-	if o != nil && !IsNil(o.Sources) {
-		return true
-	}
-
-	return false
-}
-
-// SetSources gets a reference to the given []string and assigns it to the Sources field.
-func (o *GetMiscHotboard200Response) SetSources(v []string) {
-	o.Sources = v
-}
-
-func (o GetMiscHotboard200Response) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
-	if err != nil {
-		return []byte{}, err
-	}
-	return json.Marshal(toSerialize)
-}
-
-func (o GetMiscHotboard200Response) ToMap() (map[string]interface{}, error) {
-	toSerialize := map[string]interface{}{}
-	if !IsNil(o.List) {
-		toSerialize["list"] = o.List
-	}
-	if !IsNil(o.Type) {
-		toSerialize["type"] = o.Type
-	}
-	if !IsNil(o.UpdateTime) {
-		toSerialize["update_time"] = o.UpdateTime
-	}
-	if !IsNil(o.SnapshotTime) {
-		toSerialize["snapshot_time"] = o.SnapshotTime
-	}
-	if !IsNil(o.Keyword) {
-		toSerialize["keyword"] = o.Keyword
-	}
-	if !IsNil(o.Count) {
-		toSerialize["count"] = o.Count
-	}
-	if !IsNil(o.Results) {
-		toSerialize["results"] = o.Results
-	}
-	if !IsNil(o.Sources) {
-		toSerialize["sources"] = o.Sources
-	}
-	return toSerialize, nil
+	// all schemas are nil
+	return nil
 }
 
 type NullableGetMiscHotboard200Response struct {

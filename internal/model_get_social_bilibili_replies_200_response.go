@@ -20,10 +20,26 @@ var _ MappedNullable = &GetSocialBilibiliReplies200Response{}
 // GetSocialBilibiliReplies200Response struct for GetSocialBilibiliReplies200Response
 type GetSocialBilibiliReplies200Response struct {
 	Page *GetSocialBilibiliReplies200ResponsePage `json:"page,omitempty"`
+	// 评论区配置。不同视频或不同权限下可能为 null。
+	Config map[string]interface{} `json:"config,omitempty"`
 	// 热门评论列表。结构与 `replies` 中的对象一致。如果当前页是第一页，且有热门评论，则此数组非空。
 	Hots []map[string]interface{} `json:"hots,omitempty"`
 	// 当前页的评论列表。
 	Replies []GetSocialBilibiliReplies200ResponseRepliesInner `json:"replies,omitempty"`
+	// UP 主相关信息。无数据时为 null。
+	Upper map[string]interface{} `json:"upper,omitempty"`
+	// 置顶评论信息。没有置顶评论时为 null。
+	Top map[string]interface{} `json:"top,omitempty"`
+	// 评论区公告信息。没有公告时为 null。
+	Notice map[string]interface{} `json:"notice,omitempty"`
+	// 评论区投票相关状态值。没有投票时通常为 0。
+	Vote *float32 `json:"vote,omitempty"`
+	// 评论折叠相关信息。没有数据时为 null。
+	Folder map[string]interface{} `json:"folder,omitempty"`
+	// 评论区控制信息。没有数据时为 null。
+	Control map[string]interface{} `json:"control,omitempty"`
+	// 游标翻页信息。部分场景下为 null。
+	Cursor map[string]interface{} `json:"cursor,omitempty"`
 }
 
 // NewGetSocialBilibiliReplies200Response instantiates a new GetSocialBilibiliReplies200Response object
@@ -73,6 +89,39 @@ func (o *GetSocialBilibiliReplies200Response) HasPage() bool {
 // SetPage gets a reference to the given GetSocialBilibiliReplies200ResponsePage and assigns it to the Page field.
 func (o *GetSocialBilibiliReplies200Response) SetPage(v GetSocialBilibiliReplies200ResponsePage) {
 	o.Page = &v
+}
+
+// GetConfig returns the Config field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetSocialBilibiliReplies200Response) GetConfig() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Config
+}
+
+// GetConfigOk returns a tuple with the Config field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetSocialBilibiliReplies200Response) GetConfigOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Config) {
+		return map[string]interface{}{}, false
+	}
+	return o.Config, true
+}
+
+// HasConfig returns a boolean if a field has been set.
+func (o *GetSocialBilibiliReplies200Response) HasConfig() bool {
+	if o != nil && !IsNil(o.Config) {
+		return true
+	}
+
+	return false
+}
+
+// SetConfig gets a reference to the given map[string]interface{} and assigns it to the Config field.
+func (o *GetSocialBilibiliReplies200Response) SetConfig(v map[string]interface{}) {
+	o.Config = v
 }
 
 // GetHots returns the Hots field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -140,6 +189,236 @@ func (o *GetSocialBilibiliReplies200Response) SetReplies(v []GetSocialBilibiliRe
 	o.Replies = v
 }
 
+// GetUpper returns the Upper field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetSocialBilibiliReplies200Response) GetUpper() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Upper
+}
+
+// GetUpperOk returns a tuple with the Upper field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetSocialBilibiliReplies200Response) GetUpperOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Upper) {
+		return map[string]interface{}{}, false
+	}
+	return o.Upper, true
+}
+
+// HasUpper returns a boolean if a field has been set.
+func (o *GetSocialBilibiliReplies200Response) HasUpper() bool {
+	if o != nil && !IsNil(o.Upper) {
+		return true
+	}
+
+	return false
+}
+
+// SetUpper gets a reference to the given map[string]interface{} and assigns it to the Upper field.
+func (o *GetSocialBilibiliReplies200Response) SetUpper(v map[string]interface{}) {
+	o.Upper = v
+}
+
+// GetTop returns the Top field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetSocialBilibiliReplies200Response) GetTop() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Top
+}
+
+// GetTopOk returns a tuple with the Top field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetSocialBilibiliReplies200Response) GetTopOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Top) {
+		return map[string]interface{}{}, false
+	}
+	return o.Top, true
+}
+
+// HasTop returns a boolean if a field has been set.
+func (o *GetSocialBilibiliReplies200Response) HasTop() bool {
+	if o != nil && !IsNil(o.Top) {
+		return true
+	}
+
+	return false
+}
+
+// SetTop gets a reference to the given map[string]interface{} and assigns it to the Top field.
+func (o *GetSocialBilibiliReplies200Response) SetTop(v map[string]interface{}) {
+	o.Top = v
+}
+
+// GetNotice returns the Notice field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetSocialBilibiliReplies200Response) GetNotice() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Notice
+}
+
+// GetNoticeOk returns a tuple with the Notice field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetSocialBilibiliReplies200Response) GetNoticeOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Notice) {
+		return map[string]interface{}{}, false
+	}
+	return o.Notice, true
+}
+
+// HasNotice returns a boolean if a field has been set.
+func (o *GetSocialBilibiliReplies200Response) HasNotice() bool {
+	if o != nil && !IsNil(o.Notice) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotice gets a reference to the given map[string]interface{} and assigns it to the Notice field.
+func (o *GetSocialBilibiliReplies200Response) SetNotice(v map[string]interface{}) {
+	o.Notice = v
+}
+
+// GetVote returns the Vote field value if set, zero value otherwise.
+func (o *GetSocialBilibiliReplies200Response) GetVote() float32 {
+	if o == nil || IsNil(o.Vote) {
+		var ret float32
+		return ret
+	}
+	return *o.Vote
+}
+
+// GetVoteOk returns a tuple with the Vote field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliReplies200Response) GetVoteOk() (*float32, bool) {
+	if o == nil || IsNil(o.Vote) {
+		return nil, false
+	}
+	return o.Vote, true
+}
+
+// HasVote returns a boolean if a field has been set.
+func (o *GetSocialBilibiliReplies200Response) HasVote() bool {
+	if o != nil && !IsNil(o.Vote) {
+		return true
+	}
+
+	return false
+}
+
+// SetVote gets a reference to the given float32 and assigns it to the Vote field.
+func (o *GetSocialBilibiliReplies200Response) SetVote(v float32) {
+	o.Vote = &v
+}
+
+// GetFolder returns the Folder field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetSocialBilibiliReplies200Response) GetFolder() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Folder
+}
+
+// GetFolderOk returns a tuple with the Folder field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetSocialBilibiliReplies200Response) GetFolderOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Folder) {
+		return map[string]interface{}{}, false
+	}
+	return o.Folder, true
+}
+
+// HasFolder returns a boolean if a field has been set.
+func (o *GetSocialBilibiliReplies200Response) HasFolder() bool {
+	if o != nil && !IsNil(o.Folder) {
+		return true
+	}
+
+	return false
+}
+
+// SetFolder gets a reference to the given map[string]interface{} and assigns it to the Folder field.
+func (o *GetSocialBilibiliReplies200Response) SetFolder(v map[string]interface{}) {
+	o.Folder = v
+}
+
+// GetControl returns the Control field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetSocialBilibiliReplies200Response) GetControl() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Control
+}
+
+// GetControlOk returns a tuple with the Control field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetSocialBilibiliReplies200Response) GetControlOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Control) {
+		return map[string]interface{}{}, false
+	}
+	return o.Control, true
+}
+
+// HasControl returns a boolean if a field has been set.
+func (o *GetSocialBilibiliReplies200Response) HasControl() bool {
+	if o != nil && !IsNil(o.Control) {
+		return true
+	}
+
+	return false
+}
+
+// SetControl gets a reference to the given map[string]interface{} and assigns it to the Control field.
+func (o *GetSocialBilibiliReplies200Response) SetControl(v map[string]interface{}) {
+	o.Control = v
+}
+
+// GetCursor returns the Cursor field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetSocialBilibiliReplies200Response) GetCursor() map[string]interface{} {
+	if o == nil {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.Cursor
+}
+
+// GetCursorOk returns a tuple with the Cursor field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetSocialBilibiliReplies200Response) GetCursorOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.Cursor) {
+		return map[string]interface{}{}, false
+	}
+	return o.Cursor, true
+}
+
+// HasCursor returns a boolean if a field has been set.
+func (o *GetSocialBilibiliReplies200Response) HasCursor() bool {
+	if o != nil && !IsNil(o.Cursor) {
+		return true
+	}
+
+	return false
+}
+
+// SetCursor gets a reference to the given map[string]interface{} and assigns it to the Cursor field.
+func (o *GetSocialBilibiliReplies200Response) SetCursor(v map[string]interface{}) {
+	o.Cursor = v
+}
+
 func (o GetSocialBilibiliReplies200Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -153,11 +432,35 @@ func (o GetSocialBilibiliReplies200Response) ToMap() (map[string]interface{}, er
 	if !IsNil(o.Page) {
 		toSerialize["page"] = o.Page
 	}
+	if o.Config != nil {
+		toSerialize["config"] = o.Config
+	}
 	if o.Hots != nil {
 		toSerialize["hots"] = o.Hots
 	}
 	if !IsNil(o.Replies) {
 		toSerialize["replies"] = o.Replies
+	}
+	if o.Upper != nil {
+		toSerialize["upper"] = o.Upper
+	}
+	if o.Top != nil {
+		toSerialize["top"] = o.Top
+	}
+	if o.Notice != nil {
+		toSerialize["notice"] = o.Notice
+	}
+	if !IsNil(o.Vote) {
+		toSerialize["vote"] = o.Vote
+	}
+	if o.Folder != nil {
+		toSerialize["folder"] = o.Folder
+	}
+	if o.Control != nil {
+		toSerialize["control"] = o.Control
+	}
+	if o.Cursor != nil {
+		toSerialize["cursor"] = o.Cursor
 	}
 	return toSerialize, nil
 }

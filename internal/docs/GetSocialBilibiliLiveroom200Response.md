@@ -8,19 +8,22 @@ Name | Type | Description | Notes
 **RoomId** | Pointer to **float32** | 直播间的真实房间号（长号）。 | [optional] 
 **ShortId** | Pointer to **float32** | 直播间的短号（靓号）。如果没有设置，则为0。 | [optional] 
 **Attention** | Pointer to **float32** | 主播的粉丝数（关注数量）。 | [optional] 
-**Online** | Pointer to **float32** | 直播间当前的人气值。注意这不是真实在线人数。 | [optional] 
+**Online** | Pointer to **float32** | 直播间当前的人气值（对应你文档里的 PopularValue，不代表真实在线人数）。 | [optional] 
+**IsPortrait** | Pointer to **bool** | 是否为竖屏直播。 | [optional] 
 **LiveStatus** | Pointer to **float32** | 直播状态。0:未开播, 1:直播中, 2:轮播中。 | [optional] 
 **AreaId** | Pointer to **float32** | 分区ID。 | [optional] 
 **ParentAreaName** | Pointer to **string** | 父分区名称。 | [optional] 
+**ParentAreaId** | Pointer to **float32** | 父分区 ID。 | [optional] 
 **AreaName** | Pointer to **string** | 子分区名称。 | [optional] 
 **Background** | Pointer to **string** | 直播间背景图的URL。 | [optional] 
 **Title** | Pointer to **string** | 当前直播间的标题。 | [optional] 
 **UserCover** | Pointer to **string** | 用户设置的直播间封面URL。 | [optional] 
 **Description** | Pointer to **string** | 直播间公告或描述，支持换行符。 | [optional] 
 **LiveTime** | Pointer to **string** | 本次直播开始的时间，格式为 &#x60;YYYY-MM-DD HH:mm:ss&#x60;。如果未开播，则为空字符串。 | [optional] 
+**Keyframe** | Pointer to **string** | 关键帧封面图链接。 | [optional] 
 **Tags** | Pointer to **string** | 直播间设置的标签，以逗号分隔。 | [optional] 
 **HotWords** | Pointer to **[]string** | 直播间热词列表，通常用于弹幕互动。 | [optional] 
-**NewPendants** | Pointer to **map[string]interface{}** | 主播佩戴的头像框、大航海等级等信息，结构可能比较复杂。 | [optional] 
+**NewPendants** | Pointer to [**NullableGetSocialBilibiliLiveroom200ResponseNewPendants**](GetSocialBilibiliLiveroom200ResponseNewPendants.md) |  | [optional] 
 
 ## Methods
 
@@ -166,6 +169,31 @@ SetOnline sets Online field to given value.
 
 HasOnline returns a boolean if a field has been set.
 
+### GetIsPortrait
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetIsPortrait() bool`
+
+GetIsPortrait returns the IsPortrait field if non-nil, zero value otherwise.
+
+### GetIsPortraitOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetIsPortraitOk() (*bool, bool)`
+
+GetIsPortraitOk returns a tuple with the IsPortrait field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsPortrait
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetIsPortrait(v bool)`
+
+SetIsPortrait sets IsPortrait field to given value.
+
+### HasIsPortrait
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasIsPortrait() bool`
+
+HasIsPortrait returns a boolean if a field has been set.
+
 ### GetLiveStatus
 
 `func (o *GetSocialBilibiliLiveroom200Response) GetLiveStatus() float32`
@@ -240,6 +268,31 @@ SetParentAreaName sets ParentAreaName field to given value.
 `func (o *GetSocialBilibiliLiveroom200Response) HasParentAreaName() bool`
 
 HasParentAreaName returns a boolean if a field has been set.
+
+### GetParentAreaId
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetParentAreaId() float32`
+
+GetParentAreaId returns the ParentAreaId field if non-nil, zero value otherwise.
+
+### GetParentAreaIdOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetParentAreaIdOk() (*float32, bool)`
+
+GetParentAreaIdOk returns a tuple with the ParentAreaId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParentAreaId
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetParentAreaId(v float32)`
+
+SetParentAreaId sets ParentAreaId field to given value.
+
+### HasParentAreaId
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasParentAreaId() bool`
+
+HasParentAreaId returns a boolean if a field has been set.
 
 ### GetAreaName
 
@@ -391,6 +444,31 @@ SetLiveTime sets LiveTime field to given value.
 
 HasLiveTime returns a boolean if a field has been set.
 
+### GetKeyframe
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetKeyframe() string`
+
+GetKeyframe returns the Keyframe field if non-nil, zero value otherwise.
+
+### GetKeyframeOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetKeyframeOk() (*string, bool)`
+
+GetKeyframeOk returns a tuple with the Keyframe field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKeyframe
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetKeyframe(v string)`
+
+SetKeyframe sets Keyframe field to given value.
+
+### HasKeyframe
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasKeyframe() bool`
+
+HasKeyframe returns a boolean if a field has been set.
+
 ### GetTags
 
 `func (o *GetSocialBilibiliLiveroom200Response) GetTags() string`
@@ -443,20 +521,20 @@ HasHotWords returns a boolean if a field has been set.
 
 ### GetNewPendants
 
-`func (o *GetSocialBilibiliLiveroom200Response) GetNewPendants() map[string]interface{}`
+`func (o *GetSocialBilibiliLiveroom200Response) GetNewPendants() GetSocialBilibiliLiveroom200ResponseNewPendants`
 
 GetNewPendants returns the NewPendants field if non-nil, zero value otherwise.
 
 ### GetNewPendantsOk
 
-`func (o *GetSocialBilibiliLiveroom200Response) GetNewPendantsOk() (*map[string]interface{}, bool)`
+`func (o *GetSocialBilibiliLiveroom200Response) GetNewPendantsOk() (*GetSocialBilibiliLiveroom200ResponseNewPendants, bool)`
 
 GetNewPendantsOk returns a tuple with the NewPendants field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNewPendants
 
-`func (o *GetSocialBilibiliLiveroom200Response) SetNewPendants(v map[string]interface{})`
+`func (o *GetSocialBilibiliLiveroom200Response) SetNewPendants(v GetSocialBilibiliLiveroom200ResponseNewPendants)`
 
 SetNewPendants sets NewPendants field to given value.
 
@@ -466,6 +544,16 @@ SetNewPendants sets NewPendants field to given value.
 
 HasNewPendants returns a boolean if a field has been set.
 
+### SetNewPendantsNil
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetNewPendantsNil(b bool)`
+
+ SetNewPendantsNil sets the value for NewPendants to be an explicit nil
+
+### UnsetNewPendants
+`func (o *GetSocialBilibiliLiveroom200Response) UnsetNewPendants()`
+
+UnsetNewPendants ensures that no value is present for NewPendants, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

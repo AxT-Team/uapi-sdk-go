@@ -37,8 +37,6 @@ type GetNetworkIpinfo200Response struct {
 	Beginip *string `json:"beginip,omitempty"`
 	// IP段结束地址（标准查询）
 	Endip *string `json:"endip,omitempty"`
-	// 行政区（商业查询）
-	District *string `json:"district,omitempty"`
 }
 
 // NewGetNetworkIpinfo200Response instantiates a new GetNetworkIpinfo200Response object
@@ -346,38 +344,6 @@ func (o *GetNetworkIpinfo200Response) SetEndip(v string) {
 	o.Endip = &v
 }
 
-// GetDistrict returns the District field value if set, zero value otherwise.
-func (o *GetNetworkIpinfo200Response) GetDistrict() string {
-	if o == nil || IsNil(o.District) {
-		var ret string
-		return ret
-	}
-	return *o.District
-}
-
-// GetDistrictOk returns a tuple with the District field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkIpinfo200Response) GetDistrictOk() (*string, bool) {
-	if o == nil || IsNil(o.District) {
-		return nil, false
-	}
-	return o.District, true
-}
-
-// HasDistrict returns a boolean if a field has been set.
-func (o *GetNetworkIpinfo200Response) HasDistrict() bool {
-	if o != nil && !IsNil(o.District) {
-		return true
-	}
-
-	return false
-}
-
-// SetDistrict gets a reference to the given string and assigns it to the District field.
-func (o *GetNetworkIpinfo200Response) SetDistrict(v string) {
-	o.District = &v
-}
-
 func (o GetNetworkIpinfo200Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -414,9 +380,6 @@ func (o GetNetworkIpinfo200Response) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Endip) {
 		toSerialize["endip"] = o.Endip
-	}
-	if !IsNil(o.District) {
-		toSerialize["district"] = o.District
 	}
 	return toSerialize, nil
 }

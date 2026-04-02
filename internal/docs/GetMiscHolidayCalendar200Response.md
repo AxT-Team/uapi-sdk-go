@@ -4,9 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code** | Pointer to **int32** |  | [optional] 
-**Message** | Pointer to **string** |  | [optional] 
-**Data** | Pointer to [**GetMiscHolidayCalendar200ResponseData**](GetMiscHolidayCalendar200ResponseData.md) |  | [optional] 
+**Mode** | Pointer to **string** | 查询模式：day、month、year。 | [optional] 
+**Query** | Pointer to [**GetMiscHolidayCalendar200ResponseQuery**](GetMiscHolidayCalendar200ResponseQuery.md) |  | [optional] 
+**Summary** | Pointer to [**GetMiscHolidayCalendar200ResponseSummary**](GetMiscHolidayCalendar200ResponseSummary.md) |  | [optional] 
+**Days** | Pointer to [**[]GetMiscHolidayCalendar200ResponseDaysInner**](GetMiscHolidayCalendar200ResponseDaysInner.md) | 日期明细列表。 | [optional] 
+**Holidays** | Pointer to [**[]GetMiscHolidayCalendar200ResponseHolidaysInner**](GetMiscHolidayCalendar200ResponseHolidaysInner.md) | 节日事件列表。 | [optional] 
+**Nearby** | Pointer to [**GetMiscHolidayCalendar200ResponseNearby**](GetMiscHolidayCalendar200ResponseNearby.md) |  | [optional] 
 
 ## Methods
 
@@ -27,80 +30,155 @@ NewGetMiscHolidayCalendar200ResponseWithDefaults instantiates a new GetMiscHolid
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetCode
+### GetMode
 
-`func (o *GetMiscHolidayCalendar200Response) GetCode() int32`
+`func (o *GetMiscHolidayCalendar200Response) GetMode() string`
 
-GetCode returns the Code field if non-nil, zero value otherwise.
+GetMode returns the Mode field if non-nil, zero value otherwise.
 
-### GetCodeOk
+### GetModeOk
 
-`func (o *GetMiscHolidayCalendar200Response) GetCodeOk() (*int32, bool)`
+`func (o *GetMiscHolidayCalendar200Response) GetModeOk() (*string, bool)`
 
-GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
+GetModeOk returns a tuple with the Mode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCode
+### SetMode
 
-`func (o *GetMiscHolidayCalendar200Response) SetCode(v int32)`
+`func (o *GetMiscHolidayCalendar200Response) SetMode(v string)`
 
-SetCode sets Code field to given value.
+SetMode sets Mode field to given value.
 
-### HasCode
+### HasMode
 
-`func (o *GetMiscHolidayCalendar200Response) HasCode() bool`
+`func (o *GetMiscHolidayCalendar200Response) HasMode() bool`
 
-HasCode returns a boolean if a field has been set.
+HasMode returns a boolean if a field has been set.
 
-### GetMessage
+### GetQuery
 
-`func (o *GetMiscHolidayCalendar200Response) GetMessage() string`
+`func (o *GetMiscHolidayCalendar200Response) GetQuery() GetMiscHolidayCalendar200ResponseQuery`
 
-GetMessage returns the Message field if non-nil, zero value otherwise.
+GetQuery returns the Query field if non-nil, zero value otherwise.
 
-### GetMessageOk
+### GetQueryOk
 
-`func (o *GetMiscHolidayCalendar200Response) GetMessageOk() (*string, bool)`
+`func (o *GetMiscHolidayCalendar200Response) GetQueryOk() (*GetMiscHolidayCalendar200ResponseQuery, bool)`
 
-GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
+GetQueryOk returns a tuple with the Query field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMessage
+### SetQuery
 
-`func (o *GetMiscHolidayCalendar200Response) SetMessage(v string)`
+`func (o *GetMiscHolidayCalendar200Response) SetQuery(v GetMiscHolidayCalendar200ResponseQuery)`
 
-SetMessage sets Message field to given value.
+SetQuery sets Query field to given value.
 
-### HasMessage
+### HasQuery
 
-`func (o *GetMiscHolidayCalendar200Response) HasMessage() bool`
+`func (o *GetMiscHolidayCalendar200Response) HasQuery() bool`
 
-HasMessage returns a boolean if a field has been set.
+HasQuery returns a boolean if a field has been set.
 
-### GetData
+### GetSummary
 
-`func (o *GetMiscHolidayCalendar200Response) GetData() GetMiscHolidayCalendar200ResponseData`
+`func (o *GetMiscHolidayCalendar200Response) GetSummary() GetMiscHolidayCalendar200ResponseSummary`
 
-GetData returns the Data field if non-nil, zero value otherwise.
+GetSummary returns the Summary field if non-nil, zero value otherwise.
 
-### GetDataOk
+### GetSummaryOk
 
-`func (o *GetMiscHolidayCalendar200Response) GetDataOk() (*GetMiscHolidayCalendar200ResponseData, bool)`
+`func (o *GetMiscHolidayCalendar200Response) GetSummaryOk() (*GetMiscHolidayCalendar200ResponseSummary, bool)`
 
-GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
+GetSummaryOk returns a tuple with the Summary field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetData
+### SetSummary
 
-`func (o *GetMiscHolidayCalendar200Response) SetData(v GetMiscHolidayCalendar200ResponseData)`
+`func (o *GetMiscHolidayCalendar200Response) SetSummary(v GetMiscHolidayCalendar200ResponseSummary)`
 
-SetData sets Data field to given value.
+SetSummary sets Summary field to given value.
 
-### HasData
+### HasSummary
 
-`func (o *GetMiscHolidayCalendar200Response) HasData() bool`
+`func (o *GetMiscHolidayCalendar200Response) HasSummary() bool`
 
-HasData returns a boolean if a field has been set.
+HasSummary returns a boolean if a field has been set.
+
+### GetDays
+
+`func (o *GetMiscHolidayCalendar200Response) GetDays() []GetMiscHolidayCalendar200ResponseDaysInner`
+
+GetDays returns the Days field if non-nil, zero value otherwise.
+
+### GetDaysOk
+
+`func (o *GetMiscHolidayCalendar200Response) GetDaysOk() (*[]GetMiscHolidayCalendar200ResponseDaysInner, bool)`
+
+GetDaysOk returns a tuple with the Days field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDays
+
+`func (o *GetMiscHolidayCalendar200Response) SetDays(v []GetMiscHolidayCalendar200ResponseDaysInner)`
+
+SetDays sets Days field to given value.
+
+### HasDays
+
+`func (o *GetMiscHolidayCalendar200Response) HasDays() bool`
+
+HasDays returns a boolean if a field has been set.
+
+### GetHolidays
+
+`func (o *GetMiscHolidayCalendar200Response) GetHolidays() []GetMiscHolidayCalendar200ResponseHolidaysInner`
+
+GetHolidays returns the Holidays field if non-nil, zero value otherwise.
+
+### GetHolidaysOk
+
+`func (o *GetMiscHolidayCalendar200Response) GetHolidaysOk() (*[]GetMiscHolidayCalendar200ResponseHolidaysInner, bool)`
+
+GetHolidaysOk returns a tuple with the Holidays field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHolidays
+
+`func (o *GetMiscHolidayCalendar200Response) SetHolidays(v []GetMiscHolidayCalendar200ResponseHolidaysInner)`
+
+SetHolidays sets Holidays field to given value.
+
+### HasHolidays
+
+`func (o *GetMiscHolidayCalendar200Response) HasHolidays() bool`
+
+HasHolidays returns a boolean if a field has been set.
+
+### GetNearby
+
+`func (o *GetMiscHolidayCalendar200Response) GetNearby() GetMiscHolidayCalendar200ResponseNearby`
+
+GetNearby returns the Nearby field if non-nil, zero value otherwise.
+
+### GetNearbyOk
+
+`func (o *GetMiscHolidayCalendar200Response) GetNearbyOk() (*GetMiscHolidayCalendar200ResponseNearby, bool)`
+
+GetNearbyOk returns a tuple with the Nearby field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNearby
+
+`func (o *GetMiscHolidayCalendar200Response) SetNearby(v GetMiscHolidayCalendar200ResponseNearby)`
+
+SetNearby sets Nearby field to given value.
+
+### HasNearby
+
+`func (o *GetMiscHolidayCalendar200Response) HasNearby() bool`
+
+HasNearby returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

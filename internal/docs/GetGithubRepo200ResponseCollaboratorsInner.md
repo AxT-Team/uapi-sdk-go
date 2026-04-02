@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Login** | Pointer to **string** |  | [optional] 
-**Name** | Pointer to **string** |  | [optional] 
-**Email** | Pointer to **string** |  | [optional] 
-**Url** | Pointer to **string** |  | [optional] 
+**Login** | Pointer to **string** | GitHub 登录名。 | [optional] 
+**Name** | Pointer to **string** | 显示名称。 | [optional] 
+**Email** | Pointer to **string** | 公开邮箱。 | [optional] 
+**Url** | Pointer to **string** | GitHub 主页链接。 | [optional] 
 
 ## Methods
 

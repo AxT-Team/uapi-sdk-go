@@ -105,7 +105,7 @@ import (
 )
 
 func main() {
-	postTextAesDecryptRequest := *openapiclient.NewPostTextAesDecryptRequest("a-secret-key-123", "uyzVKczxZi3HdoGfeuaAt4F2/20WSmwFzIhJWMmDIaxeu97nLqbsX3wdp+NnRw==", "1234567890abcdef") // PostTextAesDecryptRequest | 包含待解密文本 'text'、密钥 'key' 和随机数 'nonce' 的JSON对象
+	postTextAesDecryptRequest := *openapiclient.NewPostTextAesDecryptRequest("a-secret-key-123", "uyzVKczxZi3HdoGfeuaAt4F2/20WSmwFzIhJWMmDIaxeu97nLqbsX3wdp+NnRw==", "1234567890abcdef") // PostTextAesDecryptRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -130,7 +130,7 @@ Other parameters are passed through a pointer to a apiPostTextAesDecryptRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postTextAesDecryptRequest** | [**PostTextAesDecryptRequest**](PostTextAesDecryptRequest.md) | 包含待解密文本 &#39;text&#39;、密钥 &#39;key&#39; 和随机数 &#39;nonce&#39; 的JSON对象 | 
+ **postTextAesDecryptRequest** | [**PostTextAesDecryptRequest**](PostTextAesDecryptRequest.md) |  | 
 
 ### Return type
 
@@ -171,7 +171,7 @@ import (
 )
 
 func main() {
-	postTextAesDecryptAdvancedRequest := *openapiclient.NewPostTextAesDecryptAdvancedRequest("68vWkaxJPg1vx0LWJONpEfYdvW3Wz7V5uXiYg0WWfGJHIZWBmVVghHg=", "my-super-secret-key", "GCM") // PostTextAesDecryptAdvancedRequest | 包含解密配置的JSON对象
+	postTextAesDecryptAdvancedRequest := *openapiclient.NewPostTextAesDecryptAdvancedRequest("68vWkaxJPg1vx0LWJONpEfYdvW3Wz7V5uXiYg0WWfGJHIZWBmVVghHg=", "my-super-secret-key", "GCM") // PostTextAesDecryptAdvancedRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -196,7 +196,7 @@ Other parameters are passed through a pointer to a apiPostTextAesDecryptAdvanced
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postTextAesDecryptAdvancedRequest** | [**PostTextAesDecryptAdvancedRequest**](PostTextAesDecryptAdvancedRequest.md) | 包含解密配置的JSON对象 | 
+ **postTextAesDecryptAdvancedRequest** | [**PostTextAesDecryptAdvancedRequest**](PostTextAesDecryptAdvancedRequest.md) |  | 
 
 ### Return type
 
@@ -237,7 +237,7 @@ import (
 )
 
 func main() {
-	postTextAesEncryptRequest := *openapiclient.NewPostTextAesEncryptRequest("a-secret-key-123", "top secret message") // PostTextAesEncryptRequest | 包含待加密文本 'text' 和密钥 'key' 的JSON对象
+	postTextAesEncryptRequest := *openapiclient.NewPostTextAesEncryptRequest("a-secret-key-123", "这是一段需要加密的消息") // PostTextAesEncryptRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -262,7 +262,7 @@ Other parameters are passed through a pointer to a apiPostTextAesEncryptRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postTextAesEncryptRequest** | [**PostTextAesEncryptRequest**](PostTextAesEncryptRequest.md) | 包含待加密文本 &#39;text&#39; 和密钥 &#39;key&#39; 的JSON对象 | 
+ **postTextAesEncryptRequest** | [**PostTextAesEncryptRequest**](PostTextAesEncryptRequest.md) |  | 
 
 ### Return type
 
@@ -303,7 +303,7 @@ import (
 )
 
 func main() {
-	postTextAesEncryptAdvancedRequest := *openapiclient.NewPostTextAesEncryptAdvancedRequest("Hello, World! 你好世界！", "my-super-secret-key") // PostTextAesEncryptAdvancedRequest | 包含加密配置的JSON对象
+	postTextAesEncryptAdvancedRequest := *openapiclient.NewPostTextAesEncryptAdvancedRequest("Hello, World! 你好世界！", "my-super-secret-key") // PostTextAesEncryptAdvancedRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -328,7 +328,7 @@ Other parameters are passed through a pointer to a apiPostTextAesEncryptAdvanced
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postTextAesEncryptAdvancedRequest** | [**PostTextAesEncryptAdvancedRequest**](PostTextAesEncryptAdvancedRequest.md) | 包含加密配置的JSON对象 | 
+ **postTextAesEncryptAdvancedRequest** | [**PostTextAesEncryptAdvancedRequest**](PostTextAesEncryptAdvancedRequest.md) |  | 
 
 ### Return type
 
@@ -370,7 +370,7 @@ import (
 
 func main() {
 	postTextAnalyzeRequest := *openapiclient.NewPostTextAnalyzeRequest("Hello world.
-This is a sample sentence. It has multiple lines and words.") // PostTextAnalyzeRequest | 包含待分析文本 'text' 的JSON对象
+This is a sample sentence. It has multiple lines and words.") // PostTextAnalyzeRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -395,7 +395,7 @@ Other parameters are passed through a pointer to a apiPostTextAnalyzeRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postTextAnalyzeRequest** | [**PostTextAnalyzeRequest**](PostTextAnalyzeRequest.md) | 包含待分析文本 &#39;text&#39; 的JSON对象 | 
+ **postTextAnalyzeRequest** | [**PostTextAnalyzeRequest**](PostTextAnalyzeRequest.md) |  | 
 
 ### Return type
 
@@ -436,7 +436,7 @@ import (
 )
 
 func main() {
-	postTextBase64DecodeRequest := *openapiclient.NewPostTextBase64DecodeRequest("aGVsbG8gd29ybGQ=") // PostTextBase64DecodeRequest | 包含待解码文本 'text' 的JSON对象
+	postTextBase64DecodeRequest := *openapiclient.NewPostTextBase64DecodeRequest("aGVsbG8gd29ybGQ=") // PostTextBase64DecodeRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -461,7 +461,7 @@ Other parameters are passed through a pointer to a apiPostTextBase64DecodeReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postTextBase64DecodeRequest** | [**PostTextBase64DecodeRequest**](PostTextBase64DecodeRequest.md) | 包含待解码文本 &#39;text&#39; 的JSON对象 | 
+ **postTextBase64DecodeRequest** | [**PostTextBase64DecodeRequest**](PostTextBase64DecodeRequest.md) |  | 
 
 ### Return type
 
@@ -502,7 +502,7 @@ import (
 )
 
 func main() {
-	postTextBase64EncodeRequest := *openapiclient.NewPostTextBase64EncodeRequest("hello world") // PostTextBase64EncodeRequest | 包含待编码文本 'text' 的JSON对象
+	postTextBase64EncodeRequest := *openapiclient.NewPostTextBase64EncodeRequest("hello world") // PostTextBase64EncodeRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -527,7 +527,7 @@ Other parameters are passed through a pointer to a apiPostTextBase64EncodeReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postTextBase64EncodeRequest** | [**PostTextBase64EncodeRequest**](PostTextBase64EncodeRequest.md) | 包含待编码文本 &#39;text&#39; 的JSON对象 | 
+ **postTextBase64EncodeRequest** | [**PostTextBase64EncodeRequest**](PostTextBase64EncodeRequest.md) |  | 
 
 ### Return type
 
@@ -568,7 +568,7 @@ import (
 )
 
 func main() {
-	postTextConvertRequest := *openapiclient.NewPostTextConvertRequest("hello world", "plain", "base64") // PostTextConvertRequest | 包含转换配置的JSON对象
+	postTextConvertRequest := *openapiclient.NewPostTextConvertRequest("hello world", "plain", "base64") // PostTextConvertRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -593,7 +593,7 @@ Other parameters are passed through a pointer to a apiPostTextConvertRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postTextConvertRequest** | [**PostTextConvertRequest**](PostTextConvertRequest.md) | 包含转换配置的JSON对象 | 
+ **postTextConvertRequest** | [**PostTextConvertRequest**](PostTextConvertRequest.md) |  | 
 
 ### Return type
 
@@ -700,7 +700,7 @@ import (
 )
 
 func main() {
-	postTextMd5VerifyRequest := *openapiclient.NewPostTextMd5VerifyRequest("5d41402abc4b2a76b9719d911017c592", "hello world") // PostTextMd5VerifyRequest | 包含待校验文本 'text' 和哈希值 'hash' 的JSON对象
+	postTextMd5VerifyRequest := *openapiclient.NewPostTextMd5VerifyRequest("5d41402abc4b2a76b9719d911017c592", "hello world") // PostTextMd5VerifyRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -725,7 +725,7 @@ Other parameters are passed through a pointer to a apiPostTextMd5VerifyRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postTextMd5VerifyRequest** | [**PostTextMd5VerifyRequest**](PostTextMd5VerifyRequest.md) | 包含待校验文本 &#39;text&#39; 和哈希值 &#39;hash&#39; 的JSON对象 | 
+ **postTextMd5VerifyRequest** | [**PostTextMd5VerifyRequest**](PostTextMd5VerifyRequest.md) |  | 
 
 ### Return type
 

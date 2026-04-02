@@ -20,14 +20,10 @@ var _ MappedNullable = &PostAiTranslate200Response{}
 // PostAiTranslate200Response struct for PostAiTranslate200Response
 type PostAiTranslate200Response struct {
 	Message *string `json:"message,omitempty"`
-	// 标识是否为批量翻译请求。
-	IsBatch *bool `json:"is_batch,omitempty"`
 	Data *PostAiTranslate200ResponseData `json:"data,omitempty"`
-	// 批量翻译结果列表，仅在批量翻译时返回。
-	BatchData []PostAiTranslate200ResponseBatchDataInner `json:"batch_data,omitempty"`
-	BatchSummary *PostAiTranslate200ResponseBatchSummary `json:"batch_summary,omitempty"`
 	Performance *PostAiTranslate200ResponsePerformance `json:"performance,omitempty"`
-	QualityMetrics *PostAiTranslate200ResponseQualityMetrics `json:"quality_metrics,omitempty"`
+	// 是否为批量翻译请求。
+	IsBatch *bool `json:"is_batch,omitempty"`
 }
 
 // NewPostAiTranslate200Response instantiates a new PostAiTranslate200Response object
@@ -79,38 +75,6 @@ func (o *PostAiTranslate200Response) SetMessage(v string) {
 	o.Message = &v
 }
 
-// GetIsBatch returns the IsBatch field value if set, zero value otherwise.
-func (o *PostAiTranslate200Response) GetIsBatch() bool {
-	if o == nil || IsNil(o.IsBatch) {
-		var ret bool
-		return ret
-	}
-	return *o.IsBatch
-}
-
-// GetIsBatchOk returns a tuple with the IsBatch field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAiTranslate200Response) GetIsBatchOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsBatch) {
-		return nil, false
-	}
-	return o.IsBatch, true
-}
-
-// HasIsBatch returns a boolean if a field has been set.
-func (o *PostAiTranslate200Response) HasIsBatch() bool {
-	if o != nil && !IsNil(o.IsBatch) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsBatch gets a reference to the given bool and assigns it to the IsBatch field.
-func (o *PostAiTranslate200Response) SetIsBatch(v bool) {
-	o.IsBatch = &v
-}
-
 // GetData returns the Data field value if set, zero value otherwise.
 func (o *PostAiTranslate200Response) GetData() PostAiTranslate200ResponseData {
 	if o == nil || IsNil(o.Data) {
@@ -141,70 +105,6 @@ func (o *PostAiTranslate200Response) HasData() bool {
 // SetData gets a reference to the given PostAiTranslate200ResponseData and assigns it to the Data field.
 func (o *PostAiTranslate200Response) SetData(v PostAiTranslate200ResponseData) {
 	o.Data = &v
-}
-
-// GetBatchData returns the BatchData field value if set, zero value otherwise.
-func (o *PostAiTranslate200Response) GetBatchData() []PostAiTranslate200ResponseBatchDataInner {
-	if o == nil || IsNil(o.BatchData) {
-		var ret []PostAiTranslate200ResponseBatchDataInner
-		return ret
-	}
-	return o.BatchData
-}
-
-// GetBatchDataOk returns a tuple with the BatchData field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAiTranslate200Response) GetBatchDataOk() ([]PostAiTranslate200ResponseBatchDataInner, bool) {
-	if o == nil || IsNil(o.BatchData) {
-		return nil, false
-	}
-	return o.BatchData, true
-}
-
-// HasBatchData returns a boolean if a field has been set.
-func (o *PostAiTranslate200Response) HasBatchData() bool {
-	if o != nil && !IsNil(o.BatchData) {
-		return true
-	}
-
-	return false
-}
-
-// SetBatchData gets a reference to the given []PostAiTranslate200ResponseBatchDataInner and assigns it to the BatchData field.
-func (o *PostAiTranslate200Response) SetBatchData(v []PostAiTranslate200ResponseBatchDataInner) {
-	o.BatchData = v
-}
-
-// GetBatchSummary returns the BatchSummary field value if set, zero value otherwise.
-func (o *PostAiTranslate200Response) GetBatchSummary() PostAiTranslate200ResponseBatchSummary {
-	if o == nil || IsNil(o.BatchSummary) {
-		var ret PostAiTranslate200ResponseBatchSummary
-		return ret
-	}
-	return *o.BatchSummary
-}
-
-// GetBatchSummaryOk returns a tuple with the BatchSummary field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAiTranslate200Response) GetBatchSummaryOk() (*PostAiTranslate200ResponseBatchSummary, bool) {
-	if o == nil || IsNil(o.BatchSummary) {
-		return nil, false
-	}
-	return o.BatchSummary, true
-}
-
-// HasBatchSummary returns a boolean if a field has been set.
-func (o *PostAiTranslate200Response) HasBatchSummary() bool {
-	if o != nil && !IsNil(o.BatchSummary) {
-		return true
-	}
-
-	return false
-}
-
-// SetBatchSummary gets a reference to the given PostAiTranslate200ResponseBatchSummary and assigns it to the BatchSummary field.
-func (o *PostAiTranslate200Response) SetBatchSummary(v PostAiTranslate200ResponseBatchSummary) {
-	o.BatchSummary = &v
 }
 
 // GetPerformance returns the Performance field value if set, zero value otherwise.
@@ -239,36 +139,36 @@ func (o *PostAiTranslate200Response) SetPerformance(v PostAiTranslate200Response
 	o.Performance = &v
 }
 
-// GetQualityMetrics returns the QualityMetrics field value if set, zero value otherwise.
-func (o *PostAiTranslate200Response) GetQualityMetrics() PostAiTranslate200ResponseQualityMetrics {
-	if o == nil || IsNil(o.QualityMetrics) {
-		var ret PostAiTranslate200ResponseQualityMetrics
+// GetIsBatch returns the IsBatch field value if set, zero value otherwise.
+func (o *PostAiTranslate200Response) GetIsBatch() bool {
+	if o == nil || IsNil(o.IsBatch) {
+		var ret bool
 		return ret
 	}
-	return *o.QualityMetrics
+	return *o.IsBatch
 }
 
-// GetQualityMetricsOk returns a tuple with the QualityMetrics field value if set, nil otherwise
+// GetIsBatchOk returns a tuple with the IsBatch field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PostAiTranslate200Response) GetQualityMetricsOk() (*PostAiTranslate200ResponseQualityMetrics, bool) {
-	if o == nil || IsNil(o.QualityMetrics) {
+func (o *PostAiTranslate200Response) GetIsBatchOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsBatch) {
 		return nil, false
 	}
-	return o.QualityMetrics, true
+	return o.IsBatch, true
 }
 
-// HasQualityMetrics returns a boolean if a field has been set.
-func (o *PostAiTranslate200Response) HasQualityMetrics() bool {
-	if o != nil && !IsNil(o.QualityMetrics) {
+// HasIsBatch returns a boolean if a field has been set.
+func (o *PostAiTranslate200Response) HasIsBatch() bool {
+	if o != nil && !IsNil(o.IsBatch) {
 		return true
 	}
 
 	return false
 }
 
-// SetQualityMetrics gets a reference to the given PostAiTranslate200ResponseQualityMetrics and assigns it to the QualityMetrics field.
-func (o *PostAiTranslate200Response) SetQualityMetrics(v PostAiTranslate200ResponseQualityMetrics) {
-	o.QualityMetrics = &v
+// SetIsBatch gets a reference to the given bool and assigns it to the IsBatch field.
+func (o *PostAiTranslate200Response) SetIsBatch(v bool) {
+	o.IsBatch = &v
 }
 
 func (o PostAiTranslate200Response) MarshalJSON() ([]byte, error) {
@@ -284,23 +184,14 @@ func (o PostAiTranslate200Response) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
-	if !IsNil(o.IsBatch) {
-		toSerialize["is_batch"] = o.IsBatch
-	}
 	if !IsNil(o.Data) {
 		toSerialize["data"] = o.Data
-	}
-	if !IsNil(o.BatchData) {
-		toSerialize["batch_data"] = o.BatchData
-	}
-	if !IsNil(o.BatchSummary) {
-		toSerialize["batch_summary"] = o.BatchSummary
 	}
 	if !IsNil(o.Performance) {
 		toSerialize["performance"] = o.Performance
 	}
-	if !IsNil(o.QualityMetrics) {
-		toSerialize["quality_metrics"] = o.QualityMetrics
+	if !IsNil(o.IsBatch) {
+		toSerialize["is_batch"] = o.IsBatch
 	}
 	return toSerialize, nil
 }

@@ -21,7 +21,7 @@ var _ MappedNullable = &PostTranslateTextRequest{}
 
 // PostTranslateTextRequest struct for PostTranslateTextRequest
 type PostTranslateTextRequest struct {
-	// 待翻译的文本内容。
+	// 待翻译的文本内容，最大长度3000字符。
 	Text string `json:"text"`
 }
 

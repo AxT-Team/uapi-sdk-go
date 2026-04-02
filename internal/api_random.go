@@ -513,7 +513,7 @@ type ApiPostAnswerbookAskRequest struct {
 	postAnswerbookAskRequest *PostAnswerbookAskRequest
 }
 
-// 包含问题的JSON对象
+// 
 func (r ApiPostAnswerbookAskRequest) PostAnswerbookAskRequest(postAnswerbookAskRequest PostAnswerbookAskRequest) ApiPostAnswerbookAskRequest {
 	r.postAnswerbookAskRequest = &postAnswerbookAskRequest
 	return r

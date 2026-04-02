@@ -7,7 +7,11 @@ Name | Type | Description | Notes
 **Cid** | Pointer to **float32** | 分P的唯一标识CID，用于获取弹幕等。 | [optional] 
 **Page** | Pointer to **float32** | 分P的序号，从1开始。 | [optional] 
 **Part** | Pointer to **string** | 分P的标题。对于单P视频，通常是视频主标题。 | [optional] 
+**From** | Pointer to **string** | 视频来源。 | [optional] 
 **Duration** | Pointer to **float32** | 该分P的持续时间，单位为秒。 | [optional] 
+**Vid** | Pointer to **string** | 外部视频源 ID，通常为空。 | [optional] 
+**Weblink** | Pointer to **string** | 外链地址，通常为空。 | [optional] 
+**Dimension** | Pointer to [**GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension**](GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension.md) |  | [optional] 
 
 ## Methods
 
@@ -103,6 +107,31 @@ SetPart sets Part field to given value.
 
 HasPart returns a boolean if a field has been set.
 
+### GetFrom
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetFrom() string`
+
+GetFrom returns the From field if non-nil, zero value otherwise.
+
+### GetFromOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetFromOk() (*string, bool)`
+
+GetFromOk returns a tuple with the From field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFrom
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) SetFrom(v string)`
+
+SetFrom sets From field to given value.
+
+### HasFrom
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) HasFrom() bool`
+
+HasFrom returns a boolean if a field has been set.
+
 ### GetDuration
 
 `func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetDuration() float32`
@@ -127,6 +156,81 @@ SetDuration sets Duration field to given value.
 `func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) HasDuration() bool`
 
 HasDuration returns a boolean if a field has been set.
+
+### GetVid
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetVid() string`
+
+GetVid returns the Vid field if non-nil, zero value otherwise.
+
+### GetVidOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetVidOk() (*string, bool)`
+
+GetVidOk returns a tuple with the Vid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVid
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) SetVid(v string)`
+
+SetVid sets Vid field to given value.
+
+### HasVid
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) HasVid() bool`
+
+HasVid returns a boolean if a field has been set.
+
+### GetWeblink
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetWeblink() string`
+
+GetWeblink returns the Weblink field if non-nil, zero value otherwise.
+
+### GetWeblinkOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetWeblinkOk() (*string, bool)`
+
+GetWeblinkOk returns a tuple with the Weblink field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWeblink
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) SetWeblink(v string)`
+
+SetWeblink sets Weblink field to given value.
+
+### HasWeblink
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) HasWeblink() bool`
+
+HasWeblink returns a boolean if a field has been set.
+
+### GetDimension
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetDimension() GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension`
+
+GetDimension returns the Dimension field if non-nil, zero value otherwise.
+
+### GetDimensionOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetDimensionOk() (*GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension, bool)`
+
+GetDimensionOk returns a tuple with the Dimension field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDimension
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) SetDimension(v GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension)`
+
+SetDimension sets Dimension field to given value.
+
+### HasDimension
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) HasDimension() bool`
+
+HasDimension returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

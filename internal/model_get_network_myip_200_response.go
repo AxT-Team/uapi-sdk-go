@@ -37,8 +37,10 @@ type GetNetworkMyip200Response struct {
 	Beginip *string `json:"beginip,omitempty"`
 	// IP段结束地址（标准查询）
 	Endip *string `json:"endip,omitempty"`
-	// 行政区（商业查询）
+	// 行政区。仅 `source=commercial` 时可能返回。
 	District *string `json:"district,omitempty"`
+	// 时区名称。仅 `source=commercial` 时可能返回。
+	TimeZone *string `json:"time_zone,omitempty"`
 }
 
 // NewGetNetworkMyip200Response instantiates a new GetNetworkMyip200Response object
@@ -378,6 +380,38 @@ func (o *GetNetworkMyip200Response) SetDistrict(v string) {
 	o.District = &v
 }
 
+// GetTimeZone returns the TimeZone field value if set, zero value otherwise.
+func (o *GetNetworkMyip200Response) GetTimeZone() string {
+	if o == nil || IsNil(o.TimeZone) {
+		var ret string
+		return ret
+	}
+	return *o.TimeZone
+}
+
+// GetTimeZoneOk returns a tuple with the TimeZone field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetNetworkMyip200Response) GetTimeZoneOk() (*string, bool) {
+	if o == nil || IsNil(o.TimeZone) {
+		return nil, false
+	}
+	return o.TimeZone, true
+}
+
+// HasTimeZone returns a boolean if a field has been set.
+func (o *GetNetworkMyip200Response) HasTimeZone() bool {
+	if o != nil && !IsNil(o.TimeZone) {
+		return true
+	}
+
+	return false
+}
+
+// SetTimeZone gets a reference to the given string and assigns it to the TimeZone field.
+func (o *GetNetworkMyip200Response) SetTimeZone(v string) {
+	o.TimeZone = &v
+}
+
 func (o GetNetworkMyip200Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -417,6 +451,9 @@ func (o GetNetworkMyip200Response) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.District) {
 		toSerialize["district"] = o.District
+	}
+	if !IsNil(o.TimeZone) {
+		toSerialize["time_zone"] = o.TimeZone
 	}
 	return toSerialize, nil
 }

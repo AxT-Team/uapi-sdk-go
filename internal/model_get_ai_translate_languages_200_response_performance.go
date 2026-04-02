@@ -19,11 +19,9 @@ var _ MappedNullable = &GetAiTranslateLanguages200ResponsePerformance{}
 
 // GetAiTranslateLanguages200ResponsePerformance struct for GetAiTranslateLanguages200ResponsePerformance
 type GetAiTranslateLanguages200ResponsePerformance struct {
-	FastModeAvailable *bool `json:"fast_mode_available,omitempty"`
 	BatchTranslationAvailable *bool `json:"batch_translation_available,omitempty"`
-	MaxTextLength *int32 `json:"max_text_length,omitempty"`
 	MaxBatchSize *int32 `json:"max_batch_size,omitempty"`
-	TypicalResponseTimeMs *GetAiTranslateLanguages200ResponsePerformanceTypicalResponseTimeMs `json:"typical_response_time_ms,omitempty"`
+	MaxTextLength *int32 `json:"max_text_length,omitempty"`
 }
 
 // NewGetAiTranslateLanguages200ResponsePerformance instantiates a new GetAiTranslateLanguages200ResponsePerformance object
@@ -41,38 +39,6 @@ func NewGetAiTranslateLanguages200ResponsePerformance() *GetAiTranslateLanguages
 func NewGetAiTranslateLanguages200ResponsePerformanceWithDefaults() *GetAiTranslateLanguages200ResponsePerformance {
 	this := GetAiTranslateLanguages200ResponsePerformance{}
 	return &this
-}
-
-// GetFastModeAvailable returns the FastModeAvailable field value if set, zero value otherwise.
-func (o *GetAiTranslateLanguages200ResponsePerformance) GetFastModeAvailable() bool {
-	if o == nil || IsNil(o.FastModeAvailable) {
-		var ret bool
-		return ret
-	}
-	return *o.FastModeAvailable
-}
-
-// GetFastModeAvailableOk returns a tuple with the FastModeAvailable field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetAiTranslateLanguages200ResponsePerformance) GetFastModeAvailableOk() (*bool, bool) {
-	if o == nil || IsNil(o.FastModeAvailable) {
-		return nil, false
-	}
-	return o.FastModeAvailable, true
-}
-
-// HasFastModeAvailable returns a boolean if a field has been set.
-func (o *GetAiTranslateLanguages200ResponsePerformance) HasFastModeAvailable() bool {
-	if o != nil && !IsNil(o.FastModeAvailable) {
-		return true
-	}
-
-	return false
-}
-
-// SetFastModeAvailable gets a reference to the given bool and assigns it to the FastModeAvailable field.
-func (o *GetAiTranslateLanguages200ResponsePerformance) SetFastModeAvailable(v bool) {
-	o.FastModeAvailable = &v
 }
 
 // GetBatchTranslationAvailable returns the BatchTranslationAvailable field value if set, zero value otherwise.
@@ -107,38 +73,6 @@ func (o *GetAiTranslateLanguages200ResponsePerformance) SetBatchTranslationAvail
 	o.BatchTranslationAvailable = &v
 }
 
-// GetMaxTextLength returns the MaxTextLength field value if set, zero value otherwise.
-func (o *GetAiTranslateLanguages200ResponsePerformance) GetMaxTextLength() int32 {
-	if o == nil || IsNil(o.MaxTextLength) {
-		var ret int32
-		return ret
-	}
-	return *o.MaxTextLength
-}
-
-// GetMaxTextLengthOk returns a tuple with the MaxTextLength field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetAiTranslateLanguages200ResponsePerformance) GetMaxTextLengthOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxTextLength) {
-		return nil, false
-	}
-	return o.MaxTextLength, true
-}
-
-// HasMaxTextLength returns a boolean if a field has been set.
-func (o *GetAiTranslateLanguages200ResponsePerformance) HasMaxTextLength() bool {
-	if o != nil && !IsNil(o.MaxTextLength) {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxTextLength gets a reference to the given int32 and assigns it to the MaxTextLength field.
-func (o *GetAiTranslateLanguages200ResponsePerformance) SetMaxTextLength(v int32) {
-	o.MaxTextLength = &v
-}
-
 // GetMaxBatchSize returns the MaxBatchSize field value if set, zero value otherwise.
 func (o *GetAiTranslateLanguages200ResponsePerformance) GetMaxBatchSize() int32 {
 	if o == nil || IsNil(o.MaxBatchSize) {
@@ -171,36 +105,36 @@ func (o *GetAiTranslateLanguages200ResponsePerformance) SetMaxBatchSize(v int32)
 	o.MaxBatchSize = &v
 }
 
-// GetTypicalResponseTimeMs returns the TypicalResponseTimeMs field value if set, zero value otherwise.
-func (o *GetAiTranslateLanguages200ResponsePerformance) GetTypicalResponseTimeMs() GetAiTranslateLanguages200ResponsePerformanceTypicalResponseTimeMs {
-	if o == nil || IsNil(o.TypicalResponseTimeMs) {
-		var ret GetAiTranslateLanguages200ResponsePerformanceTypicalResponseTimeMs
+// GetMaxTextLength returns the MaxTextLength field value if set, zero value otherwise.
+func (o *GetAiTranslateLanguages200ResponsePerformance) GetMaxTextLength() int32 {
+	if o == nil || IsNil(o.MaxTextLength) {
+		var ret int32
 		return ret
 	}
-	return *o.TypicalResponseTimeMs
+	return *o.MaxTextLength
 }
 
-// GetTypicalResponseTimeMsOk returns a tuple with the TypicalResponseTimeMs field value if set, nil otherwise
+// GetMaxTextLengthOk returns a tuple with the MaxTextLength field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetAiTranslateLanguages200ResponsePerformance) GetTypicalResponseTimeMsOk() (*GetAiTranslateLanguages200ResponsePerformanceTypicalResponseTimeMs, bool) {
-	if o == nil || IsNil(o.TypicalResponseTimeMs) {
+func (o *GetAiTranslateLanguages200ResponsePerformance) GetMaxTextLengthOk() (*int32, bool) {
+	if o == nil || IsNil(o.MaxTextLength) {
 		return nil, false
 	}
-	return o.TypicalResponseTimeMs, true
+	return o.MaxTextLength, true
 }
 
-// HasTypicalResponseTimeMs returns a boolean if a field has been set.
-func (o *GetAiTranslateLanguages200ResponsePerformance) HasTypicalResponseTimeMs() bool {
-	if o != nil && !IsNil(o.TypicalResponseTimeMs) {
+// HasMaxTextLength returns a boolean if a field has been set.
+func (o *GetAiTranslateLanguages200ResponsePerformance) HasMaxTextLength() bool {
+	if o != nil && !IsNil(o.MaxTextLength) {
 		return true
 	}
 
 	return false
 }
 
-// SetTypicalResponseTimeMs gets a reference to the given GetAiTranslateLanguages200ResponsePerformanceTypicalResponseTimeMs and assigns it to the TypicalResponseTimeMs field.
-func (o *GetAiTranslateLanguages200ResponsePerformance) SetTypicalResponseTimeMs(v GetAiTranslateLanguages200ResponsePerformanceTypicalResponseTimeMs) {
-	o.TypicalResponseTimeMs = &v
+// SetMaxTextLength gets a reference to the given int32 and assigns it to the MaxTextLength field.
+func (o *GetAiTranslateLanguages200ResponsePerformance) SetMaxTextLength(v int32) {
+	o.MaxTextLength = &v
 }
 
 func (o GetAiTranslateLanguages200ResponsePerformance) MarshalJSON() ([]byte, error) {
@@ -213,20 +147,14 @@ func (o GetAiTranslateLanguages200ResponsePerformance) MarshalJSON() ([]byte, er
 
 func (o GetAiTranslateLanguages200ResponsePerformance) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.FastModeAvailable) {
-		toSerialize["fast_mode_available"] = o.FastModeAvailable
-	}
 	if !IsNil(o.BatchTranslationAvailable) {
 		toSerialize["batch_translation_available"] = o.BatchTranslationAvailable
-	}
-	if !IsNil(o.MaxTextLength) {
-		toSerialize["max_text_length"] = o.MaxTextLength
 	}
 	if !IsNil(o.MaxBatchSize) {
 		toSerialize["max_batch_size"] = o.MaxBatchSize
 	}
-	if !IsNil(o.TypicalResponseTimeMs) {
-		toSerialize["typical_response_time_ms"] = o.TypicalResponseTimeMs
+	if !IsNil(o.MaxTextLength) {
+		toSerialize["max_text_length"] = o.MaxTextLength
 	}
 	return toSerialize, nil
 }

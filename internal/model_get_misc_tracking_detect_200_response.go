@@ -19,9 +19,14 @@ var _ MappedNullable = &GetMiscTrackingDetect200Response{}
 
 // GetMiscTrackingDetect200Response struct for GetMiscTrackingDetect200Response
 type GetMiscTrackingDetect200Response struct {
-	Code *string `json:"code,omitempty"`
-	Message *string `json:"message,omitempty"`
-	Data *GetMiscTrackingDetect200ResponseData `json:"data,omitempty"`
+	// 查询的快递单号
+	TrackingNumber *string `json:"tracking_number,omitempty"`
+	// 识别出的快递公司编码
+	CarrierCode *string `json:"carrier_code,omitempty"`
+	// 识别出的快递公司名称
+	CarrierName *string `json:"carrier_name,omitempty"`
+	// 其他可能的快递公司列表。如果没有备选项，会返回空数组。
+	Alternatives []GetMiscTrackingDetect200ResponseAlternativesInner `json:"alternatives,omitempty"`
 }
 
 // NewGetMiscTrackingDetect200Response instantiates a new GetMiscTrackingDetect200Response object
@@ -41,100 +46,132 @@ func NewGetMiscTrackingDetect200ResponseWithDefaults() *GetMiscTrackingDetect200
 	return &this
 }
 
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetMiscTrackingDetect200Response) GetCode() string {
-	if o == nil || IsNil(o.Code) {
+// GetTrackingNumber returns the TrackingNumber field value if set, zero value otherwise.
+func (o *GetMiscTrackingDetect200Response) GetTrackingNumber() string {
+	if o == nil || IsNil(o.TrackingNumber) {
 		var ret string
 		return ret
 	}
-	return *o.Code
+	return *o.TrackingNumber
 }
 
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// GetTrackingNumberOk returns a tuple with the TrackingNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMiscTrackingDetect200Response) GetCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.Code) {
+func (o *GetMiscTrackingDetect200Response) GetTrackingNumberOk() (*string, bool) {
+	if o == nil || IsNil(o.TrackingNumber) {
 		return nil, false
 	}
-	return o.Code, true
+	return o.TrackingNumber, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *GetMiscTrackingDetect200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
+// HasTrackingNumber returns a boolean if a field has been set.
+func (o *GetMiscTrackingDetect200Response) HasTrackingNumber() bool {
+	if o != nil && !IsNil(o.TrackingNumber) {
 		return true
 	}
 
 	return false
 }
 
-// SetCode gets a reference to the given string and assigns it to the Code field.
-func (o *GetMiscTrackingDetect200Response) SetCode(v string) {
-	o.Code = &v
+// SetTrackingNumber gets a reference to the given string and assigns it to the TrackingNumber field.
+func (o *GetMiscTrackingDetect200Response) SetTrackingNumber(v string) {
+	o.TrackingNumber = &v
 }
 
-// GetMessage returns the Message field value if set, zero value otherwise.
-func (o *GetMiscTrackingDetect200Response) GetMessage() string {
-	if o == nil || IsNil(o.Message) {
+// GetCarrierCode returns the CarrierCode field value if set, zero value otherwise.
+func (o *GetMiscTrackingDetect200Response) GetCarrierCode() string {
+	if o == nil || IsNil(o.CarrierCode) {
 		var ret string
 		return ret
 	}
-	return *o.Message
+	return *o.CarrierCode
 }
 
-// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
+// GetCarrierCodeOk returns a tuple with the CarrierCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMiscTrackingDetect200Response) GetMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.Message) {
+func (o *GetMiscTrackingDetect200Response) GetCarrierCodeOk() (*string, bool) {
+	if o == nil || IsNil(o.CarrierCode) {
 		return nil, false
 	}
-	return o.Message, true
+	return o.CarrierCode, true
 }
 
-// HasMessage returns a boolean if a field has been set.
-func (o *GetMiscTrackingDetect200Response) HasMessage() bool {
-	if o != nil && !IsNil(o.Message) {
+// HasCarrierCode returns a boolean if a field has been set.
+func (o *GetMiscTrackingDetect200Response) HasCarrierCode() bool {
+	if o != nil && !IsNil(o.CarrierCode) {
 		return true
 	}
 
 	return false
 }
 
-// SetMessage gets a reference to the given string and assigns it to the Message field.
-func (o *GetMiscTrackingDetect200Response) SetMessage(v string) {
-	o.Message = &v
+// SetCarrierCode gets a reference to the given string and assigns it to the CarrierCode field.
+func (o *GetMiscTrackingDetect200Response) SetCarrierCode(v string) {
+	o.CarrierCode = &v
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
-func (o *GetMiscTrackingDetect200Response) GetData() GetMiscTrackingDetect200ResponseData {
-	if o == nil || IsNil(o.Data) {
-		var ret GetMiscTrackingDetect200ResponseData
+// GetCarrierName returns the CarrierName field value if set, zero value otherwise.
+func (o *GetMiscTrackingDetect200Response) GetCarrierName() string {
+	if o == nil || IsNil(o.CarrierName) {
+		var ret string
 		return ret
 	}
-	return *o.Data
+	return *o.CarrierName
 }
 
-// GetDataOk returns a tuple with the Data field value if set, nil otherwise
+// GetCarrierNameOk returns a tuple with the CarrierName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMiscTrackingDetect200Response) GetDataOk() (*GetMiscTrackingDetect200ResponseData, bool) {
-	if o == nil || IsNil(o.Data) {
+func (o *GetMiscTrackingDetect200Response) GetCarrierNameOk() (*string, bool) {
+	if o == nil || IsNil(o.CarrierName) {
 		return nil, false
 	}
-	return o.Data, true
+	return o.CarrierName, true
 }
 
-// HasData returns a boolean if a field has been set.
-func (o *GetMiscTrackingDetect200Response) HasData() bool {
-	if o != nil && !IsNil(o.Data) {
+// HasCarrierName returns a boolean if a field has been set.
+func (o *GetMiscTrackingDetect200Response) HasCarrierName() bool {
+	if o != nil && !IsNil(o.CarrierName) {
 		return true
 	}
 
 	return false
 }
 
-// SetData gets a reference to the given GetMiscTrackingDetect200ResponseData and assigns it to the Data field.
-func (o *GetMiscTrackingDetect200Response) SetData(v GetMiscTrackingDetect200ResponseData) {
-	o.Data = &v
+// SetCarrierName gets a reference to the given string and assigns it to the CarrierName field.
+func (o *GetMiscTrackingDetect200Response) SetCarrierName(v string) {
+	o.CarrierName = &v
+}
+
+// GetAlternatives returns the Alternatives field value if set, zero value otherwise.
+func (o *GetMiscTrackingDetect200Response) GetAlternatives() []GetMiscTrackingDetect200ResponseAlternativesInner {
+	if o == nil || IsNil(o.Alternatives) {
+		var ret []GetMiscTrackingDetect200ResponseAlternativesInner
+		return ret
+	}
+	return o.Alternatives
+}
+
+// GetAlternativesOk returns a tuple with the Alternatives field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscTrackingDetect200Response) GetAlternativesOk() ([]GetMiscTrackingDetect200ResponseAlternativesInner, bool) {
+	if o == nil || IsNil(o.Alternatives) {
+		return nil, false
+	}
+	return o.Alternatives, true
+}
+
+// HasAlternatives returns a boolean if a field has been set.
+func (o *GetMiscTrackingDetect200Response) HasAlternatives() bool {
+	if o != nil && !IsNil(o.Alternatives) {
+		return true
+	}
+
+	return false
+}
+
+// SetAlternatives gets a reference to the given []GetMiscTrackingDetect200ResponseAlternativesInner and assigns it to the Alternatives field.
+func (o *GetMiscTrackingDetect200Response) SetAlternatives(v []GetMiscTrackingDetect200ResponseAlternativesInner) {
+	o.Alternatives = v
 }
 
 func (o GetMiscTrackingDetect200Response) MarshalJSON() ([]byte, error) {
@@ -147,14 +184,17 @@ func (o GetMiscTrackingDetect200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetMiscTrackingDetect200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
+	if !IsNil(o.TrackingNumber) {
+		toSerialize["tracking_number"] = o.TrackingNumber
 	}
-	if !IsNil(o.Message) {
-		toSerialize["message"] = o.Message
+	if !IsNil(o.CarrierCode) {
+		toSerialize["carrier_code"] = o.CarrierCode
 	}
-	if !IsNil(o.Data) {
-		toSerialize["data"] = o.Data
+	if !IsNil(o.CarrierName) {
+		toSerialize["carrier_name"] = o.CarrierName
+	}
+	if !IsNil(o.Alternatives) {
+		toSerialize["alternatives"] = o.Alternatives
 	}
 	return toSerialize, nil
 }

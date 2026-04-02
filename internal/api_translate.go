@@ -128,13 +128,13 @@ type ApiPostAiTranslateRequest struct {
 	postAiTranslateRequest *PostAiTranslateRequest
 }
 
-// 目标语言代码。请从支持的语言列表中选择一个语言代码。
+// 目标语言代码。请从[支持的语言列表](#enum-list)中选择一个语言代码。
 func (r ApiPostAiTranslateRequest) TargetLang(targetLang string) ApiPostAiTranslateRequest {
 	r.targetLang = &targetLang
 	return r
 }
 
-// 包含翻译参数的JSON对象，支持单个文本或批量文本翻译
+// 
 func (r ApiPostAiTranslateRequest) PostAiTranslateRequest(postAiTranslateRequest PostAiTranslateRequest) ApiPostAiTranslateRequest {
 	r.postAiTranslateRequest = &postAiTranslateRequest
 	return r
@@ -149,19 +149,16 @@ PostAiTranslate AI智能翻译
 
 这是一个商业级的AI智能翻译服务，采用最新的神经网络翻译技术和大语言模型，提供远超传统机器翻译的质量。
 
-> [!VIP]
-> 本API目前处于**限时免费**阶段，我们鼓励开发者深度集成和测试。未来，它将转为付费API，为用户提供更稳定、更智能的翻译服务。
-
 ## 功能概述
 
-- **智能双模式**: 支持单个文本翻译和批量文本翻译的统一接口设计，自动识别请求类型并提供相应的翻译服务。系统会根据输入自动判断是处理单条文本还是批量文本，无需使用不同的接口。
+- **单文本翻译**: 专注处理单条文本翻译，适合需要高质量译文的业务场景。
 - **多风格适配**: 提供随意口语化、专业商务、学术正式、文学艺术四种翻译风格，能够根据不同场景需求调整翻译的语言风格和表达方式。
 - **上下文感知**: 支持通用、商务、技术、医疗、法律、市场营销、娱乐、教育、新闻等九种专业领域的上下文翻译，确保术语准确性和表达地道性。
-- **高质量保证**: 内置质量评估系统，对每次翻译结果进行流畅度、准确度、完整性评分，并提供置信度分数和替代翻译建议。
-- **智能解释**: 提供关键词组翻译注释、文化背景说明和语法结构分析，帮助用户理解翻译逻辑和文化差异。
-- **高效批量**: 批量翻译支持最多50条文本，总计10万字符，配备智能并发控制（1-10并发）和失败重试机制。
-- **快速模式**: 提供快速模式选项，在保证95%+准确率的前提下，响应时间缩短至800ms内，适合实时翻译和聊天应用。
 - **格式保留**: 智能识别并保持原文的格式结构，包括换行、缩进、特殊符号等，确保翻译后的文本保持良好的可读性。
+
+## 支持的语言
+
+我们支持超过100种语言的互译，详见下方参数列表。
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPostAiTranslateRequest
@@ -306,7 +303,7 @@ type ApiPostTranslateStreamRequest struct {
 	postTranslateStreamRequest *PostTranslateStreamRequest
 }
 
-// 包含翻译参数的JSON对象
+// 
 func (r ApiPostTranslateStreamRequest) PostTranslateStreamRequest(postTranslateStreamRequest PostTranslateStreamRequest) ApiPostTranslateStreamRequest {
 	r.postTranslateStreamRequest = &postTranslateStreamRequest
 	return r
@@ -454,13 +451,13 @@ type ApiPostTranslateTextRequest struct {
 	postTranslateTextRequest *PostTranslateTextRequest
 }
 
-// 目标语言代码。请从支持的语言列表中选择一个语言代码。
+// 目标语言代码。请从[支持的语言列表](#enum-list)中选择一个语言代码。
 func (r ApiPostTranslateTextRequest) ToLang(toLang string) ApiPostTranslateTextRequest {
 	r.toLang = &toLang
 	return r
 }
 
-// 包含待翻译文本的JSON对象
+// 
 func (r ApiPostTranslateTextRequest) PostTranslateTextRequest(postTranslateTextRequest PostTranslateTextRequest) ApiPostTranslateTextRequest {
 	r.postTranslateTextRequest = &postTranslateTextRequest
 	return r

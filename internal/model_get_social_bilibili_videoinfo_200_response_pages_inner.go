@@ -25,8 +25,15 @@ type GetSocialBilibiliVideoinfo200ResponsePagesInner struct {
 	Page *float32 `json:"page,omitempty"`
 	// 分P的标题。对于单P视频，通常是视频主标题。
 	Part *string `json:"part,omitempty"`
+	// 视频来源。
+	From *string `json:"from,omitempty"`
 	// 该分P的持续时间，单位为秒。
 	Duration *float32 `json:"duration,omitempty"`
+	// 外部视频源 ID，通常为空。
+	Vid *string `json:"vid,omitempty"`
+	// 外链地址，通常为空。
+	Weblink *string `json:"weblink,omitempty"`
+	Dimension *GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension `json:"dimension,omitempty"`
 }
 
 // NewGetSocialBilibiliVideoinfo200ResponsePagesInner instantiates a new GetSocialBilibiliVideoinfo200ResponsePagesInner object
@@ -142,6 +149,38 @@ func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) SetPart(v string) {
 	o.Part = &v
 }
 
+// GetFrom returns the From field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetFrom() string {
+	if o == nil || IsNil(o.From) {
+		var ret string
+		return ret
+	}
+	return *o.From
+}
+
+// GetFromOk returns a tuple with the From field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetFromOk() (*string, bool) {
+	if o == nil || IsNil(o.From) {
+		return nil, false
+	}
+	return o.From, true
+}
+
+// HasFrom returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) HasFrom() bool {
+	if o != nil && !IsNil(o.From) {
+		return true
+	}
+
+	return false
+}
+
+// SetFrom gets a reference to the given string and assigns it to the From field.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) SetFrom(v string) {
+	o.From = &v
+}
+
 // GetDuration returns the Duration field value if set, zero value otherwise.
 func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetDuration() float32 {
 	if o == nil || IsNil(o.Duration) {
@@ -174,6 +213,102 @@ func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) SetDuration(v float32)
 	o.Duration = &v
 }
 
+// GetVid returns the Vid field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetVid() string {
+	if o == nil || IsNil(o.Vid) {
+		var ret string
+		return ret
+	}
+	return *o.Vid
+}
+
+// GetVidOk returns a tuple with the Vid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetVidOk() (*string, bool) {
+	if o == nil || IsNil(o.Vid) {
+		return nil, false
+	}
+	return o.Vid, true
+}
+
+// HasVid returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) HasVid() bool {
+	if o != nil && !IsNil(o.Vid) {
+		return true
+	}
+
+	return false
+}
+
+// SetVid gets a reference to the given string and assigns it to the Vid field.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) SetVid(v string) {
+	o.Vid = &v
+}
+
+// GetWeblink returns the Weblink field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetWeblink() string {
+	if o == nil || IsNil(o.Weblink) {
+		var ret string
+		return ret
+	}
+	return *o.Weblink
+}
+
+// GetWeblinkOk returns a tuple with the Weblink field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetWeblinkOk() (*string, bool) {
+	if o == nil || IsNil(o.Weblink) {
+		return nil, false
+	}
+	return o.Weblink, true
+}
+
+// HasWeblink returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) HasWeblink() bool {
+	if o != nil && !IsNil(o.Weblink) {
+		return true
+	}
+
+	return false
+}
+
+// SetWeblink gets a reference to the given string and assigns it to the Weblink field.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) SetWeblink(v string) {
+	o.Weblink = &v
+}
+
+// GetDimension returns the Dimension field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetDimension() GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension {
+	if o == nil || IsNil(o.Dimension) {
+		var ret GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension
+		return ret
+	}
+	return *o.Dimension
+}
+
+// GetDimensionOk returns a tuple with the Dimension field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) GetDimensionOk() (*GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension, bool) {
+	if o == nil || IsNil(o.Dimension) {
+		return nil, false
+	}
+	return o.Dimension, true
+}
+
+// HasDimension returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) HasDimension() bool {
+	if o != nil && !IsNil(o.Dimension) {
+		return true
+	}
+
+	return false
+}
+
+// SetDimension gets a reference to the given GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension and assigns it to the Dimension field.
+func (o *GetSocialBilibiliVideoinfo200ResponsePagesInner) SetDimension(v GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension) {
+	o.Dimension = &v
+}
+
 func (o GetSocialBilibiliVideoinfo200ResponsePagesInner) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -193,8 +328,20 @@ func (o GetSocialBilibiliVideoinfo200ResponsePagesInner) ToMap() (map[string]int
 	if !IsNil(o.Part) {
 		toSerialize["part"] = o.Part
 	}
+	if !IsNil(o.From) {
+		toSerialize["from"] = o.From
+	}
 	if !IsNil(o.Duration) {
 		toSerialize["duration"] = o.Duration
+	}
+	if !IsNil(o.Vid) {
+		toSerialize["vid"] = o.Vid
+	}
+	if !IsNil(o.Weblink) {
+		toSerialize["weblink"] = o.Weblink
+	}
+	if !IsNil(o.Dimension) {
+		toSerialize["dimension"] = o.Dimension
 	}
 	return toSerialize, nil
 }

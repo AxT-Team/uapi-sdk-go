@@ -21,7 +21,9 @@ var _ MappedNullable = &PostTextMd5VerifyRequest{}
 
 // PostTextMd5VerifyRequest struct for PostTextMd5VerifyRequest
 type PostTextMd5VerifyRequest struct {
+	// 用于比对的 MD5 哈希值（32 位小写十六进制字符串）。
 	Hash string `json:"hash"`
+	// 待校验的原始文本，会先计算其 MD5 再与 hash 进行比对。
 	Text string `json:"text"`
 }
 

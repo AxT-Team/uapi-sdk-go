@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"time"
+	"sync"
 
 	"github.com/valyala/fasthttp"
 )
@@ -13,10 +14,24 @@ type Client struct {
 	baseURL string
 	token   string
 	cli     *fasthttp.Client
+	mu      sync.RWMutex
+	lastResponseMeta *ResponseMeta
 }
 
 func New(baseURL, token string) *Client {
 	return &Client{ baseURL: baseURL, token: token, cli: &fasthttp.Client{} }
+}
+
+func (c *Client) setLastResponseMeta(meta *ResponseMeta) {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	c.lastResponseMeta = meta
+}
+
+func (c *Client) LastResponseMeta() *ResponseMeta {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
+	return c.lastResponseMeta
 }
 
 func (c *Client) do(method, path string, q map[string]string, body any) (any, error) {
@@ -47,8 +62,10 @@ func (c *Client) do(method, path string, q map[string]string, body any) (any, er
 		return nil, fmt.Errorf("request failed: %w", err)
 	}
 	status := resp.StatusCode()
+	meta := extractMetaFromHeaders(&resp.Header)
+	c.setLastResponseMeta(meta)
 	if status >= 400 {
-		return nil, mapError(status, resp.Body())
+		return nil, mapError(status, resp.Body(), &resp.Header)
 	}
 	ct := string(resp.Header.ContentType())
 	if strings.HasPrefix(ct, "application/json") {
@@ -775,13 +792,10 @@ func (api *TranslateApi) PostAiTranslate(args map[string]any) (any, error) {
 	path := "/api/v1/ai/translate"
 	body := make(map[string]any)
 	if v, ok := args["context"]; ok { body["context"] = v }
-	if v, ok := args["fast_mode"]; ok { body["fast_mode"] = v }
-	if v, ok := args["max_concurrency"]; ok { body["max_concurrency"] = v }
 	if v, ok := args["preserve_format"]; ok { body["preserve_format"] = v }
 	if v, ok := args["source_lang"]; ok { body["source_lang"] = v }
 	if v, ok := args["style"]; ok { body["style"] = v }
 	if v, ok := args["text"]; ok { body["text"] = v }
-	if v, ok := args["texts"]; ok { body["texts"] = v }
 	if len(body) == 0 {
 		return api.c.do("POST", path, q, nil)
 	}

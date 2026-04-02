@@ -25,6 +25,8 @@ type GetSocialBilibiliVideoinfo200Response struct {
 	Aid *float32 `json:"aid,omitempty"`
 	// 稿件分P总数。如果是单P视频，则为1。
 	Videos *float32 `json:"videos,omitempty"`
+	// 视频所属的子分区 ID。
+	Tid *float32 `json:"tid,omitempty"`
 	// 视频所属的子分区名称。
 	Tname *string `json:"tname,omitempty"`
 	// 视频类型。1代表原创，2代表转载。
@@ -39,12 +41,33 @@ type GetSocialBilibiliVideoinfo200Response struct {
 	Ctime *float32 `json:"ctime,omitempty"`
 	// 视频简介。可能会包含HTML换行符。
 	Desc *string `json:"desc,omitempty"`
+	// 结构化简介片段。
+	DescV2 []GetSocialBilibiliVideoinfo200ResponseDescV2Inner `json:"desc_v2,omitempty"`
+	// 视频状态码。
+	State *float32 `json:"state,omitempty"`
 	// 稿件总时长（所有分P累加），单位为秒。
 	Duration *float32 `json:"duration,omitempty"`
+	Rights *GetSocialBilibiliVideoinfo200ResponseRights `json:"rights,omitempty"`
 	Owner *GetSocialBilibiliVideoinfo200ResponseOwner `json:"owner,omitempty"`
 	Stat *GetSocialBilibiliVideoinfo200ResponseStat `json:"stat,omitempty"`
+	// 投稿时附带的动态文字。
+	Dynamic *string `json:"dynamic,omitempty"`
+	// 主分P的 CID（弹幕 ID）。
+	Cid *float32 `json:"cid,omitempty"`
+	Dimension *GetSocialBilibiliVideoinfo200ResponseDimension `json:"dimension,omitempty"`
+	// 不缓存标记。
+	NoCache *bool `json:"no_cache,omitempty"`
 	// 视频分P列表。即使是单P视频，该数组也包含一个元素。
 	Pages []GetSocialBilibiliVideoinfo200ResponsePagesInner `json:"pages,omitempty"`
+	Subtitle *GetSocialBilibiliVideoinfo200ResponseSubtitle `json:"subtitle,omitempty"`
+	// 联合投稿成员列表。
+	Staff []GetSocialBilibiliVideoinfo200ResponseStaffInner `json:"staff,omitempty"`
+	UgcSeason NullableGetSocialBilibiliVideoinfo200ResponseUgcSeason `json:"ugc_season,omitempty"`
+	// 是否为付费合集。
+	IsChargeableSeason *bool `json:"is_chargeable_season,omitempty"`
+	// 是否为剧情类视频。
+	IsStory *bool `json:"is_story,omitempty"`
+	HonorReply *GetSocialBilibiliVideoinfo200ResponseHonorReply `json:"honor_reply,omitempty"`
 }
 
 // NewGetSocialBilibiliVideoinfo200Response instantiates a new GetSocialBilibiliVideoinfo200Response object
@@ -158,6 +181,38 @@ func (o *GetSocialBilibiliVideoinfo200Response) HasVideos() bool {
 // SetVideos gets a reference to the given float32 and assigns it to the Videos field.
 func (o *GetSocialBilibiliVideoinfo200Response) SetVideos(v float32) {
 	o.Videos = &v
+}
+
+// GetTid returns the Tid field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200Response) GetTid() float32 {
+	if o == nil || IsNil(o.Tid) {
+		var ret float32
+		return ret
+	}
+	return *o.Tid
+}
+
+// GetTidOk returns a tuple with the Tid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) GetTidOk() (*float32, bool) {
+	if o == nil || IsNil(o.Tid) {
+		return nil, false
+	}
+	return o.Tid, true
+}
+
+// HasTid returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) HasTid() bool {
+	if o != nil && !IsNil(o.Tid) {
+		return true
+	}
+
+	return false
+}
+
+// SetTid gets a reference to the given float32 and assigns it to the Tid field.
+func (o *GetSocialBilibiliVideoinfo200Response) SetTid(v float32) {
+	o.Tid = &v
 }
 
 // GetTname returns the Tname field value if set, zero value otherwise.
@@ -384,6 +439,70 @@ func (o *GetSocialBilibiliVideoinfo200Response) SetDesc(v string) {
 	o.Desc = &v
 }
 
+// GetDescV2 returns the DescV2 field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200Response) GetDescV2() []GetSocialBilibiliVideoinfo200ResponseDescV2Inner {
+	if o == nil || IsNil(o.DescV2) {
+		var ret []GetSocialBilibiliVideoinfo200ResponseDescV2Inner
+		return ret
+	}
+	return o.DescV2
+}
+
+// GetDescV2Ok returns a tuple with the DescV2 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) GetDescV2Ok() ([]GetSocialBilibiliVideoinfo200ResponseDescV2Inner, bool) {
+	if o == nil || IsNil(o.DescV2) {
+		return nil, false
+	}
+	return o.DescV2, true
+}
+
+// HasDescV2 returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) HasDescV2() bool {
+	if o != nil && !IsNil(o.DescV2) {
+		return true
+	}
+
+	return false
+}
+
+// SetDescV2 gets a reference to the given []GetSocialBilibiliVideoinfo200ResponseDescV2Inner and assigns it to the DescV2 field.
+func (o *GetSocialBilibiliVideoinfo200Response) SetDescV2(v []GetSocialBilibiliVideoinfo200ResponseDescV2Inner) {
+	o.DescV2 = v
+}
+
+// GetState returns the State field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200Response) GetState() float32 {
+	if o == nil || IsNil(o.State) {
+		var ret float32
+		return ret
+	}
+	return *o.State
+}
+
+// GetStateOk returns a tuple with the State field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) GetStateOk() (*float32, bool) {
+	if o == nil || IsNil(o.State) {
+		return nil, false
+	}
+	return o.State, true
+}
+
+// HasState returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) HasState() bool {
+	if o != nil && !IsNil(o.State) {
+		return true
+	}
+
+	return false
+}
+
+// SetState gets a reference to the given float32 and assigns it to the State field.
+func (o *GetSocialBilibiliVideoinfo200Response) SetState(v float32) {
+	o.State = &v
+}
+
 // GetDuration returns the Duration field value if set, zero value otherwise.
 func (o *GetSocialBilibiliVideoinfo200Response) GetDuration() float32 {
 	if o == nil || IsNil(o.Duration) {
@@ -414,6 +533,38 @@ func (o *GetSocialBilibiliVideoinfo200Response) HasDuration() bool {
 // SetDuration gets a reference to the given float32 and assigns it to the Duration field.
 func (o *GetSocialBilibiliVideoinfo200Response) SetDuration(v float32) {
 	o.Duration = &v
+}
+
+// GetRights returns the Rights field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200Response) GetRights() GetSocialBilibiliVideoinfo200ResponseRights {
+	if o == nil || IsNil(o.Rights) {
+		var ret GetSocialBilibiliVideoinfo200ResponseRights
+		return ret
+	}
+	return *o.Rights
+}
+
+// GetRightsOk returns a tuple with the Rights field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) GetRightsOk() (*GetSocialBilibiliVideoinfo200ResponseRights, bool) {
+	if o == nil || IsNil(o.Rights) {
+		return nil, false
+	}
+	return o.Rights, true
+}
+
+// HasRights returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) HasRights() bool {
+	if o != nil && !IsNil(o.Rights) {
+		return true
+	}
+
+	return false
+}
+
+// SetRights gets a reference to the given GetSocialBilibiliVideoinfo200ResponseRights and assigns it to the Rights field.
+func (o *GetSocialBilibiliVideoinfo200Response) SetRights(v GetSocialBilibiliVideoinfo200ResponseRights) {
+	o.Rights = &v
 }
 
 // GetOwner returns the Owner field value if set, zero value otherwise.
@@ -480,6 +631,134 @@ func (o *GetSocialBilibiliVideoinfo200Response) SetStat(v GetSocialBilibiliVideo
 	o.Stat = &v
 }
 
+// GetDynamic returns the Dynamic field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200Response) GetDynamic() string {
+	if o == nil || IsNil(o.Dynamic) {
+		var ret string
+		return ret
+	}
+	return *o.Dynamic
+}
+
+// GetDynamicOk returns a tuple with the Dynamic field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) GetDynamicOk() (*string, bool) {
+	if o == nil || IsNil(o.Dynamic) {
+		return nil, false
+	}
+	return o.Dynamic, true
+}
+
+// HasDynamic returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) HasDynamic() bool {
+	if o != nil && !IsNil(o.Dynamic) {
+		return true
+	}
+
+	return false
+}
+
+// SetDynamic gets a reference to the given string and assigns it to the Dynamic field.
+func (o *GetSocialBilibiliVideoinfo200Response) SetDynamic(v string) {
+	o.Dynamic = &v
+}
+
+// GetCid returns the Cid field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200Response) GetCid() float32 {
+	if o == nil || IsNil(o.Cid) {
+		var ret float32
+		return ret
+	}
+	return *o.Cid
+}
+
+// GetCidOk returns a tuple with the Cid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) GetCidOk() (*float32, bool) {
+	if o == nil || IsNil(o.Cid) {
+		return nil, false
+	}
+	return o.Cid, true
+}
+
+// HasCid returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) HasCid() bool {
+	if o != nil && !IsNil(o.Cid) {
+		return true
+	}
+
+	return false
+}
+
+// SetCid gets a reference to the given float32 and assigns it to the Cid field.
+func (o *GetSocialBilibiliVideoinfo200Response) SetCid(v float32) {
+	o.Cid = &v
+}
+
+// GetDimension returns the Dimension field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200Response) GetDimension() GetSocialBilibiliVideoinfo200ResponseDimension {
+	if o == nil || IsNil(o.Dimension) {
+		var ret GetSocialBilibiliVideoinfo200ResponseDimension
+		return ret
+	}
+	return *o.Dimension
+}
+
+// GetDimensionOk returns a tuple with the Dimension field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) GetDimensionOk() (*GetSocialBilibiliVideoinfo200ResponseDimension, bool) {
+	if o == nil || IsNil(o.Dimension) {
+		return nil, false
+	}
+	return o.Dimension, true
+}
+
+// HasDimension returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) HasDimension() bool {
+	if o != nil && !IsNil(o.Dimension) {
+		return true
+	}
+
+	return false
+}
+
+// SetDimension gets a reference to the given GetSocialBilibiliVideoinfo200ResponseDimension and assigns it to the Dimension field.
+func (o *GetSocialBilibiliVideoinfo200Response) SetDimension(v GetSocialBilibiliVideoinfo200ResponseDimension) {
+	o.Dimension = &v
+}
+
+// GetNoCache returns the NoCache field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200Response) GetNoCache() bool {
+	if o == nil || IsNil(o.NoCache) {
+		var ret bool
+		return ret
+	}
+	return *o.NoCache
+}
+
+// GetNoCacheOk returns a tuple with the NoCache field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) GetNoCacheOk() (*bool, bool) {
+	if o == nil || IsNil(o.NoCache) {
+		return nil, false
+	}
+	return o.NoCache, true
+}
+
+// HasNoCache returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) HasNoCache() bool {
+	if o != nil && !IsNil(o.NoCache) {
+		return true
+	}
+
+	return false
+}
+
+// SetNoCache gets a reference to the given bool and assigns it to the NoCache field.
+func (o *GetSocialBilibiliVideoinfo200Response) SetNoCache(v bool) {
+	o.NoCache = &v
+}
+
 // GetPages returns the Pages field value if set, zero value otherwise.
 func (o *GetSocialBilibiliVideoinfo200Response) GetPages() []GetSocialBilibiliVideoinfo200ResponsePagesInner {
 	if o == nil || IsNil(o.Pages) {
@@ -512,6 +791,208 @@ func (o *GetSocialBilibiliVideoinfo200Response) SetPages(v []GetSocialBilibiliVi
 	o.Pages = v
 }
 
+// GetSubtitle returns the Subtitle field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200Response) GetSubtitle() GetSocialBilibiliVideoinfo200ResponseSubtitle {
+	if o == nil || IsNil(o.Subtitle) {
+		var ret GetSocialBilibiliVideoinfo200ResponseSubtitle
+		return ret
+	}
+	return *o.Subtitle
+}
+
+// GetSubtitleOk returns a tuple with the Subtitle field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) GetSubtitleOk() (*GetSocialBilibiliVideoinfo200ResponseSubtitle, bool) {
+	if o == nil || IsNil(o.Subtitle) {
+		return nil, false
+	}
+	return o.Subtitle, true
+}
+
+// HasSubtitle returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) HasSubtitle() bool {
+	if o != nil && !IsNil(o.Subtitle) {
+		return true
+	}
+
+	return false
+}
+
+// SetSubtitle gets a reference to the given GetSocialBilibiliVideoinfo200ResponseSubtitle and assigns it to the Subtitle field.
+func (o *GetSocialBilibiliVideoinfo200Response) SetSubtitle(v GetSocialBilibiliVideoinfo200ResponseSubtitle) {
+	o.Subtitle = &v
+}
+
+// GetStaff returns the Staff field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200Response) GetStaff() []GetSocialBilibiliVideoinfo200ResponseStaffInner {
+	if o == nil || IsNil(o.Staff) {
+		var ret []GetSocialBilibiliVideoinfo200ResponseStaffInner
+		return ret
+	}
+	return o.Staff
+}
+
+// GetStaffOk returns a tuple with the Staff field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) GetStaffOk() ([]GetSocialBilibiliVideoinfo200ResponseStaffInner, bool) {
+	if o == nil || IsNil(o.Staff) {
+		return nil, false
+	}
+	return o.Staff, true
+}
+
+// HasStaff returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) HasStaff() bool {
+	if o != nil && !IsNil(o.Staff) {
+		return true
+	}
+
+	return false
+}
+
+// SetStaff gets a reference to the given []GetSocialBilibiliVideoinfo200ResponseStaffInner and assigns it to the Staff field.
+func (o *GetSocialBilibiliVideoinfo200Response) SetStaff(v []GetSocialBilibiliVideoinfo200ResponseStaffInner) {
+	o.Staff = v
+}
+
+// GetUgcSeason returns the UgcSeason field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetSocialBilibiliVideoinfo200Response) GetUgcSeason() GetSocialBilibiliVideoinfo200ResponseUgcSeason {
+	if o == nil || IsNil(o.UgcSeason.Get()) {
+		var ret GetSocialBilibiliVideoinfo200ResponseUgcSeason
+		return ret
+	}
+	return *o.UgcSeason.Get()
+}
+
+// GetUgcSeasonOk returns a tuple with the UgcSeason field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetSocialBilibiliVideoinfo200Response) GetUgcSeasonOk() (*GetSocialBilibiliVideoinfo200ResponseUgcSeason, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.UgcSeason.Get(), o.UgcSeason.IsSet()
+}
+
+// HasUgcSeason returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) HasUgcSeason() bool {
+	if o != nil && o.UgcSeason.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetUgcSeason gets a reference to the given NullableGetSocialBilibiliVideoinfo200ResponseUgcSeason and assigns it to the UgcSeason field.
+func (o *GetSocialBilibiliVideoinfo200Response) SetUgcSeason(v GetSocialBilibiliVideoinfo200ResponseUgcSeason) {
+	o.UgcSeason.Set(&v)
+}
+// SetUgcSeasonNil sets the value for UgcSeason to be an explicit nil
+func (o *GetSocialBilibiliVideoinfo200Response) SetUgcSeasonNil() {
+	o.UgcSeason.Set(nil)
+}
+
+// UnsetUgcSeason ensures that no value is present for UgcSeason, not even an explicit nil
+func (o *GetSocialBilibiliVideoinfo200Response) UnsetUgcSeason() {
+	o.UgcSeason.Unset()
+}
+
+// GetIsChargeableSeason returns the IsChargeableSeason field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200Response) GetIsChargeableSeason() bool {
+	if o == nil || IsNil(o.IsChargeableSeason) {
+		var ret bool
+		return ret
+	}
+	return *o.IsChargeableSeason
+}
+
+// GetIsChargeableSeasonOk returns a tuple with the IsChargeableSeason field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) GetIsChargeableSeasonOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsChargeableSeason) {
+		return nil, false
+	}
+	return o.IsChargeableSeason, true
+}
+
+// HasIsChargeableSeason returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) HasIsChargeableSeason() bool {
+	if o != nil && !IsNil(o.IsChargeableSeason) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsChargeableSeason gets a reference to the given bool and assigns it to the IsChargeableSeason field.
+func (o *GetSocialBilibiliVideoinfo200Response) SetIsChargeableSeason(v bool) {
+	o.IsChargeableSeason = &v
+}
+
+// GetIsStory returns the IsStory field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200Response) GetIsStory() bool {
+	if o == nil || IsNil(o.IsStory) {
+		var ret bool
+		return ret
+	}
+	return *o.IsStory
+}
+
+// GetIsStoryOk returns a tuple with the IsStory field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) GetIsStoryOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsStory) {
+		return nil, false
+	}
+	return o.IsStory, true
+}
+
+// HasIsStory returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) HasIsStory() bool {
+	if o != nil && !IsNil(o.IsStory) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsStory gets a reference to the given bool and assigns it to the IsStory field.
+func (o *GetSocialBilibiliVideoinfo200Response) SetIsStory(v bool) {
+	o.IsStory = &v
+}
+
+// GetHonorReply returns the HonorReply field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200Response) GetHonorReply() GetSocialBilibiliVideoinfo200ResponseHonorReply {
+	if o == nil || IsNil(o.HonorReply) {
+		var ret GetSocialBilibiliVideoinfo200ResponseHonorReply
+		return ret
+	}
+	return *o.HonorReply
+}
+
+// GetHonorReplyOk returns a tuple with the HonorReply field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) GetHonorReplyOk() (*GetSocialBilibiliVideoinfo200ResponseHonorReply, bool) {
+	if o == nil || IsNil(o.HonorReply) {
+		return nil, false
+	}
+	return o.HonorReply, true
+}
+
+// HasHonorReply returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200Response) HasHonorReply() bool {
+	if o != nil && !IsNil(o.HonorReply) {
+		return true
+	}
+
+	return false
+}
+
+// SetHonorReply gets a reference to the given GetSocialBilibiliVideoinfo200ResponseHonorReply and assigns it to the HonorReply field.
+func (o *GetSocialBilibiliVideoinfo200Response) SetHonorReply(v GetSocialBilibiliVideoinfo200ResponseHonorReply) {
+	o.HonorReply = &v
+}
+
 func (o GetSocialBilibiliVideoinfo200Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -530,6 +1011,9 @@ func (o GetSocialBilibiliVideoinfo200Response) ToMap() (map[string]interface{}, 
 	}
 	if !IsNil(o.Videos) {
 		toSerialize["videos"] = o.Videos
+	}
+	if !IsNil(o.Tid) {
+		toSerialize["tid"] = o.Tid
 	}
 	if !IsNil(o.Tname) {
 		toSerialize["tname"] = o.Tname
@@ -552,8 +1036,17 @@ func (o GetSocialBilibiliVideoinfo200Response) ToMap() (map[string]interface{}, 
 	if !IsNil(o.Desc) {
 		toSerialize["desc"] = o.Desc
 	}
+	if !IsNil(o.DescV2) {
+		toSerialize["desc_v2"] = o.DescV2
+	}
+	if !IsNil(o.State) {
+		toSerialize["state"] = o.State
+	}
 	if !IsNil(o.Duration) {
 		toSerialize["duration"] = o.Duration
+	}
+	if !IsNil(o.Rights) {
+		toSerialize["rights"] = o.Rights
 	}
 	if !IsNil(o.Owner) {
 		toSerialize["owner"] = o.Owner
@@ -561,8 +1054,38 @@ func (o GetSocialBilibiliVideoinfo200Response) ToMap() (map[string]interface{}, 
 	if !IsNil(o.Stat) {
 		toSerialize["stat"] = o.Stat
 	}
+	if !IsNil(o.Dynamic) {
+		toSerialize["dynamic"] = o.Dynamic
+	}
+	if !IsNil(o.Cid) {
+		toSerialize["cid"] = o.Cid
+	}
+	if !IsNil(o.Dimension) {
+		toSerialize["dimension"] = o.Dimension
+	}
+	if !IsNil(o.NoCache) {
+		toSerialize["no_cache"] = o.NoCache
+	}
 	if !IsNil(o.Pages) {
 		toSerialize["pages"] = o.Pages
+	}
+	if !IsNil(o.Subtitle) {
+		toSerialize["subtitle"] = o.Subtitle
+	}
+	if !IsNil(o.Staff) {
+		toSerialize["staff"] = o.Staff
+	}
+	if o.UgcSeason.IsSet() {
+		toSerialize["ugc_season"] = o.UgcSeason.Get()
+	}
+	if !IsNil(o.IsChargeableSeason) {
+		toSerialize["is_chargeable_season"] = o.IsChargeableSeason
+	}
+	if !IsNil(o.IsStory) {
+		toSerialize["is_story"] = o.IsStory
+	}
+	if !IsNil(o.HonorReply) {
+		toSerialize["honor_reply"] = o.HonorReply
 	}
 	return toSerialize, nil
 }

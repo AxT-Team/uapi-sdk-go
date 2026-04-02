@@ -4,12 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Avg** | Pointer to **float32** | 平均延迟(ms) | [optional] 
-**Host** | Pointer to **string** |  | [optional] 
-**Ip** | Pointer to **string** |  | [optional] 
-**Location** | Pointer to **string** |  | [optional] 
-**Max** | Pointer to **float32** | 最大延迟(ms) | [optional] 
-**Min** | Pointer to **float32** | 最小延迟(ms) | [optional] 
+**ClientIp** | Pointer to **string** | 当前客户端的公网 IP 地址。 | [optional] 
+**PingSuccessful** | Pointer to **bool** | 是否成功完成对当前客户端 IP 的 Ping。 | [optional] 
+**Message** | Pointer to **string** | 操作结果说明。成功时通常会附带平均延迟信息。 | [optional] 
 
 ## Methods
 
@@ -30,155 +27,80 @@ NewGetNetworkPingmyip200ResponseWithDefaults instantiates a new GetNetworkPingmy
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetAvg
+### GetClientIp
 
-`func (o *GetNetworkPingmyip200Response) GetAvg() float32`
+`func (o *GetNetworkPingmyip200Response) GetClientIp() string`
 
-GetAvg returns the Avg field if non-nil, zero value otherwise.
+GetClientIp returns the ClientIp field if non-nil, zero value otherwise.
 
-### GetAvgOk
+### GetClientIpOk
 
-`func (o *GetNetworkPingmyip200Response) GetAvgOk() (*float32, bool)`
+`func (o *GetNetworkPingmyip200Response) GetClientIpOk() (*string, bool)`
 
-GetAvgOk returns a tuple with the Avg field if it's non-nil, zero value otherwise
+GetClientIpOk returns a tuple with the ClientIp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAvg
+### SetClientIp
 
-`func (o *GetNetworkPingmyip200Response) SetAvg(v float32)`
+`func (o *GetNetworkPingmyip200Response) SetClientIp(v string)`
 
-SetAvg sets Avg field to given value.
+SetClientIp sets ClientIp field to given value.
 
-### HasAvg
+### HasClientIp
 
-`func (o *GetNetworkPingmyip200Response) HasAvg() bool`
+`func (o *GetNetworkPingmyip200Response) HasClientIp() bool`
 
-HasAvg returns a boolean if a field has been set.
+HasClientIp returns a boolean if a field has been set.
 
-### GetHost
+### GetPingSuccessful
 
-`func (o *GetNetworkPingmyip200Response) GetHost() string`
+`func (o *GetNetworkPingmyip200Response) GetPingSuccessful() bool`
 
-GetHost returns the Host field if non-nil, zero value otherwise.
+GetPingSuccessful returns the PingSuccessful field if non-nil, zero value otherwise.
 
-### GetHostOk
+### GetPingSuccessfulOk
 
-`func (o *GetNetworkPingmyip200Response) GetHostOk() (*string, bool)`
+`func (o *GetNetworkPingmyip200Response) GetPingSuccessfulOk() (*bool, bool)`
 
-GetHostOk returns a tuple with the Host field if it's non-nil, zero value otherwise
+GetPingSuccessfulOk returns a tuple with the PingSuccessful field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetHost
+### SetPingSuccessful
 
-`func (o *GetNetworkPingmyip200Response) SetHost(v string)`
+`func (o *GetNetworkPingmyip200Response) SetPingSuccessful(v bool)`
 
-SetHost sets Host field to given value.
+SetPingSuccessful sets PingSuccessful field to given value.
 
-### HasHost
+### HasPingSuccessful
 
-`func (o *GetNetworkPingmyip200Response) HasHost() bool`
+`func (o *GetNetworkPingmyip200Response) HasPingSuccessful() bool`
 
-HasHost returns a boolean if a field has been set.
+HasPingSuccessful returns a boolean if a field has been set.
 
-### GetIp
+### GetMessage
 
-`func (o *GetNetworkPingmyip200Response) GetIp() string`
+`func (o *GetNetworkPingmyip200Response) GetMessage() string`
 
-GetIp returns the Ip field if non-nil, zero value otherwise.
+GetMessage returns the Message field if non-nil, zero value otherwise.
 
-### GetIpOk
+### GetMessageOk
 
-`func (o *GetNetworkPingmyip200Response) GetIpOk() (*string, bool)`
+`func (o *GetNetworkPingmyip200Response) GetMessageOk() (*string, bool)`
 
-GetIpOk returns a tuple with the Ip field if it's non-nil, zero value otherwise
+GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIp
+### SetMessage
 
-`func (o *GetNetworkPingmyip200Response) SetIp(v string)`
+`func (o *GetNetworkPingmyip200Response) SetMessage(v string)`
 
-SetIp sets Ip field to given value.
+SetMessage sets Message field to given value.
 
-### HasIp
+### HasMessage
 
-`func (o *GetNetworkPingmyip200Response) HasIp() bool`
+`func (o *GetNetworkPingmyip200Response) HasMessage() bool`
 
-HasIp returns a boolean if a field has been set.
-
-### GetLocation
-
-`func (o *GetNetworkPingmyip200Response) GetLocation() string`
-
-GetLocation returns the Location field if non-nil, zero value otherwise.
-
-### GetLocationOk
-
-`func (o *GetNetworkPingmyip200Response) GetLocationOk() (*string, bool)`
-
-GetLocationOk returns a tuple with the Location field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLocation
-
-`func (o *GetNetworkPingmyip200Response) SetLocation(v string)`
-
-SetLocation sets Location field to given value.
-
-### HasLocation
-
-`func (o *GetNetworkPingmyip200Response) HasLocation() bool`
-
-HasLocation returns a boolean if a field has been set.
-
-### GetMax
-
-`func (o *GetNetworkPingmyip200Response) GetMax() float32`
-
-GetMax returns the Max field if non-nil, zero value otherwise.
-
-### GetMaxOk
-
-`func (o *GetNetworkPingmyip200Response) GetMaxOk() (*float32, bool)`
-
-GetMaxOk returns a tuple with the Max field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMax
-
-`func (o *GetNetworkPingmyip200Response) SetMax(v float32)`
-
-SetMax sets Max field to given value.
-
-### HasMax
-
-`func (o *GetNetworkPingmyip200Response) HasMax() bool`
-
-HasMax returns a boolean if a field has been set.
-
-### GetMin
-
-`func (o *GetNetworkPingmyip200Response) GetMin() float32`
-
-GetMin returns the Min field if non-nil, zero value otherwise.
-
-### GetMinOk
-
-`func (o *GetNetworkPingmyip200Response) GetMinOk() (*float32, bool)`
-
-GetMinOk returns a tuple with the Min field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMin
-
-`func (o *GetNetworkPingmyip200Response) SetMin(v float32)`
-
-SetMin sets Min field to given value.
-
-### HasMin
-
-`func (o *GetNetworkPingmyip200Response) HasMin() bool`
-
-HasMin returns a boolean if a field has been set.
+HasMessage returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

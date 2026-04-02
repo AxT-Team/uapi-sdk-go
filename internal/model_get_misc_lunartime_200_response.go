@@ -19,11 +19,50 @@ var _ MappedNullable = &GetMiscLunartime200Response{}
 
 // GetMiscLunartime200Response struct for GetMiscLunartime200Response
 type GetMiscLunartime200Response struct {
-	// 业务状态码，200 表示成功。
-	Code *int32 `json:"code,omitempty"`
-	// 状态描述。
-	Message *string `json:"message,omitempty"`
-	Data *GetMiscLunartime200ResponseData `json:"data,omitempty"`
+	// 原始 ts 入参。
+	QueryTimestamp *string `json:"query_timestamp,omitempty"`
+	// 原始 timezone 入参。
+	QueryTimezone *string `json:"query_timezone,omitempty"`
+	// 解析后的时区。
+	Timezone *string `json:"timezone,omitempty"`
+	// 本地化时间，格式 YYYY-MM-DD HH:mm:ss。
+	Datetime *string `json:"datetime,omitempty"`
+	// RFC3339 时间格式。
+	DatetimeRfc3339 *string `json:"datetime_rfc3339,omitempty"`
+	// 秒级 Unix 时间戳。
+	TimestampUnix *int32 `json:"timestamp_unix,omitempty"`
+	// 星期英文。
+	Weekday *string `json:"weekday,omitempty"`
+	// 星期中文。
+	WeekdayCn *string `json:"weekday_cn,omitempty"`
+	// 农历年份（数字）。
+	LunarYear *int32 `json:"lunar_year,omitempty"`
+	// 农历月份（数字）。
+	LunarMonth *int32 `json:"lunar_month,omitempty"`
+	// 农历日期（数字）。
+	LunarDay *int32 `json:"lunar_day,omitempty"`
+	// 是否闰月。
+	IsLeapMonth *bool `json:"is_leap_month,omitempty"`
+	// 农历年份中文表示。
+	LunarYearCn *string `json:"lunar_year_cn,omitempty"`
+	// 农历月份中文表示。
+	LunarMonthCn *string `json:"lunar_month_cn,omitempty"`
+	// 农历日期中文表示。
+	LunarDayCn *string `json:"lunar_day_cn,omitempty"`
+	// 干支年。
+	GanzhiYear *string `json:"ganzhi_year,omitempty"`
+	// 干支月。
+	GanzhiMonth *string `json:"ganzhi_month,omitempty"`
+	// 干支日。
+	GanzhiDay *string `json:"ganzhi_day,omitempty"`
+	// 生肖。
+	Zodiac *string `json:"zodiac,omitempty"`
+	// 节气名称。有值时返回，无值时可能为空字符串或不返回。
+	SolarTerm *string `json:"solar_term,omitempty"`
+	// 农历节日数组。
+	LunarFestivals []string `json:"lunar_festivals,omitempty"`
+	// 公历节日数组。
+	SolarFestivals []string `json:"solar_festivals,omitempty"`
 }
 
 // NewGetMiscLunartime200Response instantiates a new GetMiscLunartime200Response object
@@ -43,100 +82,708 @@ func NewGetMiscLunartime200ResponseWithDefaults() *GetMiscLunartime200Response {
 	return &this
 }
 
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetMiscLunartime200Response) GetCode() int32 {
-	if o == nil || IsNil(o.Code) {
-		var ret int32
-		return ret
-	}
-	return *o.Code
-}
-
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetMiscLunartime200Response) GetCodeOk() (*int32, bool) {
-	if o == nil || IsNil(o.Code) {
-		return nil, false
-	}
-	return o.Code, true
-}
-
-// HasCode returns a boolean if a field has been set.
-func (o *GetMiscLunartime200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
-		return true
-	}
-
-	return false
-}
-
-// SetCode gets a reference to the given int32 and assigns it to the Code field.
-func (o *GetMiscLunartime200Response) SetCode(v int32) {
-	o.Code = &v
-}
-
-// GetMessage returns the Message field value if set, zero value otherwise.
-func (o *GetMiscLunartime200Response) GetMessage() string {
-	if o == nil || IsNil(o.Message) {
+// GetQueryTimestamp returns the QueryTimestamp field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetQueryTimestamp() string {
+	if o == nil || IsNil(o.QueryTimestamp) {
 		var ret string
 		return ret
 	}
-	return *o.Message
+	return *o.QueryTimestamp
 }
 
-// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
+// GetQueryTimestampOk returns a tuple with the QueryTimestamp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMiscLunartime200Response) GetMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.Message) {
+func (o *GetMiscLunartime200Response) GetQueryTimestampOk() (*string, bool) {
+	if o == nil || IsNil(o.QueryTimestamp) {
 		return nil, false
 	}
-	return o.Message, true
+	return o.QueryTimestamp, true
 }
 
-// HasMessage returns a boolean if a field has been set.
-func (o *GetMiscLunartime200Response) HasMessage() bool {
-	if o != nil && !IsNil(o.Message) {
+// HasQueryTimestamp returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasQueryTimestamp() bool {
+	if o != nil && !IsNil(o.QueryTimestamp) {
 		return true
 	}
 
 	return false
 }
 
-// SetMessage gets a reference to the given string and assigns it to the Message field.
-func (o *GetMiscLunartime200Response) SetMessage(v string) {
-	o.Message = &v
+// SetQueryTimestamp gets a reference to the given string and assigns it to the QueryTimestamp field.
+func (o *GetMiscLunartime200Response) SetQueryTimestamp(v string) {
+	o.QueryTimestamp = &v
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
-func (o *GetMiscLunartime200Response) GetData() GetMiscLunartime200ResponseData {
-	if o == nil || IsNil(o.Data) {
-		var ret GetMiscLunartime200ResponseData
+// GetQueryTimezone returns the QueryTimezone field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetQueryTimezone() string {
+	if o == nil || IsNil(o.QueryTimezone) {
+		var ret string
 		return ret
 	}
-	return *o.Data
+	return *o.QueryTimezone
 }
 
-// GetDataOk returns a tuple with the Data field value if set, nil otherwise
+// GetQueryTimezoneOk returns a tuple with the QueryTimezone field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMiscLunartime200Response) GetDataOk() (*GetMiscLunartime200ResponseData, bool) {
-	if o == nil || IsNil(o.Data) {
+func (o *GetMiscLunartime200Response) GetQueryTimezoneOk() (*string, bool) {
+	if o == nil || IsNil(o.QueryTimezone) {
 		return nil, false
 	}
-	return o.Data, true
+	return o.QueryTimezone, true
 }
 
-// HasData returns a boolean if a field has been set.
-func (o *GetMiscLunartime200Response) HasData() bool {
-	if o != nil && !IsNil(o.Data) {
+// HasQueryTimezone returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasQueryTimezone() bool {
+	if o != nil && !IsNil(o.QueryTimezone) {
 		return true
 	}
 
 	return false
 }
 
-// SetData gets a reference to the given GetMiscLunartime200ResponseData and assigns it to the Data field.
-func (o *GetMiscLunartime200Response) SetData(v GetMiscLunartime200ResponseData) {
-	o.Data = &v
+// SetQueryTimezone gets a reference to the given string and assigns it to the QueryTimezone field.
+func (o *GetMiscLunartime200Response) SetQueryTimezone(v string) {
+	o.QueryTimezone = &v
+}
+
+// GetTimezone returns the Timezone field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetTimezone() string {
+	if o == nil || IsNil(o.Timezone) {
+		var ret string
+		return ret
+	}
+	return *o.Timezone
+}
+
+// GetTimezoneOk returns a tuple with the Timezone field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetTimezoneOk() (*string, bool) {
+	if o == nil || IsNil(o.Timezone) {
+		return nil, false
+	}
+	return o.Timezone, true
+}
+
+// HasTimezone returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasTimezone() bool {
+	if o != nil && !IsNil(o.Timezone) {
+		return true
+	}
+
+	return false
+}
+
+// SetTimezone gets a reference to the given string and assigns it to the Timezone field.
+func (o *GetMiscLunartime200Response) SetTimezone(v string) {
+	o.Timezone = &v
+}
+
+// GetDatetime returns the Datetime field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetDatetime() string {
+	if o == nil || IsNil(o.Datetime) {
+		var ret string
+		return ret
+	}
+	return *o.Datetime
+}
+
+// GetDatetimeOk returns a tuple with the Datetime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetDatetimeOk() (*string, bool) {
+	if o == nil || IsNil(o.Datetime) {
+		return nil, false
+	}
+	return o.Datetime, true
+}
+
+// HasDatetime returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasDatetime() bool {
+	if o != nil && !IsNil(o.Datetime) {
+		return true
+	}
+
+	return false
+}
+
+// SetDatetime gets a reference to the given string and assigns it to the Datetime field.
+func (o *GetMiscLunartime200Response) SetDatetime(v string) {
+	o.Datetime = &v
+}
+
+// GetDatetimeRfc3339 returns the DatetimeRfc3339 field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetDatetimeRfc3339() string {
+	if o == nil || IsNil(o.DatetimeRfc3339) {
+		var ret string
+		return ret
+	}
+	return *o.DatetimeRfc3339
+}
+
+// GetDatetimeRfc3339Ok returns a tuple with the DatetimeRfc3339 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetDatetimeRfc3339Ok() (*string, bool) {
+	if o == nil || IsNil(o.DatetimeRfc3339) {
+		return nil, false
+	}
+	return o.DatetimeRfc3339, true
+}
+
+// HasDatetimeRfc3339 returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasDatetimeRfc3339() bool {
+	if o != nil && !IsNil(o.DatetimeRfc3339) {
+		return true
+	}
+
+	return false
+}
+
+// SetDatetimeRfc3339 gets a reference to the given string and assigns it to the DatetimeRfc3339 field.
+func (o *GetMiscLunartime200Response) SetDatetimeRfc3339(v string) {
+	o.DatetimeRfc3339 = &v
+}
+
+// GetTimestampUnix returns the TimestampUnix field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetTimestampUnix() int32 {
+	if o == nil || IsNil(o.TimestampUnix) {
+		var ret int32
+		return ret
+	}
+	return *o.TimestampUnix
+}
+
+// GetTimestampUnixOk returns a tuple with the TimestampUnix field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetTimestampUnixOk() (*int32, bool) {
+	if o == nil || IsNil(o.TimestampUnix) {
+		return nil, false
+	}
+	return o.TimestampUnix, true
+}
+
+// HasTimestampUnix returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasTimestampUnix() bool {
+	if o != nil && !IsNil(o.TimestampUnix) {
+		return true
+	}
+
+	return false
+}
+
+// SetTimestampUnix gets a reference to the given int32 and assigns it to the TimestampUnix field.
+func (o *GetMiscLunartime200Response) SetTimestampUnix(v int32) {
+	o.TimestampUnix = &v
+}
+
+// GetWeekday returns the Weekday field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetWeekday() string {
+	if o == nil || IsNil(o.Weekday) {
+		var ret string
+		return ret
+	}
+	return *o.Weekday
+}
+
+// GetWeekdayOk returns a tuple with the Weekday field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetWeekdayOk() (*string, bool) {
+	if o == nil || IsNil(o.Weekday) {
+		return nil, false
+	}
+	return o.Weekday, true
+}
+
+// HasWeekday returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasWeekday() bool {
+	if o != nil && !IsNil(o.Weekday) {
+		return true
+	}
+
+	return false
+}
+
+// SetWeekday gets a reference to the given string and assigns it to the Weekday field.
+func (o *GetMiscLunartime200Response) SetWeekday(v string) {
+	o.Weekday = &v
+}
+
+// GetWeekdayCn returns the WeekdayCn field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetWeekdayCn() string {
+	if o == nil || IsNil(o.WeekdayCn) {
+		var ret string
+		return ret
+	}
+	return *o.WeekdayCn
+}
+
+// GetWeekdayCnOk returns a tuple with the WeekdayCn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetWeekdayCnOk() (*string, bool) {
+	if o == nil || IsNil(o.WeekdayCn) {
+		return nil, false
+	}
+	return o.WeekdayCn, true
+}
+
+// HasWeekdayCn returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasWeekdayCn() bool {
+	if o != nil && !IsNil(o.WeekdayCn) {
+		return true
+	}
+
+	return false
+}
+
+// SetWeekdayCn gets a reference to the given string and assigns it to the WeekdayCn field.
+func (o *GetMiscLunartime200Response) SetWeekdayCn(v string) {
+	o.WeekdayCn = &v
+}
+
+// GetLunarYear returns the LunarYear field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetLunarYear() int32 {
+	if o == nil || IsNil(o.LunarYear) {
+		var ret int32
+		return ret
+	}
+	return *o.LunarYear
+}
+
+// GetLunarYearOk returns a tuple with the LunarYear field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetLunarYearOk() (*int32, bool) {
+	if o == nil || IsNil(o.LunarYear) {
+		return nil, false
+	}
+	return o.LunarYear, true
+}
+
+// HasLunarYear returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasLunarYear() bool {
+	if o != nil && !IsNil(o.LunarYear) {
+		return true
+	}
+
+	return false
+}
+
+// SetLunarYear gets a reference to the given int32 and assigns it to the LunarYear field.
+func (o *GetMiscLunartime200Response) SetLunarYear(v int32) {
+	o.LunarYear = &v
+}
+
+// GetLunarMonth returns the LunarMonth field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetLunarMonth() int32 {
+	if o == nil || IsNil(o.LunarMonth) {
+		var ret int32
+		return ret
+	}
+	return *o.LunarMonth
+}
+
+// GetLunarMonthOk returns a tuple with the LunarMonth field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetLunarMonthOk() (*int32, bool) {
+	if o == nil || IsNil(o.LunarMonth) {
+		return nil, false
+	}
+	return o.LunarMonth, true
+}
+
+// HasLunarMonth returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasLunarMonth() bool {
+	if o != nil && !IsNil(o.LunarMonth) {
+		return true
+	}
+
+	return false
+}
+
+// SetLunarMonth gets a reference to the given int32 and assigns it to the LunarMonth field.
+func (o *GetMiscLunartime200Response) SetLunarMonth(v int32) {
+	o.LunarMonth = &v
+}
+
+// GetLunarDay returns the LunarDay field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetLunarDay() int32 {
+	if o == nil || IsNil(o.LunarDay) {
+		var ret int32
+		return ret
+	}
+	return *o.LunarDay
+}
+
+// GetLunarDayOk returns a tuple with the LunarDay field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetLunarDayOk() (*int32, bool) {
+	if o == nil || IsNil(o.LunarDay) {
+		return nil, false
+	}
+	return o.LunarDay, true
+}
+
+// HasLunarDay returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasLunarDay() bool {
+	if o != nil && !IsNil(o.LunarDay) {
+		return true
+	}
+
+	return false
+}
+
+// SetLunarDay gets a reference to the given int32 and assigns it to the LunarDay field.
+func (o *GetMiscLunartime200Response) SetLunarDay(v int32) {
+	o.LunarDay = &v
+}
+
+// GetIsLeapMonth returns the IsLeapMonth field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetIsLeapMonth() bool {
+	if o == nil || IsNil(o.IsLeapMonth) {
+		var ret bool
+		return ret
+	}
+	return *o.IsLeapMonth
+}
+
+// GetIsLeapMonthOk returns a tuple with the IsLeapMonth field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetIsLeapMonthOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsLeapMonth) {
+		return nil, false
+	}
+	return o.IsLeapMonth, true
+}
+
+// HasIsLeapMonth returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasIsLeapMonth() bool {
+	if o != nil && !IsNil(o.IsLeapMonth) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsLeapMonth gets a reference to the given bool and assigns it to the IsLeapMonth field.
+func (o *GetMiscLunartime200Response) SetIsLeapMonth(v bool) {
+	o.IsLeapMonth = &v
+}
+
+// GetLunarYearCn returns the LunarYearCn field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetLunarYearCn() string {
+	if o == nil || IsNil(o.LunarYearCn) {
+		var ret string
+		return ret
+	}
+	return *o.LunarYearCn
+}
+
+// GetLunarYearCnOk returns a tuple with the LunarYearCn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetLunarYearCnOk() (*string, bool) {
+	if o == nil || IsNil(o.LunarYearCn) {
+		return nil, false
+	}
+	return o.LunarYearCn, true
+}
+
+// HasLunarYearCn returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasLunarYearCn() bool {
+	if o != nil && !IsNil(o.LunarYearCn) {
+		return true
+	}
+
+	return false
+}
+
+// SetLunarYearCn gets a reference to the given string and assigns it to the LunarYearCn field.
+func (o *GetMiscLunartime200Response) SetLunarYearCn(v string) {
+	o.LunarYearCn = &v
+}
+
+// GetLunarMonthCn returns the LunarMonthCn field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetLunarMonthCn() string {
+	if o == nil || IsNil(o.LunarMonthCn) {
+		var ret string
+		return ret
+	}
+	return *o.LunarMonthCn
+}
+
+// GetLunarMonthCnOk returns a tuple with the LunarMonthCn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetLunarMonthCnOk() (*string, bool) {
+	if o == nil || IsNil(o.LunarMonthCn) {
+		return nil, false
+	}
+	return o.LunarMonthCn, true
+}
+
+// HasLunarMonthCn returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasLunarMonthCn() bool {
+	if o != nil && !IsNil(o.LunarMonthCn) {
+		return true
+	}
+
+	return false
+}
+
+// SetLunarMonthCn gets a reference to the given string and assigns it to the LunarMonthCn field.
+func (o *GetMiscLunartime200Response) SetLunarMonthCn(v string) {
+	o.LunarMonthCn = &v
+}
+
+// GetLunarDayCn returns the LunarDayCn field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetLunarDayCn() string {
+	if o == nil || IsNil(o.LunarDayCn) {
+		var ret string
+		return ret
+	}
+	return *o.LunarDayCn
+}
+
+// GetLunarDayCnOk returns a tuple with the LunarDayCn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetLunarDayCnOk() (*string, bool) {
+	if o == nil || IsNil(o.LunarDayCn) {
+		return nil, false
+	}
+	return o.LunarDayCn, true
+}
+
+// HasLunarDayCn returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasLunarDayCn() bool {
+	if o != nil && !IsNil(o.LunarDayCn) {
+		return true
+	}
+
+	return false
+}
+
+// SetLunarDayCn gets a reference to the given string and assigns it to the LunarDayCn field.
+func (o *GetMiscLunartime200Response) SetLunarDayCn(v string) {
+	o.LunarDayCn = &v
+}
+
+// GetGanzhiYear returns the GanzhiYear field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetGanzhiYear() string {
+	if o == nil || IsNil(o.GanzhiYear) {
+		var ret string
+		return ret
+	}
+	return *o.GanzhiYear
+}
+
+// GetGanzhiYearOk returns a tuple with the GanzhiYear field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetGanzhiYearOk() (*string, bool) {
+	if o == nil || IsNil(o.GanzhiYear) {
+		return nil, false
+	}
+	return o.GanzhiYear, true
+}
+
+// HasGanzhiYear returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasGanzhiYear() bool {
+	if o != nil && !IsNil(o.GanzhiYear) {
+		return true
+	}
+
+	return false
+}
+
+// SetGanzhiYear gets a reference to the given string and assigns it to the GanzhiYear field.
+func (o *GetMiscLunartime200Response) SetGanzhiYear(v string) {
+	o.GanzhiYear = &v
+}
+
+// GetGanzhiMonth returns the GanzhiMonth field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetGanzhiMonth() string {
+	if o == nil || IsNil(o.GanzhiMonth) {
+		var ret string
+		return ret
+	}
+	return *o.GanzhiMonth
+}
+
+// GetGanzhiMonthOk returns a tuple with the GanzhiMonth field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetGanzhiMonthOk() (*string, bool) {
+	if o == nil || IsNil(o.GanzhiMonth) {
+		return nil, false
+	}
+	return o.GanzhiMonth, true
+}
+
+// HasGanzhiMonth returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasGanzhiMonth() bool {
+	if o != nil && !IsNil(o.GanzhiMonth) {
+		return true
+	}
+
+	return false
+}
+
+// SetGanzhiMonth gets a reference to the given string and assigns it to the GanzhiMonth field.
+func (o *GetMiscLunartime200Response) SetGanzhiMonth(v string) {
+	o.GanzhiMonth = &v
+}
+
+// GetGanzhiDay returns the GanzhiDay field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetGanzhiDay() string {
+	if o == nil || IsNil(o.GanzhiDay) {
+		var ret string
+		return ret
+	}
+	return *o.GanzhiDay
+}
+
+// GetGanzhiDayOk returns a tuple with the GanzhiDay field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetGanzhiDayOk() (*string, bool) {
+	if o == nil || IsNil(o.GanzhiDay) {
+		return nil, false
+	}
+	return o.GanzhiDay, true
+}
+
+// HasGanzhiDay returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasGanzhiDay() bool {
+	if o != nil && !IsNil(o.GanzhiDay) {
+		return true
+	}
+
+	return false
+}
+
+// SetGanzhiDay gets a reference to the given string and assigns it to the GanzhiDay field.
+func (o *GetMiscLunartime200Response) SetGanzhiDay(v string) {
+	o.GanzhiDay = &v
+}
+
+// GetZodiac returns the Zodiac field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetZodiac() string {
+	if o == nil || IsNil(o.Zodiac) {
+		var ret string
+		return ret
+	}
+	return *o.Zodiac
+}
+
+// GetZodiacOk returns a tuple with the Zodiac field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetZodiacOk() (*string, bool) {
+	if o == nil || IsNil(o.Zodiac) {
+		return nil, false
+	}
+	return o.Zodiac, true
+}
+
+// HasZodiac returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasZodiac() bool {
+	if o != nil && !IsNil(o.Zodiac) {
+		return true
+	}
+
+	return false
+}
+
+// SetZodiac gets a reference to the given string and assigns it to the Zodiac field.
+func (o *GetMiscLunartime200Response) SetZodiac(v string) {
+	o.Zodiac = &v
+}
+
+// GetSolarTerm returns the SolarTerm field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetSolarTerm() string {
+	if o == nil || IsNil(o.SolarTerm) {
+		var ret string
+		return ret
+	}
+	return *o.SolarTerm
+}
+
+// GetSolarTermOk returns a tuple with the SolarTerm field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetSolarTermOk() (*string, bool) {
+	if o == nil || IsNil(o.SolarTerm) {
+		return nil, false
+	}
+	return o.SolarTerm, true
+}
+
+// HasSolarTerm returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasSolarTerm() bool {
+	if o != nil && !IsNil(o.SolarTerm) {
+		return true
+	}
+
+	return false
+}
+
+// SetSolarTerm gets a reference to the given string and assigns it to the SolarTerm field.
+func (o *GetMiscLunartime200Response) SetSolarTerm(v string) {
+	o.SolarTerm = &v
+}
+
+// GetLunarFestivals returns the LunarFestivals field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetLunarFestivals() []string {
+	if o == nil || IsNil(o.LunarFestivals) {
+		var ret []string
+		return ret
+	}
+	return o.LunarFestivals
+}
+
+// GetLunarFestivalsOk returns a tuple with the LunarFestivals field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetLunarFestivalsOk() ([]string, bool) {
+	if o == nil || IsNil(o.LunarFestivals) {
+		return nil, false
+	}
+	return o.LunarFestivals, true
+}
+
+// HasLunarFestivals returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasLunarFestivals() bool {
+	if o != nil && !IsNil(o.LunarFestivals) {
+		return true
+	}
+
+	return false
+}
+
+// SetLunarFestivals gets a reference to the given []string and assigns it to the LunarFestivals field.
+func (o *GetMiscLunartime200Response) SetLunarFestivals(v []string) {
+	o.LunarFestivals = v
+}
+
+// GetSolarFestivals returns the SolarFestivals field value if set, zero value otherwise.
+func (o *GetMiscLunartime200Response) GetSolarFestivals() []string {
+	if o == nil || IsNil(o.SolarFestivals) {
+		var ret []string
+		return ret
+	}
+	return o.SolarFestivals
+}
+
+// GetSolarFestivalsOk returns a tuple with the SolarFestivals field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscLunartime200Response) GetSolarFestivalsOk() ([]string, bool) {
+	if o == nil || IsNil(o.SolarFestivals) {
+		return nil, false
+	}
+	return o.SolarFestivals, true
+}
+
+// HasSolarFestivals returns a boolean if a field has been set.
+func (o *GetMiscLunartime200Response) HasSolarFestivals() bool {
+	if o != nil && !IsNil(o.SolarFestivals) {
+		return true
+	}
+
+	return false
+}
+
+// SetSolarFestivals gets a reference to the given []string and assigns it to the SolarFestivals field.
+func (o *GetMiscLunartime200Response) SetSolarFestivals(v []string) {
+	o.SolarFestivals = v
 }
 
 func (o GetMiscLunartime200Response) MarshalJSON() ([]byte, error) {
@@ -149,14 +796,71 @@ func (o GetMiscLunartime200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetMiscLunartime200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
+	if !IsNil(o.QueryTimestamp) {
+		toSerialize["query_timestamp"] = o.QueryTimestamp
 	}
-	if !IsNil(o.Message) {
-		toSerialize["message"] = o.Message
+	if !IsNil(o.QueryTimezone) {
+		toSerialize["query_timezone"] = o.QueryTimezone
 	}
-	if !IsNil(o.Data) {
-		toSerialize["data"] = o.Data
+	if !IsNil(o.Timezone) {
+		toSerialize["timezone"] = o.Timezone
+	}
+	if !IsNil(o.Datetime) {
+		toSerialize["datetime"] = o.Datetime
+	}
+	if !IsNil(o.DatetimeRfc3339) {
+		toSerialize["datetime_rfc3339"] = o.DatetimeRfc3339
+	}
+	if !IsNil(o.TimestampUnix) {
+		toSerialize["timestamp_unix"] = o.TimestampUnix
+	}
+	if !IsNil(o.Weekday) {
+		toSerialize["weekday"] = o.Weekday
+	}
+	if !IsNil(o.WeekdayCn) {
+		toSerialize["weekday_cn"] = o.WeekdayCn
+	}
+	if !IsNil(o.LunarYear) {
+		toSerialize["lunar_year"] = o.LunarYear
+	}
+	if !IsNil(o.LunarMonth) {
+		toSerialize["lunar_month"] = o.LunarMonth
+	}
+	if !IsNil(o.LunarDay) {
+		toSerialize["lunar_day"] = o.LunarDay
+	}
+	if !IsNil(o.IsLeapMonth) {
+		toSerialize["is_leap_month"] = o.IsLeapMonth
+	}
+	if !IsNil(o.LunarYearCn) {
+		toSerialize["lunar_year_cn"] = o.LunarYearCn
+	}
+	if !IsNil(o.LunarMonthCn) {
+		toSerialize["lunar_month_cn"] = o.LunarMonthCn
+	}
+	if !IsNil(o.LunarDayCn) {
+		toSerialize["lunar_day_cn"] = o.LunarDayCn
+	}
+	if !IsNil(o.GanzhiYear) {
+		toSerialize["ganzhi_year"] = o.GanzhiYear
+	}
+	if !IsNil(o.GanzhiMonth) {
+		toSerialize["ganzhi_month"] = o.GanzhiMonth
+	}
+	if !IsNil(o.GanzhiDay) {
+		toSerialize["ganzhi_day"] = o.GanzhiDay
+	}
+	if !IsNil(o.Zodiac) {
+		toSerialize["zodiac"] = o.Zodiac
+	}
+	if !IsNil(o.SolarTerm) {
+		toSerialize["solar_term"] = o.SolarTerm
+	}
+	if !IsNil(o.LunarFestivals) {
+		toSerialize["lunar_festivals"] = o.LunarFestivals
+	}
+	if !IsNil(o.SolarFestivals) {
+		toSerialize["solar_festivals"] = o.SolarFestivals
 	}
 	return toSerialize, nil
 }

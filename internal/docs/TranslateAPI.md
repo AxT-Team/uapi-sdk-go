@@ -93,8 +93,8 @@ import (
 )
 
 func main() {
-	targetLang := "zh-CHS" // string | 目标语言代码。请从支持的语言列表中选择一个语言代码。
-	postAiTranslateRequest := *openapiclient.NewPostAiTranslateRequest() // PostAiTranslateRequest | 包含翻译参数的JSON对象，支持单个文本或批量文本翻译
+	targetLang := "zh" // string | 目标语言代码。请从[支持的语言列表](#enum-list)中选择一个语言代码。
+	postAiTranslateRequest := *openapiclient.NewPostAiTranslateRequest("Hello, how are you today?") // PostAiTranslateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -119,8 +119,8 @@ Other parameters are passed through a pointer to a apiPostAiTranslateRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **targetLang** | **string** | 目标语言代码。请从支持的语言列表中选择一个语言代码。 | 
- **postAiTranslateRequest** | [**PostAiTranslateRequest**](PostAiTranslateRequest.md) | 包含翻译参数的JSON对象，支持单个文本或批量文本翻译 | 
+ **targetLang** | **string** | 目标语言代码。请从[支持的语言列表](#enum-list)中选择一个语言代码。 | 
+ **postAiTranslateRequest** | [**PostAiTranslateRequest**](PostAiTranslateRequest.md) |  | 
 
 ### Return type
 
@@ -161,7 +161,7 @@ import (
 )
 
 func main() {
-	postTranslateStreamRequest := *openapiclient.NewPostTranslateStreamRequest("Hello, how are you?", "中文") // PostTranslateStreamRequest | 包含翻译参数的JSON对象
+	postTranslateStreamRequest := *openapiclient.NewPostTranslateStreamRequest("Hello, how are you?", "中文") // PostTranslateStreamRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -186,7 +186,7 @@ Other parameters are passed through a pointer to a apiPostTranslateStreamRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postTranslateStreamRequest** | [**PostTranslateStreamRequest**](PostTranslateStreamRequest.md) | 包含翻译参数的JSON对象 | 
+ **postTranslateStreamRequest** | [**PostTranslateStreamRequest**](PostTranslateStreamRequest.md) |  | 
 
 ### Return type
 
@@ -227,8 +227,8 @@ import (
 )
 
 func main() {
-	toLang := "zh-CHS" // string | 目标语言代码。请从支持的语言列表中选择一个语言代码。
-	postTranslateTextRequest := *openapiclient.NewPostTranslateTextRequest("hello world") // PostTranslateTextRequest | 包含待翻译文本的JSON对象
+	toLang := "zh" // string | 目标语言代码。请从[支持的语言列表](#enum-list)中选择一个语言代码。
+	postTranslateTextRequest := *openapiclient.NewPostTranslateTextRequest("hello world") // PostTranslateTextRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -253,8 +253,8 @@ Other parameters are passed through a pointer to a apiPostTranslateTextRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **toLang** | **string** | 目标语言代码。请从支持的语言列表中选择一个语言代码。 | 
- **postTranslateTextRequest** | [**PostTranslateTextRequest**](PostTranslateTextRequest.md) | 包含待翻译文本的JSON对象 | 
+ **toLang** | **string** | 目标语言代码。请从[支持的语言列表](#enum-list)中选择一个语言代码。 | 
+ **postTranslateTextRequest** | [**PostTranslateTextRequest**](PostTranslateTextRequest.md) |  | 
 
 ### Return type
 

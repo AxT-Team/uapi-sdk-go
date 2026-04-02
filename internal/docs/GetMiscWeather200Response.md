@@ -6,8 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Province** | Pointer to **string** | 省份 | [optional] 
 **City** | Pointer to **string** | 城市名 | [optional] 
+**District** | Pointer to **string** | 区县或更细一级的行政区名称。自动按 IP 定位时更常见。 | [optional] 
 **Adcode** | Pointer to **string** | 行政区划代码（部分数据源可能为空） | [optional] 
 **Weather** | Pointer to **string** | 天气状况描述。默认返回中文，传 &#x60;lang&#x3D;en&#x60; 时返回英文。非固定枚举。 | [optional] 
+**WeatherIcon** | Pointer to **string** | 天气图标代码。请从[天气图标代码表](#enum-list)中查看所有可能的值。 | [optional] 
 **Temperature** | Pointer to **float32** | 当前温度 °C | [optional] 
 **WindDirection** | Pointer to **string** | 风向 | [optional] 
 **WindPower** | Pointer to **string** | 风力等级 | [optional] 
@@ -100,6 +102,31 @@ SetCity sets City field to given value.
 
 HasCity returns a boolean if a field has been set.
 
+### GetDistrict
+
+`func (o *GetMiscWeather200Response) GetDistrict() string`
+
+GetDistrict returns the District field if non-nil, zero value otherwise.
+
+### GetDistrictOk
+
+`func (o *GetMiscWeather200Response) GetDistrictOk() (*string, bool)`
+
+GetDistrictOk returns a tuple with the District field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDistrict
+
+`func (o *GetMiscWeather200Response) SetDistrict(v string)`
+
+SetDistrict sets District field to given value.
+
+### HasDistrict
+
+`func (o *GetMiscWeather200Response) HasDistrict() bool`
+
+HasDistrict returns a boolean if a field has been set.
+
 ### GetAdcode
 
 `func (o *GetMiscWeather200Response) GetAdcode() string`
@@ -149,6 +176,31 @@ SetWeather sets Weather field to given value.
 `func (o *GetMiscWeather200Response) HasWeather() bool`
 
 HasWeather returns a boolean if a field has been set.
+
+### GetWeatherIcon
+
+`func (o *GetMiscWeather200Response) GetWeatherIcon() string`
+
+GetWeatherIcon returns the WeatherIcon field if non-nil, zero value otherwise.
+
+### GetWeatherIconOk
+
+`func (o *GetMiscWeather200Response) GetWeatherIconOk() (*string, bool)`
+
+GetWeatherIconOk returns a tuple with the WeatherIcon field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWeatherIcon
+
+`func (o *GetMiscWeather200Response) SetWeatherIcon(v string)`
+
+SetWeatherIcon sets WeatherIcon field to given value.
+
+### HasWeatherIcon
+
+`func (o *GetMiscWeather200Response) HasWeatherIcon() bool`
+
+HasWeatherIcon returns a boolean if a field has been set.
 
 ### GetTemperature
 

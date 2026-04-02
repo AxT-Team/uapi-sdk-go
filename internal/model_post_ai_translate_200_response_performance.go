@@ -20,7 +20,6 @@ var _ MappedNullable = &PostAiTranslate200ResponsePerformance{}
 // PostAiTranslate200ResponsePerformance struct for PostAiTranslate200ResponsePerformance
 type PostAiTranslate200ResponsePerformance struct {
 	ProcessingTimeMs *int32 `json:"processing_time_ms,omitempty"`
-	CacheHit *bool `json:"cache_hit,omitempty"`
 }
 
 // NewPostAiTranslate200ResponsePerformance instantiates a new PostAiTranslate200ResponsePerformance object
@@ -72,38 +71,6 @@ func (o *PostAiTranslate200ResponsePerformance) SetProcessingTimeMs(v int32) {
 	o.ProcessingTimeMs = &v
 }
 
-// GetCacheHit returns the CacheHit field value if set, zero value otherwise.
-func (o *PostAiTranslate200ResponsePerformance) GetCacheHit() bool {
-	if o == nil || IsNil(o.CacheHit) {
-		var ret bool
-		return ret
-	}
-	return *o.CacheHit
-}
-
-// GetCacheHitOk returns a tuple with the CacheHit field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAiTranslate200ResponsePerformance) GetCacheHitOk() (*bool, bool) {
-	if o == nil || IsNil(o.CacheHit) {
-		return nil, false
-	}
-	return o.CacheHit, true
-}
-
-// HasCacheHit returns a boolean if a field has been set.
-func (o *PostAiTranslate200ResponsePerformance) HasCacheHit() bool {
-	if o != nil && !IsNil(o.CacheHit) {
-		return true
-	}
-
-	return false
-}
-
-// SetCacheHit gets a reference to the given bool and assigns it to the CacheHit field.
-func (o *PostAiTranslate200ResponsePerformance) SetCacheHit(v bool) {
-	o.CacheHit = &v
-}
-
 func (o PostAiTranslate200ResponsePerformance) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -116,9 +83,6 @@ func (o PostAiTranslate200ResponsePerformance) ToMap() (map[string]interface{}, 
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.ProcessingTimeMs) {
 		toSerialize["processing_time_ms"] = o.ProcessingTimeMs
-	}
-	if !IsNil(o.CacheHit) {
-		toSerialize["cache_hit"] = o.CacheHit
 	}
 	return toSerialize, nil
 }

@@ -20,28 +20,51 @@ var _ MappedNullable = &GetGithubRepo200Response{}
 
 // GetGithubRepo200Response struct for GetGithubRepo200Response
 type GetGithubRepo200Response struct {
+	// 仓库完整名称。
 	FullName *string `json:"full_name,omitempty"`
+	// 仓库简介。
 	Description *string `json:"description,omitempty"`
+	// 仓库主页链接。
 	Homepage *string `json:"homepage,omitempty"`
+	// 默认分支名称。
 	DefaultBranch *string `json:"default_branch,omitempty"`
+	// 主要分支名称（通常与默认分支一致）。
 	PrimaryBranch *string `json:"primary_branch,omitempty"`
+	// 默认分支最新提交的 SHA 哈希。
 	DefaultBranchSha *string `json:"default_branch_sha,omitempty"`
+	// 仓库可见性，常见值为 `public` 或 `private`。
 	Visibility *string `json:"visibility,omitempty"`
+	// 仓库是否已归档。
 	Archived *bool `json:"archived,omitempty"`
+	// 仓库是否被禁用。
 	Disabled *bool `json:"disabled,omitempty"`
+	// 是否为 Fork 仓库。
 	Fork *bool `json:"fork,omitempty"`
+	// 主要语言。
 	Language *string `json:"language,omitempty"`
+	// 话题标签列表。
 	Topics []string `json:"topics,omitempty"`
+	// 开源许可证名称。
 	License *string `json:"license,omitempty"`
+	// Star 数。
 	Stargazers *int32 `json:"stargazers,omitempty"`
+	// Fork 数。
 	Forks *int32 `json:"forks,omitempty"`
+	// 开放 Issue 数。
 	OpenIssues *int32 `json:"open_issues,omitempty"`
+	// 关注者数量（watchers/subscribers）。
 	Watchers *int32 `json:"watchers,omitempty"`
+	// 最后推送时间（ISO 8601）。
 	PushedAt *time.Time `json:"pushed_at,omitempty"`
+	// 创建时间（ISO 8601）。
 	CreatedAt *time.Time `json:"created_at,omitempty"`
+	// 更新时间（ISO 8601）。
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+	// 语言统计（键为语言名，值为代码字节数）。
 	Languages *map[string]int32 `json:"languages,omitempty"`
+	// 协作者列表。受权限限制时可能为 null 或空数组。
 	Collaborators []GetGithubRepo200ResponseCollaboratorsInner `json:"collaborators,omitempty"`
+	// 维护者列表（根据默认分支近期提交推断）。
 	Maintainers []GetGithubRepo200ResponseCollaboratorsInner `json:"maintainers,omitempty"`
 	LatestRelease NullableGetGithubRepo200ResponseLatestRelease `json:"latest_release,omitempty"`
 }

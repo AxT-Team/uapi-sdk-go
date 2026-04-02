@@ -234,7 +234,7 @@ import (
 )
 
 func main() {
-	postAnswerbookAskRequest := *openapiclient.NewPostAnswerbookAskRequest("我应该接受这份工作吗？") // PostAnswerbookAskRequest | 包含问题的JSON对象
+	postAnswerbookAskRequest := *openapiclient.NewPostAnswerbookAskRequest("我应该接受这份工作吗？") // PostAnswerbookAskRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -259,7 +259,7 @@ Other parameters are passed through a pointer to a apiPostAnswerbookAskRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postAnswerbookAskRequest** | [**PostAnswerbookAskRequest**](PostAnswerbookAskRequest.md) | 包含问题的JSON对象 | 
+ **postAnswerbookAskRequest** | [**PostAnswerbookAskRequest**](PostAnswerbookAskRequest.md) |  | 
 
 ### Return type
 

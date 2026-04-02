@@ -23,10 +23,14 @@ type GetMiscWeather200Response struct {
 	Province *string `json:"province,omitempty"`
 	// 城市名
 	City *string `json:"city,omitempty"`
+	// 区县或更细一级的行政区名称。自动按 IP 定位时更常见。
+	District *string `json:"district,omitempty"`
 	// 行政区划代码（部分数据源可能为空）
 	Adcode *string `json:"adcode,omitempty"`
 	// 天气状况描述。默认返回中文，传 `lang=en` 时返回英文。非固定枚举。
 	Weather *string `json:"weather,omitempty"`
+	// 天气图标代码。请从[天气图标代码表](#enum-list)中查看所有可能的值。
+	WeatherIcon *string `json:"weather_icon,omitempty"`
 	// 当前温度 °C
 	Temperature *float32 `json:"temperature,omitempty"`
 	// 风向
@@ -151,6 +155,38 @@ func (o *GetMiscWeather200Response) SetCity(v string) {
 	o.City = &v
 }
 
+// GetDistrict returns the District field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetDistrict() string {
+	if o == nil || IsNil(o.District) {
+		var ret string
+		return ret
+	}
+	return *o.District
+}
+
+// GetDistrictOk returns a tuple with the District field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetDistrictOk() (*string, bool) {
+	if o == nil || IsNil(o.District) {
+		return nil, false
+	}
+	return o.District, true
+}
+
+// HasDistrict returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasDistrict() bool {
+	if o != nil && !IsNil(o.District) {
+		return true
+	}
+
+	return false
+}
+
+// SetDistrict gets a reference to the given string and assigns it to the District field.
+func (o *GetMiscWeather200Response) SetDistrict(v string) {
+	o.District = &v
+}
+
 // GetAdcode returns the Adcode field value if set, zero value otherwise.
 func (o *GetMiscWeather200Response) GetAdcode() string {
 	if o == nil || IsNil(o.Adcode) {
@@ -213,6 +249,38 @@ func (o *GetMiscWeather200Response) HasWeather() bool {
 // SetWeather gets a reference to the given string and assigns it to the Weather field.
 func (o *GetMiscWeather200Response) SetWeather(v string) {
 	o.Weather = &v
+}
+
+// GetWeatherIcon returns the WeatherIcon field value if set, zero value otherwise.
+func (o *GetMiscWeather200Response) GetWeatherIcon() string {
+	if o == nil || IsNil(o.WeatherIcon) {
+		var ret string
+		return ret
+	}
+	return *o.WeatherIcon
+}
+
+// GetWeatherIconOk returns a tuple with the WeatherIcon field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscWeather200Response) GetWeatherIconOk() (*string, bool) {
+	if o == nil || IsNil(o.WeatherIcon) {
+		return nil, false
+	}
+	return o.WeatherIcon, true
+}
+
+// HasWeatherIcon returns a boolean if a field has been set.
+func (o *GetMiscWeather200Response) HasWeatherIcon() bool {
+	if o != nil && !IsNil(o.WeatherIcon) {
+		return true
+	}
+
+	return false
+}
+
+// SetWeatherIcon gets a reference to the given string and assigns it to the WeatherIcon field.
+func (o *GetMiscWeather200Response) SetWeatherIcon(v string) {
+	o.WeatherIcon = &v
 }
 
 // GetTemperature returns the Temperature field value if set, zero value otherwise.
@@ -935,11 +1003,17 @@ func (o GetMiscWeather200Response) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.City) {
 		toSerialize["city"] = o.City
 	}
+	if !IsNil(o.District) {
+		toSerialize["district"] = o.District
+	}
 	if !IsNil(o.Adcode) {
 		toSerialize["adcode"] = o.Adcode
 	}
 	if !IsNil(o.Weather) {
 		toSerialize["weather"] = o.Weather
+	}
+	if !IsNil(o.WeatherIcon) {
+		toSerialize["weather_icon"] = o.WeatherIcon
 	}
 	if !IsNil(o.Temperature) {
 		toSerialize["temperature"] = o.Temperature

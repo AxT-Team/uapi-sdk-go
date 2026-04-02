@@ -12,6 +12,8 @@ package uapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the PostAiTranslateRequest type satisfies the MappedNullable interface at compile time
@@ -19,10 +21,8 @@ var _ MappedNullable = &PostAiTranslateRequest{}
 
 // PostAiTranslateRequest struct for PostAiTranslateRequest
 type PostAiTranslateRequest struct {
-	// 单个翻译时使用的待翻译文本，与texts参数二选一。最大长度10,000字符。
-	Text *string `json:"text,omitempty"`
-	// 批量翻译时使用的待翻译文本列表，与text参数二选一。最多50条，总计最大100,000字符。
-	Texts []string `json:"texts,omitempty"`
+	// 待翻译的文本内容。最大长度10,000字符。
+	Text string `json:"text"`
 	// 源语言代码，可选。如果不指定，系统会自动检测源语言。
 	SourceLang *string `json:"source_lang,omitempty"`
 	// 翻译风格，可选。支持casual(随意口语化)、professional(专业商务，默认)、academic(学术正式)、literary(文学艺术)。
@@ -31,28 +31,23 @@ type PostAiTranslateRequest struct {
 	Context *string `json:"context,omitempty"`
 	// 是否保留原文格式，包括换行、缩进等。
 	PreserveFormat *bool `json:"preserve_format,omitempty"`
-	// 是否启用快速模式。快速模式响应时间约800ms，准确率95%+；普通模式响应时间约2000ms，准确率98%+。
-	FastMode *bool `json:"fast_mode,omitempty"`
-	// 批量翻译时的最大并发数，范围1-10。仅在批量翻译时有效。
-	MaxConcurrency *int32 `json:"max_concurrency,omitempty"`
 }
+
+type _PostAiTranslateRequest PostAiTranslateRequest
 
 // NewPostAiTranslateRequest instantiates a new PostAiTranslateRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPostAiTranslateRequest() *PostAiTranslateRequest {
+func NewPostAiTranslateRequest(text string) *PostAiTranslateRequest {
 	this := PostAiTranslateRequest{}
+	this.Text = text
 	var style string = "professional"
 	this.Style = &style
 	var context string = "general"
 	this.Context = &context
 	var preserveFormat bool = true
 	this.PreserveFormat = &preserveFormat
-	var fastMode bool = false
-	this.FastMode = &fastMode
-	var maxConcurrency int32 = 3
-	this.MaxConcurrency = &maxConcurrency
 	return &this
 }
 
@@ -67,75 +62,31 @@ func NewPostAiTranslateRequestWithDefaults() *PostAiTranslateRequest {
 	this.Context = &context
 	var preserveFormat bool = true
 	this.PreserveFormat = &preserveFormat
-	var fastMode bool = false
-	this.FastMode = &fastMode
-	var maxConcurrency int32 = 3
-	this.MaxConcurrency = &maxConcurrency
 	return &this
 }
 
-// GetText returns the Text field value if set, zero value otherwise.
+// GetText returns the Text field value
 func (o *PostAiTranslateRequest) GetText() string {
-	if o == nil || IsNil(o.Text) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Text
+
+	return o.Text
 }
 
-// GetTextOk returns a tuple with the Text field value if set, nil otherwise
+// GetTextOk returns a tuple with the Text field value
 // and a boolean to check if the value has been set.
 func (o *PostAiTranslateRequest) GetTextOk() (*string, bool) {
-	if o == nil || IsNil(o.Text) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Text, true
+	return &o.Text, true
 }
 
-// HasText returns a boolean if a field has been set.
-func (o *PostAiTranslateRequest) HasText() bool {
-	if o != nil && !IsNil(o.Text) {
-		return true
-	}
-
-	return false
-}
-
-// SetText gets a reference to the given string and assigns it to the Text field.
+// SetText sets field value
 func (o *PostAiTranslateRequest) SetText(v string) {
-	o.Text = &v
-}
-
-// GetTexts returns the Texts field value if set, zero value otherwise.
-func (o *PostAiTranslateRequest) GetTexts() []string {
-	if o == nil || IsNil(o.Texts) {
-		var ret []string
-		return ret
-	}
-	return o.Texts
-}
-
-// GetTextsOk returns a tuple with the Texts field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAiTranslateRequest) GetTextsOk() ([]string, bool) {
-	if o == nil || IsNil(o.Texts) {
-		return nil, false
-	}
-	return o.Texts, true
-}
-
-// HasTexts returns a boolean if a field has been set.
-func (o *PostAiTranslateRequest) HasTexts() bool {
-	if o != nil && !IsNil(o.Texts) {
-		return true
-	}
-
-	return false
-}
-
-// SetTexts gets a reference to the given []string and assigns it to the Texts field.
-func (o *PostAiTranslateRequest) SetTexts(v []string) {
-	o.Texts = v
+	o.Text = v
 }
 
 // GetSourceLang returns the SourceLang field value if set, zero value otherwise.
@@ -266,70 +217,6 @@ func (o *PostAiTranslateRequest) SetPreserveFormat(v bool) {
 	o.PreserveFormat = &v
 }
 
-// GetFastMode returns the FastMode field value if set, zero value otherwise.
-func (o *PostAiTranslateRequest) GetFastMode() bool {
-	if o == nil || IsNil(o.FastMode) {
-		var ret bool
-		return ret
-	}
-	return *o.FastMode
-}
-
-// GetFastModeOk returns a tuple with the FastMode field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAiTranslateRequest) GetFastModeOk() (*bool, bool) {
-	if o == nil || IsNil(o.FastMode) {
-		return nil, false
-	}
-	return o.FastMode, true
-}
-
-// HasFastMode returns a boolean if a field has been set.
-func (o *PostAiTranslateRequest) HasFastMode() bool {
-	if o != nil && !IsNil(o.FastMode) {
-		return true
-	}
-
-	return false
-}
-
-// SetFastMode gets a reference to the given bool and assigns it to the FastMode field.
-func (o *PostAiTranslateRequest) SetFastMode(v bool) {
-	o.FastMode = &v
-}
-
-// GetMaxConcurrency returns the MaxConcurrency field value if set, zero value otherwise.
-func (o *PostAiTranslateRequest) GetMaxConcurrency() int32 {
-	if o == nil || IsNil(o.MaxConcurrency) {
-		var ret int32
-		return ret
-	}
-	return *o.MaxConcurrency
-}
-
-// GetMaxConcurrencyOk returns a tuple with the MaxConcurrency field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAiTranslateRequest) GetMaxConcurrencyOk() (*int32, bool) {
-	if o == nil || IsNil(o.MaxConcurrency) {
-		return nil, false
-	}
-	return o.MaxConcurrency, true
-}
-
-// HasMaxConcurrency returns a boolean if a field has been set.
-func (o *PostAiTranslateRequest) HasMaxConcurrency() bool {
-	if o != nil && !IsNil(o.MaxConcurrency) {
-		return true
-	}
-
-	return false
-}
-
-// SetMaxConcurrency gets a reference to the given int32 and assigns it to the MaxConcurrency field.
-func (o *PostAiTranslateRequest) SetMaxConcurrency(v int32) {
-	o.MaxConcurrency = &v
-}
-
 func (o PostAiTranslateRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -340,12 +227,7 @@ func (o PostAiTranslateRequest) MarshalJSON() ([]byte, error) {
 
 func (o PostAiTranslateRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Text) {
-		toSerialize["text"] = o.Text
-	}
-	if !IsNil(o.Texts) {
-		toSerialize["texts"] = o.Texts
-	}
+	toSerialize["text"] = o.Text
 	if !IsNil(o.SourceLang) {
 		toSerialize["source_lang"] = o.SourceLang
 	}
@@ -358,13 +240,44 @@ func (o PostAiTranslateRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PreserveFormat) {
 		toSerialize["preserve_format"] = o.PreserveFormat
 	}
-	if !IsNil(o.FastMode) {
-		toSerialize["fast_mode"] = o.FastMode
-	}
-	if !IsNil(o.MaxConcurrency) {
-		toSerialize["max_concurrency"] = o.MaxConcurrency
-	}
 	return toSerialize, nil
+}
+
+func (o *PostAiTranslateRequest) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"text",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varPostAiTranslateRequest := _PostAiTranslateRequest{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varPostAiTranslateRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = PostAiTranslateRequest(varPostAiTranslateRequest)
+
+	return err
 }
 
 type NullablePostAiTranslateRequest struct {

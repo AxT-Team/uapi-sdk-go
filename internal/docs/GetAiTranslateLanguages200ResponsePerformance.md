@@ -4,11 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FastModeAvailable** | Pointer to **bool** |  | [optional] 
 **BatchTranslationAvailable** | Pointer to **bool** |  | [optional] 
-**MaxTextLength** | Pointer to **int32** |  | [optional] 
 **MaxBatchSize** | Pointer to **int32** |  | [optional] 
-**TypicalResponseTimeMs** | Pointer to [**GetAiTranslateLanguages200ResponsePerformanceTypicalResponseTimeMs**](GetAiTranslateLanguages200ResponsePerformanceTypicalResponseTimeMs.md) |  | [optional] 
+**MaxTextLength** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -28,31 +26,6 @@ will change when the set of required properties is changed
 NewGetAiTranslateLanguages200ResponsePerformanceWithDefaults instantiates a new GetAiTranslateLanguages200ResponsePerformance object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetFastModeAvailable
-
-`func (o *GetAiTranslateLanguages200ResponsePerformance) GetFastModeAvailable() bool`
-
-GetFastModeAvailable returns the FastModeAvailable field if non-nil, zero value otherwise.
-
-### GetFastModeAvailableOk
-
-`func (o *GetAiTranslateLanguages200ResponsePerformance) GetFastModeAvailableOk() (*bool, bool)`
-
-GetFastModeAvailableOk returns a tuple with the FastModeAvailable field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFastModeAvailable
-
-`func (o *GetAiTranslateLanguages200ResponsePerformance) SetFastModeAvailable(v bool)`
-
-SetFastModeAvailable sets FastModeAvailable field to given value.
-
-### HasFastModeAvailable
-
-`func (o *GetAiTranslateLanguages200ResponsePerformance) HasFastModeAvailable() bool`
-
-HasFastModeAvailable returns a boolean if a field has been set.
 
 ### GetBatchTranslationAvailable
 
@@ -79,31 +52,6 @@ SetBatchTranslationAvailable sets BatchTranslationAvailable field to given value
 
 HasBatchTranslationAvailable returns a boolean if a field has been set.
 
-### GetMaxTextLength
-
-`func (o *GetAiTranslateLanguages200ResponsePerformance) GetMaxTextLength() int32`
-
-GetMaxTextLength returns the MaxTextLength field if non-nil, zero value otherwise.
-
-### GetMaxTextLengthOk
-
-`func (o *GetAiTranslateLanguages200ResponsePerformance) GetMaxTextLengthOk() (*int32, bool)`
-
-GetMaxTextLengthOk returns a tuple with the MaxTextLength field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMaxTextLength
-
-`func (o *GetAiTranslateLanguages200ResponsePerformance) SetMaxTextLength(v int32)`
-
-SetMaxTextLength sets MaxTextLength field to given value.
-
-### HasMaxTextLength
-
-`func (o *GetAiTranslateLanguages200ResponsePerformance) HasMaxTextLength() bool`
-
-HasMaxTextLength returns a boolean if a field has been set.
-
 ### GetMaxBatchSize
 
 `func (o *GetAiTranslateLanguages200ResponsePerformance) GetMaxBatchSize() int32`
@@ -129,30 +77,30 @@ SetMaxBatchSize sets MaxBatchSize field to given value.
 
 HasMaxBatchSize returns a boolean if a field has been set.
 
-### GetTypicalResponseTimeMs
+### GetMaxTextLength
 
-`func (o *GetAiTranslateLanguages200ResponsePerformance) GetTypicalResponseTimeMs() GetAiTranslateLanguages200ResponsePerformanceTypicalResponseTimeMs`
+`func (o *GetAiTranslateLanguages200ResponsePerformance) GetMaxTextLength() int32`
 
-GetTypicalResponseTimeMs returns the TypicalResponseTimeMs field if non-nil, zero value otherwise.
+GetMaxTextLength returns the MaxTextLength field if non-nil, zero value otherwise.
 
-### GetTypicalResponseTimeMsOk
+### GetMaxTextLengthOk
 
-`func (o *GetAiTranslateLanguages200ResponsePerformance) GetTypicalResponseTimeMsOk() (*GetAiTranslateLanguages200ResponsePerformanceTypicalResponseTimeMs, bool)`
+`func (o *GetAiTranslateLanguages200ResponsePerformance) GetMaxTextLengthOk() (*int32, bool)`
 
-GetTypicalResponseTimeMsOk returns a tuple with the TypicalResponseTimeMs field if it's non-nil, zero value otherwise
+GetMaxTextLengthOk returns a tuple with the MaxTextLength field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTypicalResponseTimeMs
+### SetMaxTextLength
 
-`func (o *GetAiTranslateLanguages200ResponsePerformance) SetTypicalResponseTimeMs(v GetAiTranslateLanguages200ResponsePerformanceTypicalResponseTimeMs)`
+`func (o *GetAiTranslateLanguages200ResponsePerformance) SetMaxTextLength(v int32)`
 
-SetTypicalResponseTimeMs sets TypicalResponseTimeMs field to given value.
+SetMaxTextLength sets MaxTextLength field to given value.
 
-### HasTypicalResponseTimeMs
+### HasMaxTextLength
 
-`func (o *GetAiTranslateLanguages200ResponsePerformance) HasTypicalResponseTimeMs() bool`
+`func (o *GetAiTranslateLanguages200ResponsePerformance) HasMaxTextLength() bool`
 
-HasTypicalResponseTimeMs returns a boolean if a field has been set.
+HasMaxTextLength returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

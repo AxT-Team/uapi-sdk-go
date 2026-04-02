@@ -328,12 +328,12 @@ import (
 )
 
 func main() {
-	type_ := "weibo" // string | 你想要查询的热榜平台。支持多种主流平台类型，详见下方[可选值](#可选值)表格。
-	time := int64(1700000000000) // int64 | 时光机模式：毫秒时间戳，返回最接近该时间的热榜快照。不传则返回当前实时热榜。 (optional)
-	keyword := "AI" // string | 搜索模式：搜索关键词，在历史热榜中搜索包含该关键词的条目。需配合 time_start 和 time_end 使用。 (optional)
-	timeStart := int64(1699900000000) // int64 | 搜索模式必填：搜索起始时间戳（毫秒）。 (optional)
-	timeEnd := int64(1700100000000) // int64 | 搜索模式必填：搜索结束时间戳（毫秒）。 (optional)
-	limit := int32(50) // int32 | 搜索模式下最大返回条数，默认 50，最大 200。 (optional) (default to 50)
+	type_ := "weibo" // string | 你想要查询的热榜平台。请从[支持的平台列表](#enum-list)中选择。
+	time := int64(789) // int64 | 时光机模式：毫秒时间戳，返回最接近该时间的热榜快照。不传则返回当前实时热榜。 (optional)
+	keyword := "keyword_example" // string | 搜索模式：搜索关键词，在历史热榜中搜索包含该关键词的条目。需配合 time_start 和 time_end 使用。 (optional)
+	timeStart := int64(789) // int64 | 搜索模式必填：搜索起始时间戳（毫秒）。 (optional)
+	timeEnd := int64(789) // int64 | 搜索模式必填：搜索结束时间戳（毫秒）。 (optional)
+	limit := int32(56) // int32 | 搜索模式下最大返回条数，默认 50，最大 200。 (optional)
 	sources := true // bool | 设为 true 时列出所有可用的历史数据源，忽略其他参数。 (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -359,12 +359,12 @@ Other parameters are passed through a pointer to a apiGetMiscHotboardRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type_** | **string** | 你想要查询的热榜平台。支持多种主流平台类型，详见下方[可选值](#可选值)表格。 | 
+ **type_** | **string** | 你想要查询的热榜平台。请从[支持的平台列表](#enum-list)中选择。 | 
  **time** | **int64** | 时光机模式：毫秒时间戳，返回最接近该时间的热榜快照。不传则返回当前实时热榜。 | 
  **keyword** | **string** | 搜索模式：搜索关键词，在历史热榜中搜索包含该关键词的条目。需配合 time_start 和 time_end 使用。 | 
  **timeStart** | **int64** | 搜索模式必填：搜索起始时间戳（毫秒）。 | 
  **timeEnd** | **int64** | 搜索模式必填：搜索结束时间戳（毫秒）。 | 
- **limit** | **int32** | 搜索模式下最大返回条数，默认 50，最大 200。 | [default to 50]
+ **limit** | **int32** | 搜索模式下最大返回条数，默认 50，最大 200。 | 
  **sources** | **bool** | 设为 true 时列出所有可用的历史数据源，忽略其他参数。 | 
 
 ### Return type
@@ -809,7 +809,7 @@ import (
 )
 
 func main() {
-	trackingNumber := "trackingNumber_example" // string | 快递单号，通常是一串10-20位的数字或字母数字组合。
+	trackingNumber := "YT1234567890123" // string | 快递单号，通常是一串10-20位的数字或字母数字组合。
 	carrierCode := "carrierCode_example" // string | 快递公司编码（可选）。不填写时系统会自动识别，填写后可加快查询速度。 (optional)
 	phone := "phone_example" // string | 收件人手机尾号，4位数字（可选）。部分快递公司需要验证手机尾号才能查询详细物流信息。 (optional)
 
@@ -882,9 +882,9 @@ func main() {
 	city := "北京" // string | 城市名称，支持中文（`北京`）和英文（`Tokyo`）。可选参数，不传时会尝试 IP 自动定位。 (optional)
 	adcode := "adcode_example" // string | 城市行政区划代码（如 `110000`），优先级高于 city。可选参数，不传时会尝试 IP 自动定位。 (optional)
 	extended := true // bool | 返回扩展气象字段（体感温度、能见度、气压、紫外线、降水量、云量、空气质量指数及污染物分项数据）。 (optional)
-	forecast := true // bool | 返回多天预报数据（最多7天），含白天夜间天气、风向风力、日出日落等。 (optional)
+	forecast := true // bool | 返回多天预报数据（最多7天），含每天的最高温度、最低温度、白天夜间天气、风向风力、日出日落等。 (optional)
 	hourly := true // bool | 返回逐小时预报（24小时），含温度、天气、风向风速、湿度、降水概率等。 (optional)
-	minutely := true // bool | 返回分钟级降水预报（仅国内城市），每5分钟一个数据点，共24个。 (optional)
+	minutely := true // bool | 返回分钟级降水预报（仅国内城市），精确到2分钟。 (optional)
 	indices := true // bool | 返回18项生活指数（穿衣、紫外线、洗车、晾晒、空调、感冒、运动、舒适度、出行、钓鱼、过敏、防晒、心情、啤酒、雨伞、交通、空气净化器、花粉）。 (optional)
 	lang := "lang_example" // string | 返回语言。`zh` 返回中文（默认），`en` 返回英文。城市名翻译覆盖 7000+ 城市。生活指数（`indices`）目前仅支持中文。 (optional) (default to "zh")
 
@@ -914,9 +914,9 @@ Name | Type | Description  | Notes
  **city** | **string** | 城市名称，支持中文（&#x60;北京&#x60;）和英文（&#x60;Tokyo&#x60;）。可选参数，不传时会尝试 IP 自动定位。 | 
  **adcode** | **string** | 城市行政区划代码（如 &#x60;110000&#x60;），优先级高于 city。可选参数，不传时会尝试 IP 自动定位。 | 
  **extended** | **bool** | 返回扩展气象字段（体感温度、能见度、气压、紫外线、降水量、云量、空气质量指数及污染物分项数据）。 | 
- **forecast** | **bool** | 返回多天预报数据（最多7天），含白天夜间天气、风向风力、日出日落等。 | 
+ **forecast** | **bool** | 返回多天预报数据（最多7天），含每天的最高温度、最低温度、白天夜间天气、风向风力、日出日落等。 | 
  **hourly** | **bool** | 返回逐小时预报（24小时），含温度、天气、风向风速、湿度、降水概率等。 | 
- **minutely** | **bool** | 返回分钟级降水预报（仅国内城市），每5分钟一个数据点，共24个。 | 
+ **minutely** | **bool** | 返回分钟级降水预报（仅国内城市），精确到2分钟。 | 
  **indices** | **bool** | 返回18项生活指数（穿衣、紫外线、洗车、晾晒、空调、感冒、运动、舒适度、出行、钓鱼、过敏、防晒、心情、啤酒、雨伞、交通、空气净化器、花粉）。 | 
  **lang** | **string** | 返回语言。&#x60;zh&#x60; 返回中文（默认），&#x60;en&#x60; 返回英文。城市名翻译覆盖 7000+ 城市。生活指数（&#x60;indices&#x60;）目前仅支持中文。 | [default to &quot;zh&quot;]
 
@@ -1025,7 +1025,7 @@ import (
 )
 
 func main() {
-	postMiscDateDiffRequest := *openapiclient.NewPostMiscDateDiffRequest("2025-01-01", "2025-12-31") // PostMiscDateDiffRequest | 包含日期信息的JSON对象
+	postMiscDateDiffRequest := *openapiclient.NewPostMiscDateDiffRequest("2025-01-01", "2025-12-31") // PostMiscDateDiffRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1050,7 +1050,7 @@ Other parameters are passed through a pointer to a apiPostMiscDateDiffRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postMiscDateDiffRequest** | [**PostMiscDateDiffRequest**](PostMiscDateDiffRequest.md) | 包含日期信息的JSON对象 | 
+ **postMiscDateDiffRequest** | [**PostMiscDateDiffRequest**](PostMiscDateDiffRequest.md) |  | 
 
 ### Return type
 

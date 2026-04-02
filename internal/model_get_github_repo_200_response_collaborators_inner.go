@@ -19,9 +19,13 @@ var _ MappedNullable = &GetGithubRepo200ResponseCollaboratorsInner{}
 
 // GetGithubRepo200ResponseCollaboratorsInner struct for GetGithubRepo200ResponseCollaboratorsInner
 type GetGithubRepo200ResponseCollaboratorsInner struct {
+	// GitHub 登录名。
 	Login *string `json:"login,omitempty"`
+	// 显示名称。
 	Name *string `json:"name,omitempty"`
+	// 公开邮箱。
 	Email *string `json:"email,omitempty"`
+	// GitHub 主页链接。
 	Url *string `json:"url,omitempty"`
 }
 

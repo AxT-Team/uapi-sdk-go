@@ -19,15 +19,12 @@ var _ MappedNullable = &GetNetworkPingmyip200Response{}
 
 // GetNetworkPingmyip200Response struct for GetNetworkPingmyip200Response
 type GetNetworkPingmyip200Response struct {
-	// 平均延迟(ms)
-	Avg *float32 `json:"avg,omitempty"`
-	Host *string `json:"host,omitempty"`
-	Ip *string `json:"ip,omitempty"`
-	Location *string `json:"location,omitempty"`
-	// 最大延迟(ms)
-	Max *float32 `json:"max,omitempty"`
-	// 最小延迟(ms)
-	Min *float32 `json:"min,omitempty"`
+	// 当前客户端的公网 IP 地址。
+	ClientIp *string `json:"client_ip,omitempty"`
+	// 是否成功完成对当前客户端 IP 的 Ping。
+	PingSuccessful *bool `json:"ping_successful,omitempty"`
+	// 操作结果说明。成功时通常会附带平均延迟信息。
+	Message *string `json:"message,omitempty"`
 }
 
 // NewGetNetworkPingmyip200Response instantiates a new GetNetworkPingmyip200Response object
@@ -47,196 +44,100 @@ func NewGetNetworkPingmyip200ResponseWithDefaults() *GetNetworkPingmyip200Respon
 	return &this
 }
 
-// GetAvg returns the Avg field value if set, zero value otherwise.
-func (o *GetNetworkPingmyip200Response) GetAvg() float32 {
-	if o == nil || IsNil(o.Avg) {
-		var ret float32
-		return ret
-	}
-	return *o.Avg
-}
-
-// GetAvgOk returns a tuple with the Avg field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkPingmyip200Response) GetAvgOk() (*float32, bool) {
-	if o == nil || IsNil(o.Avg) {
-		return nil, false
-	}
-	return o.Avg, true
-}
-
-// HasAvg returns a boolean if a field has been set.
-func (o *GetNetworkPingmyip200Response) HasAvg() bool {
-	if o != nil && !IsNil(o.Avg) {
-		return true
-	}
-
-	return false
-}
-
-// SetAvg gets a reference to the given float32 and assigns it to the Avg field.
-func (o *GetNetworkPingmyip200Response) SetAvg(v float32) {
-	o.Avg = &v
-}
-
-// GetHost returns the Host field value if set, zero value otherwise.
-func (o *GetNetworkPingmyip200Response) GetHost() string {
-	if o == nil || IsNil(o.Host) {
+// GetClientIp returns the ClientIp field value if set, zero value otherwise.
+func (o *GetNetworkPingmyip200Response) GetClientIp() string {
+	if o == nil || IsNil(o.ClientIp) {
 		var ret string
 		return ret
 	}
-	return *o.Host
+	return *o.ClientIp
 }
 
-// GetHostOk returns a tuple with the Host field value if set, nil otherwise
+// GetClientIpOk returns a tuple with the ClientIp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetNetworkPingmyip200Response) GetHostOk() (*string, bool) {
-	if o == nil || IsNil(o.Host) {
+func (o *GetNetworkPingmyip200Response) GetClientIpOk() (*string, bool) {
+	if o == nil || IsNil(o.ClientIp) {
 		return nil, false
 	}
-	return o.Host, true
+	return o.ClientIp, true
 }
 
-// HasHost returns a boolean if a field has been set.
-func (o *GetNetworkPingmyip200Response) HasHost() bool {
-	if o != nil && !IsNil(o.Host) {
+// HasClientIp returns a boolean if a field has been set.
+func (o *GetNetworkPingmyip200Response) HasClientIp() bool {
+	if o != nil && !IsNil(o.ClientIp) {
 		return true
 	}
 
 	return false
 }
 
-// SetHost gets a reference to the given string and assigns it to the Host field.
-func (o *GetNetworkPingmyip200Response) SetHost(v string) {
-	o.Host = &v
+// SetClientIp gets a reference to the given string and assigns it to the ClientIp field.
+func (o *GetNetworkPingmyip200Response) SetClientIp(v string) {
+	o.ClientIp = &v
 }
 
-// GetIp returns the Ip field value if set, zero value otherwise.
-func (o *GetNetworkPingmyip200Response) GetIp() string {
-	if o == nil || IsNil(o.Ip) {
+// GetPingSuccessful returns the PingSuccessful field value if set, zero value otherwise.
+func (o *GetNetworkPingmyip200Response) GetPingSuccessful() bool {
+	if o == nil || IsNil(o.PingSuccessful) {
+		var ret bool
+		return ret
+	}
+	return *o.PingSuccessful
+}
+
+// GetPingSuccessfulOk returns a tuple with the PingSuccessful field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetNetworkPingmyip200Response) GetPingSuccessfulOk() (*bool, bool) {
+	if o == nil || IsNil(o.PingSuccessful) {
+		return nil, false
+	}
+	return o.PingSuccessful, true
+}
+
+// HasPingSuccessful returns a boolean if a field has been set.
+func (o *GetNetworkPingmyip200Response) HasPingSuccessful() bool {
+	if o != nil && !IsNil(o.PingSuccessful) {
+		return true
+	}
+
+	return false
+}
+
+// SetPingSuccessful gets a reference to the given bool and assigns it to the PingSuccessful field.
+func (o *GetNetworkPingmyip200Response) SetPingSuccessful(v bool) {
+	o.PingSuccessful = &v
+}
+
+// GetMessage returns the Message field value if set, zero value otherwise.
+func (o *GetNetworkPingmyip200Response) GetMessage() string {
+	if o == nil || IsNil(o.Message) {
 		var ret string
 		return ret
 	}
-	return *o.Ip
+	return *o.Message
 }
 
-// GetIpOk returns a tuple with the Ip field value if set, nil otherwise
+// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetNetworkPingmyip200Response) GetIpOk() (*string, bool) {
-	if o == nil || IsNil(o.Ip) {
+func (o *GetNetworkPingmyip200Response) GetMessageOk() (*string, bool) {
+	if o == nil || IsNil(o.Message) {
 		return nil, false
 	}
-	return o.Ip, true
+	return o.Message, true
 }
 
-// HasIp returns a boolean if a field has been set.
-func (o *GetNetworkPingmyip200Response) HasIp() bool {
-	if o != nil && !IsNil(o.Ip) {
+// HasMessage returns a boolean if a field has been set.
+func (o *GetNetworkPingmyip200Response) HasMessage() bool {
+	if o != nil && !IsNil(o.Message) {
 		return true
 	}
 
 	return false
 }
 
-// SetIp gets a reference to the given string and assigns it to the Ip field.
-func (o *GetNetworkPingmyip200Response) SetIp(v string) {
-	o.Ip = &v
-}
-
-// GetLocation returns the Location field value if set, zero value otherwise.
-func (o *GetNetworkPingmyip200Response) GetLocation() string {
-	if o == nil || IsNil(o.Location) {
-		var ret string
-		return ret
-	}
-	return *o.Location
-}
-
-// GetLocationOk returns a tuple with the Location field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkPingmyip200Response) GetLocationOk() (*string, bool) {
-	if o == nil || IsNil(o.Location) {
-		return nil, false
-	}
-	return o.Location, true
-}
-
-// HasLocation returns a boolean if a field has been set.
-func (o *GetNetworkPingmyip200Response) HasLocation() bool {
-	if o != nil && !IsNil(o.Location) {
-		return true
-	}
-
-	return false
-}
-
-// SetLocation gets a reference to the given string and assigns it to the Location field.
-func (o *GetNetworkPingmyip200Response) SetLocation(v string) {
-	o.Location = &v
-}
-
-// GetMax returns the Max field value if set, zero value otherwise.
-func (o *GetNetworkPingmyip200Response) GetMax() float32 {
-	if o == nil || IsNil(o.Max) {
-		var ret float32
-		return ret
-	}
-	return *o.Max
-}
-
-// GetMaxOk returns a tuple with the Max field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkPingmyip200Response) GetMaxOk() (*float32, bool) {
-	if o == nil || IsNil(o.Max) {
-		return nil, false
-	}
-	return o.Max, true
-}
-
-// HasMax returns a boolean if a field has been set.
-func (o *GetNetworkPingmyip200Response) HasMax() bool {
-	if o != nil && !IsNil(o.Max) {
-		return true
-	}
-
-	return false
-}
-
-// SetMax gets a reference to the given float32 and assigns it to the Max field.
-func (o *GetNetworkPingmyip200Response) SetMax(v float32) {
-	o.Max = &v
-}
-
-// GetMin returns the Min field value if set, zero value otherwise.
-func (o *GetNetworkPingmyip200Response) GetMin() float32 {
-	if o == nil || IsNil(o.Min) {
-		var ret float32
-		return ret
-	}
-	return *o.Min
-}
-
-// GetMinOk returns a tuple with the Min field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *GetNetworkPingmyip200Response) GetMinOk() (*float32, bool) {
-	if o == nil || IsNil(o.Min) {
-		return nil, false
-	}
-	return o.Min, true
-}
-
-// HasMin returns a boolean if a field has been set.
-func (o *GetNetworkPingmyip200Response) HasMin() bool {
-	if o != nil && !IsNil(o.Min) {
-		return true
-	}
-
-	return false
-}
-
-// SetMin gets a reference to the given float32 and assigns it to the Min field.
-func (o *GetNetworkPingmyip200Response) SetMin(v float32) {
-	o.Min = &v
+// SetMessage gets a reference to the given string and assigns it to the Message field.
+func (o *GetNetworkPingmyip200Response) SetMessage(v string) {
+	o.Message = &v
 }
 
 func (o GetNetworkPingmyip200Response) MarshalJSON() ([]byte, error) {
@@ -249,23 +150,14 @@ func (o GetNetworkPingmyip200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetNetworkPingmyip200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Avg) {
-		toSerialize["avg"] = o.Avg
+	if !IsNil(o.ClientIp) {
+		toSerialize["client_ip"] = o.ClientIp
 	}
-	if !IsNil(o.Host) {
-		toSerialize["host"] = o.Host
+	if !IsNil(o.PingSuccessful) {
+		toSerialize["ping_successful"] = o.PingSuccessful
 	}
-	if !IsNil(o.Ip) {
-		toSerialize["ip"] = o.Ip
-	}
-	if !IsNil(o.Location) {
-		toSerialize["location"] = o.Location
-	}
-	if !IsNil(o.Max) {
-		toSerialize["max"] = o.Max
-	}
-	if !IsNil(o.Min) {
-		toSerialize["min"] = o.Min
+	if !IsNil(o.Message) {
+		toSerialize["message"] = o.Message
 	}
 	return toSerialize, nil
 }

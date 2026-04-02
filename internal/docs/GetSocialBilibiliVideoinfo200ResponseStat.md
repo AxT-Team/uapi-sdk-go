@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Aid** | Pointer to **float32** | AV 号。 | [optional] 
 **View** | Pointer to **float32** | 播放数。 | [optional] 
 **Danmaku** | Pointer to **float32** | 弹幕数。 | [optional] 
 **Reply** | Pointer to **float32** | 评论数。 | [optional] 
@@ -11,6 +12,11 @@ Name | Type | Description | Notes
 **Coin** | Pointer to **float32** | 投币数。 | [optional] 
 **Share** | Pointer to **float32** | 分享数。 | [optional] 
 **Like** | Pointer to **float32** | 获赞数。 | [optional] 
+**NowRank** | Pointer to **float32** | 当前全站/分区排名。 | [optional] 
+**HisRank** | Pointer to **float32** | 历史排名。 | [optional] 
+**Dislike** | Pointer to **float32** | 点踩量（通常为 0）。 | [optional] 
+**Evaluation** | Pointer to **string** | 评分/评估文案，通常为空。 | [optional] 
+**Vt** | Pointer to **float32** | 视频类型相关历史字段。 | [optional] 
 
 ## Methods
 
@@ -30,6 +36,31 @@ will change when the set of required properties is changed
 NewGetSocialBilibiliVideoinfo200ResponseStatWithDefaults instantiates a new GetSocialBilibiliVideoinfo200ResponseStat object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAid
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetAid() float32`
+
+GetAid returns the Aid field if non-nil, zero value otherwise.
+
+### GetAidOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetAidOk() (*float32, bool)`
+
+GetAidOk returns a tuple with the Aid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAid
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) SetAid(v float32)`
+
+SetAid sets Aid field to given value.
+
+### HasAid
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) HasAid() bool`
+
+HasAid returns a boolean if a field has been set.
 
 ### GetView
 
@@ -205,6 +236,131 @@ SetLike sets Like field to given value.
 `func (o *GetSocialBilibiliVideoinfo200ResponseStat) HasLike() bool`
 
 HasLike returns a boolean if a field has been set.
+
+### GetNowRank
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetNowRank() float32`
+
+GetNowRank returns the NowRank field if non-nil, zero value otherwise.
+
+### GetNowRankOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetNowRankOk() (*float32, bool)`
+
+GetNowRankOk returns a tuple with the NowRank field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNowRank
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) SetNowRank(v float32)`
+
+SetNowRank sets NowRank field to given value.
+
+### HasNowRank
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) HasNowRank() bool`
+
+HasNowRank returns a boolean if a field has been set.
+
+### GetHisRank
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetHisRank() float32`
+
+GetHisRank returns the HisRank field if non-nil, zero value otherwise.
+
+### GetHisRankOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetHisRankOk() (*float32, bool)`
+
+GetHisRankOk returns a tuple with the HisRank field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHisRank
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) SetHisRank(v float32)`
+
+SetHisRank sets HisRank field to given value.
+
+### HasHisRank
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) HasHisRank() bool`
+
+HasHisRank returns a boolean if a field has been set.
+
+### GetDislike
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetDislike() float32`
+
+GetDislike returns the Dislike field if non-nil, zero value otherwise.
+
+### GetDislikeOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetDislikeOk() (*float32, bool)`
+
+GetDislikeOk returns a tuple with the Dislike field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDislike
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) SetDislike(v float32)`
+
+SetDislike sets Dislike field to given value.
+
+### HasDislike
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) HasDislike() bool`
+
+HasDislike returns a boolean if a field has been set.
+
+### GetEvaluation
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetEvaluation() string`
+
+GetEvaluation returns the Evaluation field if non-nil, zero value otherwise.
+
+### GetEvaluationOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetEvaluationOk() (*string, bool)`
+
+GetEvaluationOk returns a tuple with the Evaluation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEvaluation
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) SetEvaluation(v string)`
+
+SetEvaluation sets Evaluation field to given value.
+
+### HasEvaluation
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) HasEvaluation() bool`
+
+HasEvaluation returns a boolean if a field has been set.
+
+### GetVt
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetVt() float32`
+
+GetVt returns the Vt field if non-nil, zero value otherwise.
+
+### GetVtOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetVtOk() (*float32, bool)`
+
+GetVtOk returns a tuple with the Vt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVt
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) SetVt(v float32)`
+
+SetVt sets Vt field to given value.
+
+### HasVt
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStat) HasVt() bool`
+
+HasVt returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

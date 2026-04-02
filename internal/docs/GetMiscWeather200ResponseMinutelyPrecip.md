@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Summary** | Pointer to **string** | 降水描述 | [optional] 
 **UpdateTime** | Pointer to **string** | 更新时间 | [optional] 
-**Data** | Pointer to [**[]GetMiscWeather200ResponseMinutelyPrecipDataInner**](GetMiscWeather200ResponseMinutelyPrecipDataInner.md) | 每5分钟一个数据点，共24个 | [optional] 
+**Data** | Pointer to [**[]GetMiscWeather200ResponseMinutelyPrecipDataInner**](GetMiscWeather200ResponseMinutelyPrecipDataInner.md) | 精确到2分钟的数据点 | [optional] 
 
 ## Methods
 

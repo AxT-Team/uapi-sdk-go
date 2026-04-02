@@ -17,13 +17,13 @@ import (
 // checks if the GetMiscWeather200ResponseMinutelyPrecip type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &GetMiscWeather200ResponseMinutelyPrecip{}
 
-// GetMiscWeather200ResponseMinutelyPrecip 分钟级降水预报（minutely=true 时返回，仅国内城市可用）
+// GetMiscWeather200ResponseMinutelyPrecip 分钟级降水预报（minutely=true 时返回，仅国内城市可用，精确到2分钟）
 type GetMiscWeather200ResponseMinutelyPrecip struct {
 	// 降水描述
 	Summary *string `json:"summary,omitempty"`
 	// 更新时间
 	UpdateTime *string `json:"update_time,omitempty"`
-	// 每5分钟一个数据点，共24个
+	// 精确到2分钟的数据点
 	Data []GetMiscWeather200ResponseMinutelyPrecipDataInner `json:"data,omitempty"`
 }
 

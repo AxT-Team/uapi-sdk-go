@@ -17,14 +17,9 @@ import (
 // checks if the PostAiTranslate200ResponseData type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PostAiTranslate200ResponseData{}
 
-// PostAiTranslate200ResponseData 单个翻译的详细结果，仅在单个翻译时返回。
+// PostAiTranslate200ResponseData 翻译结果的详细信息。
 type PostAiTranslate200ResponseData struct {
-	OriginalText *string `json:"original_text,omitempty"`
 	TranslatedText *string `json:"translated_text,omitempty"`
-	DetectedLang *string `json:"detected_lang,omitempty"`
-	ConfidenceScore *float32 `json:"confidence_score,omitempty"`
-	Alternatives []string `json:"alternatives,omitempty"`
-	Explanation *PostAiTranslate200ResponseDataExplanation `json:"explanation,omitempty"`
 }
 
 // NewPostAiTranslate200ResponseData instantiates a new PostAiTranslate200ResponseData object
@@ -42,38 +37,6 @@ func NewPostAiTranslate200ResponseData() *PostAiTranslate200ResponseData {
 func NewPostAiTranslate200ResponseDataWithDefaults() *PostAiTranslate200ResponseData {
 	this := PostAiTranslate200ResponseData{}
 	return &this
-}
-
-// GetOriginalText returns the OriginalText field value if set, zero value otherwise.
-func (o *PostAiTranslate200ResponseData) GetOriginalText() string {
-	if o == nil || IsNil(o.OriginalText) {
-		var ret string
-		return ret
-	}
-	return *o.OriginalText
-}
-
-// GetOriginalTextOk returns a tuple with the OriginalText field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAiTranslate200ResponseData) GetOriginalTextOk() (*string, bool) {
-	if o == nil || IsNil(o.OriginalText) {
-		return nil, false
-	}
-	return o.OriginalText, true
-}
-
-// HasOriginalText returns a boolean if a field has been set.
-func (o *PostAiTranslate200ResponseData) HasOriginalText() bool {
-	if o != nil && !IsNil(o.OriginalText) {
-		return true
-	}
-
-	return false
-}
-
-// SetOriginalText gets a reference to the given string and assigns it to the OriginalText field.
-func (o *PostAiTranslate200ResponseData) SetOriginalText(v string) {
-	o.OriginalText = &v
 }
 
 // GetTranslatedText returns the TranslatedText field value if set, zero value otherwise.
@@ -108,134 +71,6 @@ func (o *PostAiTranslate200ResponseData) SetTranslatedText(v string) {
 	o.TranslatedText = &v
 }
 
-// GetDetectedLang returns the DetectedLang field value if set, zero value otherwise.
-func (o *PostAiTranslate200ResponseData) GetDetectedLang() string {
-	if o == nil || IsNil(o.DetectedLang) {
-		var ret string
-		return ret
-	}
-	return *o.DetectedLang
-}
-
-// GetDetectedLangOk returns a tuple with the DetectedLang field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAiTranslate200ResponseData) GetDetectedLangOk() (*string, bool) {
-	if o == nil || IsNil(o.DetectedLang) {
-		return nil, false
-	}
-	return o.DetectedLang, true
-}
-
-// HasDetectedLang returns a boolean if a field has been set.
-func (o *PostAiTranslate200ResponseData) HasDetectedLang() bool {
-	if o != nil && !IsNil(o.DetectedLang) {
-		return true
-	}
-
-	return false
-}
-
-// SetDetectedLang gets a reference to the given string and assigns it to the DetectedLang field.
-func (o *PostAiTranslate200ResponseData) SetDetectedLang(v string) {
-	o.DetectedLang = &v
-}
-
-// GetConfidenceScore returns the ConfidenceScore field value if set, zero value otherwise.
-func (o *PostAiTranslate200ResponseData) GetConfidenceScore() float32 {
-	if o == nil || IsNil(o.ConfidenceScore) {
-		var ret float32
-		return ret
-	}
-	return *o.ConfidenceScore
-}
-
-// GetConfidenceScoreOk returns a tuple with the ConfidenceScore field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAiTranslate200ResponseData) GetConfidenceScoreOk() (*float32, bool) {
-	if o == nil || IsNil(o.ConfidenceScore) {
-		return nil, false
-	}
-	return o.ConfidenceScore, true
-}
-
-// HasConfidenceScore returns a boolean if a field has been set.
-func (o *PostAiTranslate200ResponseData) HasConfidenceScore() bool {
-	if o != nil && !IsNil(o.ConfidenceScore) {
-		return true
-	}
-
-	return false
-}
-
-// SetConfidenceScore gets a reference to the given float32 and assigns it to the ConfidenceScore field.
-func (o *PostAiTranslate200ResponseData) SetConfidenceScore(v float32) {
-	o.ConfidenceScore = &v
-}
-
-// GetAlternatives returns the Alternatives field value if set, zero value otherwise.
-func (o *PostAiTranslate200ResponseData) GetAlternatives() []string {
-	if o == nil || IsNil(o.Alternatives) {
-		var ret []string
-		return ret
-	}
-	return o.Alternatives
-}
-
-// GetAlternativesOk returns a tuple with the Alternatives field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAiTranslate200ResponseData) GetAlternativesOk() ([]string, bool) {
-	if o == nil || IsNil(o.Alternatives) {
-		return nil, false
-	}
-	return o.Alternatives, true
-}
-
-// HasAlternatives returns a boolean if a field has been set.
-func (o *PostAiTranslate200ResponseData) HasAlternatives() bool {
-	if o != nil && !IsNil(o.Alternatives) {
-		return true
-	}
-
-	return false
-}
-
-// SetAlternatives gets a reference to the given []string and assigns it to the Alternatives field.
-func (o *PostAiTranslate200ResponseData) SetAlternatives(v []string) {
-	o.Alternatives = v
-}
-
-// GetExplanation returns the Explanation field value if set, zero value otherwise.
-func (o *PostAiTranslate200ResponseData) GetExplanation() PostAiTranslate200ResponseDataExplanation {
-	if o == nil || IsNil(o.Explanation) {
-		var ret PostAiTranslate200ResponseDataExplanation
-		return ret
-	}
-	return *o.Explanation
-}
-
-// GetExplanationOk returns a tuple with the Explanation field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAiTranslate200ResponseData) GetExplanationOk() (*PostAiTranslate200ResponseDataExplanation, bool) {
-	if o == nil || IsNil(o.Explanation) {
-		return nil, false
-	}
-	return o.Explanation, true
-}
-
-// HasExplanation returns a boolean if a field has been set.
-func (o *PostAiTranslate200ResponseData) HasExplanation() bool {
-	if o != nil && !IsNil(o.Explanation) {
-		return true
-	}
-
-	return false
-}
-
-// SetExplanation gets a reference to the given PostAiTranslate200ResponseDataExplanation and assigns it to the Explanation field.
-func (o *PostAiTranslate200ResponseData) SetExplanation(v PostAiTranslate200ResponseDataExplanation) {
-	o.Explanation = &v
-}
-
 func (o PostAiTranslate200ResponseData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -246,23 +81,8 @@ func (o PostAiTranslate200ResponseData) MarshalJSON() ([]byte, error) {
 
 func (o PostAiTranslate200ResponseData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.OriginalText) {
-		toSerialize["original_text"] = o.OriginalText
-	}
 	if !IsNil(o.TranslatedText) {
 		toSerialize["translated_text"] = o.TranslatedText
-	}
-	if !IsNil(o.DetectedLang) {
-		toSerialize["detected_lang"] = o.DetectedLang
-	}
-	if !IsNil(o.ConfidenceScore) {
-		toSerialize["confidence_score"] = o.ConfidenceScore
-	}
-	if !IsNil(o.Alternatives) {
-		toSerialize["alternatives"] = o.Alternatives
-	}
-	if !IsNil(o.Explanation) {
-		toSerialize["explanation"] = o.Explanation
 	}
 	return toSerialize, nil
 }

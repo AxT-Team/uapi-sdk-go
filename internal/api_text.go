@@ -154,7 +154,7 @@ type ApiPostTextAesDecryptRequest struct {
 	postTextAesDecryptRequest *PostTextAesDecryptRequest
 }
 
-// 包含待解密文本 &#39;text&#39;、密钥 &#39;key&#39; 和随机数 &#39;nonce&#39; 的JSON对象
+// 
 func (r ApiPostTextAesDecryptRequest) PostTextAesDecryptRequest(postTextAesDecryptRequest PostTextAesDecryptRequest) ApiPostTextAesDecryptRequest {
 	r.postTextAesDecryptRequest = &postTextAesDecryptRequest
 	return r
@@ -296,7 +296,7 @@ type ApiPostTextAesDecryptAdvancedRequest struct {
 	postTextAesDecryptAdvancedRequest *PostTextAesDecryptAdvancedRequest
 }
 
-// 包含解密配置的JSON对象
+// 
 func (r ApiPostTextAesDecryptAdvancedRequest) PostTextAesDecryptAdvancedRequest(postTextAesDecryptAdvancedRequest PostTextAesDecryptAdvancedRequest) ApiPostTextAesDecryptAdvancedRequest {
 	r.postTextAesDecryptAdvancedRequest = &postTextAesDecryptAdvancedRequest
 	return r
@@ -456,7 +456,7 @@ type ApiPostTextAesEncryptRequest struct {
 	postTextAesEncryptRequest *PostTextAesEncryptRequest
 }
 
-// 包含待加密文本 &#39;text&#39; 和密钥 &#39;key&#39; 的JSON对象
+// 
 func (r ApiPostTextAesEncryptRequest) PostTextAesEncryptRequest(postTextAesEncryptRequest PostTextAesEncryptRequest) ApiPostTextAesEncryptRequest {
 	r.postTextAesEncryptRequest = &postTextAesEncryptRequest
 	return r
@@ -595,7 +595,7 @@ type ApiPostTextAesEncryptAdvancedRequest struct {
 	postTextAesEncryptAdvancedRequest *PostTextAesEncryptAdvancedRequest
 }
 
-// 包含加密配置的JSON对象
+// 
 func (r ApiPostTextAesEncryptAdvancedRequest) PostTextAesEncryptAdvancedRequest(postTextAesEncryptAdvancedRequest PostTextAesEncryptAdvancedRequest) ApiPostTextAesEncryptAdvancedRequest {
 	r.postTextAesEncryptAdvancedRequest = &postTextAesEncryptAdvancedRequest
 	return r
@@ -807,7 +807,7 @@ type ApiPostTextAnalyzeRequest struct {
 	postTextAnalyzeRequest *PostTextAnalyzeRequest
 }
 
-// 包含待分析文本 &#39;text&#39; 的JSON对象
+// 
 func (r ApiPostTextAnalyzeRequest) PostTextAnalyzeRequest(postTextAnalyzeRequest PostTextAnalyzeRequest) ApiPostTextAnalyzeRequest {
 	r.postTextAnalyzeRequest = &postTextAnalyzeRequest
 	return r
@@ -931,7 +931,7 @@ type ApiPostTextBase64DecodeRequest struct {
 	postTextBase64DecodeRequest *PostTextBase64DecodeRequest
 }
 
-// 包含待解码文本 &#39;text&#39; 的JSON对象
+// 
 func (r ApiPostTextBase64DecodeRequest) PostTextBase64DecodeRequest(postTextBase64DecodeRequest PostTextBase64DecodeRequest) ApiPostTextBase64DecodeRequest {
 	r.postTextBase64DecodeRequest = &postTextBase64DecodeRequest
 	return r
@@ -1055,7 +1055,7 @@ type ApiPostTextBase64EncodeRequest struct {
 	postTextBase64EncodeRequest *PostTextBase64EncodeRequest
 }
 
-// 包含待编码文本 &#39;text&#39; 的JSON对象
+// 
 func (r ApiPostTextBase64EncodeRequest) PostTextBase64EncodeRequest(postTextBase64EncodeRequest PostTextBase64EncodeRequest) ApiPostTextBase64EncodeRequest {
 	r.postTextBase64EncodeRequest = &postTextBase64EncodeRequest
 	return r
@@ -1179,7 +1179,7 @@ type ApiPostTextConvertRequest struct {
 	postTextConvertRequest *PostTextConvertRequest
 }
 
-// 包含转换配置的JSON对象
+// 
 func (r ApiPostTextConvertRequest) PostTextConvertRequest(postTextConvertRequest PostTextConvertRequest) ApiPostTextConvertRequest {
 	r.postTextConvertRequest = &postTextConvertRequest
 	return r
@@ -1434,7 +1434,7 @@ type ApiPostTextMd5VerifyRequest struct {
 	postTextMd5VerifyRequest *PostTextMd5VerifyRequest
 }
 
-// 包含待校验文本 &#39;text&#39; 和哈希值 &#39;hash&#39; 的JSON对象
+// 
 func (r ApiPostTextMd5VerifyRequest) PostTextMd5VerifyRequest(postTextMd5VerifyRequest PostTextMd5VerifyRequest) ApiPostTextMd5VerifyRequest {
 	r.postTextMd5VerifyRequest = &postTextMd5VerifyRequest
 	return r

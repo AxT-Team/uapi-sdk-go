@@ -22,7 +22,6 @@ type PostAiTranslate500Response struct {
 	Code *int32 `json:"code,omitempty"`
 	Message *string `json:"message,omitempty"`
 	Error *string `json:"error,omitempty"`
-	IsBatch *bool `json:"is_batch,omitempty"`
 }
 
 // NewPostAiTranslate500Response instantiates a new PostAiTranslate500Response object
@@ -138,38 +137,6 @@ func (o *PostAiTranslate500Response) SetError(v string) {
 	o.Error = &v
 }
 
-// GetIsBatch returns the IsBatch field value if set, zero value otherwise.
-func (o *PostAiTranslate500Response) GetIsBatch() bool {
-	if o == nil || IsNil(o.IsBatch) {
-		var ret bool
-		return ret
-	}
-	return *o.IsBatch
-}
-
-// GetIsBatchOk returns a tuple with the IsBatch field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PostAiTranslate500Response) GetIsBatchOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsBatch) {
-		return nil, false
-	}
-	return o.IsBatch, true
-}
-
-// HasIsBatch returns a boolean if a field has been set.
-func (o *PostAiTranslate500Response) HasIsBatch() bool {
-	if o != nil && !IsNil(o.IsBatch) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsBatch gets a reference to the given bool and assigns it to the IsBatch field.
-func (o *PostAiTranslate500Response) SetIsBatch(v bool) {
-	o.IsBatch = &v
-}
-
 func (o PostAiTranslate500Response) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -188,9 +155,6 @@ func (o PostAiTranslate500Response) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Error) {
 		toSerialize["error"] = o.Error
-	}
-	if !IsNil(o.IsBatch) {
-		toSerialize["is_batch"] = o.IsBatch
 	}
 	return toSerialize, nil
 }

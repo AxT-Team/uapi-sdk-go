@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ProcessingTimeMs** | Pointer to **int32** |  | [optional] 
-**CacheHit** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -50,31 +49,6 @@ SetProcessingTimeMs sets ProcessingTimeMs field to given value.
 `func (o *PostAiTranslate200ResponsePerformance) HasProcessingTimeMs() bool`
 
 HasProcessingTimeMs returns a boolean if a field has been set.
-
-### GetCacheHit
-
-`func (o *PostAiTranslate200ResponsePerformance) GetCacheHit() bool`
-
-GetCacheHit returns the CacheHit field if non-nil, zero value otherwise.
-
-### GetCacheHitOk
-
-`func (o *PostAiTranslate200ResponsePerformance) GetCacheHitOk() (*bool, bool)`
-
-GetCacheHitOk returns a tuple with the CacheHit field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCacheHit
-
-`func (o *PostAiTranslate200ResponsePerformance) SetCacheHit(v bool)`
-
-SetCacheHit sets CacheHit field to given value.
-
-### HasCacheHit
-
-`func (o *PostAiTranslate200ResponsePerformance) HasCacheHit() bool`
-
-HasCacheHit returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

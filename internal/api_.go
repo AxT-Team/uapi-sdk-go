@@ -137,7 +137,7 @@ type ApiGetSensitiveWordAnalyzeQueryRequest struct {
 	keyword *string
 }
 
-// 要分析的关键词，最长50字符。
+// 要分析的关键词，最长1,000字符。
 func (r ApiGetSensitiveWordAnalyzeQueryRequest) Keyword(keyword string) ApiGetSensitiveWordAnalyzeQueryRequest {
 	r.keyword = &keyword
 	return r
@@ -184,6 +184,9 @@ func (a *DefaultApiService) GetSensitiveWordAnalyzeQueryExecute(r ApiGetSensitiv
 	localVarFormParams := url.Values{}
 	if r.keyword == nil {
 		return localVarReturnValue, nil, reportError("keyword is required and must be specified")
+	}
+	if strlen(*r.keyword) > 1000 {
+		return localVarReturnValue, nil, reportError("keyword must have less than 1000 elements")
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "keyword", r.keyword, "form", "")
@@ -268,7 +271,7 @@ type ApiPostSearchAggregateRequest struct {
 	postSearchAggregateRequest *PostSearchAggregateRequest
 }
 
-// 包含搜索参数的JSON对象
+// 
 func (r ApiPostSearchAggregateRequest) PostSearchAggregateRequest(postSearchAggregateRequest PostSearchAggregateRequest) ApiPostSearchAggregateRequest {
 	r.postSearchAggregateRequest = &postSearchAggregateRequest
 	return r
@@ -293,9 +296,6 @@ UAPI Pro Search 是一个智能搜索引擎，采用机器学习算法对搜索�
 - **时间范围过滤**: 支持按天/周/月/年过滤结果
 - **站内搜索**: 支持 `site:` 操作符，在指定网站内搜索
 - **文件类型过滤**: 支持 `filetype:` 操作符，快速找到 PDF、Word 等特定格式文件
-
-> [!VIP]
-> 本API目前处于**限时免费**阶段，我们鼓励开发者集成和测试。未来，它将转为付费API，为用户提供更稳定和强大的服务。
       
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -437,7 +437,7 @@ type ApiPostSensitiveWordAnalyzeRequest struct {
 	postSensitiveWordAnalyzeRequest *PostSensitiveWordAnalyzeRequest
 }
 
-// 包含待检测文本 &#39;keywords&#39; 的JSON对象
+// 包含待检测关键词列表 &#x60;keywords&#x60; 的 JSON 对象。单条关键词最多 1,000 字符，总字符数最多 20,000。
 func (r ApiPostSensitiveWordAnalyzeRequest) PostSensitiveWordAnalyzeRequest(postSensitiveWordAnalyzeRequest PostSensitiveWordAnalyzeRequest) ApiPostSensitiveWordAnalyzeRequest {
 	r.postSensitiveWordAnalyzeRequest = &postSensitiveWordAnalyzeRequest
 	return r
@@ -452,14 +452,12 @@ PostSensitiveWordAnalyze 分析敏感词
 
 分析单个或多个关键词的敏感程度，返回标准化风险标签与置信度结果。
 
-> [!VIP]
-> 本API基于先进的分析模型，提供三级缓存策略和并发处理能力。
-
 ## 功能概述
 
 - **模型驱动**: 使用先进的分析模型进行语义分析。
 - **高性能**: 采用三级缓存策略（持久化存储 → 统一缓存 → 模型分析），确保高频请求的响应速度。
 - **并发支持**: 支持批量并发处理，单次最多可分析100个关键词。
+- **输入限制**: 单条关键词最多 1,000 字符，总字符数最多 20,000。
 - **标准标签**: 返回 `label` 字段，明确区分 `sensitive` 与 `normal`。
 - **分类清晰**: 返回 `category` 字段，用于标识具体风险类别。
 - **置信度输出**: 返回 `confidence` 字段，范围为0.0到1.0。

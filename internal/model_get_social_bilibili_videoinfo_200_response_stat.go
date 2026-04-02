@@ -19,6 +19,8 @@ var _ MappedNullable = &GetSocialBilibiliVideoinfo200ResponseStat{}
 
 // GetSocialBilibiliVideoinfo200ResponseStat 视频的核心数据统计。
 type GetSocialBilibiliVideoinfo200ResponseStat struct {
+	// AV 号。
+	Aid *float32 `json:"aid,omitempty"`
 	// 播放数。
 	View *float32 `json:"view,omitempty"`
 	// 弹幕数。
@@ -33,6 +35,16 @@ type GetSocialBilibiliVideoinfo200ResponseStat struct {
 	Share *float32 `json:"share,omitempty"`
 	// 获赞数。
 	Like *float32 `json:"like,omitempty"`
+	// 当前全站/分区排名。
+	NowRank *float32 `json:"now_rank,omitempty"`
+	// 历史排名。
+	HisRank *float32 `json:"his_rank,omitempty"`
+	// 点踩量（通常为 0）。
+	Dislike *float32 `json:"dislike,omitempty"`
+	// 评分/评估文案，通常为空。
+	Evaluation *string `json:"evaluation,omitempty"`
+	// 视频类型相关历史字段。
+	Vt *float32 `json:"vt,omitempty"`
 }
 
 // NewGetSocialBilibiliVideoinfo200ResponseStat instantiates a new GetSocialBilibiliVideoinfo200ResponseStat object
@@ -50,6 +62,38 @@ func NewGetSocialBilibiliVideoinfo200ResponseStat() *GetSocialBilibiliVideoinfo2
 func NewGetSocialBilibiliVideoinfo200ResponseStatWithDefaults() *GetSocialBilibiliVideoinfo200ResponseStat {
 	this := GetSocialBilibiliVideoinfo200ResponseStat{}
 	return &this
+}
+
+// GetAid returns the Aid field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetAid() float32 {
+	if o == nil || IsNil(o.Aid) {
+		var ret float32
+		return ret
+	}
+	return *o.Aid
+}
+
+// GetAidOk returns a tuple with the Aid field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetAidOk() (*float32, bool) {
+	if o == nil || IsNil(o.Aid) {
+		return nil, false
+	}
+	return o.Aid, true
+}
+
+// HasAid returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) HasAid() bool {
+	if o != nil && !IsNil(o.Aid) {
+		return true
+	}
+
+	return false
+}
+
+// SetAid gets a reference to the given float32 and assigns it to the Aid field.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) SetAid(v float32) {
+	o.Aid = &v
 }
 
 // GetView returns the View field value if set, zero value otherwise.
@@ -276,6 +320,166 @@ func (o *GetSocialBilibiliVideoinfo200ResponseStat) SetLike(v float32) {
 	o.Like = &v
 }
 
+// GetNowRank returns the NowRank field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetNowRank() float32 {
+	if o == nil || IsNil(o.NowRank) {
+		var ret float32
+		return ret
+	}
+	return *o.NowRank
+}
+
+// GetNowRankOk returns a tuple with the NowRank field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetNowRankOk() (*float32, bool) {
+	if o == nil || IsNil(o.NowRank) {
+		return nil, false
+	}
+	return o.NowRank, true
+}
+
+// HasNowRank returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) HasNowRank() bool {
+	if o != nil && !IsNil(o.NowRank) {
+		return true
+	}
+
+	return false
+}
+
+// SetNowRank gets a reference to the given float32 and assigns it to the NowRank field.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) SetNowRank(v float32) {
+	o.NowRank = &v
+}
+
+// GetHisRank returns the HisRank field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetHisRank() float32 {
+	if o == nil || IsNil(o.HisRank) {
+		var ret float32
+		return ret
+	}
+	return *o.HisRank
+}
+
+// GetHisRankOk returns a tuple with the HisRank field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetHisRankOk() (*float32, bool) {
+	if o == nil || IsNil(o.HisRank) {
+		return nil, false
+	}
+	return o.HisRank, true
+}
+
+// HasHisRank returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) HasHisRank() bool {
+	if o != nil && !IsNil(o.HisRank) {
+		return true
+	}
+
+	return false
+}
+
+// SetHisRank gets a reference to the given float32 and assigns it to the HisRank field.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) SetHisRank(v float32) {
+	o.HisRank = &v
+}
+
+// GetDislike returns the Dislike field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetDislike() float32 {
+	if o == nil || IsNil(o.Dislike) {
+		var ret float32
+		return ret
+	}
+	return *o.Dislike
+}
+
+// GetDislikeOk returns a tuple with the Dislike field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetDislikeOk() (*float32, bool) {
+	if o == nil || IsNil(o.Dislike) {
+		return nil, false
+	}
+	return o.Dislike, true
+}
+
+// HasDislike returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) HasDislike() bool {
+	if o != nil && !IsNil(o.Dislike) {
+		return true
+	}
+
+	return false
+}
+
+// SetDislike gets a reference to the given float32 and assigns it to the Dislike field.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) SetDislike(v float32) {
+	o.Dislike = &v
+}
+
+// GetEvaluation returns the Evaluation field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetEvaluation() string {
+	if o == nil || IsNil(o.Evaluation) {
+		var ret string
+		return ret
+	}
+	return *o.Evaluation
+}
+
+// GetEvaluationOk returns a tuple with the Evaluation field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetEvaluationOk() (*string, bool) {
+	if o == nil || IsNil(o.Evaluation) {
+		return nil, false
+	}
+	return o.Evaluation, true
+}
+
+// HasEvaluation returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) HasEvaluation() bool {
+	if o != nil && !IsNil(o.Evaluation) {
+		return true
+	}
+
+	return false
+}
+
+// SetEvaluation gets a reference to the given string and assigns it to the Evaluation field.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) SetEvaluation(v string) {
+	o.Evaluation = &v
+}
+
+// GetVt returns the Vt field value if set, zero value otherwise.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetVt() float32 {
+	if o == nil || IsNil(o.Vt) {
+		var ret float32
+		return ret
+	}
+	return *o.Vt
+}
+
+// GetVtOk returns a tuple with the Vt field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) GetVtOk() (*float32, bool) {
+	if o == nil || IsNil(o.Vt) {
+		return nil, false
+	}
+	return o.Vt, true
+}
+
+// HasVt returns a boolean if a field has been set.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) HasVt() bool {
+	if o != nil && !IsNil(o.Vt) {
+		return true
+	}
+
+	return false
+}
+
+// SetVt gets a reference to the given float32 and assigns it to the Vt field.
+func (o *GetSocialBilibiliVideoinfo200ResponseStat) SetVt(v float32) {
+	o.Vt = &v
+}
+
 func (o GetSocialBilibiliVideoinfo200ResponseStat) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -286,6 +490,9 @@ func (o GetSocialBilibiliVideoinfo200ResponseStat) MarshalJSON() ([]byte, error)
 
 func (o GetSocialBilibiliVideoinfo200ResponseStat) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Aid) {
+		toSerialize["aid"] = o.Aid
+	}
 	if !IsNil(o.View) {
 		toSerialize["view"] = o.View
 	}
@@ -306,6 +513,21 @@ func (o GetSocialBilibiliVideoinfo200ResponseStat) ToMap() (map[string]interface
 	}
 	if !IsNil(o.Like) {
 		toSerialize["like"] = o.Like
+	}
+	if !IsNil(o.NowRank) {
+		toSerialize["now_rank"] = o.NowRank
+	}
+	if !IsNil(o.HisRank) {
+		toSerialize["his_rank"] = o.HisRank
+	}
+	if !IsNil(o.Dislike) {
+		toSerialize["dislike"] = o.Dislike
+	}
+	if !IsNil(o.Evaluation) {
+		toSerialize["evaluation"] = o.Evaluation
+	}
+	if !IsNil(o.Vt) {
+		toSerialize["vt"] = o.Vt
 	}
 	return toSerialize, nil
 }

@@ -27,14 +27,18 @@ type GetSocialBilibiliLiveroom200Response struct {
 	ShortId *float32 `json:"short_id,omitempty"`
 	// 主播的粉丝数（关注数量）。
 	Attention *float32 `json:"attention,omitempty"`
-	// 直播间当前的人气值。注意这不是真实在线人数。
+	// 直播间当前的人气值（对应你文档里的 PopularValue，不代表真实在线人数）。
 	Online *float32 `json:"online,omitempty"`
+	// 是否为竖屏直播。
+	IsPortrait *bool `json:"is_portrait,omitempty"`
 	// 直播状态。0:未开播, 1:直播中, 2:轮播中。
 	LiveStatus *float32 `json:"live_status,omitempty"`
 	// 分区ID。
 	AreaId *float32 `json:"area_id,omitempty"`
 	// 父分区名称。
 	ParentAreaName *string `json:"parent_area_name,omitempty"`
+	// 父分区 ID。
+	ParentAreaId *float32 `json:"parent_area_id,omitempty"`
 	// 子分区名称。
 	AreaName *string `json:"area_name,omitempty"`
 	// 直播间背景图的URL。
@@ -47,12 +51,13 @@ type GetSocialBilibiliLiveroom200Response struct {
 	Description *string `json:"description,omitempty"`
 	// 本次直播开始的时间，格式为 `YYYY-MM-DD HH:mm:ss`。如果未开播，则为空字符串。
 	LiveTime *string `json:"live_time,omitempty"`
+	// 关键帧封面图链接。
+	Keyframe *string `json:"keyframe,omitempty"`
 	// 直播间设置的标签，以逗号分隔。
 	Tags *string `json:"tags,omitempty"`
 	// 直播间热词列表，通常用于弹幕互动。
 	HotWords []string `json:"hot_words,omitempty"`
-	// 主播佩戴的头像框、大航海等级等信息，结构可能比较复杂。
-	NewPendants map[string]interface{} `json:"new_pendants,omitempty"`
+	NewPendants NullableGetSocialBilibiliLiveroom200ResponseNewPendants `json:"new_pendants,omitempty"`
 }
 
 // NewGetSocialBilibiliLiveroom200Response instantiates a new GetSocialBilibiliLiveroom200Response object
@@ -232,6 +237,38 @@ func (o *GetSocialBilibiliLiveroom200Response) SetOnline(v float32) {
 	o.Online = &v
 }
 
+// GetIsPortrait returns the IsPortrait field value if set, zero value otherwise.
+func (o *GetSocialBilibiliLiveroom200Response) GetIsPortrait() bool {
+	if o == nil || IsNil(o.IsPortrait) {
+		var ret bool
+		return ret
+	}
+	return *o.IsPortrait
+}
+
+// GetIsPortraitOk returns a tuple with the IsPortrait field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliLiveroom200Response) GetIsPortraitOk() (*bool, bool) {
+	if o == nil || IsNil(o.IsPortrait) {
+		return nil, false
+	}
+	return o.IsPortrait, true
+}
+
+// HasIsPortrait returns a boolean if a field has been set.
+func (o *GetSocialBilibiliLiveroom200Response) HasIsPortrait() bool {
+	if o != nil && !IsNil(o.IsPortrait) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsPortrait gets a reference to the given bool and assigns it to the IsPortrait field.
+func (o *GetSocialBilibiliLiveroom200Response) SetIsPortrait(v bool) {
+	o.IsPortrait = &v
+}
+
 // GetLiveStatus returns the LiveStatus field value if set, zero value otherwise.
 func (o *GetSocialBilibiliLiveroom200Response) GetLiveStatus() float32 {
 	if o == nil || IsNil(o.LiveStatus) {
@@ -326,6 +363,38 @@ func (o *GetSocialBilibiliLiveroom200Response) HasParentAreaName() bool {
 // SetParentAreaName gets a reference to the given string and assigns it to the ParentAreaName field.
 func (o *GetSocialBilibiliLiveroom200Response) SetParentAreaName(v string) {
 	o.ParentAreaName = &v
+}
+
+// GetParentAreaId returns the ParentAreaId field value if set, zero value otherwise.
+func (o *GetSocialBilibiliLiveroom200Response) GetParentAreaId() float32 {
+	if o == nil || IsNil(o.ParentAreaId) {
+		var ret float32
+		return ret
+	}
+	return *o.ParentAreaId
+}
+
+// GetParentAreaIdOk returns a tuple with the ParentAreaId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliLiveroom200Response) GetParentAreaIdOk() (*float32, bool) {
+	if o == nil || IsNil(o.ParentAreaId) {
+		return nil, false
+	}
+	return o.ParentAreaId, true
+}
+
+// HasParentAreaId returns a boolean if a field has been set.
+func (o *GetSocialBilibiliLiveroom200Response) HasParentAreaId() bool {
+	if o != nil && !IsNil(o.ParentAreaId) {
+		return true
+	}
+
+	return false
+}
+
+// SetParentAreaId gets a reference to the given float32 and assigns it to the ParentAreaId field.
+func (o *GetSocialBilibiliLiveroom200Response) SetParentAreaId(v float32) {
+	o.ParentAreaId = &v
 }
 
 // GetAreaName returns the AreaName field value if set, zero value otherwise.
@@ -520,6 +589,38 @@ func (o *GetSocialBilibiliLiveroom200Response) SetLiveTime(v string) {
 	o.LiveTime = &v
 }
 
+// GetKeyframe returns the Keyframe field value if set, zero value otherwise.
+func (o *GetSocialBilibiliLiveroom200Response) GetKeyframe() string {
+	if o == nil || IsNil(o.Keyframe) {
+		var ret string
+		return ret
+	}
+	return *o.Keyframe
+}
+
+// GetKeyframeOk returns a tuple with the Keyframe field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetSocialBilibiliLiveroom200Response) GetKeyframeOk() (*string, bool) {
+	if o == nil || IsNil(o.Keyframe) {
+		return nil, false
+	}
+	return o.Keyframe, true
+}
+
+// HasKeyframe returns a boolean if a field has been set.
+func (o *GetSocialBilibiliLiveroom200Response) HasKeyframe() bool {
+	if o != nil && !IsNil(o.Keyframe) {
+		return true
+	}
+
+	return false
+}
+
+// SetKeyframe gets a reference to the given string and assigns it to the Keyframe field.
+func (o *GetSocialBilibiliLiveroom200Response) SetKeyframe(v string) {
+	o.Keyframe = &v
+}
+
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *GetSocialBilibiliLiveroom200Response) GetTags() string {
 	if o == nil || IsNil(o.Tags) {
@@ -584,36 +685,46 @@ func (o *GetSocialBilibiliLiveroom200Response) SetHotWords(v []string) {
 	o.HotWords = v
 }
 
-// GetNewPendants returns the NewPendants field value if set, zero value otherwise.
-func (o *GetSocialBilibiliLiveroom200Response) GetNewPendants() map[string]interface{} {
-	if o == nil || IsNil(o.NewPendants) {
-		var ret map[string]interface{}
+// GetNewPendants returns the NewPendants field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GetSocialBilibiliLiveroom200Response) GetNewPendants() GetSocialBilibiliLiveroom200ResponseNewPendants {
+	if o == nil || IsNil(o.NewPendants.Get()) {
+		var ret GetSocialBilibiliLiveroom200ResponseNewPendants
 		return ret
 	}
-	return o.NewPendants
+	return *o.NewPendants.Get()
 }
 
 // GetNewPendantsOk returns a tuple with the NewPendants field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetSocialBilibiliLiveroom200Response) GetNewPendantsOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.NewPendants) {
-		return map[string]interface{}{}, false
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GetSocialBilibiliLiveroom200Response) GetNewPendantsOk() (*GetSocialBilibiliLiveroom200ResponseNewPendants, bool) {
+	if o == nil {
+		return nil, false
 	}
-	return o.NewPendants, true
+	return o.NewPendants.Get(), o.NewPendants.IsSet()
 }
 
 // HasNewPendants returns a boolean if a field has been set.
 func (o *GetSocialBilibiliLiveroom200Response) HasNewPendants() bool {
-	if o != nil && !IsNil(o.NewPendants) {
+	if o != nil && o.NewPendants.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNewPendants gets a reference to the given map[string]interface{} and assigns it to the NewPendants field.
-func (o *GetSocialBilibiliLiveroom200Response) SetNewPendants(v map[string]interface{}) {
-	o.NewPendants = v
+// SetNewPendants gets a reference to the given NullableGetSocialBilibiliLiveroom200ResponseNewPendants and assigns it to the NewPendants field.
+func (o *GetSocialBilibiliLiveroom200Response) SetNewPendants(v GetSocialBilibiliLiveroom200ResponseNewPendants) {
+	o.NewPendants.Set(&v)
+}
+// SetNewPendantsNil sets the value for NewPendants to be an explicit nil
+func (o *GetSocialBilibiliLiveroom200Response) SetNewPendantsNil() {
+	o.NewPendants.Set(nil)
+}
+
+// UnsetNewPendants ensures that no value is present for NewPendants, not even an explicit nil
+func (o *GetSocialBilibiliLiveroom200Response) UnsetNewPendants() {
+	o.NewPendants.Unset()
 }
 
 func (o GetSocialBilibiliLiveroom200Response) MarshalJSON() ([]byte, error) {
@@ -641,6 +752,9 @@ func (o GetSocialBilibiliLiveroom200Response) ToMap() (map[string]interface{}, e
 	if !IsNil(o.Online) {
 		toSerialize["online"] = o.Online
 	}
+	if !IsNil(o.IsPortrait) {
+		toSerialize["is_portrait"] = o.IsPortrait
+	}
 	if !IsNil(o.LiveStatus) {
 		toSerialize["live_status"] = o.LiveStatus
 	}
@@ -649,6 +763,9 @@ func (o GetSocialBilibiliLiveroom200Response) ToMap() (map[string]interface{}, e
 	}
 	if !IsNil(o.ParentAreaName) {
 		toSerialize["parent_area_name"] = o.ParentAreaName
+	}
+	if !IsNil(o.ParentAreaId) {
+		toSerialize["parent_area_id"] = o.ParentAreaId
 	}
 	if !IsNil(o.AreaName) {
 		toSerialize["area_name"] = o.AreaName
@@ -668,14 +785,17 @@ func (o GetSocialBilibiliLiveroom200Response) ToMap() (map[string]interface{}, e
 	if !IsNil(o.LiveTime) {
 		toSerialize["live_time"] = o.LiveTime
 	}
+	if !IsNil(o.Keyframe) {
+		toSerialize["keyframe"] = o.Keyframe
+	}
 	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags
 	}
 	if !IsNil(o.HotWords) {
 		toSerialize["hot_words"] = o.HotWords
 	}
-	if !IsNil(o.NewPendants) {
-		toSerialize["new_pendants"] = o.NewPendants
+	if o.NewPendants.IsSet() {
+		toSerialize["new_pendants"] = o.NewPendants.Get()
 	}
 	return toSerialize, nil
 }

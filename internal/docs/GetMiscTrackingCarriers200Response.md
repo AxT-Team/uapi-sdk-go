@@ -4,9 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code** | Pointer to **string** |  | [optional] 
-**Message** | Pointer to **string** |  | [optional] 
-**Data** | Pointer to [**GetMiscTrackingCarriers200ResponseData**](GetMiscTrackingCarriers200ResponseData.md) |  | [optional] 
+**Carriers** | Pointer to [**[]GetMiscTrackingCarriers200ResponseCarriersInner**](GetMiscTrackingCarriers200ResponseCarriersInner.md) | 快递公司列表 | [optional] 
+**Total** | Pointer to **int32** | 支持的快递公司总数 | [optional] 
 
 ## Methods
 
@@ -27,80 +26,55 @@ NewGetMiscTrackingCarriers200ResponseWithDefaults instantiates a new GetMiscTrac
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetCode
+### GetCarriers
 
-`func (o *GetMiscTrackingCarriers200Response) GetCode() string`
+`func (o *GetMiscTrackingCarriers200Response) GetCarriers() []GetMiscTrackingCarriers200ResponseCarriersInner`
 
-GetCode returns the Code field if non-nil, zero value otherwise.
+GetCarriers returns the Carriers field if non-nil, zero value otherwise.
 
-### GetCodeOk
+### GetCarriersOk
 
-`func (o *GetMiscTrackingCarriers200Response) GetCodeOk() (*string, bool)`
+`func (o *GetMiscTrackingCarriers200Response) GetCarriersOk() (*[]GetMiscTrackingCarriers200ResponseCarriersInner, bool)`
 
-GetCodeOk returns a tuple with the Code field if it's non-nil, zero value otherwise
+GetCarriersOk returns a tuple with the Carriers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCode
+### SetCarriers
 
-`func (o *GetMiscTrackingCarriers200Response) SetCode(v string)`
+`func (o *GetMiscTrackingCarriers200Response) SetCarriers(v []GetMiscTrackingCarriers200ResponseCarriersInner)`
 
-SetCode sets Code field to given value.
+SetCarriers sets Carriers field to given value.
 
-### HasCode
+### HasCarriers
 
-`func (o *GetMiscTrackingCarriers200Response) HasCode() bool`
+`func (o *GetMiscTrackingCarriers200Response) HasCarriers() bool`
 
-HasCode returns a boolean if a field has been set.
+HasCarriers returns a boolean if a field has been set.
 
-### GetMessage
+### GetTotal
 
-`func (o *GetMiscTrackingCarriers200Response) GetMessage() string`
+`func (o *GetMiscTrackingCarriers200Response) GetTotal() int32`
 
-GetMessage returns the Message field if non-nil, zero value otherwise.
+GetTotal returns the Total field if non-nil, zero value otherwise.
 
-### GetMessageOk
+### GetTotalOk
 
-`func (o *GetMiscTrackingCarriers200Response) GetMessageOk() (*string, bool)`
+`func (o *GetMiscTrackingCarriers200Response) GetTotalOk() (*int32, bool)`
 
-GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
+GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMessage
+### SetTotal
 
-`func (o *GetMiscTrackingCarriers200Response) SetMessage(v string)`
+`func (o *GetMiscTrackingCarriers200Response) SetTotal(v int32)`
 
-SetMessage sets Message field to given value.
+SetTotal sets Total field to given value.
 
-### HasMessage
+### HasTotal
 
-`func (o *GetMiscTrackingCarriers200Response) HasMessage() bool`
+`func (o *GetMiscTrackingCarriers200Response) HasTotal() bool`
 
-HasMessage returns a boolean if a field has been set.
-
-### GetData
-
-`func (o *GetMiscTrackingCarriers200Response) GetData() GetMiscTrackingCarriers200ResponseData`
-
-GetData returns the Data field if non-nil, zero value otherwise.
-
-### GetDataOk
-
-`func (o *GetMiscTrackingCarriers200Response) GetDataOk() (*GetMiscTrackingCarriers200ResponseData, bool)`
-
-GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetData
-
-`func (o *GetMiscTrackingCarriers200Response) SetData(v GetMiscTrackingCarriers200ResponseData)`
-
-SetData sets Data field to given value.
-
-### HasData
-
-`func (o *GetMiscTrackingCarriers200Response) HasData() bool`
-
-HasData returns a boolean if a field has been set.
+HasTotal returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -454,7 +454,7 @@ import (
 )
 
 func main() {
-	postImageFrombase64Request := *openapiclient.NewPostImageFrombase64Request("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=") // PostImageFrombase64Request | 一个JSON对象，包含 `imageData` 字段，其值为你想要上传图片的完整Base64 Data URI。
+	postImageFrombase64Request := *openapiclient.NewPostImageFrombase64Request("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=") // PostImageFrombase64Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -479,7 +479,7 @@ Other parameters are passed through a pointer to a apiPostImageFrombase64Request
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postImageFrombase64Request** | [**PostImageFrombase64Request**](PostImageFrombase64Request.md) | 一个JSON对象，包含 &#x60;imageData&#x60; 字段，其值为你想要上传图片的完整Base64 Data URI。 | 
+ **postImageFrombase64Request** | [**PostImageFrombase64Request**](PostImageFrombase64Request.md) |  | 
 
 ### Return type
 

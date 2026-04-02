@@ -19,9 +19,16 @@ var _ MappedNullable = &GetMiscTrackingQuery200Response{}
 
 // GetMiscTrackingQuery200Response struct for GetMiscTrackingQuery200Response
 type GetMiscTrackingQuery200Response struct {
-	Code *string `json:"code,omitempty"`
-	Message *string `json:"message,omitempty"`
-	Data *GetMiscTrackingQuery200ResponseData `json:"data,omitempty"`
+	// 快递单号
+	TrackingNumber *string `json:"tracking_number,omitempty"`
+	// 快递公司编码
+	CarrierCode *string `json:"carrier_code,omitempty"`
+	// 快递公司名称
+	CarrierName *string `json:"carrier_name,omitempty"`
+	// 物流轨迹数量
+	TrackCount *int32 `json:"track_count,omitempty"`
+	// 物流轨迹列表，按时间倒序排列
+	Tracks []GetMiscTrackingQuery200ResponseTracksInner `json:"tracks,omitempty"`
 }
 
 // NewGetMiscTrackingQuery200Response instantiates a new GetMiscTrackingQuery200Response object
@@ -41,100 +48,164 @@ func NewGetMiscTrackingQuery200ResponseWithDefaults() *GetMiscTrackingQuery200Re
 	return &this
 }
 
-// GetCode returns the Code field value if set, zero value otherwise.
-func (o *GetMiscTrackingQuery200Response) GetCode() string {
-	if o == nil || IsNil(o.Code) {
+// GetTrackingNumber returns the TrackingNumber field value if set, zero value otherwise.
+func (o *GetMiscTrackingQuery200Response) GetTrackingNumber() string {
+	if o == nil || IsNil(o.TrackingNumber) {
 		var ret string
 		return ret
 	}
-	return *o.Code
+	return *o.TrackingNumber
 }
 
-// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// GetTrackingNumberOk returns a tuple with the TrackingNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMiscTrackingQuery200Response) GetCodeOk() (*string, bool) {
-	if o == nil || IsNil(o.Code) {
+func (o *GetMiscTrackingQuery200Response) GetTrackingNumberOk() (*string, bool) {
+	if o == nil || IsNil(o.TrackingNumber) {
 		return nil, false
 	}
-	return o.Code, true
+	return o.TrackingNumber, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *GetMiscTrackingQuery200Response) HasCode() bool {
-	if o != nil && !IsNil(o.Code) {
+// HasTrackingNumber returns a boolean if a field has been set.
+func (o *GetMiscTrackingQuery200Response) HasTrackingNumber() bool {
+	if o != nil && !IsNil(o.TrackingNumber) {
 		return true
 	}
 
 	return false
 }
 
-// SetCode gets a reference to the given string and assigns it to the Code field.
-func (o *GetMiscTrackingQuery200Response) SetCode(v string) {
-	o.Code = &v
+// SetTrackingNumber gets a reference to the given string and assigns it to the TrackingNumber field.
+func (o *GetMiscTrackingQuery200Response) SetTrackingNumber(v string) {
+	o.TrackingNumber = &v
 }
 
-// GetMessage returns the Message field value if set, zero value otherwise.
-func (o *GetMiscTrackingQuery200Response) GetMessage() string {
-	if o == nil || IsNil(o.Message) {
+// GetCarrierCode returns the CarrierCode field value if set, zero value otherwise.
+func (o *GetMiscTrackingQuery200Response) GetCarrierCode() string {
+	if o == nil || IsNil(o.CarrierCode) {
 		var ret string
 		return ret
 	}
-	return *o.Message
+	return *o.CarrierCode
 }
 
-// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
+// GetCarrierCodeOk returns a tuple with the CarrierCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMiscTrackingQuery200Response) GetMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.Message) {
+func (o *GetMiscTrackingQuery200Response) GetCarrierCodeOk() (*string, bool) {
+	if o == nil || IsNil(o.CarrierCode) {
 		return nil, false
 	}
-	return o.Message, true
+	return o.CarrierCode, true
 }
 
-// HasMessage returns a boolean if a field has been set.
-func (o *GetMiscTrackingQuery200Response) HasMessage() bool {
-	if o != nil && !IsNil(o.Message) {
+// HasCarrierCode returns a boolean if a field has been set.
+func (o *GetMiscTrackingQuery200Response) HasCarrierCode() bool {
+	if o != nil && !IsNil(o.CarrierCode) {
 		return true
 	}
 
 	return false
 }
 
-// SetMessage gets a reference to the given string and assigns it to the Message field.
-func (o *GetMiscTrackingQuery200Response) SetMessage(v string) {
-	o.Message = &v
+// SetCarrierCode gets a reference to the given string and assigns it to the CarrierCode field.
+func (o *GetMiscTrackingQuery200Response) SetCarrierCode(v string) {
+	o.CarrierCode = &v
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
-func (o *GetMiscTrackingQuery200Response) GetData() GetMiscTrackingQuery200ResponseData {
-	if o == nil || IsNil(o.Data) {
-		var ret GetMiscTrackingQuery200ResponseData
+// GetCarrierName returns the CarrierName field value if set, zero value otherwise.
+func (o *GetMiscTrackingQuery200Response) GetCarrierName() string {
+	if o == nil || IsNil(o.CarrierName) {
+		var ret string
 		return ret
 	}
-	return *o.Data
+	return *o.CarrierName
 }
 
-// GetDataOk returns a tuple with the Data field value if set, nil otherwise
+// GetCarrierNameOk returns a tuple with the CarrierName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetMiscTrackingQuery200Response) GetDataOk() (*GetMiscTrackingQuery200ResponseData, bool) {
-	if o == nil || IsNil(o.Data) {
+func (o *GetMiscTrackingQuery200Response) GetCarrierNameOk() (*string, bool) {
+	if o == nil || IsNil(o.CarrierName) {
 		return nil, false
 	}
-	return o.Data, true
+	return o.CarrierName, true
 }
 
-// HasData returns a boolean if a field has been set.
-func (o *GetMiscTrackingQuery200Response) HasData() bool {
-	if o != nil && !IsNil(o.Data) {
+// HasCarrierName returns a boolean if a field has been set.
+func (o *GetMiscTrackingQuery200Response) HasCarrierName() bool {
+	if o != nil && !IsNil(o.CarrierName) {
 		return true
 	}
 
 	return false
 }
 
-// SetData gets a reference to the given GetMiscTrackingQuery200ResponseData and assigns it to the Data field.
-func (o *GetMiscTrackingQuery200Response) SetData(v GetMiscTrackingQuery200ResponseData) {
-	o.Data = &v
+// SetCarrierName gets a reference to the given string and assigns it to the CarrierName field.
+func (o *GetMiscTrackingQuery200Response) SetCarrierName(v string) {
+	o.CarrierName = &v
+}
+
+// GetTrackCount returns the TrackCount field value if set, zero value otherwise.
+func (o *GetMiscTrackingQuery200Response) GetTrackCount() int32 {
+	if o == nil || IsNil(o.TrackCount) {
+		var ret int32
+		return ret
+	}
+	return *o.TrackCount
+}
+
+// GetTrackCountOk returns a tuple with the TrackCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscTrackingQuery200Response) GetTrackCountOk() (*int32, bool) {
+	if o == nil || IsNil(o.TrackCount) {
+		return nil, false
+	}
+	return o.TrackCount, true
+}
+
+// HasTrackCount returns a boolean if a field has been set.
+func (o *GetMiscTrackingQuery200Response) HasTrackCount() bool {
+	if o != nil && !IsNil(o.TrackCount) {
+		return true
+	}
+
+	return false
+}
+
+// SetTrackCount gets a reference to the given int32 and assigns it to the TrackCount field.
+func (o *GetMiscTrackingQuery200Response) SetTrackCount(v int32) {
+	o.TrackCount = &v
+}
+
+// GetTracks returns the Tracks field value if set, zero value otherwise.
+func (o *GetMiscTrackingQuery200Response) GetTracks() []GetMiscTrackingQuery200ResponseTracksInner {
+	if o == nil || IsNil(o.Tracks) {
+		var ret []GetMiscTrackingQuery200ResponseTracksInner
+		return ret
+	}
+	return o.Tracks
+}
+
+// GetTracksOk returns a tuple with the Tracks field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetMiscTrackingQuery200Response) GetTracksOk() ([]GetMiscTrackingQuery200ResponseTracksInner, bool) {
+	if o == nil || IsNil(o.Tracks) {
+		return nil, false
+	}
+	return o.Tracks, true
+}
+
+// HasTracks returns a boolean if a field has been set.
+func (o *GetMiscTrackingQuery200Response) HasTracks() bool {
+	if o != nil && !IsNil(o.Tracks) {
+		return true
+	}
+
+	return false
+}
+
+// SetTracks gets a reference to the given []GetMiscTrackingQuery200ResponseTracksInner and assigns it to the Tracks field.
+func (o *GetMiscTrackingQuery200Response) SetTracks(v []GetMiscTrackingQuery200ResponseTracksInner) {
+	o.Tracks = v
 }
 
 func (o GetMiscTrackingQuery200Response) MarshalJSON() ([]byte, error) {
@@ -147,14 +218,20 @@ func (o GetMiscTrackingQuery200Response) MarshalJSON() ([]byte, error) {
 
 func (o GetMiscTrackingQuery200Response) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Code) {
-		toSerialize["code"] = o.Code
+	if !IsNil(o.TrackingNumber) {
+		toSerialize["tracking_number"] = o.TrackingNumber
 	}
-	if !IsNil(o.Message) {
-		toSerialize["message"] = o.Message
+	if !IsNil(o.CarrierCode) {
+		toSerialize["carrier_code"] = o.CarrierCode
 	}
-	if !IsNil(o.Data) {
-		toSerialize["data"] = o.Data
+	if !IsNil(o.CarrierName) {
+		toSerialize["carrier_name"] = o.CarrierName
+	}
+	if !IsNil(o.TrackCount) {
+		toSerialize["track_count"] = o.TrackCount
+	}
+	if !IsNil(o.Tracks) {
+		toSerialize["tracks"] = o.Tracks
 	}
 	return toSerialize, nil
 }

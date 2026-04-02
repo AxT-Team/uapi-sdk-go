@@ -13,7 +13,8 @@ Name | Type | Description | Notes
 **Longitude** | Pointer to **float32** | 经度 | [optional] 
 **Beginip** | Pointer to **string** | IP段起始地址（标准查询） | [optional] 
 **Endip** | Pointer to **string** | IP段结束地址（标准查询） | [optional] 
-**District** | Pointer to **string** | 行政区（商业查询） | [optional] 
+**District** | Pointer to **string** | 行政区。仅 &#x60;source&#x3D;commercial&#x60; 时可能返回。 | [optional] 
+**TimeZone** | Pointer to **string** | 时区名称。仅 &#x60;source&#x3D;commercial&#x60; 时可能返回。 | [optional] 
 
 ## Methods
 
@@ -283,6 +284,31 @@ SetDistrict sets District field to given value.
 `func (o *GetNetworkMyip200Response) HasDistrict() bool`
 
 HasDistrict returns a boolean if a field has been set.
+
+### GetTimeZone
+
+`func (o *GetNetworkMyip200Response) GetTimeZone() string`
+
+GetTimeZone returns the TimeZone field if non-nil, zero value otherwise.
+
+### GetTimeZoneOk
+
+`func (o *GetNetworkMyip200Response) GetTimeZoneOk() (*string, bool)`
+
+GetTimeZoneOk returns a tuple with the TimeZone field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimeZone
+
+`func (o *GetNetworkMyip200Response) SetTimeZone(v string)`
+
+SetTimeZone sets TimeZone field to given value.
+
+### HasTimeZone
+
+`func (o *GetNetworkMyip200Response) HasTimeZone() bool`
+
+HasTimeZone returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

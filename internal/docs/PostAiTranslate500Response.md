@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Code** | Pointer to **int32** |  | [optional] 
 **Message** | Pointer to **string** |  | [optional] 
 **Error** | Pointer to **string** |  | [optional] 
-**IsBatch** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -102,31 +101,6 @@ SetError sets Error field to given value.
 `func (o *PostAiTranslate500Response) HasError() bool`
 
 HasError returns a boolean if a field has been set.
-
-### GetIsBatch
-
-`func (o *PostAiTranslate500Response) GetIsBatch() bool`
-
-GetIsBatch returns the IsBatch field if non-nil, zero value otherwise.
-
-### GetIsBatchOk
-
-`func (o *PostAiTranslate500Response) GetIsBatchOk() (*bool, bool)`
-
-GetIsBatchOk returns a tuple with the IsBatch field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsBatch
-
-`func (o *PostAiTranslate500Response) SetIsBatch(v bool)`
-
-SetIsBatch sets IsBatch field to given value.
-
-### HasIsBatch
-
-`func (o *PostAiTranslate500Response) HasIsBatch() bool`
-
-HasIsBatch returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
