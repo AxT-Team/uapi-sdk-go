@@ -24,7 +24,7 @@ import (
 )
 
 func main() {
-	client := uapi.New("https://uapis.cn/api/v1", "")
+	client := uapi.New("https://uapis.cn", "YOUR_API_KEY")
 	info, err := client.Social().GetSocialQqUserinfo(map[string]any{"qq": "10001"})
 	if err != nil {
 		panic(err)
@@ -63,7 +63,7 @@ import (
 )
 
 func main() {
-	client := uapi.New("https://uapis.cn/api/v1", "")
+	client := uapi.New("https://uapis.cn", "YOUR_API_KEY")
 
 	// 成功路径
 	_, err := client.Social().GetSocialQqUserinfo(map[string]any{"qq": "10001"})
