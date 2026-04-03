@@ -24,25 +24,41 @@ type RateLimitStateEntry struct {
 }
 
 type ResponseMeta struct {
-	RequestID                  string                           `json:"request_id,omitempty"`
-	RetryAfterSeconds          *int                             `json:"retry_after_seconds,omitempty"`
-	DebitStatus                string                           `json:"debit_status,omitempty"`
-	CreditsRequested           *int64                           `json:"credits_requested,omitempty"`
-	CreditsCharged             *int64                           `json:"credits_charged,omitempty"`
-	CreditsPricing             string                           `json:"credits_pricing,omitempty"`
-	ActiveQuotaBuckets         *int                             `json:"active_quota_buckets,omitempty"`
-	StopOnEmpty                *bool                            `json:"stop_on_empty,omitempty"`
-	RateLimitPolicyRaw         string                           `json:"rate_limit_policy_raw,omitempty"`
-	RateLimitRaw               string                           `json:"rate_limit_raw,omitempty"`
-	RateLimitPolicies          map[string]RateLimitPolicyEntry  `json:"rate_limit_policies,omitempty"`
-	RateLimits                 map[string]RateLimitStateEntry   `json:"rate_limits,omitempty"`
-	BalanceLimitCents          *int64                           `json:"balance_limit_cents,omitempty"`
-	BalanceRemainingCents      *int64                           `json:"balance_remaining_cents,omitempty"`
-	QuotaLimitCredits          *int64                           `json:"quota_limit_credits,omitempty"`
-	QuotaRemainingCredits      *int64                           `json:"quota_remaining_credits,omitempty"`
-	VisitorQuotaLimitCredits   *int64                           `json:"visitor_quota_limit_credits,omitempty"`
-	VisitorQuotaRemainingCredits *int64                          `json:"visitor_quota_remaining_credits,omitempty"`
-	RawHeaders                 map[string]string                `json:"raw_headers,omitempty"`
+	RequestID                       string                          `json:"request_id,omitempty"`
+	RetryAfterRaw                   string                          `json:"retry_after_raw,omitempty"`
+	RetryAfterSeconds               *int                            `json:"retry_after_seconds,omitempty"`
+	DebitStatus                     string                          `json:"debit_status,omitempty"`
+	CreditsRequested                *int64                          `json:"credits_requested,omitempty"`
+	CreditsCharged                  *int64                          `json:"credits_charged,omitempty"`
+	CreditsPricing                  string                          `json:"credits_pricing,omitempty"`
+	ActiveQuotaBuckets              *int                            `json:"active_quota_buckets,omitempty"`
+	StopOnEmpty                     *bool                           `json:"stop_on_empty,omitempty"`
+	RateLimitPolicyRaw              string                          `json:"rate_limit_policy_raw,omitempty"`
+	RateLimitRaw                    string                          `json:"rate_limit_raw,omitempty"`
+	RateLimitPolicies               map[string]RateLimitPolicyEntry `json:"rate_limit_policies,omitempty"`
+	RateLimits                      map[string]RateLimitStateEntry  `json:"rate_limits,omitempty"`
+	BalanceLimitCents               *int64                          `json:"balance_limit_cents,omitempty"`
+	BalanceRemainingCents           *int64                          `json:"balance_remaining_cents,omitempty"`
+	QuotaLimitCredits               *int64                          `json:"quota_limit_credits,omitempty"`
+	QuotaRemainingCredits           *int64                          `json:"quota_remaining_credits,omitempty"`
+	VisitorQuotaLimitCredits        *int64                          `json:"visitor_quota_limit_credits,omitempty"`
+	VisitorQuotaRemainingCredits    *int64                          `json:"visitor_quota_remaining_credits,omitempty"`
+	BillingKeyRateLimit             *int64                          `json:"billing_key_rate_limit,omitempty"`
+	BillingKeyRateRemaining         *int64                          `json:"billing_key_rate_remaining,omitempty"`
+	BillingKeyRateUnit              string                          `json:"billing_key_rate_unit,omitempty"`
+	BillingKeyRateWindowSeconds     *int                            `json:"billing_key_rate_window_seconds,omitempty"`
+	BillingKeyRateResetAfterSeconds *int                            `json:"billing_key_rate_reset_after_seconds,omitempty"`
+	BillingIPRateLimit              *int64                          `json:"billing_ip_rate_limit,omitempty"`
+	BillingIPRateRemaining          *int64                          `json:"billing_ip_rate_remaining,omitempty"`
+	BillingIPRateUnit               string                          `json:"billing_ip_rate_unit,omitempty"`
+	BillingIPRateWindowSeconds      *int                            `json:"billing_ip_rate_window_seconds,omitempty"`
+	BillingIPRateResetAfterSeconds  *int                            `json:"billing_ip_rate_reset_after_seconds,omitempty"`
+	VisitorRateLimit                *int64                          `json:"visitor_rate_limit,omitempty"`
+	VisitorRateRemaining            *int64                          `json:"visitor_rate_remaining,omitempty"`
+	VisitorRateUnit                 string                          `json:"visitor_rate_unit,omitempty"`
+	VisitorRateWindowSeconds        *int                            `json:"visitor_rate_window_seconds,omitempty"`
+	VisitorRateResetAfterSeconds    *int                            `json:"visitor_rate_reset_after_seconds,omitempty"`
+	RawHeaders                      map[string]string               `json:"raw_headers,omitempty"`
 }
 
 type UapiError struct {
@@ -55,6 +71,7 @@ type UapiError struct {
 }
 
 func (e *UapiError) Error() string { return fmt.Sprintf("[%d] %s: %s", e.Status, e.Code, e.Message) }
+
 type ApiErrorError struct{ UapiError }
 type AvatarNotFoundError struct{ UapiError }
 type ConversionFailedError struct{ UapiError }
@@ -78,13 +95,13 @@ type UnsupportedFormatError struct{ UapiError }
 type VisitorMonthlyQuotaExhaustedError struct{ UapiError }
 
 func mapError(status int, body []byte, headers *fasthttp.ResponseHeader) error {
-	var e struct{
-		Code string `json:"code"`
-		Error string `json:"error"`
-		Message string `json:"message"`
+	var e struct {
+		Code    string          `json:"code"`
+		Error   string          `json:"error"`
+		Message string          `json:"message"`
 		Details json.RawMessage `json:"details"`
-		Quota json.RawMessage `json:"quota"`
-		Docs json.RawMessage `json:"docs"`
+		Quota   json.RawMessage `json:"quota"`
+		Docs    json.RawMessage `json:"docs"`
 	}
 	_ = json.Unmarshal(body, &e)
 	code := strings.TrimSpace(e.Code)
@@ -108,48 +125,77 @@ func mapError(status int, body []byte, headers *fasthttp.ResponseHeader) error {
 	}
 	meta := extractMetaFromHeaders(headers)
 	err := &UapiError{
-		Code: code,
+		Code:    code,
 		Message: message,
-		Status: status,
+		Status:  status,
 		Details: append(json.RawMessage(nil), details...),
 		Payload: append(json.RawMessage(nil), body...),
-		Meta: meta,
+		Meta:    meta,
 	}
 	switch code {
-	case "API_ERROR": return &ApiErrorError{ *err }
-	case "AVATAR_NOT_FOUND": return &AvatarNotFoundError{ *err }
-	case "CONVERSION_FAILED": return &ConversionFailedError{ *err }
-	case "FILE_OPEN_ERROR": return &FileOpenErrorError{ *err }
-	case "FILE_REQUIRED": return &FileRequiredError{ *err }
-	case "INSUFFICIENT_CREDITS": return &InsufficientCreditsError{ *err }
-	case "INTERNAL_SERVER_ERROR": return &InternalServerErrorError{ *err }
-	case "INVALID_PARAMETER": return &InvalidParameterError{ *err }
-	case "INVALID_PARAMS": return &InvalidParamsError{ *err }
-	case "NOT_FOUND": return &NotFoundError{ *err }
-	case "NO_MATCH": return &NoMatchError{ *err }
-	case "NO_TRACKING_DATA": return &NoTrackingDataError{ *err }
-	case "PHONE_INFO_FAILED": return &PhoneInfoFailedError{ *err }
-	case "RECOGNITION_FAILED": return &RecognitionFailedError{ *err }
-	case "REQUEST_ENTITY_TOO_LARGE": return &RequestEntityTooLargeError{ *err }
-	case "SERVICE_BUSY": return &ServiceBusyError{ *err }
-	case "TIMEZONE_NOT_FOUND": return &TimezoneNotFoundError{ *err }
-	case "UNAUTHORIZED": return &UnauthorizedError{ *err }
-	case "UNSUPPORTED_CARRIER": return &UnsupportedCarrierError{ *err }
-	case "UNSUPPORTED_FORMAT": return &UnsupportedFormatError{ *err }
-	case "VISITOR_MONTHLY_QUOTA_EXHAUSTED": return &VisitorMonthlyQuotaExhaustedError{ *err }
-	default: return err
+	case "API_ERROR":
+		return &ApiErrorError{*err}
+	case "AVATAR_NOT_FOUND":
+		return &AvatarNotFoundError{*err}
+	case "CONVERSION_FAILED":
+		return &ConversionFailedError{*err}
+	case "FILE_OPEN_ERROR":
+		return &FileOpenErrorError{*err}
+	case "FILE_REQUIRED":
+		return &FileRequiredError{*err}
+	case "INSUFFICIENT_CREDITS":
+		return &InsufficientCreditsError{*err}
+	case "INTERNAL_SERVER_ERROR":
+		return &InternalServerErrorError{*err}
+	case "INVALID_PARAMETER":
+		return &InvalidParameterError{*err}
+	case "INVALID_PARAMS":
+		return &InvalidParamsError{*err}
+	case "NOT_FOUND":
+		return &NotFoundError{*err}
+	case "NO_MATCH":
+		return &NoMatchError{*err}
+	case "NO_TRACKING_DATA":
+		return &NoTrackingDataError{*err}
+	case "PHONE_INFO_FAILED":
+		return &PhoneInfoFailedError{*err}
+	case "RECOGNITION_FAILED":
+		return &RecognitionFailedError{*err}
+	case "REQUEST_ENTITY_TOO_LARGE":
+		return &RequestEntityTooLargeError{*err}
+	case "SERVICE_BUSY":
+		return &ServiceBusyError{*err}
+	case "TIMEZONE_NOT_FOUND":
+		return &TimezoneNotFoundError{*err}
+	case "UNAUTHORIZED":
+		return &UnauthorizedError{*err}
+	case "UNSUPPORTED_CARRIER":
+		return &UnsupportedCarrierError{*err}
+	case "UNSUPPORTED_FORMAT":
+		return &UnsupportedFormatError{*err}
+	case "VISITOR_MONTHLY_QUOTA_EXHAUSTED":
+		return &VisitorMonthlyQuotaExhaustedError{*err}
+	default:
+		return err
 	}
 }
 
 func defaultCode(status int) string {
 	switch status {
-	case 400: return "INVALID_PARAMETER"
-	case 401: return "UNAUTHORIZED"
-	case 402: return "INSUFFICIENT_CREDITS"
-	case 404: return "NOT_FOUND"
-	case 429: return "SERVICE_BUSY"
-	case 500: return "INTERNAL_SERVER_ERROR"
-	default: return "API_ERROR"
+	case 400:
+		return "INVALID_PARAMETER"
+	case 401:
+		return "UNAUTHORIZED"
+	case 402:
+		return "INSUFFICIENT_CREDITS"
+	case 404:
+		return "NOT_FOUND"
+	case 429:
+		return "SERVICE_BUSY"
+	case 500:
+		return "INTERNAL_SERVER_ERROR"
+	default:
+		return "API_ERROR"
 	}
 }
 
@@ -163,6 +209,7 @@ func extractMetaFromHeaders(headers *fasthttp.ResponseHeader) *ResponseMeta {
 	})
 	meta := &ResponseMeta{
 		RequestID:          raw["x-request-id"],
+		RetryAfterRaw:      raw["retry-after"],
 		RetryAfterSeconds:  parseInt(raw["retry-after"]),
 		DebitStatus:        raw["uapi-debit-status"],
 		CreditsRequested:   parseInt64(raw["uapi-credits-requested"]),
@@ -178,18 +225,18 @@ func extractMetaFromHeaders(headers *fasthttp.ResponseHeader) *ResponseMeta {
 	}
 	for _, item := range parseStructuredItems(raw["ratelimit-policy"]) {
 		entry := RateLimitPolicyEntry{
-			Name: item.Name,
-			Quota: parseInt64(item.Params["q"]),
-			Unit: item.Params["uapi-unit"],
+			Name:          item.Name,
+			Quota:         parseInt64(item.Params["q"]),
+			Unit:          item.Params["uapi-unit"],
 			WindowSeconds: parseInt(item.Params["w"]),
 		}
 		meta.RateLimitPolicies[item.Name] = entry
 	}
 	for _, item := range parseStructuredItems(raw["ratelimit"]) {
 		entry := RateLimitStateEntry{
-			Name: item.Name,
-			Remaining: parseInt64(item.Params["r"]),
-			Unit: item.Params["uapi-unit"],
+			Name:              item.Name,
+			Remaining:         parseInt64(item.Params["r"]),
+			Unit:              item.Params["uapi-unit"],
 			ResetAfterSeconds: parseInt(item.Params["t"]),
 		}
 		meta.RateLimits[item.Name] = entry
@@ -211,6 +258,42 @@ func extractMetaFromHeaders(headers *fasthttp.ResponseHeader) *ResponseMeta {
 	}
 	if entry, ok := meta.RateLimits["visitor-quota"]; ok {
 		meta.VisitorQuotaRemainingCredits = entry.Remaining
+	}
+	if policy, ok := meta.RateLimitPolicies["billing-key-rate"]; ok {
+		meta.BillingKeyRateLimit = policy.Quota
+		meta.BillingKeyRateUnit = policy.Unit
+		meta.BillingKeyRateWindowSeconds = policy.WindowSeconds
+	}
+	if state, ok := meta.RateLimits["billing-key-rate"]; ok {
+		meta.BillingKeyRateRemaining = state.Remaining
+		if meta.BillingKeyRateUnit == "" {
+			meta.BillingKeyRateUnit = state.Unit
+		}
+		meta.BillingKeyRateResetAfterSeconds = state.ResetAfterSeconds
+	}
+	if policy, ok := meta.RateLimitPolicies["billing-ip-rate"]; ok {
+		meta.BillingIPRateLimit = policy.Quota
+		meta.BillingIPRateUnit = policy.Unit
+		meta.BillingIPRateWindowSeconds = policy.WindowSeconds
+	}
+	if state, ok := meta.RateLimits["billing-ip-rate"]; ok {
+		meta.BillingIPRateRemaining = state.Remaining
+		if meta.BillingIPRateUnit == "" {
+			meta.BillingIPRateUnit = state.Unit
+		}
+		meta.BillingIPRateResetAfterSeconds = state.ResetAfterSeconds
+	}
+	if policy, ok := meta.RateLimitPolicies["visitor-rate"]; ok {
+		meta.VisitorRateLimit = policy.Quota
+		meta.VisitorRateUnit = policy.Unit
+		meta.VisitorRateWindowSeconds = policy.WindowSeconds
+	}
+	if state, ok := meta.RateLimits["visitor-rate"]; ok {
+		meta.VisitorRateRemaining = state.Remaining
+		if meta.VisitorRateUnit == "" {
+			meta.VisitorRateUnit = state.Unit
+		}
+		meta.VisitorRateResetAfterSeconds = state.ResetAfterSeconds
 	}
 	return meta
 }

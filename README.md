@@ -73,11 +73,29 @@ func main() {
 		panic(err)
 	}
 	if meta := client.LastResponseMeta(); meta != nil {
+		if meta.CreditsRequested != nil {
+			fmt.Printf("这次请求原价: %d 积分\n", *meta.CreditsRequested)
+		}
+		if meta.CreditsCharged != nil {
+			fmt.Printf("这次实际扣费: %d 积分\n", *meta.CreditsCharged)
+		}
+		if meta.CreditsPricing != "" {
+			fmt.Printf("特殊计价: %s\n", meta.CreditsPricing)
+		}
 		if meta.BalanceRemainingCents != nil {
 			fmt.Printf("余额剩余: %d 分\n", *meta.BalanceRemainingCents)
 		}
 		if meta.QuotaRemainingCredits != nil {
 			fmt.Printf("资源包剩余: %d 积分\n", *meta.QuotaRemainingCredits)
+		}
+		if meta.ActiveQuotaBuckets != nil {
+			fmt.Printf("当前有效额度桶: %d\n", *meta.ActiveQuotaBuckets)
+		}
+		if meta.StopOnEmpty != nil {
+			fmt.Printf("额度用空即停: %t\n", *meta.StopOnEmpty)
+		}
+		if meta.BillingKeyRateLimit != nil {
+			fmt.Printf("Key QPS: %d / %d %s\n", derefInt64(meta.BillingKeyRateRemaining), *meta.BillingKeyRateLimit, fallback(meta.BillingKeyRateUnit, "req"))
 		}
 		fmt.Printf("Request ID: %s\n", meta.RequestID)
 	}
@@ -85,11 +103,32 @@ func main() {
 	// 失败路径
 	_, err = client.Social().GetSocialQqUserinfo(map[string]any{"qq": "10001"})
 	if e, ok := err.(*uapi.ServiceBusyError); ok && e.Meta != nil {
-		if e.Meta.RetryAfterSeconds != nil {
-			fmt.Printf("限流，%ds 后重试\n", *e.Meta.RetryAfterSeconds)
-		}
+		fmt.Printf("Retry-After 秒数: %d\n", derefInt(e.Meta.RetryAfterSeconds))
+		fmt.Printf("Retry-After 原始值: %s\n", fallback(e.Meta.RetryAfterRaw, "-"))
+		fmt.Printf("访客 QPS: %d / %d\n", derefInt64(e.Meta.VisitorRateRemaining), derefInt64(e.Meta.VisitorRateLimit))
 		fmt.Printf("Request ID: %s\n", e.Meta.RequestID)
 	}
+}
+
+func derefInt(value *int) int {
+	if value == nil {
+		return 0
+	}
+	return *value
+}
+
+func derefInt64(value *int64) int64 {
+	if value == nil {
+		return 0
+	}
+	return *value
+}
+
+func fallback(value string, defaultValue string) string {
+	if value == "" {
+		return defaultValue
+	}
+	return value
 }
 ```
 
@@ -97,12 +136,18 @@ func main() {
 
 | 字段 | 说明 |
 |------|------|
+| `CreditsRequested` | 这次请求原本要扣多少积分，也就是请求价 |
+| `CreditsCharged` | 这次请求实际扣了多少积分 |
+| `CreditsPricing` | 特殊计价原因，例如缓存半价 `cache-hit-half-price` |
 | `BalanceRemainingCents` | 账户余额剩余（分） |
 | `QuotaRemainingCredits` | 资源包剩余积分 |
-| `VisitorQuotaRemainingCredits` | 访客配额剩余积分 |
-| `RetryAfterSeconds` | 触发限流后的建议等待时长 |
+| `ActiveQuotaBuckets` | 当前还有多少个有效额度桶参与计费 |
+| `StopOnEmpty` | 额度耗尽后是否直接停止服务 |
+| `RetryAfterSeconds` / `RetryAfterRaw` | 限流后的等待时长；当服务端返回 HTTP 时间字符串时看 `RetryAfterRaw` |
 | `RequestID` | 请求唯一 ID，排障时使用 |
-| `DebitStatus` | 本次计费状态 |
+| `BillingKeyRateLimit` / `BillingKeyRateRemaining` | Billing Key 当前 QPS 规则的上限与剩余 |
+| `BillingIPRateLimit` / `BillingIPRateRemaining` | Billing Key 单 IP 当前 QPS 规则的上限与剩余 |
+| `VisitorRateLimit` / `VisitorRateRemaining` | 访客当前 QPS 规则的上限与剩余 |
 | `RateLimitPolicies` / `RateLimits` | 完整结构化限流策略数据 |
 
 ## 错误模型概览
