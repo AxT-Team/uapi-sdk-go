@@ -47,6 +47,62 @@ func main() {
 
 如果你需要查看字段细节或内部逻辑，仓库中的 `./internal` 目录同步保留了由 `openapi-generator` 生成的完整结构体，随时可供参考。
 
+## 响应元信息
+
+每次请求完成后，SDK 会自动把响应 Header 解析成结构化的 `ResponseMeta`，你不用自己拆原始字符串。
+
+成功时可以通过 `client.LastResponseMeta()` 读取，失败时可以从具体错误对象的 `Meta` 字段读取，两条路径拿到的是同一套字段。
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/AxT-Team/uapi-sdk-go/uapi"
+)
+
+func main() {
+	client := uapi.New("https://uapis.cn/api/v1", "")
+
+	// 成功路径
+	_, err := client.Social().GetSocialQqUserinfo(map[string]any{"qq": "10001"})
+	if err != nil {
+		panic(err)
+	}
+	if meta := client.LastResponseMeta(); meta != nil {
+		if meta.BalanceRemainingCents != nil {
+			fmt.Printf("余额剩余: %d 分\n", *meta.BalanceRemainingCents)
+		}
+		if meta.QuotaRemainingCredits != nil {
+			fmt.Printf("资源包剩余: %d 积分\n", *meta.QuotaRemainingCredits)
+		}
+		fmt.Printf("Request ID: %s\n", meta.RequestID)
+	}
+
+	// 失败路径
+	_, err = client.Social().GetSocialQqUserinfo(map[string]any{"qq": "10001"})
+	if e, ok := err.(*uapi.ServiceBusyError); ok && e.Meta != nil {
+		if e.Meta.RetryAfterSeconds != nil {
+			fmt.Printf("限流，%ds 后重试\n", *e.Meta.RetryAfterSeconds)
+		}
+		fmt.Printf("Request ID: %s\n", e.Meta.RequestID)
+	}
+}
+```
+
+常用字段一览：
+
+| 字段 | 说明 |
+|------|------|
+| `BalanceRemainingCents` | 账户余额剩余（分） |
+| `QuotaRemainingCredits` | 资源包剩余积分 |
+| `VisitorQuotaRemainingCredits` | 访客配额剩余积分 |
+| `RetryAfterSeconds` | 触发限流后的建议等待时长 |
+| `RequestID` | 请求唯一 ID，排障时使用 |
+| `DebitStatus` | 本次计费状态 |
+| `RateLimitPolicies` / `RateLimits` | 完整结构化限流策略数据 |
+
 ## 错误模型概览
 
 | HTTP 状态码 | SDK 错误类型            | 附加信息                                                                          |
