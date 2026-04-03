@@ -25,13 +25,15 @@ import (
 
 func main() {
 	client := uapi.New("https://uapis.cn", "YOUR_API_KEY")
-	info, err := client.Social().GetSocialQqUserinfo(map[string]any{"qq": "10001"})
+	info, err := client.Misc().GetMiscHotboard(map[string]any{"type": "weibo"})
 	if err != nil {
 		panic(err)
 	}
 	fmt.Println(info)
 }
 ```
+
+这个接口默认只要传 `type` 就可以拿当前热榜。`time`、`keyword`、`time_start`、`time_end`、`limit`、`sources` 都是按场景再传的可选参数。
 
 ## 特性
 
