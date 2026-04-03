@@ -45,7 +45,7 @@ func main() {
 
 针对 401、404、429 等标准 HTTP 响应，SDK 已将其统一映射为具名的错误类型。这些错误均附带 `status`、`request_id`、`retry_after_seconds` 等关键上下文信息，确保你在日志中能第一时间准确、快速地诊断问题。
 
-基础域名、请求超时和 `User-Agent` 已预设为合理的默认值。但你完全拥有控制权，可以通过 `uapi.Client.Builder()` 模式灵活覆盖 Token、BaseURL 等配置。
+当前通过 `uapi.New(baseURL, token)` 配置 BaseURL 和 Token，请求超时固定为 15 秒。如果你需要代理、重试或额外的请求控制，建议在项目里再封装一层，或者按需扩展源码。
 
 如果你需要查看字段细节或内部逻辑，仓库中的 `./internal` 目录同步保留了由 `openapi-generator` 生成的完整结构体，随时可供参考。
 
