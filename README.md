@@ -12,7 +12,7 @@
 ## 快速开始
 
 ```bash
-go get github.com/AxT-Team/uapi-sdk-go@latest
+go get github.com/AxT-Team/uapi-sdk-go/uapi@latest
 ```
 
 ```go
