@@ -1,9 +1,14 @@
 package uapi
 
 import (
+	"bytes"
 	"strings"
 	"encoding/json"
 	"fmt"
+	"io"
+	"mime/multipart"
+	"os"
+	"path/filepath"
 	"time"
 	"sync"
 
@@ -136,6 +141,116 @@ func (c *Client) do(method, path string, q map[string]string, body any, disableC
 		b, _ := json.Marshal(body)
 		req.SetBody(b)
 	}
+
+	if err := c.cli.DoTimeout(req, resp, 15*time.Second); err != nil {
+		return nil, fmt.Errorf("request failed: %w", err)
+	}
+	status := resp.StatusCode()
+	meta := extractMetaFromHeaders(&resp.Header)
+	c.setLastResponseMeta(meta)
+	if status >= 400 {
+		return nil, mapError(status, resp.Body(), &resp.Header)
+	}
+	ct := string(resp.Header.ContentType())
+	if strings.HasPrefix(ct, "application/json") {
+		var v any
+		if err := json.Unmarshal(resp.Body(), &v); err == nil { return v, nil }
+	}
+	return resp.Body(), nil
+}
+
+func stringifyFormValue(v any) string {
+	if value, ok := v.(bool); ok {
+		if value {
+			return "true"
+		}
+		return "false"
+	}
+	return fmt.Sprint(v)
+}
+
+func writeMultipartFile(writer *multipart.Writer, fieldName string, value any) error {
+	switch typed := value.(type) {
+	case string:
+		content, err := os.ReadFile(typed)
+		if err != nil {
+			return fmt.Errorf("read file %q: %w", typed, err)
+		}
+		part, err := writer.CreateFormFile(fieldName, filepath.Base(typed))
+		if err != nil {
+			return err
+		}
+		_, err = part.Write(content)
+		return err
+	case []byte:
+		part, err := writer.CreateFormFile(fieldName, "upload.bin")
+		if err != nil {
+			return err
+		}
+		_, err = part.Write(typed)
+		return err
+	case io.Reader:
+		content, err := io.ReadAll(typed)
+		if err != nil {
+			return err
+		}
+		part, err := writer.CreateFormFile(fieldName, "upload.bin")
+		if err != nil {
+			return err
+		}
+		_, err = part.Write(content)
+		return err
+	default:
+		return fmt.Errorf("unsupported multipart file value for %s: %T", fieldName, value)
+	}
+}
+
+func (c *Client) doMultipart(method, path string, q map[string]string, body map[string]any, disableCache *bool, fileFields ...string) (any, error) {
+	url := c.baseURL + path
+	req := fasthttp.AcquireRequest()
+	resp := fasthttp.AcquireResponse()
+	defer fasthttp.ReleaseRequest(req); defer fasthttp.ReleaseResponse(resp)
+
+	req.SetRequestURI(url)
+	q = c.applyCacheControl(method, q, disableCache)
+	if len(q) > 0 {
+		query := req.URI().QueryArgs()
+		for k, v := range q {
+			if k == "" {
+				continue
+			}
+			query.Set(k, v)
+		}
+	}
+	req.Header.SetMethod(method)
+	if c.token != "" { req.Header.Set("Authorization", "Bearer "+c.token) }
+
+	fileFieldSet := make(map[string]struct{}, len(fileFields))
+	for _, name := range fileFields {
+		fileFieldSet[name] = struct{}{}
+	}
+
+	var payload bytes.Buffer
+	writer := multipart.NewWriter(&payload)
+	for key, value := range body {
+		if value == nil {
+			continue
+		}
+		if _, isFile := fileFieldSet[key]; isFile {
+			if err := writeMultipartFile(writer, key, value); err != nil {
+				return nil, err
+			}
+			continue
+		}
+		if err := writer.WriteField(key, stringifyFormValue(value)); err != nil {
+			return nil, err
+		}
+	}
+	if err := writer.Close(); err != nil {
+		return nil, err
+	}
+	req.Header.Set("Content-Type", writer.FormDataContentType())
+	req.SetBody(payload.Bytes())
 
 	if err := c.cli.DoTimeout(req, resp, 15*time.Second); err != nil {
 		return nil, fmt.Errorf("request failed: %w", err)
@@ -571,10 +686,7 @@ func (api *ImageApi) PostImageCompress(args map[string]any) (any, error) {
 	path := "/api/v1/image/compress"
 	body := make(map[string]any)
 	if v, ok := args["file"]; ok { body["file"] = v }
-	if len(body) == 0 {
-		return api.c.do("POST", path, q, nil, disableCache)
-	}
-	return api.c.do("POST", path, q, body, disableCache)
+	return api.c.doMultipart("POST", path, q, body, disableCache, "file")
 }
 // 解码并缩放图片
 func (api *ImageApi) PostImageDecode(args map[string]any) (any, error) {
@@ -605,10 +717,7 @@ func (api *ImageApi) PostImageDecode(args map[string]any) (any, error) {
 	body := make(map[string]any)
 	if v, ok := args["file"]; ok { body["file"] = v }
 	if v, ok := args["url"]; ok { body["url"] = v }
-	if len(body) == 0 {
-		return api.c.do("POST", path, q, nil, disableCache)
-	}
-	return api.c.do("POST", path, q, body, disableCache)
+	return api.c.doMultipart("POST", path, q, body, disableCache, "file")
 }
 // 通过Base64编码上传图片
 func (api *ImageApi) PostImageFrombase64(args map[string]any) (any, error) {
@@ -657,10 +766,7 @@ func (api *ImageApi) PostImageMotou(args map[string]any) (any, error) {
 	if v, ok := args["bg_color"]; ok { body["bg_color"] = v }
 	if v, ok := args["file"]; ok { body["file"] = v }
 	if v, ok := args["image_url"]; ok { body["image_url"] = v }
-	if len(body) == 0 {
-		return api.c.do("POST", path, q, nil, disableCache)
-	}
-	return api.c.do("POST", path, q, body, disableCache)
+	return api.c.doMultipart("POST", path, q, body, disableCache, "file")
 }
 // 图片敏感检测
 func (api *ImageApi) PostImageNsfw(args map[string]any) (any, error) {
@@ -683,10 +789,7 @@ func (api *ImageApi) PostImageNsfw(args map[string]any) (any, error) {
 	body := make(map[string]any)
 	if v, ok := args["file"]; ok { body["file"] = v }
 	if v, ok := args["url"]; ok { body["url"] = v }
-	if len(body) == 0 {
-		return api.c.do("POST", path, q, nil, disableCache)
-	}
-	return api.c.do("POST", path, q, body, disableCache)
+	return api.c.doMultipart("POST", path, q, body, disableCache, "file")
 }
 // 通用 OCR 文字识别
 func (api *ImageApi) PostImageOcr(args map[string]any) (any, error) {
@@ -714,10 +817,7 @@ func (api *ImageApi) PostImageOcr(args map[string]any) (any, error) {
 	if v, ok := args["need_location"]; ok { body["need_location"] = v }
 	if v, ok := args["return_markdown"]; ok { body["return_markdown"] = v }
 	if v, ok := args["url"]; ok { body["url"] = v }
-	if len(body) == 0 {
-		return api.c.do("POST", path, q, nil, disableCache)
-	}
-	return api.c.do("POST", path, q, body, disableCache)
+	return api.c.doMultipart("POST", path, q, body, disableCache, "file")
 }
 // 生成你们怎么不说话了表情包
 func (api *ImageApi) PostImageSpeechless(args map[string]any) (any, error) {
@@ -769,10 +869,7 @@ func (api *ImageApi) PostImageSvg(args map[string]any) (any, error) {
 	path := "/api/v1/image/svg"
 	body := make(map[string]any)
 	if v, ok := args["file"]; ok { body["file"] = v }
-	if len(body) == 0 {
-		return api.c.do("POST", path, q, nil, disableCache)
-	}
-	return api.c.do("POST", path, q, body, disableCache)
+	return api.c.doMultipart("POST", path, q, body, disableCache, "file")
 }
 type MiscApi struct { c *Client }
 func (c *Client) Misc() *MiscApi { return &MiscApi{c: c} }
