@@ -8,11 +8,10 @@ Name | Type | Description | Notes
 **Url** | Pointer to **string** | 结果链接 | [optional] 
 **Snippet** | Pointer to **string** | 结果摘要/描述 | [optional] 
 **Domain** | Pointer to **string** | 来源域名 | [optional] 
-**Source** | Pointer to **string** | 搜索引擎标识 | [optional] 
+**Source** | Pointer to **string** |  | [optional] 
 **Position** | Pointer to **int32** | 原始排名位置 | [optional] 
-**Score** | Pointer to **float32** | 综合得分 (0-1，经过机器学习排序) | [optional] 
-**PublishTime** | Pointer to **time.Time** | 发布时间 (ISO 8601 格式) | [optional] 
-**Author** | Pointer to **NullableString** | 作者信息 | [optional] 
+**Score** | Pointer to **float32** | 综合得分（0-1，已经过排序） | [optional] 
+**PublishTime** | Pointer to **time.Time** | 发布时间（ISO 8601 格式） | [optional] 
 
 ## Methods
 
@@ -233,41 +232,6 @@ SetPublishTime sets PublishTime field to given value.
 
 HasPublishTime returns a boolean if a field has been set.
 
-### GetAuthor
-
-`func (o *PostSearchAggregate200ResponseResultsInner) GetAuthor() string`
-
-GetAuthor returns the Author field if non-nil, zero value otherwise.
-
-### GetAuthorOk
-
-`func (o *PostSearchAggregate200ResponseResultsInner) GetAuthorOk() (*string, bool)`
-
-GetAuthorOk returns a tuple with the Author field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAuthor
-
-`func (o *PostSearchAggregate200ResponseResultsInner) SetAuthor(v string)`
-
-SetAuthor sets Author field to given value.
-
-### HasAuthor
-
-`func (o *PostSearchAggregate200ResponseResultsInner) HasAuthor() bool`
-
-HasAuthor returns a boolean if a field has been set.
-
-### SetAuthorNil
-
-`func (o *PostSearchAggregate200ResponseResultsInner) SetAuthorNil(b bool)`
-
- SetAuthorNil sets the value for Author to be an explicit nil
-
-### UnsetAuthor
-`func (o *PostSearchAggregate200ResponseResultsInner) UnsetAuthor()`
-
-UnsetAuthor ensures that no value is present for Author, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **DisplayName** | Pointer to **string** | 引擎显示名称 | [optional] 
 **Description** | Pointer to **string** | 引擎描述 | [optional] 
 **Available** | Pointer to **bool** | 引擎是否可用 | [optional] 
-**Version** | Pointer to **string** | 引擎版本号 | [optional] 
+**Version** | Pointer to **string** | 配置版本标识 | [optional] 
 **Features** | Pointer to **[]string** | 支持的特性列表 | [optional] 
 
 ## Methods

@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Query** | Pointer to **string** | 实际执行的搜索查询 | [optional] 
-**TotalResults** | Pointer to **int32** | 搜索结果总数 | [optional] 
+**Query** | Pointer to **string** | 执行的搜索查询 | [optional] 
+**TotalResults** | Pointer to **int32** | 返回的搜索结果总数 | [optional] 
 **Results** | Pointer to [**[]PostSearchAggregate200ResponseResultsInner**](PostSearchAggregate200ResponseResultsInner.md) | 搜索结果列表 | [optional] 
-**Sources** | Pointer to [**[]PostSearchAggregate200ResponseSourcesInner**](PostSearchAggregate200ResponseSourcesInner.md) | 各搜索源的结果统计 | [optional] 
-**ProcessTimeMs** | Pointer to **int32** | 处理耗时（毫秒） | [optional] 
-**Cached** | Pointer to **bool** | 结果是否来自缓存 | [optional] 
+**Sources** | Pointer to [**[]PostSearchAggregate200ResponseSourcesInner**](PostSearchAggregate200ResponseSourcesInner.md) | 本次请求实际命中的搜索引擎信息 | [optional] 
+**ProcessTimeMs** | Pointer to **int32** | 本次请求总耗时（毫秒） | [optional] 
+**Metadata** | Pointer to [**PostSearchAggregate200ResponseMetadata**](PostSearchAggregate200ResponseMetadata.md) |  | [optional] 
 
 ## Methods
 
@@ -155,30 +155,30 @@ SetProcessTimeMs sets ProcessTimeMs field to given value.
 
 HasProcessTimeMs returns a boolean if a field has been set.
 
-### GetCached
+### GetMetadata
 
-`func (o *PostSearchAggregate200Response) GetCached() bool`
+`func (o *PostSearchAggregate200Response) GetMetadata() PostSearchAggregate200ResponseMetadata`
 
-GetCached returns the Cached field if non-nil, zero value otherwise.
+GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
-### GetCachedOk
+### GetMetadataOk
 
-`func (o *PostSearchAggregate200Response) GetCachedOk() (*bool, bool)`
+`func (o *PostSearchAggregate200Response) GetMetadataOk() (*PostSearchAggregate200ResponseMetadata, bool)`
 
-GetCachedOk returns a tuple with the Cached field if it's non-nil, zero value otherwise
+GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCached
+### SetMetadata
 
-`func (o *PostSearchAggregate200Response) SetCached(v bool)`
+`func (o *PostSearchAggregate200Response) SetMetadata(v PostSearchAggregate200ResponseMetadata)`
 
-SetCached sets Cached field to given value.
+SetMetadata sets Metadata field to given value.
 
-### HasCached
+### HasMetadata
 
-`func (o *PostSearchAggregate200Response) HasCached() bool`
+`func (o *PostSearchAggregate200Response) HasMetadata() bool`
 
-HasCached returns a boolean if a field has been set.
+HasMetadata returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

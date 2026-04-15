@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **string** | 密钥，长度必须为16、24或32字节，对应AES-128/192/256。 | 
 **Text** | **string** | Base64编码的密文。 | 
-**Nonce** | **string** | 16字节的IV/Nonce，必须为16个字符 | 
+**Nonce** | Pointer to **string** | 16字节的IV/Nonce，必须为16个字符 | [optional] 
 
 ## Methods
 
 ### NewPostTextAesDecryptRequest
 
-`func NewPostTextAesDecryptRequest(key string, text string, nonce string, ) *PostTextAesDecryptRequest`
+`func NewPostTextAesDecryptRequest(key string, text string, ) *PostTextAesDecryptRequest`
 
 NewPostTextAesDecryptRequest instantiates a new PostTextAesDecryptRequest object
 This constructor will assign default values to properties that have it defined,
@@ -86,6 +86,11 @@ and a boolean to check if the value has been set.
 
 SetNonce sets Nonce field to given value.
 
+### HasNonce
+
+`func (o *PostTextAesDecryptRequest) HasNonce() bool`
+
+HasNonce returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

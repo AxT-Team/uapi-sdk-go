@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Age** | Pointer to **int32** | 年龄 | [optional] 
 **Sex** | Pointer to **string** | 性别 | [optional] 
 **Qid** | Pointer to **string** | QQ个性域名 | [optional] 
-**QqLevel** | Pointer to **int32** | QQ等级 | [optional] 
+**QqLevel** | Pointer to **NullableInt32** | QQ等级。用户隐藏时返回 null | [optional] 
 **Location** | Pointer to **string** | 地理位置（省市） | [optional] 
 **Email** | Pointer to **string** | QQ邮箱 | [optional] 
 **IsVip** | Pointer to **bool** | 是否为VIP用户 | [optional] 
@@ -238,6 +238,16 @@ SetQqLevel sets QqLevel field to given value.
 
 HasQqLevel returns a boolean if a field has been set.
 
+### SetQqLevelNil
+
+`func (o *GetSocialQqUserinfo200Response) SetQqLevelNil(b bool)`
+
+ SetQqLevelNil sets the value for QqLevel to be an explicit nil
+
+### UnsetQqLevel
+`func (o *GetSocialQqUserinfo200Response) UnsetQqLevel()`
+
+UnsetQqLevel ensures that no value is present for QqLevel, not even an explicit nil
 ### GetLocation
 
 `func (o *GetSocialQqUserinfo200Response) GetLocation() string`

@@ -173,7 +173,7 @@ import (
 
 func main() {
 	ip := "cn.bing.com" // string | 你需要查询的公网IP地址或域名（支持IPv4和IPv6）。
-	source := "source_example" // string | 查询的数据源。如果留空，将使用默认的数据库。如果设置为 `commercial`，将调用商业级API，返回更详细的地理位置信息，但响应时间可能会稍长。 (optional)
+	source := "source_example" // string | 查询结果类型。不传时返回标准结果；如果设置为 `commercial`，将返回更完整的地理位置信息，但响应时间可能会稍长。 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -199,7 +199,7 @@ Other parameters are passed through a pointer to a apiGetNetworkIpinfoRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ip** | **string** | 你需要查询的公网IP地址或域名（支持IPv4和IPv6）。 | 
- **source** | **string** | 查询的数据源。如果留空，将使用默认的数据库。如果设置为 &#x60;commercial&#x60;，将调用商业级API，返回更详细的地理位置信息，但响应时间可能会稍长。 | 
+ **source** | **string** | 查询结果类型。不传时返回标准结果；如果设置为 &#x60;commercial&#x60;，将返回更完整的地理位置信息，但响应时间可能会稍长。 | 
 
 ### Return type
 
@@ -240,7 +240,7 @@ import (
 )
 
 func main() {
-	source := "source_example" // string | 查询的数据源。如果留空，将使用默认的数据库。如果设置为 `commercial`，将调用商业级API，返回更详细的地理位置信息，但响应时间可能会稍长。 (optional)
+	source := "source_example" // string | 查询结果类型。不传时返回标准结果；如果设置为 `commercial`，将返回更完整的地理位置信息，但响应时间可能会稍长。 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -265,7 +265,7 @@ Other parameters are passed through a pointer to a apiGetNetworkMyipRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source** | **string** | 查询的数据源。如果留空，将使用默认的数据库。如果设置为 &#x60;commercial&#x60;，将调用商业级API，返回更详细的地理位置信息，但响应时间可能会稍长。 | 
+ **source** | **string** | 查询结果类型。不传时返回标准结果；如果设置为 &#x60;commercial&#x60;，将返回更完整的地理位置信息，但响应时间可能会稍长。 | 
 
 ### Return type
 

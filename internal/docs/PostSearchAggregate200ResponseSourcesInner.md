@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** |  | [optional] 
-**Status** | Pointer to **string** |  | [optional] 
-**ResultCount** | Pointer to **int32** |  | [optional] 
-**ElapsedMs** | Pointer to **int32** |  | [optional] 
-**FirstResultHost** | Pointer to **string** |  | [optional] 
+**Name** | Pointer to **string** | 搜索引擎版本 | [optional] 
+**Status** | Pointer to **string** | 本次搜索引擎调用状态 | [optional] 
+**ResultCount** | Pointer to **int32** | 该搜索引擎返回的结果数 | [optional] 
+**ElapsedMs** | Pointer to **int32** | 该搜索引擎的耗时（毫秒） | [optional] 
+**FirstResultHost** | Pointer to **string** | 该搜索源首条结果的域名 | [optional] 
 
 ## Methods
 

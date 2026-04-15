@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **City** | Pointer to **string** |  | [optional] 
 **Province** | Pointer to **string** |  | [optional] 
-**Sp** | Pointer to **string** | 运营商 (Service Provider) 名称。 | [optional] 
+**Sp** | Pointer to **string** | 运营商名称。 | [optional] 
 
 ## Methods
 

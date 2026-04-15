@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | Pointer to **string** |  | [optional] 
 **Message** | Pointer to **string** |  | [optional] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] 
 
 ## Methods
 
@@ -76,31 +75,6 @@ SetMessage sets Message field to given value.
 `func (o *PostSearchAggregate401Response) HasMessage() bool`
 
 HasMessage returns a boolean if a field has been set.
-
-### GetTimestamp
-
-`func (o *PostSearchAggregate401Response) GetTimestamp() time.Time`
-
-GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
-
-### GetTimestampOk
-
-`func (o *PostSearchAggregate401Response) GetTimestampOk() (*time.Time, bool)`
-
-GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTimestamp
-
-`func (o *PostSearchAggregate401Response) SetTimestamp(v time.Time)`
-
-SetTimestamp sets Timestamp field to given value.
-
-### HasTimestamp
-
-`func (o *PostSearchAggregate401Response) HasTimestamp() bool`
-
-HasTimestamp returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

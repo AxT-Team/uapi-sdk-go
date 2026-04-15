@@ -5,6 +5,7 @@ All URIs are relative to *https://uapis.cn/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetGithubRepo**](SocialAPI.md#GetGithubRepo) | **Get** /github/repo | 查询 GitHub 仓库
+[**GetGithubUser**](SocialAPI.md#GetGithubUser) | **Get** /github/user | 查询 GitHub 用户信息
 [**GetSocialBilibiliArchives**](SocialAPI.md#GetSocialBilibiliArchives) | **Get** /social/bilibili/archives | 查询 B站投稿
 [**GetSocialBilibiliLiveroom**](SocialAPI.md#GetSocialBilibiliLiveroom) | **Get** /social/bilibili/liveroom | 查询 B站直播间
 [**GetSocialBilibiliReplies**](SocialAPI.md#GetSocialBilibiliReplies) | **Get** /social/bilibili/replies | 查询 B站评论
@@ -66,6 +67,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetGithubRepo200Response**](GetGithubRepo200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetGithubUser
+
+> GetGithubUser200Response GetGithubUser(ctx).User(user).Activity(activity).ActivityScope(activityScope).Org(org).Execute()
+
+查询 GitHub 用户信息
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	user := "torvalds" // string | GitHub 用户名（必需符合 GitHub 命名规范：仅限字母、数字、连字符，最长 39 位）。
+	activity := true // bool | 是否获取最近一年的贡献活动数据（如贡献图、时间线）。传入 true 开启，其他值均视为不开启。 (optional) (default to false)
+	activityScope := "activityScope_example" // string | 活动数据范围。可选 all 或 organization。只有开启 activity 时才有意义。 (optional) (default to "all")
+	org := "org_example" // string | 组织登录名。如果传入此参数，会自动视为开启 organization 级别的贡献查询，切勿再同时传 activity_scope=all。 (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SocialAPI.GetGithubUser(context.Background()).User(user).Activity(activity).ActivityScope(activityScope).Org(org).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SocialAPI.GetGithubUser``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetGithubUser`: GetGithubUser200Response
+	fmt.Fprintf(os.Stdout, "Response from `SocialAPI.GetGithubUser`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetGithubUserRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user** | **string** | GitHub 用户名（必需符合 GitHub 命名规范：仅限字母、数字、连字符，最长 39 位）。 | 
+ **activity** | **bool** | 是否获取最近一年的贡献活动数据（如贡献图、时间线）。传入 true 开启，其他值均视为不开启。 | [default to false]
+ **activityScope** | **string** | 活动数据范围。可选 all 或 organization。只有开启 activity 时才有意义。 | [default to &quot;all&quot;]
+ **org** | **string** | 组织登录名。如果传入此参数，会自动视为开启 organization 级别的贡献查询，切勿再同时传 activity_scope&#x3D;all。 | 
+
+### Return type
+
+[**GetGithubUser200Response**](GetGithubUser200Response.md)
 
 ### Authorization
 

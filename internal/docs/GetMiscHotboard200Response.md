@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **Keyword** | Pointer to **string** | 搜索关键词。 | [optional] 
 **Count** | Pointer to **int32** | 匹配到的结果数量。 | [optional] 
 **Results** | Pointer to [**[]GetMiscHotboard200ResponseOneOf1ResultsInner**](GetMiscHotboard200ResponseOneOf1ResultsInner.md) | 搜索结果数组。 | [optional] 
-**Sources** | Pointer to **[]string** | 支持历史数据的平台列表。 | [optional] 
 
 ## Methods
 
@@ -206,31 +205,6 @@ SetResults sets Results field to given value.
 `func (o *GetMiscHotboard200Response) HasResults() bool`
 
 HasResults returns a boolean if a field has been set.
-
-### GetSources
-
-`func (o *GetMiscHotboard200Response) GetSources() []string`
-
-GetSources returns the Sources field if non-nil, zero value otherwise.
-
-### GetSourcesOk
-
-`func (o *GetMiscHotboard200Response) GetSourcesOk() (*[]string, bool)`
-
-GetSourcesOk returns a tuple with the Sources field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSources
-
-`func (o *GetMiscHotboard200Response) SetSources(v []string)`
-
-SetSources sets Sources field to given value.
-
-### HasSources
-
-`func (o *GetMiscHotboard200Response) HasSources() bool`
-
-HasSources returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

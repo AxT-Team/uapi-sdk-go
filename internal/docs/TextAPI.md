@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**PostTextBase64Decode**](TextAPI.md#PostTextBase64Decode) | **Post** /text/base64/decode | Base64 解码
 [**PostTextBase64Encode**](TextAPI.md#PostTextBase64Encode) | **Post** /text/base64/encode | Base64 编码
 [**PostTextConvert**](TextAPI.md#PostTextConvert) | **Post** /text/convert | 格式转换
+[**PostTextMarkdownToHtml**](TextAPI.md#PostTextMarkdownToHtml) | **Post** /text/markdown-to-html | Markdown 转 HTML
+[**PostTextMarkdownToPdf**](TextAPI.md#PostTextMarkdownToPdf) | **Post** /text/markdown-to-pdf | Markdown 转 PDF
 [**PostTextMd5**](TextAPI.md#PostTextMd5) | **Post** /text/md5 | MD5 哈希 (POST)
 [**PostTextMd5Verify**](TextAPI.md#PostTextMd5Verify) | **Post** /text/md5/verify | MD5 校验
 
@@ -105,7 +107,7 @@ import (
 )
 
 func main() {
-	postTextAesDecryptRequest := *openapiclient.NewPostTextAesDecryptRequest("a-secret-key-123", "uyzVKczxZi3HdoGfeuaAt4F2/20WSmwFzIhJWMmDIaxeu97nLqbsX3wdp+NnRw==", "1234567890abcdef") // PostTextAesDecryptRequest | 
+	postTextAesDecryptRequest := *openapiclient.NewPostTextAesDecryptRequest("a-secret-key-123", "uyzVKczxZi3HdoGfeuaAt4F2/20WSmwFzIhJWMmDIaxeu97nLqbsX3wdp+NnRw==") // PostTextAesDecryptRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -607,6 +609,224 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PostTextMarkdownToHtml
+
+> PostTextMarkdownToHtml200Response PostTextMarkdownToHtml(ctx).PostTextMarkdownToHtmlRequest(postTextMarkdownToHtmlRequest).Execute()
+
+Markdown 转 HTML
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	postTextMarkdownToHtmlRequest := *openapiclient.NewPostTextMarkdownToHtmlRequest("# 咖啡
+
+**咖啡**（英语：*coffee*）是指将咖啡植物的种子（即[咖啡豆](https://baike.baidu.com/item/%E5%92%96%E5%95%A1%E8%B1%86/13579425)）经过烘焙磨粉后冲泡溶解制成的饮料，是世界上流行范围最为广泛的软性饮料之一。
+
+> 野生咖啡原产于非洲和亚洲的热带地区，现今，未经烘焙的生咖啡豆作为世界上最大的出口农产品，有超过70个国家种植咖啡树。
+
+![咖啡图片](https://images.unsplash.com/photo-1534234757579-8ad69d218ad4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+
+## 营养价值 (每100克)
+
+| 营养成分 | 含量 | 每日参考摄入量 (DRI) |
+| :--- | :--- | :--- |
+| 热量 | 2 kJ (0.48 kcal) | - |
+| 咖啡因 | 40 mg | - |
+| 核黄素 (维生素B2) | 0.076 mg | 6% |
+| 镁 | 3 mg | 1% |
+| 钾 | 49 mg | 1% |
+
+## 咖啡制作工序
+
+咖啡从果实到杯中的饮品，需要经过严谨的步骤：
+
+- [x] **采收**：有机械采收和人工采收两种方式。
+- [x] **加工**：去除水果层，干燥到合适含水量（水洗法、日晒法、蜜处理等）。
+- [ ] **烘焙**：生豆水分释放、体积膨胀。分为浅焙、中焙、深焙。
+
+## 冲煮与萃取
+
+所有的咖啡都是由磨好的咖啡粉和热水制出的。常见的分类包括：
+
+1. **滴滤法**：如手冲咖啡。水与咖啡粉接触的机会只有一次。
+2. **压力法**：如意式浓缩咖啡（Espresso），以8～9个大气压的力道萃取。
+3. **浸泡法**：如冷泡咖啡，将研磨后的咖啡豆置于盛有冷水的玻璃瓶中静置。
+
+## 相关技术协议
+
+在计算机网络中，甚至有一个专门用于控制咖啡壶的协议（超文本咖啡壶控制协议，HTCPCP）：
+
+```http
+BREW /pot-1/coffee HTCPCP/1.0
+Host: coffee-pot.local
+Content-Type: message/coffeepot
+Accept-Additions: cream, whole-milk
+```") // PostTextMarkdownToHtmlRequest | 请求体使用 `application/json`。`text` 必填；`format` 和 `sanitize` 可选。
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TextAPI.PostTextMarkdownToHtml(context.Background()).PostTextMarkdownToHtmlRequest(postTextMarkdownToHtmlRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TextAPI.PostTextMarkdownToHtml``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostTextMarkdownToHtml`: PostTextMarkdownToHtml200Response
+	fmt.Fprintf(os.Stdout, "Response from `TextAPI.PostTextMarkdownToHtml`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostTextMarkdownToHtmlRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postTextMarkdownToHtmlRequest** | [**PostTextMarkdownToHtmlRequest**](PostTextMarkdownToHtmlRequest.md) | 请求体使用 &#x60;application/json&#x60;。&#x60;text&#x60; 必填；&#x60;format&#x60; 和 &#x60;sanitize&#x60; 可选。 | 
+
+### Return type
+
+[**PostTextMarkdownToHtml200Response**](PostTextMarkdownToHtml200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PostTextMarkdownToPdf
+
+> *os.File PostTextMarkdownToPdf(ctx).PostTextMarkdownToPdfRequest(postTextMarkdownToPdfRequest).Execute()
+
+Markdown 转 PDF
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	postTextMarkdownToPdfRequest := *openapiclient.NewPostTextMarkdownToPdfRequest("# 咖啡
+
+**咖啡**（英语：*coffee*）是指将咖啡植物的种子（即[咖啡豆](https://baike.baidu.com/item/%E5%92%96%E5%95%A1%E8%B1%86/13579425)）经过烘焙磨粉后冲泡溶解制成的饮料，是世界上流行范围最为广泛的软性饮料之一。
+
+> 野生咖啡原产于非洲和亚洲的热带地区，现今，未经烘焙的生咖啡豆作为世界上最大的出口农产品，有超过70个国家种植咖啡树。
+
+![咖啡图片](https://images.unsplash.com/photo-1534234757579-8ad69d218ad4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+
+## 营养价值 (每100克)
+
+| 营养成分 | 含量 | 每日参考摄入量 (DRI) |
+| :--- | :--- | :--- |
+| 热量 | 2 kJ (0.48 kcal) | - |
+| 咖啡因 | 40 mg | - |
+| 核黄素 (维生素B2) | 0.076 mg | 6% |
+| 镁 | 3 mg | 1% |
+| 钾 | 49 mg | 1% |
+
+## 咖啡制作工序
+
+咖啡从果实到杯中的饮品，需要经过严谨的步骤：
+
+- [x] **采收**：有机械采收和人工采收两种方式。
+- [x] **加工**：去除水果层，干燥到合适含水量（水洗法、日晒法、蜜处理等）。
+- [ ] **烘焙**：生豆水分释放、体积膨胀。分为浅焙、中焙、深焙。
+
+## 冲煮与萃取
+
+所有的咖啡都是由磨好的咖啡粉和热水制出的。常见的分类包括：
+
+1. **滴滤法**：如手冲咖啡。水与咖啡粉接触的机会只有一次。
+2. **压力法**：如意式浓缩咖啡（Espresso），以8～9个大气压的力道萃取。
+3. **浸泡法**：如冷泡咖啡，将研磨后的咖啡豆置于盛有冷水的玻璃瓶中静置。
+
+## 相关技术协议
+
+在计算机网络中，甚至有一个专门用于控制咖啡壶的协议（超文本咖啡壶控制协议，HTCPCP）：
+
+```http
+BREW /pot-1/coffee HTCPCP/1.0
+Host: coffee-pot.local
+Content-Type: message/coffeepot
+Accept-Additions: cream, whole-milk
+```") // PostTextMarkdownToPdfRequest | 请求体使用 `application/json`。`text` 必填，`theme` 和 `paper_size` 可选。
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.TextAPI.PostTextMarkdownToPdf(context.Background()).PostTextMarkdownToPdfRequest(postTextMarkdownToPdfRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `TextAPI.PostTextMarkdownToPdf``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PostTextMarkdownToPdf`: *os.File
+	fmt.Fprintf(os.Stdout, "Response from `TextAPI.PostTextMarkdownToPdf`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPostTextMarkdownToPdfRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **postTextMarkdownToPdfRequest** | [**PostTextMarkdownToPdfRequest**](PostTextMarkdownToPdfRequest.md) | 请求体使用 &#x60;application/json&#x60;。&#x60;text&#x60; 必填，&#x60;theme&#x60; 和 &#x60;paper_size&#x60; 可选。 | 
+
+### Return type
+
+[***os.File**](*os.File.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/pdf, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

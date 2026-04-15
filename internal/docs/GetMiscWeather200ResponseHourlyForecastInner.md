@@ -12,10 +12,7 @@ Name | Type | Description | Notes
 **WindScale** | Pointer to **string** | 风力等级（可选） | [optional] 
 **Humidity** | Pointer to **float32** | 湿度 %（可选） | [optional] 
 **Precip** | Pointer to **float32** | 降水量 mm（可选） | [optional] 
-**Pressure** | Pointer to **float32** | 气压 hPa（可选） | [optional] 
-**Cloud** | Pointer to **float32** | 云量 %（可选） | [optional] 
 **FeelsLike** | Pointer to **float32** | 体感温度 °C（可选） | [optional] 
-**DewPoint** | Pointer to **float32** | 露点温度 °C（可选） | [optional] 
 **Visibility** | Pointer to **float32** | 能见度 km（可选） | [optional] 
 **Pop** | Pointer to **float32** | 降水概率 %（可选） | [optional] 
 **UvIndex** | Pointer to **float32** | 紫外线指数（可选，国内城市通常不返回） | [optional] 
@@ -239,56 +236,6 @@ SetPrecip sets Precip field to given value.
 
 HasPrecip returns a boolean if a field has been set.
 
-### GetPressure
-
-`func (o *GetMiscWeather200ResponseHourlyForecastInner) GetPressure() float32`
-
-GetPressure returns the Pressure field if non-nil, zero value otherwise.
-
-### GetPressureOk
-
-`func (o *GetMiscWeather200ResponseHourlyForecastInner) GetPressureOk() (*float32, bool)`
-
-GetPressureOk returns a tuple with the Pressure field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPressure
-
-`func (o *GetMiscWeather200ResponseHourlyForecastInner) SetPressure(v float32)`
-
-SetPressure sets Pressure field to given value.
-
-### HasPressure
-
-`func (o *GetMiscWeather200ResponseHourlyForecastInner) HasPressure() bool`
-
-HasPressure returns a boolean if a field has been set.
-
-### GetCloud
-
-`func (o *GetMiscWeather200ResponseHourlyForecastInner) GetCloud() float32`
-
-GetCloud returns the Cloud field if non-nil, zero value otherwise.
-
-### GetCloudOk
-
-`func (o *GetMiscWeather200ResponseHourlyForecastInner) GetCloudOk() (*float32, bool)`
-
-GetCloudOk returns a tuple with the Cloud field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCloud
-
-`func (o *GetMiscWeather200ResponseHourlyForecastInner) SetCloud(v float32)`
-
-SetCloud sets Cloud field to given value.
-
-### HasCloud
-
-`func (o *GetMiscWeather200ResponseHourlyForecastInner) HasCloud() bool`
-
-HasCloud returns a boolean if a field has been set.
-
 ### GetFeelsLike
 
 `func (o *GetMiscWeather200ResponseHourlyForecastInner) GetFeelsLike() float32`
@@ -313,31 +260,6 @@ SetFeelsLike sets FeelsLike field to given value.
 `func (o *GetMiscWeather200ResponseHourlyForecastInner) HasFeelsLike() bool`
 
 HasFeelsLike returns a boolean if a field has been set.
-
-### GetDewPoint
-
-`func (o *GetMiscWeather200ResponseHourlyForecastInner) GetDewPoint() float32`
-
-GetDewPoint returns the DewPoint field if non-nil, zero value otherwise.
-
-### GetDewPointOk
-
-`func (o *GetMiscWeather200ResponseHourlyForecastInner) GetDewPointOk() (*float32, bool)`
-
-GetDewPointOk returns a tuple with the DewPoint field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDewPoint
-
-`func (o *GetMiscWeather200ResponseHourlyForecastInner) SetDewPoint(v float32)`
-
-SetDewPoint sets DewPoint field to given value.
-
-### HasDewPoint
-
-`func (o *GetMiscWeather200ResponseHourlyForecastInner) HasDewPoint() bool`
-
-HasDewPoint returns a boolean if a field has been set.
 
 ### GetVisibility
 

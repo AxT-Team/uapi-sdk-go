@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **Site** | Pointer to **string** | 限制搜索特定网站，不需要 &#x60;site:&#x60; 前缀 | [optional] 
 **Filetype** | Pointer to **string** | 限制文件类型，不需要 &#x60;filetype:&#x60; 前缀。支持 pdf、doc、docx、ppt、pptx、xls、xlsx、txt 等 | [optional] 
 **FetchFull** | Pointer to **bool** | 是否获取页面完整正文（会影响响应时间） | [optional] [default to false]
-**TimeoutMs** | Pointer to **int32** | 请求超时时间（毫秒），范围 1000-30000 | [optional] [default to 8000]
 **Sort** | Pointer to **string** | 排序方式 | [optional] [default to "relevance"]
 **TimeRange** | Pointer to **string** | 时间范围过滤 | [optional] 
 
@@ -125,31 +124,6 @@ SetFetchFull sets FetchFull field to given value.
 `func (o *PostSearchAggregateRequest) HasFetchFull() bool`
 
 HasFetchFull returns a boolean if a field has been set.
-
-### GetTimeoutMs
-
-`func (o *PostSearchAggregateRequest) GetTimeoutMs() int32`
-
-GetTimeoutMs returns the TimeoutMs field if non-nil, zero value otherwise.
-
-### GetTimeoutMsOk
-
-`func (o *PostSearchAggregateRequest) GetTimeoutMsOk() (*int32, bool)`
-
-GetTimeoutMsOk returns a tuple with the TimeoutMs field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTimeoutMs
-
-`func (o *PostSearchAggregateRequest) SetTimeoutMs(v int32)`
-
-SetTimeoutMs sets TimeoutMs field to given value.
-
-### HasTimeoutMs
-
-`func (o *PostSearchAggregateRequest) HasTimeoutMs() bool`
-
-HasTimeoutMs returns a boolean if a field has been set.
 
 ### GetSort
 

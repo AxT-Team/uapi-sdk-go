@@ -231,7 +231,7 @@ No authorization required
 
 ## GetMiscHolidayCalendar
 
-> GetMiscHolidayCalendar200Response GetMiscHolidayCalendar(ctx).Date(date).Month(month).Year(year).Timezone(timezone).HolidayType(holidayType).IncludeNearby(includeNearby).NearbyLimit(nearbyLimit).Execute()
+> GetMiscHolidayCalendar200Response GetMiscHolidayCalendar(ctx).Date(date).Month(month).Year(year).Timezone(timezone).HolidayType(holidayType).IncludeNearby(includeNearby).NearbyLimit(nearbyLimit).ExcludePast(excludePast).Execute()
 
 查询节假日与万年历
 
@@ -257,10 +257,11 @@ func main() {
 	holidayType := "legal" // string | 节日筛选类型，默认 all。 (optional) (default to "all")
 	includeNearby := true // bool | 是否返回前后最近节日，仅 date 模式生效，默认 false。month/year 模式会忽略此参数。 (optional) (default to false)
 	nearbyLimit := int32(7) // int32 | 返回最近节日数量限制，默认 7，最大 30。仅 date 模式 + include_nearby=true 生效。 (optional) (default to 7)
+	excludePast := true // bool | 传 true 时，会过滤今天之前已经过去的节日。默认 false。 (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MiscAPI.GetMiscHolidayCalendar(context.Background()).Date(date).Month(month).Year(year).Timezone(timezone).HolidayType(holidayType).IncludeNearby(includeNearby).NearbyLimit(nearbyLimit).Execute()
+	resp, r, err := apiClient.MiscAPI.GetMiscHolidayCalendar(context.Background()).Date(date).Month(month).Year(year).Timezone(timezone).HolidayType(holidayType).IncludeNearby(includeNearby).NearbyLimit(nearbyLimit).ExcludePast(excludePast).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.GetMiscHolidayCalendar``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -288,6 +289,7 @@ Name | Type | Description  | Notes
  **holidayType** | **string** | 节日筛选类型，默认 all。 | [default to &quot;all&quot;]
  **includeNearby** | **bool** | 是否返回前后最近节日，仅 date 模式生效，默认 false。month/year 模式会忽略此参数。 | [default to false]
  **nearbyLimit** | **int32** | 返回最近节日数量限制，默认 7，最大 30。仅 date 模式 + include_nearby&#x3D;true 生效。 | [default to 7]
+ **excludePast** | **bool** | 传 true 时，会过滤今天之前已经过去的节日。默认 false。 | [default to false]
 
 ### Return type
 
@@ -309,7 +311,7 @@ No authorization required
 
 ## GetMiscHotboard
 
-> GetMiscHotboard200Response GetMiscHotboard(ctx).Type_(type_).Time(time).Keyword(keyword).TimeStart(timeStart).TimeEnd(timeEnd).Limit(limit).Sources(sources).Execute()
+> GetMiscHotboard200Response GetMiscHotboard(ctx).Type_(type_).Time(time).Keyword(keyword).TimeStart(timeStart).TimeEnd(timeEnd).Limit(limit).Execute()
 
 查询热榜
 
@@ -334,11 +336,10 @@ func main() {
 	timeStart := int64(789) // int64 | 搜索模式必填：搜索起始时间戳（毫秒）。 (optional)
 	timeEnd := int64(789) // int64 | 搜索模式必填：搜索结束时间戳（毫秒）。 (optional)
 	limit := int32(56) // int32 | 搜索模式下最大返回条数，默认 50，最大 200。 (optional)
-	sources := true // bool | 设为 true 时列出所有可用的历史数据源，忽略其他参数。 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MiscAPI.GetMiscHotboard(context.Background()).Type_(type_).Time(time).Keyword(keyword).TimeStart(timeStart).TimeEnd(timeEnd).Limit(limit).Sources(sources).Execute()
+	resp, r, err := apiClient.MiscAPI.GetMiscHotboard(context.Background()).Type_(type_).Time(time).Keyword(keyword).TimeStart(timeStart).TimeEnd(timeEnd).Limit(limit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.GetMiscHotboard``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -365,7 +366,6 @@ Name | Type | Description  | Notes
  **timeStart** | **int64** | 搜索模式必填：搜索起始时间戳（毫秒）。 | 
  **timeEnd** | **int64** | 搜索模式必填：搜索结束时间戳（毫秒）。 | 
  **limit** | **int32** | 搜索模式下最大返回条数，默认 50，最大 200。 | 
- **sources** | **bool** | 设为 true 时列出所有可用的历史数据源，忽略其他参数。 | 
 
 ### Return type
 
@@ -790,7 +790,7 @@ No authorization required
 
 ## GetMiscTrackingQuery
 
-> GetMiscTrackingQuery200Response GetMiscTrackingQuery(ctx).TrackingNumber(trackingNumber).CarrierCode(carrierCode).Phone(phone).Execute()
+> GetMiscTrackingQuery200Response GetMiscTrackingQuery(ctx).TrackingNumber(trackingNumber).CarrierCode(carrierCode).Phone(phone).Full(full).Execute()
 
 查询快递物流信息
 
@@ -812,10 +812,11 @@ func main() {
 	trackingNumber := "YT1234567890123" // string | 快递单号，通常是一串10-20位的数字或字母数字组合。
 	carrierCode := "carrierCode_example" // string | 快递公司编码（可选）。不填写时系统会自动识别，填写后可加快查询速度。 (optional)
 	phone := "phone_example" // string | 收件人手机尾号，4位数字（可选）。部分快递公司需要验证手机尾号才能查询详细物流信息。 (optional)
+	full := true // bool | 使用这个参数可以获得完整的物流信息。但会消耗34积分/一次（不过缓存命中半价）。因为成本实在太贵了，否则非常非常亏说是 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MiscAPI.GetMiscTrackingQuery(context.Background()).TrackingNumber(trackingNumber).CarrierCode(carrierCode).Phone(phone).Execute()
+	resp, r, err := apiClient.MiscAPI.GetMiscTrackingQuery(context.Background()).TrackingNumber(trackingNumber).CarrierCode(carrierCode).Phone(phone).Full(full).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.GetMiscTrackingQuery``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -839,6 +840,7 @@ Name | Type | Description  | Notes
  **trackingNumber** | **string** | 快递单号，通常是一串10-20位的数字或字母数字组合。 | 
  **carrierCode** | **string** | 快递公司编码（可选）。不填写时系统会自动识别，填写后可加快查询速度。 | 
  **phone** | **string** | 收件人手机尾号，4位数字（可选）。部分快递公司需要验证手机尾号才能查询详细物流信息。 | 
+ **full** | **bool** | 使用这个参数可以获得完整的物流信息。但会消耗34积分/一次（不过缓存命中半价）。因为成本实在太贵了，否则非常非常亏说是 | 
 
 ### Return type
 

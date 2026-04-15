@@ -433,10 +433,13 @@ func (api *ImageApi) GetAvatarGravatar(args map[string]any) (any, error) {
 	path := "/api/v1/avatar/gravatar"
 	return api.c.do("GET", path, q, nil, disableCache)
 }
-// 必应壁纸
+// 获取必应每日壁纸
 func (api *ImageApi) GetImageBingDaily(args map[string]any) (any, error) {
 	q := map[string]string{}
 	var disableCache *bool
+	if v, ok := args["date"]; ok { q["date"] = fmt.Sprint(v) }
+	if v, ok := args["resolution"]; ok { q["resolution"] = fmt.Sprint(v) }
+	if v, ok := args["format"]; ok { q["format"] = fmt.Sprint(v) }
 	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
 	if v, ok := args["disableCache"]; ok {
 		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
@@ -451,6 +454,30 @@ func (api *ImageApi) GetImageBingDaily(args map[string]any) (any, error) {
 		}
 	}
 	path := "/api/v1/image/bing-daily"
+	return api.c.do("GET", path, q, nil, disableCache)
+}
+// 查询必应壁纸历史
+func (api *ImageApi) GetImageBingDailyHistory(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["date"]; ok { q["date"] = fmt.Sprint(v) }
+	if v, ok := args["resolution"]; ok { q["resolution"] = fmt.Sprint(v) }
+	if v, ok := args["page"]; ok { q["page"] = fmt.Sprint(v) }
+	if v, ok := args["page_size"]; ok { q["page_size"] = fmt.Sprint(v) }
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/image/bing-daily/history"
 	return api.c.do("GET", path, q, nil, disableCache)
 }
 // 生成摸摸头GIF (QQ号)
@@ -549,6 +576,40 @@ func (api *ImageApi) PostImageCompress(args map[string]any) (any, error) {
 	}
 	return api.c.do("POST", path, q, body, disableCache)
 }
+// 解码并缩放图片
+func (api *ImageApi) PostImageDecode(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["width"]; ok { q["width"] = fmt.Sprint(v) }
+	if v, ok := args["height"]; ok { q["height"] = fmt.Sprint(v) }
+	if v, ok := args["max_width"]; ok { q["max_width"] = fmt.Sprint(v) }
+	if v, ok := args["max_height"]; ok { q["max_height"] = fmt.Sprint(v) }
+	if v, ok := args["format"]; ok { q["format"] = fmt.Sprint(v) }
+	if v, ok := args["color_mode"]; ok { q["color_mode"] = fmt.Sprint(v) }
+	if v, ok := args["fit"]; ok { q["fit"] = fmt.Sprint(v) }
+	if v, ok := args["background"]; ok { q["background"] = fmt.Sprint(v) }
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/image/decode"
+	body := make(map[string]any)
+	if v, ok := args["file"]; ok { body["file"] = v }
+	if v, ok := args["url"]; ok { body["url"] = v }
+	if len(body) == 0 {
+		return api.c.do("POST", path, q, nil, disableCache)
+	}
+	return api.c.do("POST", path, q, body, disableCache)
+}
 // 通过Base64编码上传图片
 func (api *ImageApi) PostImageFrombase64(args map[string]any) (any, error) {
 	q := map[string]string{}
@@ -621,6 +682,37 @@ func (api *ImageApi) PostImageNsfw(args map[string]any) (any, error) {
 	path := "/api/v1/image/nsfw"
 	body := make(map[string]any)
 	if v, ok := args["file"]; ok { body["file"] = v }
+	if v, ok := args["url"]; ok { body["url"] = v }
+	if len(body) == 0 {
+		return api.c.do("POST", path, q, nil, disableCache)
+	}
+	return api.c.do("POST", path, q, body, disableCache)
+}
+// 通用 OCR 文字识别
+func (api *ImageApi) PostImageOcr(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/image/ocr"
+	body := make(map[string]any)
+	if v, ok := args["enable_cls"]; ok { body["enable_cls"] = v }
+	if v, ok := args["file"]; ok { body["file"] = v }
+	if v, ok := args["image_base64"]; ok { body["image_base64"] = v }
+	if v, ok := args["image_name"]; ok { body["image_name"] = v }
+	if v, ok := args["need_location"]; ok { body["need_location"] = v }
+	if v, ok := args["return_markdown"]; ok { body["return_markdown"] = v }
 	if v, ok := args["url"]; ok { body["url"] = v }
 	if len(body) == 0 {
 		return api.c.do("POST", path, q, nil, disableCache)
@@ -764,6 +856,7 @@ func (api *MiscApi) GetMiscHolidayCalendar(args map[string]any) (any, error) {
 	if v, ok := args["holiday_type"]; ok { q["holiday_type"] = fmt.Sprint(v) }
 	if v, ok := args["include_nearby"]; ok { q["include_nearby"] = fmt.Sprint(v) }
 	if v, ok := args["nearby_limit"]; ok { q["nearby_limit"] = fmt.Sprint(v) }
+	if v, ok := args["exclude_past"]; ok { q["exclude_past"] = fmt.Sprint(v) }
 	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
 	if v, ok := args["disableCache"]; ok {
 		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
@@ -790,7 +883,6 @@ func (api *MiscApi) GetMiscHotboard(args map[string]any) (any, error) {
 	if v, ok := args["time_start"]; ok { q["time_start"] = fmt.Sprint(v) }
 	if v, ok := args["time_end"]; ok { q["time_end"] = fmt.Sprint(v) }
 	if v, ok := args["limit"]; ok { q["limit"] = fmt.Sprint(v) }
-	if v, ok := args["sources"]; ok { q["sources"] = fmt.Sprint(v) }
 	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
 	if v, ok := args["disableCache"]; ok {
 		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
@@ -945,6 +1037,7 @@ func (api *MiscApi) GetMiscTrackingQuery(args map[string]any) (any, error) {
 	if v, ok := args["tracking_number"]; ok { q["tracking_number"] = fmt.Sprint(v) }
 	if v, ok := args["carrier_code"]; ok { q["carrier_code"] = fmt.Sprint(v) }
 	if v, ok := args["phone"]; ok { q["phone"] = fmt.Sprint(v) }
+	if v, ok := args["full"]; ok { q["full"] = fmt.Sprint(v) }
 	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
 	if v, ok := args["disableCache"]; ok {
 		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
@@ -1390,6 +1483,30 @@ func (api *SocialApi) GetGithubRepo(args map[string]any) (any, error) {
 	path := "/api/v1/github/repo"
 	return api.c.do("GET", path, q, nil, disableCache)
 }
+// 查询 GitHub 用户信息
+func (api *SocialApi) GetGithubUser(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["user"]; ok { q["user"] = fmt.Sprint(v) }
+	if v, ok := args["activity"]; ok { q["activity"] = fmt.Sprint(v) }
+	if v, ok := args["activity_scope"]; ok { q["activity_scope"] = fmt.Sprint(v) }
+	if v, ok := args["org"]; ok { q["org"] = fmt.Sprint(v) }
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/github/user"
+	return api.c.do("GET", path, q, nil, disableCache)
+}
 // 查询 B站投稿
 func (api *SocialApi) GetSocialBilibiliArchives(args map[string]any) (any, error) {
 	q := map[string]string{}
@@ -1827,6 +1944,60 @@ func (api *TextApi) PostTextConvert(args map[string]any) (any, error) {
 	}
 	return api.c.do("POST", path, q, body, disableCache)
 }
+// Markdown 转 HTML
+func (api *TextApi) PostTextMarkdownToHtml(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/text/markdown-to-html"
+	body := make(map[string]any)
+	if v, ok := args["format"]; ok { body["format"] = v }
+	if v, ok := args["sanitize"]; ok { body["sanitize"] = v }
+	if v, ok := args["text"]; ok { body["text"] = v }
+	if len(body) == 0 {
+		return api.c.do("POST", path, q, nil, disableCache)
+	}
+	return api.c.do("POST", path, q, body, disableCache)
+}
+// Markdown 转 PDF
+func (api *TextApi) PostTextMarkdownToPdf(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/text/markdown-to-pdf"
+	body := make(map[string]any)
+	if v, ok := args["paper_size"]; ok { body["paper_size"] = v }
+	if v, ok := args["text"]; ok { body["text"] = v }
+	if v, ok := args["theme"]; ok { body["theme"] = v }
+	if len(body) == 0 {
+		return api.c.do("POST", path, q, nil, disableCache)
+	}
+	return api.c.do("POST", path, q, body, disableCache)
+}
 // MD5 哈希 (POST)
 func (api *TextApi) PostTextMd5(args map[string]any) (any, error) {
 	q := map[string]string{}
@@ -2190,7 +2361,6 @@ func (api *ZhiNengSouSuoApi) PostSearchAggregate(args map[string]any) (any, erro
 	if v, ok := args["site"]; ok { body["site"] = v }
 	if v, ok := args["sort"]; ok { body["sort"] = v }
 	if v, ok := args["time_range"]; ok { body["time_range"] = v }
-	if v, ok := args["timeout_ms"]; ok { body["timeout_ms"] = v }
 	if len(body) == 0 {
 		return api.c.do("POST", path, q, nil, disableCache)
 	}
