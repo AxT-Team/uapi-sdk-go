@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ArchiveCount** | Pointer to **int32** |  | [optional] 
+**ArticleCount** | Pointer to **int32** |  | [optional] 
+**Birthday** | Pointer to **string** |  | [optional] 
+**Face** | Pointer to **string** |  | [optional] 
+**Follower** | Pointer to **int32** |  | [optional] 
+**Following** | Pointer to **int32** |  | [optional] 
+**Level** | Pointer to **int32** |  | [optional] 
 **Mid** | Pointer to **int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Sex** | Pointer to **string** |  | [optional] 
-**Face** | Pointer to **string** |  | [optional] 
 **Sign** | Pointer to **string** |  | [optional] 
-**Level** | Pointer to **int32** |  | [optional] 
-**Birthday** | Pointer to **string** |  | [optional] 
-**VipType** | Pointer to **int32** |  | [optional] 
 **VipStatus** | Pointer to **int32** |  | [optional] 
-**Following** | Pointer to **int32** |  | [optional] 
-**Follower** | Pointer to **int32** |  | [optional] 
-**ArchiveCount** | Pointer to **int32** |  | [optional] 
-**ArticleCount** | Pointer to **int32** |  | [optional] 
+**VipType** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -36,6 +36,181 @@ will change when the set of required properties is changed
 NewGetSocialBilibiliUserinfo200ResponseWithDefaults instantiates a new GetSocialBilibiliUserinfo200Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetArchiveCount
+
+`func (o *GetSocialBilibiliUserinfo200Response) GetArchiveCount() int32`
+
+GetArchiveCount returns the ArchiveCount field if non-nil, zero value otherwise.
+
+### GetArchiveCountOk
+
+`func (o *GetSocialBilibiliUserinfo200Response) GetArchiveCountOk() (*int32, bool)`
+
+GetArchiveCountOk returns a tuple with the ArchiveCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArchiveCount
+
+`func (o *GetSocialBilibiliUserinfo200Response) SetArchiveCount(v int32)`
+
+SetArchiveCount sets ArchiveCount field to given value.
+
+### HasArchiveCount
+
+`func (o *GetSocialBilibiliUserinfo200Response) HasArchiveCount() bool`
+
+HasArchiveCount returns a boolean if a field has been set.
+
+### GetArticleCount
+
+`func (o *GetSocialBilibiliUserinfo200Response) GetArticleCount() int32`
+
+GetArticleCount returns the ArticleCount field if non-nil, zero value otherwise.
+
+### GetArticleCountOk
+
+`func (o *GetSocialBilibiliUserinfo200Response) GetArticleCountOk() (*int32, bool)`
+
+GetArticleCountOk returns a tuple with the ArticleCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetArticleCount
+
+`func (o *GetSocialBilibiliUserinfo200Response) SetArticleCount(v int32)`
+
+SetArticleCount sets ArticleCount field to given value.
+
+### HasArticleCount
+
+`func (o *GetSocialBilibiliUserinfo200Response) HasArticleCount() bool`
+
+HasArticleCount returns a boolean if a field has been set.
+
+### GetBirthday
+
+`func (o *GetSocialBilibiliUserinfo200Response) GetBirthday() string`
+
+GetBirthday returns the Birthday field if non-nil, zero value otherwise.
+
+### GetBirthdayOk
+
+`func (o *GetSocialBilibiliUserinfo200Response) GetBirthdayOk() (*string, bool)`
+
+GetBirthdayOk returns a tuple with the Birthday field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBirthday
+
+`func (o *GetSocialBilibiliUserinfo200Response) SetBirthday(v string)`
+
+SetBirthday sets Birthday field to given value.
+
+### HasBirthday
+
+`func (o *GetSocialBilibiliUserinfo200Response) HasBirthday() bool`
+
+HasBirthday returns a boolean if a field has been set.
+
+### GetFace
+
+`func (o *GetSocialBilibiliUserinfo200Response) GetFace() string`
+
+GetFace returns the Face field if non-nil, zero value otherwise.
+
+### GetFaceOk
+
+`func (o *GetSocialBilibiliUserinfo200Response) GetFaceOk() (*string, bool)`
+
+GetFaceOk returns a tuple with the Face field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFace
+
+`func (o *GetSocialBilibiliUserinfo200Response) SetFace(v string)`
+
+SetFace sets Face field to given value.
+
+### HasFace
+
+`func (o *GetSocialBilibiliUserinfo200Response) HasFace() bool`
+
+HasFace returns a boolean if a field has been set.
+
+### GetFollower
+
+`func (o *GetSocialBilibiliUserinfo200Response) GetFollower() int32`
+
+GetFollower returns the Follower field if non-nil, zero value otherwise.
+
+### GetFollowerOk
+
+`func (o *GetSocialBilibiliUserinfo200Response) GetFollowerOk() (*int32, bool)`
+
+GetFollowerOk returns a tuple with the Follower field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFollower
+
+`func (o *GetSocialBilibiliUserinfo200Response) SetFollower(v int32)`
+
+SetFollower sets Follower field to given value.
+
+### HasFollower
+
+`func (o *GetSocialBilibiliUserinfo200Response) HasFollower() bool`
+
+HasFollower returns a boolean if a field has been set.
+
+### GetFollowing
+
+`func (o *GetSocialBilibiliUserinfo200Response) GetFollowing() int32`
+
+GetFollowing returns the Following field if non-nil, zero value otherwise.
+
+### GetFollowingOk
+
+`func (o *GetSocialBilibiliUserinfo200Response) GetFollowingOk() (*int32, bool)`
+
+GetFollowingOk returns a tuple with the Following field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFollowing
+
+`func (o *GetSocialBilibiliUserinfo200Response) SetFollowing(v int32)`
+
+SetFollowing sets Following field to given value.
+
+### HasFollowing
+
+`func (o *GetSocialBilibiliUserinfo200Response) HasFollowing() bool`
+
+HasFollowing returns a boolean if a field has been set.
+
+### GetLevel
+
+`func (o *GetSocialBilibiliUserinfo200Response) GetLevel() int32`
+
+GetLevel returns the Level field if non-nil, zero value otherwise.
+
+### GetLevelOk
+
+`func (o *GetSocialBilibiliUserinfo200Response) GetLevelOk() (*int32, bool)`
+
+GetLevelOk returns a tuple with the Level field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLevel
+
+`func (o *GetSocialBilibiliUserinfo200Response) SetLevel(v int32)`
+
+SetLevel sets Level field to given value.
+
+### HasLevel
+
+`func (o *GetSocialBilibiliUserinfo200Response) HasLevel() bool`
+
+HasLevel returns a boolean if a field has been set.
 
 ### GetMid
 
@@ -112,31 +287,6 @@ SetSex sets Sex field to given value.
 
 HasSex returns a boolean if a field has been set.
 
-### GetFace
-
-`func (o *GetSocialBilibiliUserinfo200Response) GetFace() string`
-
-GetFace returns the Face field if non-nil, zero value otherwise.
-
-### GetFaceOk
-
-`func (o *GetSocialBilibiliUserinfo200Response) GetFaceOk() (*string, bool)`
-
-GetFaceOk returns a tuple with the Face field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFace
-
-`func (o *GetSocialBilibiliUserinfo200Response) SetFace(v string)`
-
-SetFace sets Face field to given value.
-
-### HasFace
-
-`func (o *GetSocialBilibiliUserinfo200Response) HasFace() bool`
-
-HasFace returns a boolean if a field has been set.
-
 ### GetSign
 
 `func (o *GetSocialBilibiliUserinfo200Response) GetSign() string`
@@ -161,81 +311,6 @@ SetSign sets Sign field to given value.
 `func (o *GetSocialBilibiliUserinfo200Response) HasSign() bool`
 
 HasSign returns a boolean if a field has been set.
-
-### GetLevel
-
-`func (o *GetSocialBilibiliUserinfo200Response) GetLevel() int32`
-
-GetLevel returns the Level field if non-nil, zero value otherwise.
-
-### GetLevelOk
-
-`func (o *GetSocialBilibiliUserinfo200Response) GetLevelOk() (*int32, bool)`
-
-GetLevelOk returns a tuple with the Level field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLevel
-
-`func (o *GetSocialBilibiliUserinfo200Response) SetLevel(v int32)`
-
-SetLevel sets Level field to given value.
-
-### HasLevel
-
-`func (o *GetSocialBilibiliUserinfo200Response) HasLevel() bool`
-
-HasLevel returns a boolean if a field has been set.
-
-### GetBirthday
-
-`func (o *GetSocialBilibiliUserinfo200Response) GetBirthday() string`
-
-GetBirthday returns the Birthday field if non-nil, zero value otherwise.
-
-### GetBirthdayOk
-
-`func (o *GetSocialBilibiliUserinfo200Response) GetBirthdayOk() (*string, bool)`
-
-GetBirthdayOk returns a tuple with the Birthday field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBirthday
-
-`func (o *GetSocialBilibiliUserinfo200Response) SetBirthday(v string)`
-
-SetBirthday sets Birthday field to given value.
-
-### HasBirthday
-
-`func (o *GetSocialBilibiliUserinfo200Response) HasBirthday() bool`
-
-HasBirthday returns a boolean if a field has been set.
-
-### GetVipType
-
-`func (o *GetSocialBilibiliUserinfo200Response) GetVipType() int32`
-
-GetVipType returns the VipType field if non-nil, zero value otherwise.
-
-### GetVipTypeOk
-
-`func (o *GetSocialBilibiliUserinfo200Response) GetVipTypeOk() (*int32, bool)`
-
-GetVipTypeOk returns a tuple with the VipType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVipType
-
-`func (o *GetSocialBilibiliUserinfo200Response) SetVipType(v int32)`
-
-SetVipType sets VipType field to given value.
-
-### HasVipType
-
-`func (o *GetSocialBilibiliUserinfo200Response) HasVipType() bool`
-
-HasVipType returns a boolean if a field has been set.
 
 ### GetVipStatus
 
@@ -262,105 +337,30 @@ SetVipStatus sets VipStatus field to given value.
 
 HasVipStatus returns a boolean if a field has been set.
 
-### GetFollowing
+### GetVipType
 
-`func (o *GetSocialBilibiliUserinfo200Response) GetFollowing() int32`
+`func (o *GetSocialBilibiliUserinfo200Response) GetVipType() int32`
 
-GetFollowing returns the Following field if non-nil, zero value otherwise.
+GetVipType returns the VipType field if non-nil, zero value otherwise.
 
-### GetFollowingOk
+### GetVipTypeOk
 
-`func (o *GetSocialBilibiliUserinfo200Response) GetFollowingOk() (*int32, bool)`
+`func (o *GetSocialBilibiliUserinfo200Response) GetVipTypeOk() (*int32, bool)`
 
-GetFollowingOk returns a tuple with the Following field if it's non-nil, zero value otherwise
+GetVipTypeOk returns a tuple with the VipType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFollowing
+### SetVipType
 
-`func (o *GetSocialBilibiliUserinfo200Response) SetFollowing(v int32)`
+`func (o *GetSocialBilibiliUserinfo200Response) SetVipType(v int32)`
 
-SetFollowing sets Following field to given value.
+SetVipType sets VipType field to given value.
 
-### HasFollowing
+### HasVipType
 
-`func (o *GetSocialBilibiliUserinfo200Response) HasFollowing() bool`
+`func (o *GetSocialBilibiliUserinfo200Response) HasVipType() bool`
 
-HasFollowing returns a boolean if a field has been set.
-
-### GetFollower
-
-`func (o *GetSocialBilibiliUserinfo200Response) GetFollower() int32`
-
-GetFollower returns the Follower field if non-nil, zero value otherwise.
-
-### GetFollowerOk
-
-`func (o *GetSocialBilibiliUserinfo200Response) GetFollowerOk() (*int32, bool)`
-
-GetFollowerOk returns a tuple with the Follower field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFollower
-
-`func (o *GetSocialBilibiliUserinfo200Response) SetFollower(v int32)`
-
-SetFollower sets Follower field to given value.
-
-### HasFollower
-
-`func (o *GetSocialBilibiliUserinfo200Response) HasFollower() bool`
-
-HasFollower returns a boolean if a field has been set.
-
-### GetArchiveCount
-
-`func (o *GetSocialBilibiliUserinfo200Response) GetArchiveCount() int32`
-
-GetArchiveCount returns the ArchiveCount field if non-nil, zero value otherwise.
-
-### GetArchiveCountOk
-
-`func (o *GetSocialBilibiliUserinfo200Response) GetArchiveCountOk() (*int32, bool)`
-
-GetArchiveCountOk returns a tuple with the ArchiveCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetArchiveCount
-
-`func (o *GetSocialBilibiliUserinfo200Response) SetArchiveCount(v int32)`
-
-SetArchiveCount sets ArchiveCount field to given value.
-
-### HasArchiveCount
-
-`func (o *GetSocialBilibiliUserinfo200Response) HasArchiveCount() bool`
-
-HasArchiveCount returns a boolean if a field has been set.
-
-### GetArticleCount
-
-`func (o *GetSocialBilibiliUserinfo200Response) GetArticleCount() int32`
-
-GetArticleCount returns the ArticleCount field if non-nil, zero value otherwise.
-
-### GetArticleCountOk
-
-`func (o *GetSocialBilibiliUserinfo200Response) GetArticleCountOk() (*int32, bool)`
-
-GetArticleCountOk returns a tuple with the ArticleCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetArticleCount
-
-`func (o *GetSocialBilibiliUserinfo200Response) SetArticleCount(v int32)`
-
-SetArticleCount sets ArticleCount field to given value.
-
-### HasArticleCount
-
-`func (o *GetSocialBilibiliUserinfo200Response) HasArticleCount() bool`
-
-HasArticleCount returns a boolean if a field has been set.
+HasVipType returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

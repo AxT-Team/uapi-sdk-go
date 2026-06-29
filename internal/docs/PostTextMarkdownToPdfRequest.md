@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PaperSize** | Pointer to **string** | PDF 的纸张大小。可选 &#x60;A4&#x60; 或 &#x60;Letter&#x60;，默认是 &#x60;A4&#x60;。 | [optional] [default to "A4"]
 **Text** | **string** | 原始 Markdown 字符串，最大不超过 1MB。 | 
 **Theme** | Pointer to **string** | PDF 的排版主题。可选 &#x60;github&#x60;、&#x60;minimal&#x60;、&#x60;light&#x60;、&#x60;dark&#x60;，默认是 &#x60;github&#x60;。 | [optional] [default to "github"]
-**PaperSize** | Pointer to **string** | PDF 的纸张大小。可选 &#x60;A4&#x60; 或 &#x60;Letter&#x60;，默认是 &#x60;A4&#x60;。 | [optional] [default to "A4"]
 
 ## Methods
 
@@ -26,6 +26,31 @@ will change when the set of required properties is changed
 NewPostTextMarkdownToPdfRequestWithDefaults instantiates a new PostTextMarkdownToPdfRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPaperSize
+
+`func (o *PostTextMarkdownToPdfRequest) GetPaperSize() string`
+
+GetPaperSize returns the PaperSize field if non-nil, zero value otherwise.
+
+### GetPaperSizeOk
+
+`func (o *PostTextMarkdownToPdfRequest) GetPaperSizeOk() (*string, bool)`
+
+GetPaperSizeOk returns a tuple with the PaperSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaperSize
+
+`func (o *PostTextMarkdownToPdfRequest) SetPaperSize(v string)`
+
+SetPaperSize sets PaperSize field to given value.
+
+### HasPaperSize
+
+`func (o *PostTextMarkdownToPdfRequest) HasPaperSize() bool`
+
+HasPaperSize returns a boolean if a field has been set.
 
 ### GetText
 
@@ -71,31 +96,6 @@ SetTheme sets Theme field to given value.
 `func (o *PostTextMarkdownToPdfRequest) HasTheme() bool`
 
 HasTheme returns a boolean if a field has been set.
-
-### GetPaperSize
-
-`func (o *PostTextMarkdownToPdfRequest) GetPaperSize() string`
-
-GetPaperSize returns the PaperSize field if non-nil, zero value otherwise.
-
-### GetPaperSizeOk
-
-`func (o *PostTextMarkdownToPdfRequest) GetPaperSizeOk() (*string, bool)`
-
-GetPaperSizeOk returns a tuple with the PaperSize field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPaperSize
-
-`func (o *PostTextMarkdownToPdfRequest) SetPaperSize(v string)`
-
-SetPaperSize sets PaperSize field to given value.
-
-### HasPaperSize
-
-`func (o *PostTextMarkdownToPdfRequest) HasPaperSize() bool`
-
-HasPaperSize returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

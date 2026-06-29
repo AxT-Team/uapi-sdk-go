@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Data** | Pointer to [**[]GetMiscWeather200ResponseMinutelyPrecipDataInner**](GetMiscWeather200ResponseMinutelyPrecipDataInner.md) | 精确到2分钟的数据点 | [optional] 
 **Summary** | Pointer to **string** | 降水描述 | [optional] 
 **UpdateTime** | Pointer to **string** | 更新时间 | [optional] 
-**Data** | Pointer to [**[]GetMiscWeather200ResponseMinutelyPrecipDataInner**](GetMiscWeather200ResponseMinutelyPrecipDataInner.md) | 精确到2分钟的数据点 | [optional] 
 
 ## Methods
 
@@ -26,6 +26,31 @@ will change when the set of required properties is changed
 NewGetMiscWeather200ResponseMinutelyPrecipWithDefaults instantiates a new GetMiscWeather200ResponseMinutelyPrecip object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetData
+
+`func (o *GetMiscWeather200ResponseMinutelyPrecip) GetData() []GetMiscWeather200ResponseMinutelyPrecipDataInner`
+
+GetData returns the Data field if non-nil, zero value otherwise.
+
+### GetDataOk
+
+`func (o *GetMiscWeather200ResponseMinutelyPrecip) GetDataOk() (*[]GetMiscWeather200ResponseMinutelyPrecipDataInner, bool)`
+
+GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetData
+
+`func (o *GetMiscWeather200ResponseMinutelyPrecip) SetData(v []GetMiscWeather200ResponseMinutelyPrecipDataInner)`
+
+SetData sets Data field to given value.
+
+### HasData
+
+`func (o *GetMiscWeather200ResponseMinutelyPrecip) HasData() bool`
+
+HasData returns a boolean if a field has been set.
 
 ### GetSummary
 
@@ -76,31 +101,6 @@ SetUpdateTime sets UpdateTime field to given value.
 `func (o *GetMiscWeather200ResponseMinutelyPrecip) HasUpdateTime() bool`
 
 HasUpdateTime returns a boolean if a field has been set.
-
-### GetData
-
-`func (o *GetMiscWeather200ResponseMinutelyPrecip) GetData() []GetMiscWeather200ResponseMinutelyPrecipDataInner`
-
-GetData returns the Data field if non-nil, zero value otherwise.
-
-### GetDataOk
-
-`func (o *GetMiscWeather200ResponseMinutelyPrecip) GetDataOk() (*[]GetMiscWeather200ResponseMinutelyPrecipDataInner, bool)`
-
-GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetData
-
-`func (o *GetMiscWeather200ResponseMinutelyPrecip) SetData(v []GetMiscWeather200ResponseMinutelyPrecipDataInner)`
-
-SetData sets Data field to given value.
-
-### HasData
-
-`func (o *GetMiscWeather200ResponseMinutelyPrecip) HasData() bool`
-
-HasData returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

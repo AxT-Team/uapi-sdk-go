@@ -1,6 +1,6 @@
 # \TextAPI
 
-All URIs are relative to *https://uapis.cn/api/v1*
+All URIs are relative to *https://uapis.cn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -173,7 +173,7 @@ import (
 )
 
 func main() {
-	postTextAesDecryptAdvancedRequest := *openapiclient.NewPostTextAesDecryptAdvancedRequest("68vWkaxJPg1vx0LWJONpEfYdvW3Wz7V5uXiYg0WWfGJHIZWBmVVghHg=", "my-super-secret-key", "GCM") // PostTextAesDecryptAdvancedRequest | 
+	postTextAesDecryptAdvancedRequest := *openapiclient.NewPostTextAesDecryptAdvancedRequest("my-super-secret-key", "GCM", "68vWkaxJPg1vx0LWJONpEfYdvW3Wz7V5uXiYg0WWfGJHIZWBmVVghHg=") // PostTextAesDecryptAdvancedRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -305,7 +305,7 @@ import (
 )
 
 func main() {
-	postTextAesEncryptAdvancedRequest := *openapiclient.NewPostTextAesEncryptAdvancedRequest("Hello, World! 你好世界！", "my-super-secret-key") // PostTextAesEncryptAdvancedRequest | 
+	postTextAesEncryptAdvancedRequest := *openapiclient.NewPostTextAesEncryptAdvancedRequest("my-super-secret-key", "Hello, World! 你好世界！") // PostTextAesEncryptAdvancedRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -570,7 +570,7 @@ import (
 )
 
 func main() {
-	postTextConvertRequest := *openapiclient.NewPostTextConvertRequest("hello world", "plain", "base64") // PostTextConvertRequest | 
+	postTextConvertRequest := *openapiclient.NewPostTextConvertRequest("plain", "hello world", "base64") // PostTextConvertRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

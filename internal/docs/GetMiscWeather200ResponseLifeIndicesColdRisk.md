@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Level** | Pointer to **string** |  | [optional] 
-**Brief** | Pointer to **string** |  | [optional] 
 **Advice** | Pointer to **string** |  | [optional] 
+**Brief** | Pointer to **string** |  | [optional] 
+**Level** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -27,30 +27,30 @@ NewGetMiscWeather200ResponseLifeIndicesColdRiskWithDefaults instantiates a new G
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetLevel
+### GetAdvice
 
-`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) GetLevel() string`
+`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) GetAdvice() string`
 
-GetLevel returns the Level field if non-nil, zero value otherwise.
+GetAdvice returns the Advice field if non-nil, zero value otherwise.
 
-### GetLevelOk
+### GetAdviceOk
 
-`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) GetLevelOk() (*string, bool)`
+`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) GetAdviceOk() (*string, bool)`
 
-GetLevelOk returns a tuple with the Level field if it's non-nil, zero value otherwise
+GetAdviceOk returns a tuple with the Advice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLevel
+### SetAdvice
 
-`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) SetLevel(v string)`
+`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) SetAdvice(v string)`
 
-SetLevel sets Level field to given value.
+SetAdvice sets Advice field to given value.
 
-### HasLevel
+### HasAdvice
 
-`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) HasLevel() bool`
+`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) HasAdvice() bool`
 
-HasLevel returns a boolean if a field has been set.
+HasAdvice returns a boolean if a field has been set.
 
 ### GetBrief
 
@@ -77,30 +77,30 @@ SetBrief sets Brief field to given value.
 
 HasBrief returns a boolean if a field has been set.
 
-### GetAdvice
+### GetLevel
 
-`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) GetAdvice() string`
+`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) GetLevel() string`
 
-GetAdvice returns the Advice field if non-nil, zero value otherwise.
+GetLevel returns the Level field if non-nil, zero value otherwise.
 
-### GetAdviceOk
+### GetLevelOk
 
-`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) GetAdviceOk() (*string, bool)`
+`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) GetLevelOk() (*string, bool)`
 
-GetAdviceOk returns a tuple with the Advice field if it's non-nil, zero value otherwise
+GetLevelOk returns a tuple with the Level field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAdvice
+### SetLevel
 
-`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) SetAdvice(v string)`
+`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) SetLevel(v string)`
 
-SetAdvice sets Advice field to given value.
+SetLevel sets Level field to given value.
 
-### HasAdvice
+### HasLevel
 
-`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) HasAdvice() bool`
+`func (o *GetMiscWeather200ResponseLifeIndicesColdRisk) HasLevel() bool`
 
-HasAdvice returns a boolean if a field has been set.
+HasLevel returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

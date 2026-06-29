@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | 引擎标识名称 | [optional] 
-**DisplayName** | Pointer to **string** | 引擎显示名称 | [optional] 
-**Description** | Pointer to **string** | 引擎描述 | [optional] 
 **Available** | Pointer to **bool** | 引擎是否可用 | [optional] 
-**Version** | Pointer to **string** | 配置版本标识 | [optional] 
+**Description** | Pointer to **string** | 引擎描述 | [optional] 
+**DisplayName** | Pointer to **string** | 引擎显示名称 | [optional] 
 **Features** | Pointer to **[]string** | 支持的特性列表 | [optional] 
+**Name** | Pointer to **string** | 引擎标识名称 | [optional] 
+**Version** | Pointer to **string** | 配置版本标识 | [optional] 
 
 ## Methods
 
@@ -29,81 +29,6 @@ will change when the set of required properties is changed
 NewGetSearchEngines200ResponseEngineWithDefaults instantiates a new GetSearchEngines200ResponseEngine object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetName
-
-`func (o *GetSearchEngines200ResponseEngine) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *GetSearchEngines200ResponseEngine) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *GetSearchEngines200ResponseEngine) SetName(v string)`
-
-SetName sets Name field to given value.
-
-### HasName
-
-`func (o *GetSearchEngines200ResponseEngine) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### GetDisplayName
-
-`func (o *GetSearchEngines200ResponseEngine) GetDisplayName() string`
-
-GetDisplayName returns the DisplayName field if non-nil, zero value otherwise.
-
-### GetDisplayNameOk
-
-`func (o *GetSearchEngines200ResponseEngine) GetDisplayNameOk() (*string, bool)`
-
-GetDisplayNameOk returns a tuple with the DisplayName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDisplayName
-
-`func (o *GetSearchEngines200ResponseEngine) SetDisplayName(v string)`
-
-SetDisplayName sets DisplayName field to given value.
-
-### HasDisplayName
-
-`func (o *GetSearchEngines200ResponseEngine) HasDisplayName() bool`
-
-HasDisplayName returns a boolean if a field has been set.
-
-### GetDescription
-
-`func (o *GetSearchEngines200ResponseEngine) GetDescription() string`
-
-GetDescription returns the Description field if non-nil, zero value otherwise.
-
-### GetDescriptionOk
-
-`func (o *GetSearchEngines200ResponseEngine) GetDescriptionOk() (*string, bool)`
-
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDescription
-
-`func (o *GetSearchEngines200ResponseEngine) SetDescription(v string)`
-
-SetDescription sets Description field to given value.
-
-### HasDescription
-
-`func (o *GetSearchEngines200ResponseEngine) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
 
 ### GetAvailable
 
@@ -130,30 +55,55 @@ SetAvailable sets Available field to given value.
 
 HasAvailable returns a boolean if a field has been set.
 
-### GetVersion
+### GetDescription
 
-`func (o *GetSearchEngines200ResponseEngine) GetVersion() string`
+`func (o *GetSearchEngines200ResponseEngine) GetDescription() string`
 
-GetVersion returns the Version field if non-nil, zero value otherwise.
+GetDescription returns the Description field if non-nil, zero value otherwise.
 
-### GetVersionOk
+### GetDescriptionOk
 
-`func (o *GetSearchEngines200ResponseEngine) GetVersionOk() (*string, bool)`
+`func (o *GetSearchEngines200ResponseEngine) GetDescriptionOk() (*string, bool)`
 
-GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetVersion
+### SetDescription
 
-`func (o *GetSearchEngines200ResponseEngine) SetVersion(v string)`
+`func (o *GetSearchEngines200ResponseEngine) SetDescription(v string)`
 
-SetVersion sets Version field to given value.
+SetDescription sets Description field to given value.
 
-### HasVersion
+### HasDescription
 
-`func (o *GetSearchEngines200ResponseEngine) HasVersion() bool`
+`func (o *GetSearchEngines200ResponseEngine) HasDescription() bool`
 
-HasVersion returns a boolean if a field has been set.
+HasDescription returns a boolean if a field has been set.
+
+### GetDisplayName
+
+`func (o *GetSearchEngines200ResponseEngine) GetDisplayName() string`
+
+GetDisplayName returns the DisplayName field if non-nil, zero value otherwise.
+
+### GetDisplayNameOk
+
+`func (o *GetSearchEngines200ResponseEngine) GetDisplayNameOk() (*string, bool)`
+
+GetDisplayNameOk returns a tuple with the DisplayName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayName
+
+`func (o *GetSearchEngines200ResponseEngine) SetDisplayName(v string)`
+
+SetDisplayName sets DisplayName field to given value.
+
+### HasDisplayName
+
+`func (o *GetSearchEngines200ResponseEngine) HasDisplayName() bool`
+
+HasDisplayName returns a boolean if a field has been set.
 
 ### GetFeatures
 
@@ -179,6 +129,56 @@ SetFeatures sets Features field to given value.
 `func (o *GetSearchEngines200ResponseEngine) HasFeatures() bool`
 
 HasFeatures returns a boolean if a field has been set.
+
+### GetName
+
+`func (o *GetSearchEngines200ResponseEngine) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *GetSearchEngines200ResponseEngine) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *GetSearchEngines200ResponseEngine) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *GetSearchEngines200ResponseEngine) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### GetVersion
+
+`func (o *GetSearchEngines200ResponseEngine) GetVersion() string`
+
+GetVersion returns the Version field if non-nil, zero value otherwise.
+
+### GetVersionOk
+
+`func (o *GetSearchEngines200ResponseEngine) GetVersionOk() (*string, bool)`
+
+GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersion
+
+`func (o *GetSearchEngines200ResponseEngine) SetVersion(v string)`
+
+SetVersion sets Version field to given value.
+
+### HasVersion
+
+`func (o *GetSearchEngines200ResponseEngine) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

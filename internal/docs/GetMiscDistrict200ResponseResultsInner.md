@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | 地区名称。 | [optional] 
-**Level** | Pointer to **string** | 行政级别：province / city / district / street。 | [optional] 
+**Adcode** | Pointer to **string** | 行政区划代码（仅中国数据）。 | [optional] 
+**Center** | Pointer to [**GetMiscDistrict200ResponseResultsInnerCenter**](GetMiscDistrict200ResponseResultsInnerCenter.md) |  | [optional] 
+**City** | Pointer to **string** | 市（仅中国数据）。 | [optional] 
+**Citycode** | Pointer to **string** | 城市区号（仅中国数据）。 | [optional] 
 **Country** | Pointer to **string** | 国家名称。 | [optional] 
 **CountryCode** | Pointer to **string** | ISO 3166-1 alpha-2 国家代码。 | [optional] 
-**Province** | Pointer to **string** | 省/州（中国数据）或一级行政区（国际数据）。 | [optional] 
-**City** | Pointer to **string** | 市（仅中国数据）。 | [optional] 
 **District** | Pointer to **string** | 区/县（仅中国数据）。 | [optional] 
-**Street** | Pointer to **string** | 街道/乡镇（仅中国数据）。 | [optional] 
-**Adcode** | Pointer to **string** | 行政区划代码（仅中国数据）。 | [optional] 
-**Citycode** | Pointer to **string** | 城市区号（仅中国数据）。 | [optional] 
-**Center** | Pointer to [**GetMiscDistrict200ResponseResultsInnerCenter**](GetMiscDistrict200ResponseResultsInnerCenter.md) |  | [optional] 
+**Level** | Pointer to **string** | 行政级别：province / city / district / street。 | [optional] 
+**Name** | Pointer to **string** | 地区名称。 | [optional] 
 **Population** | Pointer to **int32** | 人口（仅国际城市数据）。 | [optional] 
+**Province** | Pointer to **string** | 省/州（中国数据）或一级行政区（国际数据）。 | [optional] 
+**Street** | Pointer to **string** | 街道/乡镇（仅中国数据）。 | [optional] 
 **Timezone** | Pointer to **string** | 时区（仅国际城市数据），如 Asia/Tokyo。 | [optional] 
 
 ## Methods
@@ -37,55 +37,105 @@ NewGetMiscDistrict200ResponseResultsInnerWithDefaults instantiates a new GetMisc
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetName
+### GetAdcode
 
-`func (o *GetMiscDistrict200ResponseResultsInner) GetName() string`
+`func (o *GetMiscDistrict200ResponseResultsInner) GetAdcode() string`
 
-GetName returns the Name field if non-nil, zero value otherwise.
+GetAdcode returns the Adcode field if non-nil, zero value otherwise.
 
-### GetNameOk
+### GetAdcodeOk
 
-`func (o *GetMiscDistrict200ResponseResultsInner) GetNameOk() (*string, bool)`
+`func (o *GetMiscDistrict200ResponseResultsInner) GetAdcodeOk() (*string, bool)`
 
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+GetAdcodeOk returns a tuple with the Adcode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetName
+### SetAdcode
 
-`func (o *GetMiscDistrict200ResponseResultsInner) SetName(v string)`
+`func (o *GetMiscDistrict200ResponseResultsInner) SetAdcode(v string)`
 
-SetName sets Name field to given value.
+SetAdcode sets Adcode field to given value.
 
-### HasName
+### HasAdcode
 
-`func (o *GetMiscDistrict200ResponseResultsInner) HasName() bool`
+`func (o *GetMiscDistrict200ResponseResultsInner) HasAdcode() bool`
 
-HasName returns a boolean if a field has been set.
+HasAdcode returns a boolean if a field has been set.
 
-### GetLevel
+### GetCenter
 
-`func (o *GetMiscDistrict200ResponseResultsInner) GetLevel() string`
+`func (o *GetMiscDistrict200ResponseResultsInner) GetCenter() GetMiscDistrict200ResponseResultsInnerCenter`
 
-GetLevel returns the Level field if non-nil, zero value otherwise.
+GetCenter returns the Center field if non-nil, zero value otherwise.
 
-### GetLevelOk
+### GetCenterOk
 
-`func (o *GetMiscDistrict200ResponseResultsInner) GetLevelOk() (*string, bool)`
+`func (o *GetMiscDistrict200ResponseResultsInner) GetCenterOk() (*GetMiscDistrict200ResponseResultsInnerCenter, bool)`
 
-GetLevelOk returns a tuple with the Level field if it's non-nil, zero value otherwise
+GetCenterOk returns a tuple with the Center field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLevel
+### SetCenter
 
-`func (o *GetMiscDistrict200ResponseResultsInner) SetLevel(v string)`
+`func (o *GetMiscDistrict200ResponseResultsInner) SetCenter(v GetMiscDistrict200ResponseResultsInnerCenter)`
 
-SetLevel sets Level field to given value.
+SetCenter sets Center field to given value.
 
-### HasLevel
+### HasCenter
 
-`func (o *GetMiscDistrict200ResponseResultsInner) HasLevel() bool`
+`func (o *GetMiscDistrict200ResponseResultsInner) HasCenter() bool`
 
-HasLevel returns a boolean if a field has been set.
+HasCenter returns a boolean if a field has been set.
+
+### GetCity
+
+`func (o *GetMiscDistrict200ResponseResultsInner) GetCity() string`
+
+GetCity returns the City field if non-nil, zero value otherwise.
+
+### GetCityOk
+
+`func (o *GetMiscDistrict200ResponseResultsInner) GetCityOk() (*string, bool)`
+
+GetCityOk returns a tuple with the City field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCity
+
+`func (o *GetMiscDistrict200ResponseResultsInner) SetCity(v string)`
+
+SetCity sets City field to given value.
+
+### HasCity
+
+`func (o *GetMiscDistrict200ResponseResultsInner) HasCity() bool`
+
+HasCity returns a boolean if a field has been set.
+
+### GetCitycode
+
+`func (o *GetMiscDistrict200ResponseResultsInner) GetCitycode() string`
+
+GetCitycode returns the Citycode field if non-nil, zero value otherwise.
+
+### GetCitycodeOk
+
+`func (o *GetMiscDistrict200ResponseResultsInner) GetCitycodeOk() (*string, bool)`
+
+GetCitycodeOk returns a tuple with the Citycode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCitycode
+
+`func (o *GetMiscDistrict200ResponseResultsInner) SetCitycode(v string)`
+
+SetCitycode sets Citycode field to given value.
+
+### HasCitycode
+
+`func (o *GetMiscDistrict200ResponseResultsInner) HasCitycode() bool`
+
+HasCitycode returns a boolean if a field has been set.
 
 ### GetCountry
 
@@ -137,56 +187,6 @@ SetCountryCode sets CountryCode field to given value.
 
 HasCountryCode returns a boolean if a field has been set.
 
-### GetProvince
-
-`func (o *GetMiscDistrict200ResponseResultsInner) GetProvince() string`
-
-GetProvince returns the Province field if non-nil, zero value otherwise.
-
-### GetProvinceOk
-
-`func (o *GetMiscDistrict200ResponseResultsInner) GetProvinceOk() (*string, bool)`
-
-GetProvinceOk returns a tuple with the Province field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProvince
-
-`func (o *GetMiscDistrict200ResponseResultsInner) SetProvince(v string)`
-
-SetProvince sets Province field to given value.
-
-### HasProvince
-
-`func (o *GetMiscDistrict200ResponseResultsInner) HasProvince() bool`
-
-HasProvince returns a boolean if a field has been set.
-
-### GetCity
-
-`func (o *GetMiscDistrict200ResponseResultsInner) GetCity() string`
-
-GetCity returns the City field if non-nil, zero value otherwise.
-
-### GetCityOk
-
-`func (o *GetMiscDistrict200ResponseResultsInner) GetCityOk() (*string, bool)`
-
-GetCityOk returns a tuple with the City field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCity
-
-`func (o *GetMiscDistrict200ResponseResultsInner) SetCity(v string)`
-
-SetCity sets City field to given value.
-
-### HasCity
-
-`func (o *GetMiscDistrict200ResponseResultsInner) HasCity() bool`
-
-HasCity returns a boolean if a field has been set.
-
 ### GetDistrict
 
 `func (o *GetMiscDistrict200ResponseResultsInner) GetDistrict() string`
@@ -212,105 +212,55 @@ SetDistrict sets District field to given value.
 
 HasDistrict returns a boolean if a field has been set.
 
-### GetStreet
+### GetLevel
 
-`func (o *GetMiscDistrict200ResponseResultsInner) GetStreet() string`
+`func (o *GetMiscDistrict200ResponseResultsInner) GetLevel() string`
 
-GetStreet returns the Street field if non-nil, zero value otherwise.
+GetLevel returns the Level field if non-nil, zero value otherwise.
 
-### GetStreetOk
+### GetLevelOk
 
-`func (o *GetMiscDistrict200ResponseResultsInner) GetStreetOk() (*string, bool)`
+`func (o *GetMiscDistrict200ResponseResultsInner) GetLevelOk() (*string, bool)`
 
-GetStreetOk returns a tuple with the Street field if it's non-nil, zero value otherwise
+GetLevelOk returns a tuple with the Level field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStreet
+### SetLevel
 
-`func (o *GetMiscDistrict200ResponseResultsInner) SetStreet(v string)`
+`func (o *GetMiscDistrict200ResponseResultsInner) SetLevel(v string)`
 
-SetStreet sets Street field to given value.
+SetLevel sets Level field to given value.
 
-### HasStreet
+### HasLevel
 
-`func (o *GetMiscDistrict200ResponseResultsInner) HasStreet() bool`
+`func (o *GetMiscDistrict200ResponseResultsInner) HasLevel() bool`
 
-HasStreet returns a boolean if a field has been set.
+HasLevel returns a boolean if a field has been set.
 
-### GetAdcode
+### GetName
 
-`func (o *GetMiscDistrict200ResponseResultsInner) GetAdcode() string`
+`func (o *GetMiscDistrict200ResponseResultsInner) GetName() string`
 
-GetAdcode returns the Adcode field if non-nil, zero value otherwise.
+GetName returns the Name field if non-nil, zero value otherwise.
 
-### GetAdcodeOk
+### GetNameOk
 
-`func (o *GetMiscDistrict200ResponseResultsInner) GetAdcodeOk() (*string, bool)`
+`func (o *GetMiscDistrict200ResponseResultsInner) GetNameOk() (*string, bool)`
 
-GetAdcodeOk returns a tuple with the Adcode field if it's non-nil, zero value otherwise
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAdcode
+### SetName
 
-`func (o *GetMiscDistrict200ResponseResultsInner) SetAdcode(v string)`
+`func (o *GetMiscDistrict200ResponseResultsInner) SetName(v string)`
 
-SetAdcode sets Adcode field to given value.
+SetName sets Name field to given value.
 
-### HasAdcode
+### HasName
 
-`func (o *GetMiscDistrict200ResponseResultsInner) HasAdcode() bool`
+`func (o *GetMiscDistrict200ResponseResultsInner) HasName() bool`
 
-HasAdcode returns a boolean if a field has been set.
-
-### GetCitycode
-
-`func (o *GetMiscDistrict200ResponseResultsInner) GetCitycode() string`
-
-GetCitycode returns the Citycode field if non-nil, zero value otherwise.
-
-### GetCitycodeOk
-
-`func (o *GetMiscDistrict200ResponseResultsInner) GetCitycodeOk() (*string, bool)`
-
-GetCitycodeOk returns a tuple with the Citycode field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCitycode
-
-`func (o *GetMiscDistrict200ResponseResultsInner) SetCitycode(v string)`
-
-SetCitycode sets Citycode field to given value.
-
-### HasCitycode
-
-`func (o *GetMiscDistrict200ResponseResultsInner) HasCitycode() bool`
-
-HasCitycode returns a boolean if a field has been set.
-
-### GetCenter
-
-`func (o *GetMiscDistrict200ResponseResultsInner) GetCenter() GetMiscDistrict200ResponseResultsInnerCenter`
-
-GetCenter returns the Center field if non-nil, zero value otherwise.
-
-### GetCenterOk
-
-`func (o *GetMiscDistrict200ResponseResultsInner) GetCenterOk() (*GetMiscDistrict200ResponseResultsInnerCenter, bool)`
-
-GetCenterOk returns a tuple with the Center field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCenter
-
-`func (o *GetMiscDistrict200ResponseResultsInner) SetCenter(v GetMiscDistrict200ResponseResultsInnerCenter)`
-
-SetCenter sets Center field to given value.
-
-### HasCenter
-
-`func (o *GetMiscDistrict200ResponseResultsInner) HasCenter() bool`
-
-HasCenter returns a boolean if a field has been set.
+HasName returns a boolean if a field has been set.
 
 ### GetPopulation
 
@@ -336,6 +286,56 @@ SetPopulation sets Population field to given value.
 `func (o *GetMiscDistrict200ResponseResultsInner) HasPopulation() bool`
 
 HasPopulation returns a boolean if a field has been set.
+
+### GetProvince
+
+`func (o *GetMiscDistrict200ResponseResultsInner) GetProvince() string`
+
+GetProvince returns the Province field if non-nil, zero value otherwise.
+
+### GetProvinceOk
+
+`func (o *GetMiscDistrict200ResponseResultsInner) GetProvinceOk() (*string, bool)`
+
+GetProvinceOk returns a tuple with the Province field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProvince
+
+`func (o *GetMiscDistrict200ResponseResultsInner) SetProvince(v string)`
+
+SetProvince sets Province field to given value.
+
+### HasProvince
+
+`func (o *GetMiscDistrict200ResponseResultsInner) HasProvince() bool`
+
+HasProvince returns a boolean if a field has been set.
+
+### GetStreet
+
+`func (o *GetMiscDistrict200ResponseResultsInner) GetStreet() string`
+
+GetStreet returns the Street field if non-nil, zero value otherwise.
+
+### GetStreetOk
+
+`func (o *GetMiscDistrict200ResponseResultsInner) GetStreetOk() (*string, bool)`
+
+GetStreetOk returns a tuple with the Street field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStreet
+
+`func (o *GetMiscDistrict200ResponseResultsInner) SetStreet(v string)`
+
+SetStreet sets Street field to given value.
+
+### HasStreet
+
+`func (o *GetMiscDistrict200ResponseResultsInner) HasStreet() bool`
+
+HasStreet returns a boolean if a field has been set.
 
 ### GetTimezone
 

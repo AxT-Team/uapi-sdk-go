@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Total** | Pointer to **int32** | 总稿件数 | [optional] 
 **Page** | Pointer to **int32** | 当前页码 | [optional] 
 **Size** | Pointer to **int32** | 每页数量 | [optional] 
+**Total** | Pointer to **int32** | 总稿件数 | [optional] 
 **Videos** | Pointer to [**[]GetSocialBilibiliArchives200ResponseVideosInner**](GetSocialBilibiliArchives200ResponseVideosInner.md) | 视频列表 | [optional] 
 
 ## Methods
@@ -27,31 +27,6 @@ will change when the set of required properties is changed
 NewGetSocialBilibiliArchives200ResponseWithDefaults instantiates a new GetSocialBilibiliArchives200Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetTotal
-
-`func (o *GetSocialBilibiliArchives200Response) GetTotal() int32`
-
-GetTotal returns the Total field if non-nil, zero value otherwise.
-
-### GetTotalOk
-
-`func (o *GetSocialBilibiliArchives200Response) GetTotalOk() (*int32, bool)`
-
-GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTotal
-
-`func (o *GetSocialBilibiliArchives200Response) SetTotal(v int32)`
-
-SetTotal sets Total field to given value.
-
-### HasTotal
-
-`func (o *GetSocialBilibiliArchives200Response) HasTotal() bool`
-
-HasTotal returns a boolean if a field has been set.
 
 ### GetPage
 
@@ -102,6 +77,31 @@ SetSize sets Size field to given value.
 `func (o *GetSocialBilibiliArchives200Response) HasSize() bool`
 
 HasSize returns a boolean if a field has been set.
+
+### GetTotal
+
+`func (o *GetSocialBilibiliArchives200Response) GetTotal() int32`
+
+GetTotal returns the Total field if non-nil, zero value otherwise.
+
+### GetTotalOk
+
+`func (o *GetSocialBilibiliArchives200Response) GetTotalOk() (*int32, bool)`
+
+GetTotalOk returns a tuple with the Total field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotal
+
+`func (o *GetSocialBilibiliArchives200Response) SetTotal(v int32)`
+
+SetTotal sets Total field to given value.
+
+### HasTotal
+
+`func (o *GetSocialBilibiliArchives200Response) HasTotal() bool`
+
+HasTotal returns a boolean if a field has been set.
 
 ### GetVideos
 

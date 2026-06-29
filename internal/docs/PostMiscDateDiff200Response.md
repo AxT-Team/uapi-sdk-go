@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Days** | Pointer to **int32** | 总天数 | [optional] 
 **Hours** | Pointer to **int32** | 总小时数 | [optional] 
+**HumanReadable** | Pointer to **string** | 人性化显示格式 | [optional] 
 **Minutes** | Pointer to **int32** | 总分钟数 | [optional] 
 **Seconds** | Pointer to **int32** | 总秒数 | [optional] 
 **Weeks** | Pointer to **int32** | 总周数 | [optional] 
-**HumanReadable** | Pointer to **string** | 人性化显示格式 | [optional] 
 
 ## Methods
 
@@ -79,6 +79,31 @@ SetHours sets Hours field to given value.
 `func (o *PostMiscDateDiff200Response) HasHours() bool`
 
 HasHours returns a boolean if a field has been set.
+
+### GetHumanReadable
+
+`func (o *PostMiscDateDiff200Response) GetHumanReadable() string`
+
+GetHumanReadable returns the HumanReadable field if non-nil, zero value otherwise.
+
+### GetHumanReadableOk
+
+`func (o *PostMiscDateDiff200Response) GetHumanReadableOk() (*string, bool)`
+
+GetHumanReadableOk returns a tuple with the HumanReadable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHumanReadable
+
+`func (o *PostMiscDateDiff200Response) SetHumanReadable(v string)`
+
+SetHumanReadable sets HumanReadable field to given value.
+
+### HasHumanReadable
+
+`func (o *PostMiscDateDiff200Response) HasHumanReadable() bool`
+
+HasHumanReadable returns a boolean if a field has been set.
 
 ### GetMinutes
 
@@ -154,31 +179,6 @@ SetWeeks sets Weeks field to given value.
 `func (o *PostMiscDateDiff200Response) HasWeeks() bool`
 
 HasWeeks returns a boolean if a field has been set.
-
-### GetHumanReadable
-
-`func (o *PostMiscDateDiff200Response) GetHumanReadable() string`
-
-GetHumanReadable returns the HumanReadable field if non-nil, zero value otherwise.
-
-### GetHumanReadableOk
-
-`func (o *PostMiscDateDiff200Response) GetHumanReadableOk() (*string, bool)`
-
-GetHumanReadableOk returns a tuple with the HumanReadable field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHumanReadable
-
-`func (o *PostMiscDateDiff200Response) SetHumanReadable(v string)`
-
-SetHumanReadable sets HumanReadable field to given value.
-
-### HasHumanReadable
-
-`func (o *PostMiscDateDiff200Response) HasHumanReadable() bool`
-
-HasHumanReadable returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | 玩家当前的用户名。 | [optional] 
-**Uuid** | Pointer to **string** | 玩家的UUID（带连字符格式）。 | [optional] 
-**NameNum** | Pointer to **int32** | 历史名称的总数。 | [optional] 
 **History** | Pointer to [**[]GetGameMinecraftHistoryid200ResponseResultsInnerHistoryInner**](GetGameMinecraftHistoryid200ResponseResultsInnerHistoryInner.md) | 历史用户名数组。 | [optional] 
+**Id** | Pointer to **string** | 玩家当前的用户名。 | [optional] 
+**NameNum** | Pointer to **int32** | 历史名称的总数。 | [optional] 
+**Uuid** | Pointer to **string** | 玩家的UUID（带连字符格式）。 | [optional] 
 
 ## Methods
 
@@ -27,6 +27,31 @@ will change when the set of required properties is changed
 NewGetGameMinecraftHistoryid200ResponseResultsInnerWithDefaults instantiates a new GetGameMinecraftHistoryid200ResponseResultsInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetHistory
+
+`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) GetHistory() []GetGameMinecraftHistoryid200ResponseResultsInnerHistoryInner`
+
+GetHistory returns the History field if non-nil, zero value otherwise.
+
+### GetHistoryOk
+
+`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) GetHistoryOk() (*[]GetGameMinecraftHistoryid200ResponseResultsInnerHistoryInner, bool)`
+
+GetHistoryOk returns a tuple with the History field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHistory
+
+`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) SetHistory(v []GetGameMinecraftHistoryid200ResponseResultsInnerHistoryInner)`
+
+SetHistory sets History field to given value.
+
+### HasHistory
+
+`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) HasHistory() bool`
+
+HasHistory returns a boolean if a field has been set.
 
 ### GetId
 
@@ -53,31 +78,6 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-### GetUuid
-
-`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) GetUuid() string`
-
-GetUuid returns the Uuid field if non-nil, zero value otherwise.
-
-### GetUuidOk
-
-`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) GetUuidOk() (*string, bool)`
-
-GetUuidOk returns a tuple with the Uuid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUuid
-
-`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) SetUuid(v string)`
-
-SetUuid sets Uuid field to given value.
-
-### HasUuid
-
-`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) HasUuid() bool`
-
-HasUuid returns a boolean if a field has been set.
-
 ### GetNameNum
 
 `func (o *GetGameMinecraftHistoryid200ResponseResultsInner) GetNameNum() int32`
@@ -103,30 +103,30 @@ SetNameNum sets NameNum field to given value.
 
 HasNameNum returns a boolean if a field has been set.
 
-### GetHistory
+### GetUuid
 
-`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) GetHistory() []GetGameMinecraftHistoryid200ResponseResultsInnerHistoryInner`
+`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) GetUuid() string`
 
-GetHistory returns the History field if non-nil, zero value otherwise.
+GetUuid returns the Uuid field if non-nil, zero value otherwise.
 
-### GetHistoryOk
+### GetUuidOk
 
-`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) GetHistoryOk() (*[]GetGameMinecraftHistoryid200ResponseResultsInnerHistoryInner, bool)`
+`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) GetUuidOk() (*string, bool)`
 
-GetHistoryOk returns a tuple with the History field if it's non-nil, zero value otherwise
+GetUuidOk returns a tuple with the Uuid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetHistory
+### SetUuid
 
-`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) SetHistory(v []GetGameMinecraftHistoryid200ResponseResultsInnerHistoryInner)`
+`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) SetUuid(v string)`
 
-SetHistory sets History field to given value.
+SetUuid sets Uuid field to given value.
 
-### HasHistory
+### HasUuid
 
-`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) HasHistory() bool`
+`func (o *GetGameMinecraftHistoryid200ResponseResultsInner) HasUuid() bool`
 
-HasHistory returns a boolean if a field has been set.
+HasUuid returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

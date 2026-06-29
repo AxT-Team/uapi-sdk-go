@@ -4,26 +4,26 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Uid** | Pointer to **float32** | 主播的用户ID (mid)。 | [optional] 
+**AreaId** | Pointer to **float32** | 分区ID。 | [optional] 
+**AreaName** | Pointer to **string** | 子分区名称。 | [optional] 
+**Attention** | Pointer to **float32** | 主播的粉丝数（关注数量）。 | [optional] 
+**Background** | Pointer to **string** | 直播间背景图的URL。 | [optional] 
+**Description** | Pointer to **string** | 直播间公告或描述，支持换行符。 | [optional] 
+**HotWords** | Pointer to **[]string** | 直播间热词列表，通常用于弹幕互动。 | [optional] 
+**IsPortrait** | Pointer to **bool** | 是否为竖屏直播。 | [optional] 
+**Keyframe** | Pointer to **string** | 关键帧封面图链接。 | [optional] 
+**LiveStatus** | Pointer to **float32** | 直播状态。0:未开播, 1:直播中, 2:轮播中。 | [optional] 
+**LiveTime** | Pointer to **string** | 本次直播开始的时间，格式为 &#x60;YYYY-MM-DD HH:mm:ss&#x60;。如果未开播，则为空字符串。 | [optional] 
+**NewPendants** | Pointer to [**NullableGetSocialBilibiliLiveroom200ResponseNewPendants**](GetSocialBilibiliLiveroom200ResponseNewPendants.md) |  | [optional] 
+**Online** | Pointer to **float32** | 直播间当前的人气值（对应你文档里的 PopularValue，不代表真实在线人数）。 | [optional] 
+**ParentAreaId** | Pointer to **float32** | 父分区 ID。 | [optional] 
+**ParentAreaName** | Pointer to **string** | 父分区名称。 | [optional] 
 **RoomId** | Pointer to **float32** | 直播间的真实房间号（长号）。 | [optional] 
 **ShortId** | Pointer to **float32** | 直播间的短号（靓号）。如果没有设置，则为0。 | [optional] 
-**Attention** | Pointer to **float32** | 主播的粉丝数（关注数量）。 | [optional] 
-**Online** | Pointer to **float32** | 直播间当前的人气值（对应你文档里的 PopularValue，不代表真实在线人数）。 | [optional] 
-**IsPortrait** | Pointer to **bool** | 是否为竖屏直播。 | [optional] 
-**LiveStatus** | Pointer to **float32** | 直播状态。0:未开播, 1:直播中, 2:轮播中。 | [optional] 
-**AreaId** | Pointer to **float32** | 分区ID。 | [optional] 
-**ParentAreaName** | Pointer to **string** | 父分区名称。 | [optional] 
-**ParentAreaId** | Pointer to **float32** | 父分区 ID。 | [optional] 
-**AreaName** | Pointer to **string** | 子分区名称。 | [optional] 
-**Background** | Pointer to **string** | 直播间背景图的URL。 | [optional] 
-**Title** | Pointer to **string** | 当前直播间的标题。 | [optional] 
-**UserCover** | Pointer to **string** | 用户设置的直播间封面URL。 | [optional] 
-**Description** | Pointer to **string** | 直播间公告或描述，支持换行符。 | [optional] 
-**LiveTime** | Pointer to **string** | 本次直播开始的时间，格式为 &#x60;YYYY-MM-DD HH:mm:ss&#x60;。如果未开播，则为空字符串。 | [optional] 
-**Keyframe** | Pointer to **string** | 关键帧封面图链接。 | [optional] 
 **Tags** | Pointer to **string** | 直播间设置的标签，以逗号分隔。 | [optional] 
-**HotWords** | Pointer to **[]string** | 直播间热词列表，通常用于弹幕互动。 | [optional] 
-**NewPendants** | Pointer to [**NullableGetSocialBilibiliLiveroom200ResponseNewPendants**](GetSocialBilibiliLiveroom200ResponseNewPendants.md) |  | [optional] 
+**Title** | Pointer to **string** | 当前直播间的标题。 | [optional] 
+**Uid** | Pointer to **float32** | 主播的用户ID (mid)。 | [optional] 
+**UserCover** | Pointer to **string** | 用户设置的直播间封面URL。 | [optional] 
 
 ## Methods
 
@@ -44,30 +44,365 @@ NewGetSocialBilibiliLiveroom200ResponseWithDefaults instantiates a new GetSocial
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetUid
+### GetAreaId
 
-`func (o *GetSocialBilibiliLiveroom200Response) GetUid() float32`
+`func (o *GetSocialBilibiliLiveroom200Response) GetAreaId() float32`
 
-GetUid returns the Uid field if non-nil, zero value otherwise.
+GetAreaId returns the AreaId field if non-nil, zero value otherwise.
 
-### GetUidOk
+### GetAreaIdOk
 
-`func (o *GetSocialBilibiliLiveroom200Response) GetUidOk() (*float32, bool)`
+`func (o *GetSocialBilibiliLiveroom200Response) GetAreaIdOk() (*float32, bool)`
 
-GetUidOk returns a tuple with the Uid field if it's non-nil, zero value otherwise
+GetAreaIdOk returns a tuple with the AreaId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUid
+### SetAreaId
 
-`func (o *GetSocialBilibiliLiveroom200Response) SetUid(v float32)`
+`func (o *GetSocialBilibiliLiveroom200Response) SetAreaId(v float32)`
 
-SetUid sets Uid field to given value.
+SetAreaId sets AreaId field to given value.
 
-### HasUid
+### HasAreaId
 
-`func (o *GetSocialBilibiliLiveroom200Response) HasUid() bool`
+`func (o *GetSocialBilibiliLiveroom200Response) HasAreaId() bool`
 
-HasUid returns a boolean if a field has been set.
+HasAreaId returns a boolean if a field has been set.
+
+### GetAreaName
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetAreaName() string`
+
+GetAreaName returns the AreaName field if non-nil, zero value otherwise.
+
+### GetAreaNameOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetAreaNameOk() (*string, bool)`
+
+GetAreaNameOk returns a tuple with the AreaName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAreaName
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetAreaName(v string)`
+
+SetAreaName sets AreaName field to given value.
+
+### HasAreaName
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasAreaName() bool`
+
+HasAreaName returns a boolean if a field has been set.
+
+### GetAttention
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetAttention() float32`
+
+GetAttention returns the Attention field if non-nil, zero value otherwise.
+
+### GetAttentionOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetAttentionOk() (*float32, bool)`
+
+GetAttentionOk returns a tuple with the Attention field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttention
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetAttention(v float32)`
+
+SetAttention sets Attention field to given value.
+
+### HasAttention
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasAttention() bool`
+
+HasAttention returns a boolean if a field has been set.
+
+### GetBackground
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetBackground() string`
+
+GetBackground returns the Background field if non-nil, zero value otherwise.
+
+### GetBackgroundOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetBackgroundOk() (*string, bool)`
+
+GetBackgroundOk returns a tuple with the Background field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBackground
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetBackground(v string)`
+
+SetBackground sets Background field to given value.
+
+### HasBackground
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasBackground() bool`
+
+HasBackground returns a boolean if a field has been set.
+
+### GetDescription
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### GetHotWords
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetHotWords() []string`
+
+GetHotWords returns the HotWords field if non-nil, zero value otherwise.
+
+### GetHotWordsOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetHotWordsOk() (*[]string, bool)`
+
+GetHotWordsOk returns a tuple with the HotWords field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHotWords
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetHotWords(v []string)`
+
+SetHotWords sets HotWords field to given value.
+
+### HasHotWords
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasHotWords() bool`
+
+HasHotWords returns a boolean if a field has been set.
+
+### GetIsPortrait
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetIsPortrait() bool`
+
+GetIsPortrait returns the IsPortrait field if non-nil, zero value otherwise.
+
+### GetIsPortraitOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetIsPortraitOk() (*bool, bool)`
+
+GetIsPortraitOk returns a tuple with the IsPortrait field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsPortrait
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetIsPortrait(v bool)`
+
+SetIsPortrait sets IsPortrait field to given value.
+
+### HasIsPortrait
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasIsPortrait() bool`
+
+HasIsPortrait returns a boolean if a field has been set.
+
+### GetKeyframe
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetKeyframe() string`
+
+GetKeyframe returns the Keyframe field if non-nil, zero value otherwise.
+
+### GetKeyframeOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetKeyframeOk() (*string, bool)`
+
+GetKeyframeOk returns a tuple with the Keyframe field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKeyframe
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetKeyframe(v string)`
+
+SetKeyframe sets Keyframe field to given value.
+
+### HasKeyframe
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasKeyframe() bool`
+
+HasKeyframe returns a boolean if a field has been set.
+
+### GetLiveStatus
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetLiveStatus() float32`
+
+GetLiveStatus returns the LiveStatus field if non-nil, zero value otherwise.
+
+### GetLiveStatusOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetLiveStatusOk() (*float32, bool)`
+
+GetLiveStatusOk returns a tuple with the LiveStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLiveStatus
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetLiveStatus(v float32)`
+
+SetLiveStatus sets LiveStatus field to given value.
+
+### HasLiveStatus
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasLiveStatus() bool`
+
+HasLiveStatus returns a boolean if a field has been set.
+
+### GetLiveTime
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetLiveTime() string`
+
+GetLiveTime returns the LiveTime field if non-nil, zero value otherwise.
+
+### GetLiveTimeOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetLiveTimeOk() (*string, bool)`
+
+GetLiveTimeOk returns a tuple with the LiveTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLiveTime
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetLiveTime(v string)`
+
+SetLiveTime sets LiveTime field to given value.
+
+### HasLiveTime
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasLiveTime() bool`
+
+HasLiveTime returns a boolean if a field has been set.
+
+### GetNewPendants
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetNewPendants() GetSocialBilibiliLiveroom200ResponseNewPendants`
+
+GetNewPendants returns the NewPendants field if non-nil, zero value otherwise.
+
+### GetNewPendantsOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetNewPendantsOk() (*GetSocialBilibiliLiveroom200ResponseNewPendants, bool)`
+
+GetNewPendantsOk returns a tuple with the NewPendants field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNewPendants
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetNewPendants(v GetSocialBilibiliLiveroom200ResponseNewPendants)`
+
+SetNewPendants sets NewPendants field to given value.
+
+### HasNewPendants
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasNewPendants() bool`
+
+HasNewPendants returns a boolean if a field has been set.
+
+### SetNewPendantsNil
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetNewPendantsNil(b bool)`
+
+ SetNewPendantsNil sets the value for NewPendants to be an explicit nil
+
+### UnsetNewPendants
+`func (o *GetSocialBilibiliLiveroom200Response) UnsetNewPendants()`
+
+UnsetNewPendants ensures that no value is present for NewPendants, not even an explicit nil
+### GetOnline
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetOnline() float32`
+
+GetOnline returns the Online field if non-nil, zero value otherwise.
+
+### GetOnlineOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetOnlineOk() (*float32, bool)`
+
+GetOnlineOk returns a tuple with the Online field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnline
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetOnline(v float32)`
+
+SetOnline sets Online field to given value.
+
+### HasOnline
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasOnline() bool`
+
+HasOnline returns a boolean if a field has been set.
+
+### GetParentAreaId
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetParentAreaId() float32`
+
+GetParentAreaId returns the ParentAreaId field if non-nil, zero value otherwise.
+
+### GetParentAreaIdOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetParentAreaIdOk() (*float32, bool)`
+
+GetParentAreaIdOk returns a tuple with the ParentAreaId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParentAreaId
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetParentAreaId(v float32)`
+
+SetParentAreaId sets ParentAreaId field to given value.
+
+### HasParentAreaId
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasParentAreaId() bool`
+
+HasParentAreaId returns a boolean if a field has been set.
+
+### GetParentAreaName
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetParentAreaName() string`
+
+GetParentAreaName returns the ParentAreaName field if non-nil, zero value otherwise.
+
+### GetParentAreaNameOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetParentAreaNameOk() (*string, bool)`
+
+GetParentAreaNameOk returns a tuple with the ParentAreaName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParentAreaName
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetParentAreaName(v string)`
+
+SetParentAreaName sets ParentAreaName field to given value.
+
+### HasParentAreaName
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasParentAreaName() bool`
+
+HasParentAreaName returns a boolean if a field has been set.
 
 ### GetRoomId
 
@@ -119,230 +454,30 @@ SetShortId sets ShortId field to given value.
 
 HasShortId returns a boolean if a field has been set.
 
-### GetAttention
+### GetTags
 
-`func (o *GetSocialBilibiliLiveroom200Response) GetAttention() float32`
+`func (o *GetSocialBilibiliLiveroom200Response) GetTags() string`
 
-GetAttention returns the Attention field if non-nil, zero value otherwise.
+GetTags returns the Tags field if non-nil, zero value otherwise.
 
-### GetAttentionOk
+### GetTagsOk
 
-`func (o *GetSocialBilibiliLiveroom200Response) GetAttentionOk() (*float32, bool)`
+`func (o *GetSocialBilibiliLiveroom200Response) GetTagsOk() (*string, bool)`
 
-GetAttentionOk returns a tuple with the Attention field if it's non-nil, zero value otherwise
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAttention
+### SetTags
 
-`func (o *GetSocialBilibiliLiveroom200Response) SetAttention(v float32)`
+`func (o *GetSocialBilibiliLiveroom200Response) SetTags(v string)`
 
-SetAttention sets Attention field to given value.
+SetTags sets Tags field to given value.
 
-### HasAttention
+### HasTags
 
-`func (o *GetSocialBilibiliLiveroom200Response) HasAttention() bool`
+`func (o *GetSocialBilibiliLiveroom200Response) HasTags() bool`
 
-HasAttention returns a boolean if a field has been set.
-
-### GetOnline
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetOnline() float32`
-
-GetOnline returns the Online field if non-nil, zero value otherwise.
-
-### GetOnlineOk
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetOnlineOk() (*float32, bool)`
-
-GetOnlineOk returns a tuple with the Online field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOnline
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetOnline(v float32)`
-
-SetOnline sets Online field to given value.
-
-### HasOnline
-
-`func (o *GetSocialBilibiliLiveroom200Response) HasOnline() bool`
-
-HasOnline returns a boolean if a field has been set.
-
-### GetIsPortrait
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetIsPortrait() bool`
-
-GetIsPortrait returns the IsPortrait field if non-nil, zero value otherwise.
-
-### GetIsPortraitOk
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetIsPortraitOk() (*bool, bool)`
-
-GetIsPortraitOk returns a tuple with the IsPortrait field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsPortrait
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetIsPortrait(v bool)`
-
-SetIsPortrait sets IsPortrait field to given value.
-
-### HasIsPortrait
-
-`func (o *GetSocialBilibiliLiveroom200Response) HasIsPortrait() bool`
-
-HasIsPortrait returns a boolean if a field has been set.
-
-### GetLiveStatus
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetLiveStatus() float32`
-
-GetLiveStatus returns the LiveStatus field if non-nil, zero value otherwise.
-
-### GetLiveStatusOk
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetLiveStatusOk() (*float32, bool)`
-
-GetLiveStatusOk returns a tuple with the LiveStatus field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLiveStatus
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetLiveStatus(v float32)`
-
-SetLiveStatus sets LiveStatus field to given value.
-
-### HasLiveStatus
-
-`func (o *GetSocialBilibiliLiveroom200Response) HasLiveStatus() bool`
-
-HasLiveStatus returns a boolean if a field has been set.
-
-### GetAreaId
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetAreaId() float32`
-
-GetAreaId returns the AreaId field if non-nil, zero value otherwise.
-
-### GetAreaIdOk
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetAreaIdOk() (*float32, bool)`
-
-GetAreaIdOk returns a tuple with the AreaId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAreaId
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetAreaId(v float32)`
-
-SetAreaId sets AreaId field to given value.
-
-### HasAreaId
-
-`func (o *GetSocialBilibiliLiveroom200Response) HasAreaId() bool`
-
-HasAreaId returns a boolean if a field has been set.
-
-### GetParentAreaName
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetParentAreaName() string`
-
-GetParentAreaName returns the ParentAreaName field if non-nil, zero value otherwise.
-
-### GetParentAreaNameOk
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetParentAreaNameOk() (*string, bool)`
-
-GetParentAreaNameOk returns a tuple with the ParentAreaName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetParentAreaName
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetParentAreaName(v string)`
-
-SetParentAreaName sets ParentAreaName field to given value.
-
-### HasParentAreaName
-
-`func (o *GetSocialBilibiliLiveroom200Response) HasParentAreaName() bool`
-
-HasParentAreaName returns a boolean if a field has been set.
-
-### GetParentAreaId
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetParentAreaId() float32`
-
-GetParentAreaId returns the ParentAreaId field if non-nil, zero value otherwise.
-
-### GetParentAreaIdOk
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetParentAreaIdOk() (*float32, bool)`
-
-GetParentAreaIdOk returns a tuple with the ParentAreaId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetParentAreaId
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetParentAreaId(v float32)`
-
-SetParentAreaId sets ParentAreaId field to given value.
-
-### HasParentAreaId
-
-`func (o *GetSocialBilibiliLiveroom200Response) HasParentAreaId() bool`
-
-HasParentAreaId returns a boolean if a field has been set.
-
-### GetAreaName
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetAreaName() string`
-
-GetAreaName returns the AreaName field if non-nil, zero value otherwise.
-
-### GetAreaNameOk
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetAreaNameOk() (*string, bool)`
-
-GetAreaNameOk returns a tuple with the AreaName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAreaName
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetAreaName(v string)`
-
-SetAreaName sets AreaName field to given value.
-
-### HasAreaName
-
-`func (o *GetSocialBilibiliLiveroom200Response) HasAreaName() bool`
-
-HasAreaName returns a boolean if a field has been set.
-
-### GetBackground
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetBackground() string`
-
-GetBackground returns the Background field if non-nil, zero value otherwise.
-
-### GetBackgroundOk
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetBackgroundOk() (*string, bool)`
-
-GetBackgroundOk returns a tuple with the Background field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBackground
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetBackground(v string)`
-
-SetBackground sets Background field to given value.
-
-### HasBackground
-
-`func (o *GetSocialBilibiliLiveroom200Response) HasBackground() bool`
-
-HasBackground returns a boolean if a field has been set.
+HasTags returns a boolean if a field has been set.
 
 ### GetTitle
 
@@ -369,6 +504,31 @@ SetTitle sets Title field to given value.
 
 HasTitle returns a boolean if a field has been set.
 
+### GetUid
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetUid() float32`
+
+GetUid returns the Uid field if non-nil, zero value otherwise.
+
+### GetUidOk
+
+`func (o *GetSocialBilibiliLiveroom200Response) GetUidOk() (*float32, bool)`
+
+GetUidOk returns a tuple with the Uid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUid
+
+`func (o *GetSocialBilibiliLiveroom200Response) SetUid(v float32)`
+
+SetUid sets Uid field to given value.
+
+### HasUid
+
+`func (o *GetSocialBilibiliLiveroom200Response) HasUid() bool`
+
+HasUid returns a boolean if a field has been set.
+
 ### GetUserCover
 
 `func (o *GetSocialBilibiliLiveroom200Response) GetUserCover() string`
@@ -394,166 +554,6 @@ SetUserCover sets UserCover field to given value.
 
 HasUserCover returns a boolean if a field has been set.
 
-### GetDescription
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetDescription() string`
-
-GetDescription returns the Description field if non-nil, zero value otherwise.
-
-### GetDescriptionOk
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetDescriptionOk() (*string, bool)`
-
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDescription
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetDescription(v string)`
-
-SetDescription sets Description field to given value.
-
-### HasDescription
-
-`func (o *GetSocialBilibiliLiveroom200Response) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
-
-### GetLiveTime
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetLiveTime() string`
-
-GetLiveTime returns the LiveTime field if non-nil, zero value otherwise.
-
-### GetLiveTimeOk
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetLiveTimeOk() (*string, bool)`
-
-GetLiveTimeOk returns a tuple with the LiveTime field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLiveTime
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetLiveTime(v string)`
-
-SetLiveTime sets LiveTime field to given value.
-
-### HasLiveTime
-
-`func (o *GetSocialBilibiliLiveroom200Response) HasLiveTime() bool`
-
-HasLiveTime returns a boolean if a field has been set.
-
-### GetKeyframe
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetKeyframe() string`
-
-GetKeyframe returns the Keyframe field if non-nil, zero value otherwise.
-
-### GetKeyframeOk
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetKeyframeOk() (*string, bool)`
-
-GetKeyframeOk returns a tuple with the Keyframe field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetKeyframe
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetKeyframe(v string)`
-
-SetKeyframe sets Keyframe field to given value.
-
-### HasKeyframe
-
-`func (o *GetSocialBilibiliLiveroom200Response) HasKeyframe() bool`
-
-HasKeyframe returns a boolean if a field has been set.
-
-### GetTags
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetTags() string`
-
-GetTags returns the Tags field if non-nil, zero value otherwise.
-
-### GetTagsOk
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetTagsOk() (*string, bool)`
-
-GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTags
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetTags(v string)`
-
-SetTags sets Tags field to given value.
-
-### HasTags
-
-`func (o *GetSocialBilibiliLiveroom200Response) HasTags() bool`
-
-HasTags returns a boolean if a field has been set.
-
-### GetHotWords
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetHotWords() []string`
-
-GetHotWords returns the HotWords field if non-nil, zero value otherwise.
-
-### GetHotWordsOk
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetHotWordsOk() (*[]string, bool)`
-
-GetHotWordsOk returns a tuple with the HotWords field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHotWords
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetHotWords(v []string)`
-
-SetHotWords sets HotWords field to given value.
-
-### HasHotWords
-
-`func (o *GetSocialBilibiliLiveroom200Response) HasHotWords() bool`
-
-HasHotWords returns a boolean if a field has been set.
-
-### GetNewPendants
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetNewPendants() GetSocialBilibiliLiveroom200ResponseNewPendants`
-
-GetNewPendants returns the NewPendants field if non-nil, zero value otherwise.
-
-### GetNewPendantsOk
-
-`func (o *GetSocialBilibiliLiveroom200Response) GetNewPendantsOk() (*GetSocialBilibiliLiveroom200ResponseNewPendants, bool)`
-
-GetNewPendantsOk returns a tuple with the NewPendants field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNewPendants
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetNewPendants(v GetSocialBilibiliLiveroom200ResponseNewPendants)`
-
-SetNewPendants sets NewPendants field to given value.
-
-### HasNewPendants
-
-`func (o *GetSocialBilibiliLiveroom200Response) HasNewPendants() bool`
-
-HasNewPendants returns a boolean if a field has been set.
-
-### SetNewPendantsNil
-
-`func (o *GetSocialBilibiliLiveroom200Response) SetNewPendantsNil(b bool)`
-
- SetNewPendantsNil sets the value for NewPendants to be an explicit nil
-
-### UnsetNewPendants
-`func (o *GetSocialBilibiliLiveroom200Response) UnsetNewPendants()`
-
-UnsetNewPendants ensures that no value is present for NewPendants, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Mid** | Pointer to **float32** | 成员 UID。 | [optional] 
-**Title** | Pointer to **string** | 成员角色标题。 | [optional] 
-**Name** | Pointer to **string** | 成员昵称。 | [optional] 
 **Face** | Pointer to **string** | 成员头像链接。 | [optional] 
 **Follower** | Pointer to **float32** | 成员粉丝数。 | [optional] 
+**Mid** | Pointer to **float32** | 成员 UID。 | [optional] 
+**Name** | Pointer to **string** | 成员昵称。 | [optional] 
+**Title** | Pointer to **string** | 成员角色标题。 | [optional] 
 
 ## Methods
 
@@ -28,81 +28,6 @@ will change when the set of required properties is changed
 NewGetSocialBilibiliVideoinfo200ResponseStaffInnerWithDefaults instantiates a new GetSocialBilibiliVideoinfo200ResponseStaffInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetMid
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) GetMid() float32`
-
-GetMid returns the Mid field if non-nil, zero value otherwise.
-
-### GetMidOk
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) GetMidOk() (*float32, bool)`
-
-GetMidOk returns a tuple with the Mid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMid
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) SetMid(v float32)`
-
-SetMid sets Mid field to given value.
-
-### HasMid
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) HasMid() bool`
-
-HasMid returns a boolean if a field has been set.
-
-### GetTitle
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) GetTitle() string`
-
-GetTitle returns the Title field if non-nil, zero value otherwise.
-
-### GetTitleOk
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) GetTitleOk() (*string, bool)`
-
-GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTitle
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) SetTitle(v string)`
-
-SetTitle sets Title field to given value.
-
-### HasTitle
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) HasTitle() bool`
-
-HasTitle returns a boolean if a field has been set.
-
-### GetName
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) SetName(v string)`
-
-SetName sets Name field to given value.
-
-### HasName
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) HasName() bool`
-
-HasName returns a boolean if a field has been set.
 
 ### GetFace
 
@@ -153,6 +78,81 @@ SetFollower sets Follower field to given value.
 `func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) HasFollower() bool`
 
 HasFollower returns a boolean if a field has been set.
+
+### GetMid
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) GetMid() float32`
+
+GetMid returns the Mid field if non-nil, zero value otherwise.
+
+### GetMidOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) GetMidOk() (*float32, bool)`
+
+GetMidOk returns a tuple with the Mid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMid
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) SetMid(v float32)`
+
+SetMid sets Mid field to given value.
+
+### HasMid
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) HasMid() bool`
+
+HasMid returns a boolean if a field has been set.
+
+### GetName
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### GetTitle
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) GetTitle() string`
+
+GetTitle returns the Title field if non-nil, zero value otherwise.
+
+### GetTitleOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) GetTitleOk() (*string, bool)`
+
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTitle
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) SetTitle(v string)`
+
+SetTitle sets Title field to given value.
+
+### HasTitle
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseStaffInner) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

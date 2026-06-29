@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to **string** |  | [optional] 
-**OriginalText** | Pointer to **string** |  | [optional] 
-**MaskedText** | Pointer to **string** |  | [optional] 
 **ForbiddenWords** | Pointer to **[]string** |  | [optional] 
+**MaskedText** | Pointer to **string** |  | [optional] 
+**OriginalText** | Pointer to **string** |  | [optional] 
+**Status** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -28,55 +28,30 @@ NewPostSensitiveWordQuickCheck200ResponseWithDefaults instantiates a new PostSen
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetStatus
+### GetForbiddenWords
 
-`func (o *PostSensitiveWordQuickCheck200Response) GetStatus() string`
+`func (o *PostSensitiveWordQuickCheck200Response) GetForbiddenWords() []string`
 
-GetStatus returns the Status field if non-nil, zero value otherwise.
+GetForbiddenWords returns the ForbiddenWords field if non-nil, zero value otherwise.
 
-### GetStatusOk
+### GetForbiddenWordsOk
 
-`func (o *PostSensitiveWordQuickCheck200Response) GetStatusOk() (*string, bool)`
+`func (o *PostSensitiveWordQuickCheck200Response) GetForbiddenWordsOk() (*[]string, bool)`
 
-GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+GetForbiddenWordsOk returns a tuple with the ForbiddenWords field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStatus
+### SetForbiddenWords
 
-`func (o *PostSensitiveWordQuickCheck200Response) SetStatus(v string)`
+`func (o *PostSensitiveWordQuickCheck200Response) SetForbiddenWords(v []string)`
 
-SetStatus sets Status field to given value.
+SetForbiddenWords sets ForbiddenWords field to given value.
 
-### HasStatus
+### HasForbiddenWords
 
-`func (o *PostSensitiveWordQuickCheck200Response) HasStatus() bool`
+`func (o *PostSensitiveWordQuickCheck200Response) HasForbiddenWords() bool`
 
-HasStatus returns a boolean if a field has been set.
-
-### GetOriginalText
-
-`func (o *PostSensitiveWordQuickCheck200Response) GetOriginalText() string`
-
-GetOriginalText returns the OriginalText field if non-nil, zero value otherwise.
-
-### GetOriginalTextOk
-
-`func (o *PostSensitiveWordQuickCheck200Response) GetOriginalTextOk() (*string, bool)`
-
-GetOriginalTextOk returns a tuple with the OriginalText field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOriginalText
-
-`func (o *PostSensitiveWordQuickCheck200Response) SetOriginalText(v string)`
-
-SetOriginalText sets OriginalText field to given value.
-
-### HasOriginalText
-
-`func (o *PostSensitiveWordQuickCheck200Response) HasOriginalText() bool`
-
-HasOriginalText returns a boolean if a field has been set.
+HasForbiddenWords returns a boolean if a field has been set.
 
 ### GetMaskedText
 
@@ -103,30 +78,55 @@ SetMaskedText sets MaskedText field to given value.
 
 HasMaskedText returns a boolean if a field has been set.
 
-### GetForbiddenWords
+### GetOriginalText
 
-`func (o *PostSensitiveWordQuickCheck200Response) GetForbiddenWords() []string`
+`func (o *PostSensitiveWordQuickCheck200Response) GetOriginalText() string`
 
-GetForbiddenWords returns the ForbiddenWords field if non-nil, zero value otherwise.
+GetOriginalText returns the OriginalText field if non-nil, zero value otherwise.
 
-### GetForbiddenWordsOk
+### GetOriginalTextOk
 
-`func (o *PostSensitiveWordQuickCheck200Response) GetForbiddenWordsOk() (*[]string, bool)`
+`func (o *PostSensitiveWordQuickCheck200Response) GetOriginalTextOk() (*string, bool)`
 
-GetForbiddenWordsOk returns a tuple with the ForbiddenWords field if it's non-nil, zero value otherwise
+GetOriginalTextOk returns a tuple with the OriginalText field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetForbiddenWords
+### SetOriginalText
 
-`func (o *PostSensitiveWordQuickCheck200Response) SetForbiddenWords(v []string)`
+`func (o *PostSensitiveWordQuickCheck200Response) SetOriginalText(v string)`
 
-SetForbiddenWords sets ForbiddenWords field to given value.
+SetOriginalText sets OriginalText field to given value.
 
-### HasForbiddenWords
+### HasOriginalText
 
-`func (o *PostSensitiveWordQuickCheck200Response) HasForbiddenWords() bool`
+`func (o *PostSensitiveWordQuickCheck200Response) HasOriginalText() bool`
 
-HasForbiddenWords returns a boolean if a field has been set.
+HasOriginalText returns a boolean if a field has been set.
+
+### GetStatus
+
+`func (o *PostSensitiveWordQuickCheck200Response) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *PostSensitiveWordQuickCheck200Response) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *PostSensitiveWordQuickCheck200Response) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *PostSensitiveWordQuickCheck200Response) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Rpid** | Pointer to **float32** | 评论的唯一ID (Reply ID)。 | [optional] 
-**Oid** | Pointer to **float32** | 评论区对象ID，即视频的aid。 | [optional] 
-**Mid** | Pointer to **float32** | 发表评论的用户的mid。 | [optional] 
-**Root** | Pointer to **float32** | 根评论的rpid。如果为0，表示这条评论是根评论。 | [optional] 
-**Parent** | Pointer to **float32** | 回复的父级评论的rpid。如果为0，表示是根评论。 | [optional] 
+**Content** | Pointer to [**GetSocialBilibiliReplies200ResponseRepliesInnerContent**](GetSocialBilibiliReplies200ResponseRepliesInnerContent.md) |  | [optional] 
 **Count** | Pointer to **float32** | 这条评论下的回复（楼中楼）数量。 | [optional] 
 **Ctime** | Pointer to **float32** | 评论发送时间的Unix时间戳（秒）。 | [optional] 
 **Like** | Pointer to **float32** | 该评论获得的点赞数。 | [optional] 
 **Member** | Pointer to [**GetSocialBilibiliReplies200ResponseRepliesInnerMember**](GetSocialBilibiliReplies200ResponseRepliesInnerMember.md) |  | [optional] 
-**Content** | Pointer to [**GetSocialBilibiliReplies200ResponseRepliesInnerContent**](GetSocialBilibiliReplies200ResponseRepliesInnerContent.md) |  | [optional] 
+**Mid** | Pointer to **float32** | 发表评论的用户的mid。 | [optional] 
+**Oid** | Pointer to **float32** | 评论区对象ID，即视频的aid。 | [optional] 
+**Parent** | Pointer to **float32** | 回复的父级评论的rpid。如果为0，表示是根评论。 | [optional] 
 **Replies** | Pointer to **[]map[string]interface{}** | 楼中楼回复列表。结构与顶层评论对象一致，但通常此数组为空，需要单独请求。 | [optional] 
+**Root** | Pointer to **float32** | 根评论的rpid。如果为0，表示这条评论是根评论。 | [optional] 
+**Rpid** | Pointer to **float32** | 评论的唯一ID (Reply ID)。 | [optional] 
 
 ## Methods
 
@@ -35,130 +35,30 @@ NewGetSocialBilibiliReplies200ResponseRepliesInnerWithDefaults instantiates a ne
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetRpid
+### GetContent
 
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetRpid() float32`
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetContent() GetSocialBilibiliReplies200ResponseRepliesInnerContent`
 
-GetRpid returns the Rpid field if non-nil, zero value otherwise.
+GetContent returns the Content field if non-nil, zero value otherwise.
 
-### GetRpidOk
+### GetContentOk
 
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetRpidOk() (*float32, bool)`
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetContentOk() (*GetSocialBilibiliReplies200ResponseRepliesInnerContent, bool)`
 
-GetRpidOk returns a tuple with the Rpid field if it's non-nil, zero value otherwise
+GetContentOk returns a tuple with the Content field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRpid
+### SetContent
 
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) SetRpid(v float32)`
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) SetContent(v GetSocialBilibiliReplies200ResponseRepliesInnerContent)`
 
-SetRpid sets Rpid field to given value.
+SetContent sets Content field to given value.
 
-### HasRpid
+### HasContent
 
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) HasRpid() bool`
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) HasContent() bool`
 
-HasRpid returns a boolean if a field has been set.
-
-### GetOid
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetOid() float32`
-
-GetOid returns the Oid field if non-nil, zero value otherwise.
-
-### GetOidOk
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetOidOk() (*float32, bool)`
-
-GetOidOk returns a tuple with the Oid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOid
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) SetOid(v float32)`
-
-SetOid sets Oid field to given value.
-
-### HasOid
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) HasOid() bool`
-
-HasOid returns a boolean if a field has been set.
-
-### GetMid
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetMid() float32`
-
-GetMid returns the Mid field if non-nil, zero value otherwise.
-
-### GetMidOk
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetMidOk() (*float32, bool)`
-
-GetMidOk returns a tuple with the Mid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMid
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) SetMid(v float32)`
-
-SetMid sets Mid field to given value.
-
-### HasMid
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) HasMid() bool`
-
-HasMid returns a boolean if a field has been set.
-
-### GetRoot
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetRoot() float32`
-
-GetRoot returns the Root field if non-nil, zero value otherwise.
-
-### GetRootOk
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetRootOk() (*float32, bool)`
-
-GetRootOk returns a tuple with the Root field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRoot
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) SetRoot(v float32)`
-
-SetRoot sets Root field to given value.
-
-### HasRoot
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) HasRoot() bool`
-
-HasRoot returns a boolean if a field has been set.
-
-### GetParent
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetParent() float32`
-
-GetParent returns the Parent field if non-nil, zero value otherwise.
-
-### GetParentOk
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetParentOk() (*float32, bool)`
-
-GetParentOk returns a tuple with the Parent field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetParent
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) SetParent(v float32)`
-
-SetParent sets Parent field to given value.
-
-### HasParent
-
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) HasParent() bool`
-
-HasParent returns a boolean if a field has been set.
+HasContent returns a boolean if a field has been set.
 
 ### GetCount
 
@@ -260,30 +160,80 @@ SetMember sets Member field to given value.
 
 HasMember returns a boolean if a field has been set.
 
-### GetContent
+### GetMid
 
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetContent() GetSocialBilibiliReplies200ResponseRepliesInnerContent`
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetMid() float32`
 
-GetContent returns the Content field if non-nil, zero value otherwise.
+GetMid returns the Mid field if non-nil, zero value otherwise.
 
-### GetContentOk
+### GetMidOk
 
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetContentOk() (*GetSocialBilibiliReplies200ResponseRepliesInnerContent, bool)`
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetMidOk() (*float32, bool)`
 
-GetContentOk returns a tuple with the Content field if it's non-nil, zero value otherwise
+GetMidOk returns a tuple with the Mid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetContent
+### SetMid
 
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) SetContent(v GetSocialBilibiliReplies200ResponseRepliesInnerContent)`
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) SetMid(v float32)`
 
-SetContent sets Content field to given value.
+SetMid sets Mid field to given value.
 
-### HasContent
+### HasMid
 
-`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) HasContent() bool`
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) HasMid() bool`
 
-HasContent returns a boolean if a field has been set.
+HasMid returns a boolean if a field has been set.
+
+### GetOid
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetOid() float32`
+
+GetOid returns the Oid field if non-nil, zero value otherwise.
+
+### GetOidOk
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetOidOk() (*float32, bool)`
+
+GetOidOk returns a tuple with the Oid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOid
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) SetOid(v float32)`
+
+SetOid sets Oid field to given value.
+
+### HasOid
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) HasOid() bool`
+
+HasOid returns a boolean if a field has been set.
+
+### GetParent
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetParent() float32`
+
+GetParent returns the Parent field if non-nil, zero value otherwise.
+
+### GetParentOk
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetParentOk() (*float32, bool)`
+
+GetParentOk returns a tuple with the Parent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParent
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) SetParent(v float32)`
+
+SetParent sets Parent field to given value.
+
+### HasParent
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) HasParent() bool`
+
+HasParent returns a boolean if a field has been set.
 
 ### GetReplies
 
@@ -309,6 +259,56 @@ SetReplies sets Replies field to given value.
 `func (o *GetSocialBilibiliReplies200ResponseRepliesInner) HasReplies() bool`
 
 HasReplies returns a boolean if a field has been set.
+
+### GetRoot
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetRoot() float32`
+
+GetRoot returns the Root field if non-nil, zero value otherwise.
+
+### GetRootOk
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetRootOk() (*float32, bool)`
+
+GetRootOk returns a tuple with the Root field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRoot
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) SetRoot(v float32)`
+
+SetRoot sets Root field to given value.
+
+### HasRoot
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) HasRoot() bool`
+
+HasRoot returns a boolean if a field has been set.
+
+### GetRpid
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetRpid() float32`
+
+GetRpid returns the Rpid field if non-nil, zero value otherwise.
+
+### GetRpidOk
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) GetRpidOk() (*float32, bool)`
+
+GetRpidOk returns a tuple with the Rpid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRpid
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) SetRpid(v float32)`
+
+SetRpid sets Rpid field to given value.
+
+### HasRpid
+
+`func (o *GetSocialBilibiliReplies200ResponseRepliesInner) HasRpid() bool`
+
+HasRpid returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

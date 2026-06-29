@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** | Pointer to **string** | 当天日期。 | [optional] 
-**ContributionCount** | Pointer to **int32** | 当天的贡献次数。 | [optional] 
 **Color** | Pointer to **string** | 当天贡献等级对应的颜色值。 | [optional] 
+**ContributionCount** | Pointer to **int32** | 当天的贡献次数。 | [optional] 
+**Date** | Pointer to **string** | 当天日期。 | [optional] 
 **Weekday** | Pointer to **int32** | 星期索引，0 表示周日，6 表示周六。 | [optional] 
 
 ## Methods
@@ -28,30 +28,30 @@ NewGetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDay
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetDate
+### GetColor
 
-`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) GetDate() string`
+`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) GetColor() string`
 
-GetDate returns the Date field if non-nil, zero value otherwise.
+GetColor returns the Color field if non-nil, zero value otherwise.
 
-### GetDateOk
+### GetColorOk
 
-`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) GetDateOk() (*string, bool)`
+`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) GetColorOk() (*string, bool)`
 
-GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
+GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDate
+### SetColor
 
-`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) SetDate(v string)`
+`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) SetColor(v string)`
 
-SetDate sets Date field to given value.
+SetColor sets Color field to given value.
 
-### HasDate
+### HasColor
 
-`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) HasDate() bool`
+`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) HasColor() bool`
 
-HasDate returns a boolean if a field has been set.
+HasColor returns a boolean if a field has been set.
 
 ### GetContributionCount
 
@@ -78,30 +78,30 @@ SetContributionCount sets ContributionCount field to given value.
 
 HasContributionCount returns a boolean if a field has been set.
 
-### GetColor
+### GetDate
 
-`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) GetColor() string`
+`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) GetDate() string`
 
-GetColor returns the Color field if non-nil, zero value otherwise.
+GetDate returns the Date field if non-nil, zero value otherwise.
 
-### GetColorOk
+### GetDateOk
 
-`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) GetColorOk() (*string, bool)`
+`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) GetDateOk() (*string, bool)`
 
-GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
+GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetColor
+### SetDate
 
-`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) SetColor(v string)`
+`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) SetDate(v string)`
 
-SetColor sets Color field to given value.
+SetDate sets Date field to given value.
 
-### HasColor
+### HasDate
 
-`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) HasColor() bool`
+`func (o *GetGithubUser200ResponseActivityContributionCalendarWeeksInnerContributionDaysInner) HasDate() bool`
 
-HasColor returns a boolean if a field has been set.
+HasDate returns a boolean if a field has been set.
 
 ### GetWeekday
 

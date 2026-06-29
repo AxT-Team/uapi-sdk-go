@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Height** | Pointer to **float32** |  | [optional] 
 **Left** | Pointer to **float32** |  | [optional] 
 **Top** | Pointer to **float32** |  | [optional] 
 **Width** | Pointer to **float32** |  | [optional] 
-**Height** | Pointer to **float32** |  | [optional] 
 
 ## Methods
 
@@ -27,6 +27,31 @@ will change when the set of required properties is changed
 NewPostImageOcr200ResponseWordsResultInnerLocationWithDefaults instantiates a new PostImageOcr200ResponseWordsResultInnerLocation object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetHeight
+
+`func (o *PostImageOcr200ResponseWordsResultInnerLocation) GetHeight() float32`
+
+GetHeight returns the Height field if non-nil, zero value otherwise.
+
+### GetHeightOk
+
+`func (o *PostImageOcr200ResponseWordsResultInnerLocation) GetHeightOk() (*float32, bool)`
+
+GetHeightOk returns a tuple with the Height field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHeight
+
+`func (o *PostImageOcr200ResponseWordsResultInnerLocation) SetHeight(v float32)`
+
+SetHeight sets Height field to given value.
+
+### HasHeight
+
+`func (o *PostImageOcr200ResponseWordsResultInnerLocation) HasHeight() bool`
+
+HasHeight returns a boolean if a field has been set.
 
 ### GetLeft
 
@@ -102,31 +127,6 @@ SetWidth sets Width field to given value.
 `func (o *PostImageOcr200ResponseWordsResultInnerLocation) HasWidth() bool`
 
 HasWidth returns a boolean if a field has been set.
-
-### GetHeight
-
-`func (o *PostImageOcr200ResponseWordsResultInnerLocation) GetHeight() float32`
-
-GetHeight returns the Height field if non-nil, zero value otherwise.
-
-### GetHeightOk
-
-`func (o *PostImageOcr200ResponseWordsResultInnerLocation) GetHeightOk() (*float32, bool)`
-
-GetHeightOk returns a tuple with the Height field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHeight
-
-`func (o *PostImageOcr200ResponseWordsResultInnerLocation) SetHeight(v float32)`
-
-SetHeight sets Height field to given value.
-
-### HasHeight
-
-`func (o *PostImageOcr200ResponseWordsResultInnerLocation) HasHeight() bool`
-
-HasHeight returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Date** | Pointer to **string** | 事件日期。 | [optional] 
+**IsWorkday** | Pointer to **bool** | 仅调休上班事件返回。 | [optional] 
 **Name** | Pointer to **string** | 事件名称。 | [optional] 
 **Type** | Pointer to **string** | 事件类型。 | [optional] 
-**IsWorkday** | Pointer to **bool** | 仅调休上班事件返回。 | [optional] 
 
 ## Methods
 
@@ -52,6 +52,31 @@ SetDate sets Date field to given value.
 `func (o *GetMiscHolidayCalendar200ResponseNearbyNextInnerEventsInner) HasDate() bool`
 
 HasDate returns a boolean if a field has been set.
+
+### GetIsWorkday
+
+`func (o *GetMiscHolidayCalendar200ResponseNearbyNextInnerEventsInner) GetIsWorkday() bool`
+
+GetIsWorkday returns the IsWorkday field if non-nil, zero value otherwise.
+
+### GetIsWorkdayOk
+
+`func (o *GetMiscHolidayCalendar200ResponseNearbyNextInnerEventsInner) GetIsWorkdayOk() (*bool, bool)`
+
+GetIsWorkdayOk returns a tuple with the IsWorkday field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsWorkday
+
+`func (o *GetMiscHolidayCalendar200ResponseNearbyNextInnerEventsInner) SetIsWorkday(v bool)`
+
+SetIsWorkday sets IsWorkday field to given value.
+
+### HasIsWorkday
+
+`func (o *GetMiscHolidayCalendar200ResponseNearbyNextInnerEventsInner) HasIsWorkday() bool`
+
+HasIsWorkday returns a boolean if a field has been set.
 
 ### GetName
 
@@ -102,31 +127,6 @@ SetType sets Type field to given value.
 `func (o *GetMiscHolidayCalendar200ResponseNearbyNextInnerEventsInner) HasType() bool`
 
 HasType returns a boolean if a field has been set.
-
-### GetIsWorkday
-
-`func (o *GetMiscHolidayCalendar200ResponseNearbyNextInnerEventsInner) GetIsWorkday() bool`
-
-GetIsWorkday returns the IsWorkday field if non-nil, zero value otherwise.
-
-### GetIsWorkdayOk
-
-`func (o *GetMiscHolidayCalendar200ResponseNearbyNextInnerEventsInner) GetIsWorkdayOk() (*bool, bool)`
-
-GetIsWorkdayOk returns a tuple with the IsWorkday field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsWorkday
-
-`func (o *GetMiscHolidayCalendar200ResponseNearbyNextInnerEventsInner) SetIsWorkday(v bool)`
-
-SetIsWorkday sets IsWorkday field to given value.
-
-### HasIsWorkday
-
-`func (o *GetMiscHolidayCalendar200ResponseNearbyNextInnerEventsInner) HasIsWorkday() bool`
-
-HasIsWorkday returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

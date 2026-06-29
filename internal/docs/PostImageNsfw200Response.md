@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NsfwScore** | Pointer to **float32** | NSFW 内容的置信度分数，范围 0-1，越高表示越可能是敏感内容。 | [optional] 
-**NormalScore** | Pointer to **float32** | 正常内容的置信度分数，范围 0-1。 | [optional] 
-**IsNsfw** | Pointer to **bool** | 是否判定为 NSFW 内容。 | [optional] 
-**Label** | Pointer to **string** | 内容标签，&#39;nsfw&#39; 或 &#39;normal&#39;。 | [optional] 
-**Suggestion** | Pointer to **string** | 处理建议：&#39;pass&#39;（通过）、&#39;review&#39;（人工复核）、&#39;block&#39;（拦截）。 | [optional] 
-**RiskLevel** | Pointer to **string** | 风险等级：&#39;low&#39;、&#39;medium&#39;、&#39;high&#39;。 | [optional] 
 **Confidence** | Pointer to **float32** | 模型对当前判断的置信度。 | [optional] 
 **InferenceTimeMs** | Pointer to **float32** | 模型推理耗时，单位毫秒。 | [optional] 
+**IsNsfw** | Pointer to **bool** | 是否判定为 NSFW 内容。 | [optional] 
+**Label** | Pointer to **string** | 内容标签，&#39;nsfw&#39; 或 &#39;normal&#39;。 | [optional] 
+**NormalScore** | Pointer to **float32** | 正常内容的置信度分数，范围 0-1。 | [optional] 
+**NsfwScore** | Pointer to **float32** | NSFW 内容的置信度分数，范围 0-1，越高表示越可能是敏感内容。 | [optional] 
+**RiskLevel** | Pointer to **string** | 风险等级：&#39;low&#39;、&#39;medium&#39;、&#39;high&#39;。 | [optional] 
+**Suggestion** | Pointer to **string** | 处理建议：&#39;pass&#39;（通过）、&#39;review&#39;（人工复核）、&#39;block&#39;（拦截）。 | [optional] 
 
 ## Methods
 
@@ -32,55 +32,55 @@ NewPostImageNsfw200ResponseWithDefaults instantiates a new PostImageNsfw200Respo
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetNsfwScore
+### GetConfidence
 
-`func (o *PostImageNsfw200Response) GetNsfwScore() float32`
+`func (o *PostImageNsfw200Response) GetConfidence() float32`
 
-GetNsfwScore returns the NsfwScore field if non-nil, zero value otherwise.
+GetConfidence returns the Confidence field if non-nil, zero value otherwise.
 
-### GetNsfwScoreOk
+### GetConfidenceOk
 
-`func (o *PostImageNsfw200Response) GetNsfwScoreOk() (*float32, bool)`
+`func (o *PostImageNsfw200Response) GetConfidenceOk() (*float32, bool)`
 
-GetNsfwScoreOk returns a tuple with the NsfwScore field if it's non-nil, zero value otherwise
+GetConfidenceOk returns a tuple with the Confidence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetNsfwScore
+### SetConfidence
 
-`func (o *PostImageNsfw200Response) SetNsfwScore(v float32)`
+`func (o *PostImageNsfw200Response) SetConfidence(v float32)`
 
-SetNsfwScore sets NsfwScore field to given value.
+SetConfidence sets Confidence field to given value.
 
-### HasNsfwScore
+### HasConfidence
 
-`func (o *PostImageNsfw200Response) HasNsfwScore() bool`
+`func (o *PostImageNsfw200Response) HasConfidence() bool`
 
-HasNsfwScore returns a boolean if a field has been set.
+HasConfidence returns a boolean if a field has been set.
 
-### GetNormalScore
+### GetInferenceTimeMs
 
-`func (o *PostImageNsfw200Response) GetNormalScore() float32`
+`func (o *PostImageNsfw200Response) GetInferenceTimeMs() float32`
 
-GetNormalScore returns the NormalScore field if non-nil, zero value otherwise.
+GetInferenceTimeMs returns the InferenceTimeMs field if non-nil, zero value otherwise.
 
-### GetNormalScoreOk
+### GetInferenceTimeMsOk
 
-`func (o *PostImageNsfw200Response) GetNormalScoreOk() (*float32, bool)`
+`func (o *PostImageNsfw200Response) GetInferenceTimeMsOk() (*float32, bool)`
 
-GetNormalScoreOk returns a tuple with the NormalScore field if it's non-nil, zero value otherwise
+GetInferenceTimeMsOk returns a tuple with the InferenceTimeMs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetNormalScore
+### SetInferenceTimeMs
 
-`func (o *PostImageNsfw200Response) SetNormalScore(v float32)`
+`func (o *PostImageNsfw200Response) SetInferenceTimeMs(v float32)`
 
-SetNormalScore sets NormalScore field to given value.
+SetInferenceTimeMs sets InferenceTimeMs field to given value.
 
-### HasNormalScore
+### HasInferenceTimeMs
 
-`func (o *PostImageNsfw200Response) HasNormalScore() bool`
+`func (o *PostImageNsfw200Response) HasInferenceTimeMs() bool`
 
-HasNormalScore returns a boolean if a field has been set.
+HasInferenceTimeMs returns a boolean if a field has been set.
 
 ### GetIsNsfw
 
@@ -132,30 +132,55 @@ SetLabel sets Label field to given value.
 
 HasLabel returns a boolean if a field has been set.
 
-### GetSuggestion
+### GetNormalScore
 
-`func (o *PostImageNsfw200Response) GetSuggestion() string`
+`func (o *PostImageNsfw200Response) GetNormalScore() float32`
 
-GetSuggestion returns the Suggestion field if non-nil, zero value otherwise.
+GetNormalScore returns the NormalScore field if non-nil, zero value otherwise.
 
-### GetSuggestionOk
+### GetNormalScoreOk
 
-`func (o *PostImageNsfw200Response) GetSuggestionOk() (*string, bool)`
+`func (o *PostImageNsfw200Response) GetNormalScoreOk() (*float32, bool)`
 
-GetSuggestionOk returns a tuple with the Suggestion field if it's non-nil, zero value otherwise
+GetNormalScoreOk returns a tuple with the NormalScore field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSuggestion
+### SetNormalScore
 
-`func (o *PostImageNsfw200Response) SetSuggestion(v string)`
+`func (o *PostImageNsfw200Response) SetNormalScore(v float32)`
 
-SetSuggestion sets Suggestion field to given value.
+SetNormalScore sets NormalScore field to given value.
 
-### HasSuggestion
+### HasNormalScore
 
-`func (o *PostImageNsfw200Response) HasSuggestion() bool`
+`func (o *PostImageNsfw200Response) HasNormalScore() bool`
 
-HasSuggestion returns a boolean if a field has been set.
+HasNormalScore returns a boolean if a field has been set.
+
+### GetNsfwScore
+
+`func (o *PostImageNsfw200Response) GetNsfwScore() float32`
+
+GetNsfwScore returns the NsfwScore field if non-nil, zero value otherwise.
+
+### GetNsfwScoreOk
+
+`func (o *PostImageNsfw200Response) GetNsfwScoreOk() (*float32, bool)`
+
+GetNsfwScoreOk returns a tuple with the NsfwScore field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNsfwScore
+
+`func (o *PostImageNsfw200Response) SetNsfwScore(v float32)`
+
+SetNsfwScore sets NsfwScore field to given value.
+
+### HasNsfwScore
+
+`func (o *PostImageNsfw200Response) HasNsfwScore() bool`
+
+HasNsfwScore returns a boolean if a field has been set.
 
 ### GetRiskLevel
 
@@ -182,55 +207,30 @@ SetRiskLevel sets RiskLevel field to given value.
 
 HasRiskLevel returns a boolean if a field has been set.
 
-### GetConfidence
+### GetSuggestion
 
-`func (o *PostImageNsfw200Response) GetConfidence() float32`
+`func (o *PostImageNsfw200Response) GetSuggestion() string`
 
-GetConfidence returns the Confidence field if non-nil, zero value otherwise.
+GetSuggestion returns the Suggestion field if non-nil, zero value otherwise.
 
-### GetConfidenceOk
+### GetSuggestionOk
 
-`func (o *PostImageNsfw200Response) GetConfidenceOk() (*float32, bool)`
+`func (o *PostImageNsfw200Response) GetSuggestionOk() (*string, bool)`
 
-GetConfidenceOk returns a tuple with the Confidence field if it's non-nil, zero value otherwise
+GetSuggestionOk returns a tuple with the Suggestion field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetConfidence
+### SetSuggestion
 
-`func (o *PostImageNsfw200Response) SetConfidence(v float32)`
+`func (o *PostImageNsfw200Response) SetSuggestion(v string)`
 
-SetConfidence sets Confidence field to given value.
+SetSuggestion sets Suggestion field to given value.
 
-### HasConfidence
+### HasSuggestion
 
-`func (o *PostImageNsfw200Response) HasConfidence() bool`
+`func (o *PostImageNsfw200Response) HasSuggestion() bool`
 
-HasConfidence returns a boolean if a field has been set.
-
-### GetInferenceTimeMs
-
-`func (o *PostImageNsfw200Response) GetInferenceTimeMs() float32`
-
-GetInferenceTimeMs returns the InferenceTimeMs field if non-nil, zero value otherwise.
-
-### GetInferenceTimeMsOk
-
-`func (o *PostImageNsfw200Response) GetInferenceTimeMsOk() (*float32, bool)`
-
-GetInferenceTimeMsOk returns a tuple with the InferenceTimeMs field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetInferenceTimeMs
-
-`func (o *PostImageNsfw200Response) SetInferenceTimeMs(v float32)`
-
-SetInferenceTimeMs sets InferenceTimeMs field to given value.
-
-### HasInferenceTimeMs
-
-`func (o *PostImageNsfw200Response) HasInferenceTimeMs() bool`
-
-HasInferenceTimeMs returns a boolean if a field has been set.
+HasSuggestion returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

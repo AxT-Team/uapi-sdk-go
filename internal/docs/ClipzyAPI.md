@@ -1,6 +1,6 @@
 # \ClipzyAPI
 
-All URIs are relative to *https://uapis.cn/api/v1*
+All URIs are relative to *https://uapis.cn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -141,7 +141,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json
+- **Accept**: text/plain; charset=utf-8, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

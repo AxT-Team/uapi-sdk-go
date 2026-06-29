@@ -1,13 +1,16 @@
 # \GameAPI
 
-All URIs are relative to *https://uapis.cn/api/v1*
+All URIs are relative to *https://uapis.cn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetGameEpicFree**](GameAPI.md#GetGameEpicFree) | **Get** /game/epic-free | Epic 免费游戏
 [**GetGameMinecraftHistoryid**](GameAPI.md#GetGameMinecraftHistoryid) | **Get** /game/minecraft/historyid | 查询 MC 曾用名
+[**GetGameMinecraftMods**](GameAPI.md#GetGameMinecraftMods) | **Get** /game/minecraft/mods | 搜索 MC Mod/插件
 [**GetGameMinecraftServerstatus**](GameAPI.md#GetGameMinecraftServerstatus) | **Get** /game/minecraft/serverstatus | 查询 MC 服务器
 [**GetGameMinecraftUserinfo**](GameAPI.md#GetGameMinecraftUserinfo) | **Get** /game/minecraft/userinfo | 查询 MC 玩家
+[**GetGameMinecraftVersion**](GameAPI.md#GetGameMinecraftVersion) | **Get** /game/minecraft/version | Minecraft 最新版本
+[**GetGameSteamServers**](GameAPI.md#GetGameSteamServers) | **Get** /game/steam/servers | 查询 Steam 游戏服务器
 [**GetGameSteamSummary**](GameAPI.md#GetGameSteamSummary) | **Get** /game/steam/summary | 查询 Steam 用户
 
 
@@ -141,6 +144,80 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetGameMinecraftMods
+
+> GetGameMinecraftMods200Response GetGameMinecraftMods(ctx).Query(query).Source(source).Type_(type_).Limit(limit).Enrich(enrich).Execute()
+
+搜索 MC Mod/插件
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	query := "sodium" // string | 搜索关键词，也可使用别名 `q`。
+	source := "source_example" // string | 搜索来源，默认 all。 (optional) (default to "all")
+	type_ := "mod" // string | 资源类型过滤，例如 mod 或 plugin。 (optional)
+	limit := int32(10) // int32 | 每个来源返回的最大条数，默认 10，最大 50。 (optional) (default to 10)
+	enrich := true // bool | 是否补全下载直链与作者名，默认 true；传 false 可降低延迟。 (optional) (default to true)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GameAPI.GetGameMinecraftMods(context.Background()).Query(query).Source(source).Type_(type_).Limit(limit).Enrich(enrich).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GameAPI.GetGameMinecraftMods``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetGameMinecraftMods`: GetGameMinecraftMods200Response
+	fmt.Fprintf(os.Stdout, "Response from `GameAPI.GetGameMinecraftMods`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetGameMinecraftModsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **string** | 搜索关键词，也可使用别名 &#x60;q&#x60;。 | 
+ **source** | **string** | 搜索来源，默认 all。 | [default to &quot;all&quot;]
+ **type_** | **string** | 资源类型过滤，例如 mod 或 plugin。 | 
+ **limit** | **int32** | 每个来源返回的最大条数，默认 10，最大 50。 | [default to 10]
+ **enrich** | **bool** | 是否补全下载直链与作者名，默认 true；传 false 可降低延迟。 | [default to true]
+
+### Return type
+
+[**GetGameMinecraftMods200Response**](GetGameMinecraftMods200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetGameMinecraftServerstatus
 
 > GetGameMinecraftServerstatus200Response GetGameMinecraftServerstatus(ctx).Server(server).Execute()
@@ -258,6 +335,137 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetGameMinecraftUserinfo200Response**](GetGameMinecraftUserinfo200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetGameMinecraftVersion
+
+> GetGameMinecraftVersion200Response GetGameMinecraftVersion(ctx).Execute()
+
+Minecraft 最新版本
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GameAPI.GetGameMinecraftVersion(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GameAPI.GetGameMinecraftVersion``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetGameMinecraftVersion`: GetGameMinecraftVersion200Response
+	fmt.Fprintf(os.Stdout, "Response from `GameAPI.GetGameMinecraftVersion`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetGameMinecraftVersionRequest struct via the builder pattern
+
+
+### Return type
+
+[**GetGameMinecraftVersion200Response**](GetGameMinecraftVersion200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetGameSteamServers
+
+> GetGameSteamServers200Response GetGameSteamServers(ctx).Appid(appid).Name(name).Limit(limit).Execute()
+
+查询 Steam 游戏服务器
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	appid := int32(513710) // int32 | Steam 游戏 AppID，必须是正整数。
+	name := "SCUM" // string | 服务器名称关键词，可选，支持模糊搜索。 (optional)
+	limit := int32(20) // int32 | 返回数量上限，默认 20，最大 100。 (optional) (default to 20)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.GameAPI.GetGameSteamServers(context.Background()).Appid(appid).Name(name).Limit(limit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `GameAPI.GetGameSteamServers``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetGameSteamServers`: GetGameSteamServers200Response
+	fmt.Fprintf(os.Stdout, "Response from `GameAPI.GetGameSteamServers`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetGameSteamServersRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appid** | **int32** | Steam 游戏 AppID，必须是正整数。 | 
+ **name** | **string** | 服务器名称关键词，可选，支持模糊搜索。 | 
+ **limit** | **int32** | 返回数量上限，默认 20，最大 100。 | [default to 20]
+
+### Return type
+
+[**GetGameSteamServers200Response**](GetGameSteamServers200Response.md)
 
 ### Authorization
 

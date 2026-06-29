@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | Pointer to **string** |  | [optional] 
 **Data** | Pointer to [**GetAiTranslateLanguages200ResponseData**](GetAiTranslateLanguages200ResponseData.md) |  | [optional] 
+**Message** | Pointer to **string** |  | [optional] 
 **Performance** | Pointer to [**GetAiTranslateLanguages200ResponsePerformance**](GetAiTranslateLanguages200ResponsePerformance.md) |  | [optional] 
 
 ## Methods
@@ -26,31 +26,6 @@ will change when the set of required properties is changed
 NewGetAiTranslateLanguages200ResponseWithDefaults instantiates a new GetAiTranslateLanguages200Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetMessage
-
-`func (o *GetAiTranslateLanguages200Response) GetMessage() string`
-
-GetMessage returns the Message field if non-nil, zero value otherwise.
-
-### GetMessageOk
-
-`func (o *GetAiTranslateLanguages200Response) GetMessageOk() (*string, bool)`
-
-GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMessage
-
-`func (o *GetAiTranslateLanguages200Response) SetMessage(v string)`
-
-SetMessage sets Message field to given value.
-
-### HasMessage
-
-`func (o *GetAiTranslateLanguages200Response) HasMessage() bool`
-
-HasMessage returns a boolean if a field has been set.
 
 ### GetData
 
@@ -76,6 +51,31 @@ SetData sets Data field to given value.
 `func (o *GetAiTranslateLanguages200Response) HasData() bool`
 
 HasData returns a boolean if a field has been set.
+
+### GetMessage
+
+`func (o *GetAiTranslateLanguages200Response) GetMessage() string`
+
+GetMessage returns the Message field if non-nil, zero value otherwise.
+
+### GetMessageOk
+
+`func (o *GetAiTranslateLanguages200Response) GetMessageOk() (*string, bool)`
+
+GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMessage
+
+`func (o *GetAiTranslateLanguages200Response) SetMessage(v string)`
+
+SetMessage sets Message field to given value.
+
+### HasMessage
+
+`func (o *GetAiTranslateLanguages200Response) HasMessage() bool`
+
+HasMessage returns a boolean if a field has been set.
 
 ### GetPerformance
 

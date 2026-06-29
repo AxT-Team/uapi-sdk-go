@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Ciphertext** | Pointer to **string** | 加密后的密文（Base64编码） | [optional] 
+**Iv** | Pointer to **string** | 使用的IV（Base64编码）。GCM模式不返回此字段 | [optional] 
 **Mode** | Pointer to **string** | 使用的加密模式 | [optional] 
 **Padding** | Pointer to **string** | 使用的填充方式 | [optional] 
-**Iv** | Pointer to **string** | 使用的IV（Base64编码）。GCM模式不返回此字段 | [optional] 
 
 ## Methods
 
@@ -52,6 +52,31 @@ SetCiphertext sets Ciphertext field to given value.
 `func (o *PostTextAesEncryptAdvanced200Response) HasCiphertext() bool`
 
 HasCiphertext returns a boolean if a field has been set.
+
+### GetIv
+
+`func (o *PostTextAesEncryptAdvanced200Response) GetIv() string`
+
+GetIv returns the Iv field if non-nil, zero value otherwise.
+
+### GetIvOk
+
+`func (o *PostTextAesEncryptAdvanced200Response) GetIvOk() (*string, bool)`
+
+GetIvOk returns a tuple with the Iv field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIv
+
+`func (o *PostTextAesEncryptAdvanced200Response) SetIv(v string)`
+
+SetIv sets Iv field to given value.
+
+### HasIv
+
+`func (o *PostTextAesEncryptAdvanced200Response) HasIv() bool`
+
+HasIv returns a boolean if a field has been set.
 
 ### GetMode
 
@@ -102,31 +127,6 @@ SetPadding sets Padding field to given value.
 `func (o *PostTextAesEncryptAdvanced200Response) HasPadding() bool`
 
 HasPadding returns a boolean if a field has been set.
-
-### GetIv
-
-`func (o *PostTextAesEncryptAdvanced200Response) GetIv() string`
-
-GetIv returns the Iv field if non-nil, zero value otherwise.
-
-### GetIvOk
-
-`func (o *PostTextAesEncryptAdvanced200Response) GetIvOk() (*string, bool)`
-
-GetIvOk returns a tuple with the Iv field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIv
-
-`func (o *PostTextAesEncryptAdvanced200Response) SetIv(v string)`
-
-SetIv sets Iv field to given value.
-
-### HasIv
-
-`func (o *PostTextAesEncryptAdvanced200Response) HasIv() bool`
-
-HasIv returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

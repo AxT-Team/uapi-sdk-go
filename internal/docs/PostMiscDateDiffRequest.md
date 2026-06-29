@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StartDate** | **string** | 开始日期，支持多种格式自动识别 | 
 **EndDate** | **string** | 结束日期，支持多种格式自动识别 | 
 **Format** | Pointer to **string** | 日期格式（可选），如DD-MM-YYYY。不指定则自动识别 | [optional] 
+**StartDate** | **string** | 开始日期，支持多种格式自动识别 | 
 
 ## Methods
 
 ### NewPostMiscDateDiffRequest
 
-`func NewPostMiscDateDiffRequest(startDate string, endDate string, ) *PostMiscDateDiffRequest`
+`func NewPostMiscDateDiffRequest(endDate string, startDate string, ) *PostMiscDateDiffRequest`
 
 NewPostMiscDateDiffRequest instantiates a new PostMiscDateDiffRequest object
 This constructor will assign default values to properties that have it defined,
@@ -26,26 +26,6 @@ will change when the set of required properties is changed
 NewPostMiscDateDiffRequestWithDefaults instantiates a new PostMiscDateDiffRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetStartDate
-
-`func (o *PostMiscDateDiffRequest) GetStartDate() string`
-
-GetStartDate returns the StartDate field if non-nil, zero value otherwise.
-
-### GetStartDateOk
-
-`func (o *PostMiscDateDiffRequest) GetStartDateOk() (*string, bool)`
-
-GetStartDateOk returns a tuple with the StartDate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStartDate
-
-`func (o *PostMiscDateDiffRequest) SetStartDate(v string)`
-
-SetStartDate sets StartDate field to given value.
-
 
 ### GetEndDate
 
@@ -91,6 +71,26 @@ SetFormat sets Format field to given value.
 `func (o *PostMiscDateDiffRequest) HasFormat() bool`
 
 HasFormat returns a boolean if a field has been set.
+
+### GetStartDate
+
+`func (o *PostMiscDateDiffRequest) GetStartDate() string`
+
+GetStartDate returns the StartDate field if non-nil, zero value otherwise.
+
+### GetStartDateOk
+
+`func (o *PostMiscDateDiffRequest) GetStartDateOk() (*string, bool)`
+
+GetStartDateOk returns a tuple with the StartDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartDate
+
+`func (o *PostMiscDateDiffRequest) SetStartDate(v string)`
+
+SetStartDate sets StartDate field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

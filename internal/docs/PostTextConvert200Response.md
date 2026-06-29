@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Result** | Pointer to **string** | 转换结果 | [optional] 
 **From** | Pointer to **string** | 源格式 | [optional] 
-**To** | Pointer to **string** | 目标格式 | [optional] 
-**Length** | Pointer to **int32** | 结果长度 | [optional] 
 **Info** | Pointer to **string** | 额外信息（如哈希不可逆提示） | [optional] 
+**Length** | Pointer to **int32** | 结果长度 | [optional] 
+**Result** | Pointer to **string** | 转换结果 | [optional] 
+**To** | Pointer to **string** | 目标格式 | [optional] 
 
 ## Methods
 
@@ -28,31 +28,6 @@ will change when the set of required properties is changed
 NewPostTextConvert200ResponseWithDefaults instantiates a new PostTextConvert200Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetResult
-
-`func (o *PostTextConvert200Response) GetResult() string`
-
-GetResult returns the Result field if non-nil, zero value otherwise.
-
-### GetResultOk
-
-`func (o *PostTextConvert200Response) GetResultOk() (*string, bool)`
-
-GetResultOk returns a tuple with the Result field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetResult
-
-`func (o *PostTextConvert200Response) SetResult(v string)`
-
-SetResult sets Result field to given value.
-
-### HasResult
-
-`func (o *PostTextConvert200Response) HasResult() bool`
-
-HasResult returns a boolean if a field has been set.
 
 ### GetFrom
 
@@ -79,30 +54,30 @@ SetFrom sets From field to given value.
 
 HasFrom returns a boolean if a field has been set.
 
-### GetTo
+### GetInfo
 
-`func (o *PostTextConvert200Response) GetTo() string`
+`func (o *PostTextConvert200Response) GetInfo() string`
 
-GetTo returns the To field if non-nil, zero value otherwise.
+GetInfo returns the Info field if non-nil, zero value otherwise.
 
-### GetToOk
+### GetInfoOk
 
-`func (o *PostTextConvert200Response) GetToOk() (*string, bool)`
+`func (o *PostTextConvert200Response) GetInfoOk() (*string, bool)`
 
-GetToOk returns a tuple with the To field if it's non-nil, zero value otherwise
+GetInfoOk returns a tuple with the Info field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTo
+### SetInfo
 
-`func (o *PostTextConvert200Response) SetTo(v string)`
+`func (o *PostTextConvert200Response) SetInfo(v string)`
 
-SetTo sets To field to given value.
+SetInfo sets Info field to given value.
 
-### HasTo
+### HasInfo
 
-`func (o *PostTextConvert200Response) HasTo() bool`
+`func (o *PostTextConvert200Response) HasInfo() bool`
 
-HasTo returns a boolean if a field has been set.
+HasInfo returns a boolean if a field has been set.
 
 ### GetLength
 
@@ -129,30 +104,55 @@ SetLength sets Length field to given value.
 
 HasLength returns a boolean if a field has been set.
 
-### GetInfo
+### GetResult
 
-`func (o *PostTextConvert200Response) GetInfo() string`
+`func (o *PostTextConvert200Response) GetResult() string`
 
-GetInfo returns the Info field if non-nil, zero value otherwise.
+GetResult returns the Result field if non-nil, zero value otherwise.
 
-### GetInfoOk
+### GetResultOk
 
-`func (o *PostTextConvert200Response) GetInfoOk() (*string, bool)`
+`func (o *PostTextConvert200Response) GetResultOk() (*string, bool)`
 
-GetInfoOk returns a tuple with the Info field if it's non-nil, zero value otherwise
+GetResultOk returns a tuple with the Result field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetInfo
+### SetResult
 
-`func (o *PostTextConvert200Response) SetInfo(v string)`
+`func (o *PostTextConvert200Response) SetResult(v string)`
 
-SetInfo sets Info field to given value.
+SetResult sets Result field to given value.
 
-### HasInfo
+### HasResult
 
-`func (o *PostTextConvert200Response) HasInfo() bool`
+`func (o *PostTextConvert200Response) HasResult() bool`
 
-HasInfo returns a boolean if a field has been set.
+HasResult returns a boolean if a field has been set.
+
+### GetTo
+
+`func (o *PostTextConvert200Response) GetTo() string`
+
+GetTo returns the To field if non-nil, zero value otherwise.
+
+### GetToOk
+
+`func (o *PostTextConvert200Response) GetToOk() (*string, bool)`
+
+GetToOk returns a tuple with the To field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTo
+
+`func (o *PostTextConvert200Response) SetTo(v string)`
+
+SetTo sets To field to given value.
+
+### HasTo
+
+`func (o *PostTextConvert200Response) HasTo() bool`
+
+HasTo returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

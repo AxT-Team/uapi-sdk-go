@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **float32** | 合集 ID。 | [optional] 
-**Title** | Pointer to **string** | 合集标题。 | [optional] 
 **Cover** | Pointer to **string** | 合集封面。 | [optional] 
-**Mid** | Pointer to **float32** | 合集作者 UID。 | [optional] 
-**Intro** | Pointer to **string** | 合集简介。 | [optional] 
 **EpCount** | Pointer to **float32** | 合集内视频数量。 | [optional] 
+**Id** | Pointer to **float32** | 合集 ID。 | [optional] 
+**Intro** | Pointer to **string** | 合集简介。 | [optional] 
+**Mid** | Pointer to **float32** | 合集作者 UID。 | [optional] 
+**Title** | Pointer to **string** | 合集标题。 | [optional] 
 
 ## Methods
 
@@ -29,56 +29,6 @@ will change when the set of required properties is changed
 NewGetSocialBilibiliVideoinfo200ResponseUgcSeasonWithDefaults instantiates a new GetSocialBilibiliVideoinfo200ResponseUgcSeason object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetId
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetId() float32`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetIdOk() (*float32, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) SetId(v float32)`
-
-SetId sets Id field to given value.
-
-### HasId
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
-### GetTitle
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetTitle() string`
-
-GetTitle returns the Title field if non-nil, zero value otherwise.
-
-### GetTitleOk
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetTitleOk() (*string, bool)`
-
-GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTitle
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) SetTitle(v string)`
-
-SetTitle sets Title field to given value.
-
-### HasTitle
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) HasTitle() bool`
-
-HasTitle returns a boolean if a field has been set.
 
 ### GetCover
 
@@ -105,30 +55,55 @@ SetCover sets Cover field to given value.
 
 HasCover returns a boolean if a field has been set.
 
-### GetMid
+### GetEpCount
 
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetMid() float32`
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetEpCount() float32`
 
-GetMid returns the Mid field if non-nil, zero value otherwise.
+GetEpCount returns the EpCount field if non-nil, zero value otherwise.
 
-### GetMidOk
+### GetEpCountOk
 
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetMidOk() (*float32, bool)`
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetEpCountOk() (*float32, bool)`
 
-GetMidOk returns a tuple with the Mid field if it's non-nil, zero value otherwise
+GetEpCountOk returns a tuple with the EpCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMid
+### SetEpCount
 
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) SetMid(v float32)`
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) SetEpCount(v float32)`
 
-SetMid sets Mid field to given value.
+SetEpCount sets EpCount field to given value.
 
-### HasMid
+### HasEpCount
 
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) HasMid() bool`
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) HasEpCount() bool`
 
-HasMid returns a boolean if a field has been set.
+HasEpCount returns a boolean if a field has been set.
+
+### GetId
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetId() float32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetIdOk() (*float32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) SetId(v float32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetIntro
 
@@ -155,30 +130,55 @@ SetIntro sets Intro field to given value.
 
 HasIntro returns a boolean if a field has been set.
 
-### GetEpCount
+### GetMid
 
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetEpCount() float32`
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetMid() float32`
 
-GetEpCount returns the EpCount field if non-nil, zero value otherwise.
+GetMid returns the Mid field if non-nil, zero value otherwise.
 
-### GetEpCountOk
+### GetMidOk
 
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetEpCountOk() (*float32, bool)`
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetMidOk() (*float32, bool)`
 
-GetEpCountOk returns a tuple with the EpCount field if it's non-nil, zero value otherwise
+GetMidOk returns a tuple with the Mid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetEpCount
+### SetMid
 
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) SetEpCount(v float32)`
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) SetMid(v float32)`
 
-SetEpCount sets EpCount field to given value.
+SetMid sets Mid field to given value.
 
-### HasEpCount
+### HasMid
 
-`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) HasEpCount() bool`
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) HasMid() bool`
 
-HasEpCount returns a boolean if a field has been set.
+HasMid returns a boolean if a field has been set.
+
+### GetTitle
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetTitle() string`
+
+GetTitle returns the Title field if non-nil, zero value otherwise.
+
+### GetTitleOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) GetTitleOk() (*string, bool)`
+
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTitle
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) SetTitle(v string)`
+
+SetTitle sets Title field to given value.
+
+### HasTitle
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseUgcSeason) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

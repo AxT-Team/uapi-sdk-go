@@ -1,6 +1,6 @@
 # \MiscAPI
 
-All URIs are relative to *https://uapis.cn/api/v1*
+All URIs are relative to *https://uapis.cn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,6 +10,8 @@ Method | HTTP request | Description
 [**GetMiscHolidayCalendar**](MiscAPI.md#GetMiscHolidayCalendar) | **Get** /misc/holiday-calendar | 查询节假日与万年历
 [**GetMiscHotboard**](MiscAPI.md#GetMiscHotboard) | **Get** /misc/hotboard | 查询热榜
 [**GetMiscLunartime**](MiscAPI.md#GetMiscLunartime) | **Get** /misc/lunartime | 查询农历时间
+[**GetMiscMovieBoxOffice**](MiscAPI.md#GetMiscMovieBoxOffice) | **Get** /misc/movie-box-office | 查询电影票房
+[**GetMiscMovieRatingRank**](MiscAPI.md#GetMiscMovieRatingRank) | **Get** /misc/movie-rating-rank | 电影收视排行查询
 [**GetMiscPhoneinfo**](MiscAPI.md#GetMiscPhoneinfo) | **Get** /misc/phoneinfo | 查询手机归属地
 [**GetMiscRandomnumber**](MiscAPI.md#GetMiscRandomnumber) | **Get** /misc/randomnumber | 随机数生成
 [**GetMiscTimestamp**](MiscAPI.md#GetMiscTimestamp) | **Get** /misc/timestamp | 转换时间戳 (旧版，推荐使用/convert/unixtime)
@@ -17,6 +19,7 @@ Method | HTTP request | Description
 [**GetMiscTrackingDetect**](MiscAPI.md#GetMiscTrackingDetect) | **Get** /misc/tracking/detect | 识别快递公司
 [**GetMiscTrackingQuery**](MiscAPI.md#GetMiscTrackingQuery) | **Get** /misc/tracking/query | 查询快递物流信息
 [**GetMiscWeather**](MiscAPI.md#GetMiscWeather) | **Get** /misc/weather | 查询天气
+[**GetMiscWeatherHistory**](MiscAPI.md#GetMiscWeatherHistory) | **Get** /misc/weather/history | 查询历史天气
 [**GetMiscWorldtime**](MiscAPI.md#GetMiscWorldtime) | **Get** /misc/worldtime | 查询世界时间
 [**PostMiscDateDiff**](MiscAPI.md#PostMiscDateDiff) | **Post** /misc/date-diff | 计算两个日期之间的时间差值
 
@@ -250,7 +253,7 @@ import (
 )
 
 func main() {
-	date := "2025-10-01" // string | 按天查询时填写这个参数，例如查某一天。格式：`YYYY-MM-DD`。和 `month`、`year` 三选一。 (optional)
+	date := "date_example" // string | 按天查询时填写这个参数，例如查某一天。格式：`YYYY-MM-DD`。和 `month`、`year` 三选一。 (optional)
 	month := "month_example" // string | 按月查询时填写这个参数，例如查某个月。格式：`YYYY-MM`。和 `date`、`year` 三选一。 (optional)
 	year := "year_example" // string | 按年查询时填写这个参数，例如查某一年。格式：`YYYY`。和 `date`、`month` 三选一。 (optional)
 	timezone := "Asia/Shanghai" // string | 时区名称，默认 Asia/Shanghai。 (optional) (default to "Asia/Shanghai")
@@ -331,10 +334,10 @@ import (
 
 func main() {
 	type_ := "weibo" // string | 你想要查询的热榜平台。请从[支持的平台列表](#enum-list)中选择。
-	time := int64(789) // int64 | 时光机模式：毫秒时间戳，返回最接近该时间的热榜快照。不传则返回当前实时热榜。 (optional)
-	keyword := "keyword_example" // string | 搜索模式：搜索关键词，在历史热榜中搜索包含该关键词的条目。需配合 time_start 和 time_end 使用。 (optional)
-	timeStart := int64(789) // int64 | 搜索模式必填：搜索起始时间戳（毫秒）。 (optional)
-	timeEnd := int64(789) // int64 | 搜索模式必填：搜索结束时间戳（毫秒）。 (optional)
+	time := int64(789) // int64 | 时光机模式：毫秒时间戳，返回该时间附近最近可展示的历史热榜快照。不传则返回当前实时热榜。 (optional)
+	keyword := "keyword_example" // string | 搜索模式：搜索关键词，在指定历史时间范围内搜索包含该关键词的条目。需配合 time_start 和 time_end 使用。 (optional)
+	timeStart := int64(789) // int64 | 搜索模式必填：搜索起始时间戳（毫秒），需位于该平台历史数据覆盖范围内。 (optional)
+	timeEnd := int64(789) // int64 | 搜索模式必填：搜索结束时间戳（毫秒），需晚于 time_start 且位于该平台历史数据覆盖范围内。 (optional)
 	limit := int32(56) // int32 | 搜索模式下最大返回条数，默认 50，最大 200。 (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -361,10 +364,10 @@ Other parameters are passed through a pointer to a apiGetMiscHotboardRequest str
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type_** | **string** | 你想要查询的热榜平台。请从[支持的平台列表](#enum-list)中选择。 | 
- **time** | **int64** | 时光机模式：毫秒时间戳，返回最接近该时间的热榜快照。不传则返回当前实时热榜。 | 
- **keyword** | **string** | 搜索模式：搜索关键词，在历史热榜中搜索包含该关键词的条目。需配合 time_start 和 time_end 使用。 | 
- **timeStart** | **int64** | 搜索模式必填：搜索起始时间戳（毫秒）。 | 
- **timeEnd** | **int64** | 搜索模式必填：搜索结束时间戳（毫秒）。 | 
+ **time** | **int64** | 时光机模式：毫秒时间戳，返回该时间附近最近可展示的历史热榜快照。不传则返回当前实时热榜。 | 
+ **keyword** | **string** | 搜索模式：搜索关键词，在指定历史时间范围内搜索包含该关键词的条目。需配合 time_start 和 time_end 使用。 | 
+ **timeStart** | **int64** | 搜索模式必填：搜索起始时间戳（毫秒），需位于该平台历史数据覆盖范围内。 | 
+ **timeEnd** | **int64** | 搜索模式必填：搜索结束时间戳（毫秒），需晚于 time_start 且位于该平台历史数据覆盖范围内。 | 
  **limit** | **int32** | 搜索模式下最大返回条数，默认 50，最大 200。 | 
 
 ### Return type
@@ -438,6 +441,141 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetMiscLunartime200Response**](GetMiscLunartime200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetMiscMovieBoxOffice
+
+> GetMiscMovieBoxOffice200Response GetMiscMovieBoxOffice(ctx).Execute()
+
+查询电影票房
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MiscAPI.GetMiscMovieBoxOffice(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.GetMiscMovieBoxOffice``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMiscMovieBoxOffice`: GetMiscMovieBoxOffice200Response
+	fmt.Fprintf(os.Stdout, "Response from `MiscAPI.GetMiscMovieBoxOffice`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMiscMovieBoxOfficeRequest struct via the builder pattern
+
+
+### Return type
+
+[**GetMiscMovieBoxOffice200Response**](GetMiscMovieBoxOffice200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetMiscMovieRatingRank
+
+> GetMiscMovieRatingRank200Response GetMiscMovieRatingRank(ctx).Channel(channel).Platform(platform).Limit(limit).Period(period).Date(date).Execute()
+
+电影收视排行查询
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	channel := "channel_example" // string | 渠道：all（全网）、tv（卫视）、web（网络平台）、cinema（院线），默认 all。 (optional) (default to "all")
+	platform := "爱奇艺" // string | 按渠道或平台关键字过滤，例如 卫视、爱奇艺。 (optional)
+	limit := int32(10) // int32 | 每个渠道仅返回前 N 条。 (optional)
+	period := "period_example" // string | 排行周期：realtime、day、week、month，默认 realtime。 (optional) (default to "realtime")
+	date := "2026-06-08" // string | 历史快照日期，格式 YYYY-MM-DD；用于 day/week/month。 (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MiscAPI.GetMiscMovieRatingRank(context.Background()).Channel(channel).Platform(platform).Limit(limit).Period(period).Date(date).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.GetMiscMovieRatingRank``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMiscMovieRatingRank`: GetMiscMovieRatingRank200Response
+	fmt.Fprintf(os.Stdout, "Response from `MiscAPI.GetMiscMovieRatingRank`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMiscMovieRatingRankRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel** | **string** | 渠道：all（全网）、tv（卫视）、web（网络平台）、cinema（院线），默认 all。 | [default to &quot;all&quot;]
+ **platform** | **string** | 按渠道或平台关键字过滤，例如 卫视、爱奇艺。 | 
+ **limit** | **int32** | 每个渠道仅返回前 N 条。 | 
+ **period** | **string** | 排行周期：realtime、day、week、month，默认 realtime。 | [default to &quot;realtime&quot;]
+ **date** | **string** | 历史快照日期，格式 YYYY-MM-DD；用于 day/week/month。 | 
+
+### Return type
+
+[**GetMiscMovieRatingRank200Response**](GetMiscMovieRatingRank200Response.md)
 
 ### Authorization
 
@@ -790,7 +928,7 @@ No authorization required
 
 ## GetMiscTrackingQuery
 
-> GetMiscTrackingQuery200Response GetMiscTrackingQuery(ctx).TrackingNumber(trackingNumber).CarrierCode(carrierCode).Phone(phone).Full(full).Execute()
+> GetMiscTrackingQuery200Response GetMiscTrackingQuery(ctx).TrackingNumber(trackingNumber).CarrierCode(carrierCode).Phone(phone).Execute()
 
 查询快递物流信息
 
@@ -812,11 +950,10 @@ func main() {
 	trackingNumber := "YT1234567890123" // string | 快递单号，通常是一串10-20位的数字或字母数字组合。
 	carrierCode := "carrierCode_example" // string | 快递公司编码（可选）。不填写时系统会自动识别，填写后可加快查询速度。 (optional)
 	phone := "phone_example" // string | 收件人手机尾号，4位数字（可选）。部分快递公司需要验证手机尾号才能查询详细物流信息。 (optional)
-	full := true // bool | 使用这个参数可以获得完整的物流信息。但会消耗34积分/一次（不过缓存命中半价）。因为成本实在太贵了，否则非常非常亏说是 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MiscAPI.GetMiscTrackingQuery(context.Background()).TrackingNumber(trackingNumber).CarrierCode(carrierCode).Phone(phone).Full(full).Execute()
+	resp, r, err := apiClient.MiscAPI.GetMiscTrackingQuery(context.Background()).TrackingNumber(trackingNumber).CarrierCode(carrierCode).Phone(phone).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.GetMiscTrackingQuery``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -840,7 +977,6 @@ Name | Type | Description  | Notes
  **trackingNumber** | **string** | 快递单号，通常是一串10-20位的数字或字母数字组合。 | 
  **carrierCode** | **string** | 快递公司编码（可选）。不填写时系统会自动识别，填写后可加快查询速度。 | 
  **phone** | **string** | 收件人手机尾号，4位数字（可选）。部分快递公司需要验证手机尾号才能查询详细物流信息。 | 
- **full** | **bool** | 使用这个参数可以获得完整的物流信息。但会消耗34积分/一次（不过缓存命中半价）。因为成本实在太贵了，否则非常非常亏说是 | 
 
 ### Return type
 
@@ -940,6 +1076,82 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetMiscWeatherHistory
+
+> GetMiscWeatherHistory200Response GetMiscWeatherHistory(ctx).City(city).Adcode(adcode).StartDate(startDate).EndDate(endDate).Days(days).Lang(lang).Execute()
+
+查询历史天气
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	city := "北京" // string | 城市名称，支持中文或英文；可选，不传 city/adcode 时会尝试 IP 自动定位。 (optional)
+	adcode := "110000" // string | 6 位行政区划代码，优先级高于 city。 (optional)
+	startDate := "2026-05-01" // string | 起始日期，格式 YYYY-MM-DD；与 end_date 搭配使用。 (optional)
+	endDate := "2026-05-31" // string | 结束日期，格式 YYYY-MM-DD，默认昨天。 (optional)
+	days := int32(30) // int32 | 回看天数，1-366，默认 365；仅在未指定 start_date 时生效。 (optional) (default to 365)
+	lang := "lang_example" // string | 返回语言：zh（默认）或 en。 (optional) (default to "zh")
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.MiscAPI.GetMiscWeatherHistory(context.Background()).City(city).Adcode(adcode).StartDate(startDate).EndDate(endDate).Days(days).Lang(lang).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `MiscAPI.GetMiscWeatherHistory``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetMiscWeatherHistory`: GetMiscWeatherHistory200Response
+	fmt.Fprintf(os.Stdout, "Response from `MiscAPI.GetMiscWeatherHistory`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMiscWeatherHistoryRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **city** | **string** | 城市名称，支持中文或英文；可选，不传 city/adcode 时会尝试 IP 自动定位。 | 
+ **adcode** | **string** | 6 位行政区划代码，优先级高于 city。 | 
+ **startDate** | **string** | 起始日期，格式 YYYY-MM-DD；与 end_date 搭配使用。 | 
+ **endDate** | **string** | 结束日期，格式 YYYY-MM-DD，默认昨天。 | 
+ **days** | **int32** | 回看天数，1-366，默认 365；仅在未指定 start_date 时生效。 | [default to 365]
+ **lang** | **string** | 返回语言：zh（默认）或 en。 | [default to &quot;zh&quot;]
+
+### Return type
+
+[**GetMiscWeatherHistory200Response**](GetMiscWeatherHistory200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetMiscWorldtime
 
 > GetMiscWorldtime200Response GetMiscWorldtime(ctx).City(city).Execute()
@@ -961,7 +1173,7 @@ import (
 )
 
 func main() {
-	city := "Asia/Shanghai" // string | 你需要查询的城市或地区，请使用标准的 IANA 时区数据库名称，例如 'Shanghai', 'Asia/Tokyo', 'America/New_York'。
+	city := "Asia/Shanghai" // string | 你需要查询的城市或地区。请从[支持的时区列表](#enum-list)中选择标准 IANA 时区名称，例如 'Asia/Shanghai', 'Asia/Tokyo', 'America/New_York'。
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -986,7 +1198,7 @@ Other parameters are passed through a pointer to a apiGetMiscWorldtimeRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **city** | **string** | 你需要查询的城市或地区，请使用标准的 IANA 时区数据库名称，例如 &#39;Shanghai&#39;, &#39;Asia/Tokyo&#39;, &#39;America/New_York&#39;。 | 
+ **city** | **string** | 你需要查询的城市或地区。请从[支持的时区列表](#enum-list)中选择标准 IANA 时区名称，例如 &#39;Asia/Shanghai&#39;, &#39;Asia/Tokyo&#39;, &#39;America/New_York&#39;。 | 
 
 ### Return type
 
@@ -1027,7 +1239,7 @@ import (
 )
 
 func main() {
-	postMiscDateDiffRequest := *openapiclient.NewPostMiscDateDiffRequest("2025-01-01", "2025-12-31") // PostMiscDateDiffRequest | 
+	postMiscDateDiffRequest := *openapiclient.NewPostMiscDateDiffRequest("2025-12-31", "2025-01-01") // PostMiscDateDiffRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

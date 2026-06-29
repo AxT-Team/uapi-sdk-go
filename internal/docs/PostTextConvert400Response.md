@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ErrorCode** | Pointer to **string** |  | [optional] 
-**ErrorMessage** | Pointer to **string** |  | [optional] 
 **ErrorDetails** | Pointer to **string** |  | [optional] 
+**ErrorMessage** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -52,31 +52,6 @@ SetErrorCode sets ErrorCode field to given value.
 
 HasErrorCode returns a boolean if a field has been set.
 
-### GetErrorMessage
-
-`func (o *PostTextConvert400Response) GetErrorMessage() string`
-
-GetErrorMessage returns the ErrorMessage field if non-nil, zero value otherwise.
-
-### GetErrorMessageOk
-
-`func (o *PostTextConvert400Response) GetErrorMessageOk() (*string, bool)`
-
-GetErrorMessageOk returns a tuple with the ErrorMessage field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetErrorMessage
-
-`func (o *PostTextConvert400Response) SetErrorMessage(v string)`
-
-SetErrorMessage sets ErrorMessage field to given value.
-
-### HasErrorMessage
-
-`func (o *PostTextConvert400Response) HasErrorMessage() bool`
-
-HasErrorMessage returns a boolean if a field has been set.
-
 ### GetErrorDetails
 
 `func (o *PostTextConvert400Response) GetErrorDetails() string`
@@ -101,6 +76,31 @@ SetErrorDetails sets ErrorDetails field to given value.
 `func (o *PostTextConvert400Response) HasErrorDetails() bool`
 
 HasErrorDetails returns a boolean if a field has been set.
+
+### GetErrorMessage
+
+`func (o *PostTextConvert400Response) GetErrorMessage() string`
+
+GetErrorMessage returns the ErrorMessage field if non-nil, zero value otherwise.
+
+### GetErrorMessageOk
+
+`func (o *PostTextConvert400Response) GetErrorMessageOk() (*string, bool)`
+
+GetErrorMessageOk returns a tuple with the ErrorMessage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetErrorMessage
+
+`func (o *PostTextConvert400Response) SetErrorMessage(v string)`
+
+SetErrorMessage sets ErrorMessage field to given value.
+
+### HasErrorMessage
+
+`func (o *PostTextConvert400Response) HasErrorMessage() bool`
+
+HasErrorMessage returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

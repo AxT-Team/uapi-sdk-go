@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Endpoints** | Pointer to [**[]GetStatusUsage200ResponseAnyOfEndpointsInner**](GetStatusUsage200ResponseAnyOfEndpointsInner.md) |  | [optional] 
 **Unaggregated** | Pointer to [**GetStatusUsage200ResponseAnyOfUnaggregated**](GetStatusUsage200ResponseAnyOfUnaggregated.md) |  | [optional] 
-**Path** | Pointer to **string** |  | [optional] 
 **Count** | Pointer to **int32** |  | [optional] 
+**Path** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -78,31 +78,6 @@ SetUnaggregated sets Unaggregated field to given value.
 
 HasUnaggregated returns a boolean if a field has been set.
 
-### GetPath
-
-`func (o *GetStatusUsage200Response) GetPath() string`
-
-GetPath returns the Path field if non-nil, zero value otherwise.
-
-### GetPathOk
-
-`func (o *GetStatusUsage200Response) GetPathOk() (*string, bool)`
-
-GetPathOk returns a tuple with the Path field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPath
-
-`func (o *GetStatusUsage200Response) SetPath(v string)`
-
-SetPath sets Path field to given value.
-
-### HasPath
-
-`func (o *GetStatusUsage200Response) HasPath() bool`
-
-HasPath returns a boolean if a field has been set.
-
 ### GetCount
 
 `func (o *GetStatusUsage200Response) GetCount() int32`
@@ -127,6 +102,31 @@ SetCount sets Count field to given value.
 `func (o *GetStatusUsage200Response) HasCount() bool`
 
 HasCount returns a boolean if a field has been set.
+
+### GetPath
+
+`func (o *GetStatusUsage200Response) GetPath() string`
+
+GetPath returns the Path field if non-nil, zero value otherwise.
+
+### GetPathOk
+
+`func (o *GetStatusUsage200Response) GetPathOk() (*string, bool)`
+
+GetPathOk returns a tuple with the Path field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPath
+
+`func (o *GetStatusUsage200Response) SetPath(v string)`
+
+SetPath sets Path field to given value.
+
+### HasPath
+
+`func (o *GetStatusUsage200Response) HasPath() bool`
+
+HasPath returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

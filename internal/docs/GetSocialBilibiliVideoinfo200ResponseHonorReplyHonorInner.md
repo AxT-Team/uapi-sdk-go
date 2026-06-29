@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Aid** | Pointer to **float32** | 关联 AV 号。 | [optional] 
-**Type** | Pointer to **float32** | 荣誉类型。 | [optional] 
 **Desc** | Pointer to **string** | 荣誉名称。 | [optional] 
+**Type** | Pointer to **float32** | 荣誉类型。 | [optional] 
 **WeeklyRecommendNum** | Pointer to **float32** | 周推荐序号。 | [optional] 
 
 ## Methods
@@ -53,31 +53,6 @@ SetAid sets Aid field to given value.
 
 HasAid returns a boolean if a field has been set.
 
-### GetType
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseHonorReplyHonorInner) GetType() float32`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseHonorReplyHonorInner) GetTypeOk() (*float32, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseHonorReplyHonorInner) SetType(v float32)`
-
-SetType sets Type field to given value.
-
-### HasType
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseHonorReplyHonorInner) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
 ### GetDesc
 
 `func (o *GetSocialBilibiliVideoinfo200ResponseHonorReplyHonorInner) GetDesc() string`
@@ -102,6 +77,31 @@ SetDesc sets Desc field to given value.
 `func (o *GetSocialBilibiliVideoinfo200ResponseHonorReplyHonorInner) HasDesc() bool`
 
 HasDesc returns a boolean if a field has been set.
+
+### GetType
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseHonorReplyHonorInner) GetType() float32`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseHonorReplyHonorInner) GetTypeOk() (*float32, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseHonorReplyHonorInner) SetType(v float32)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseHonorReplyHonorInner) HasType() bool`
+
+HasType returns a boolean if a field has been set.
 
 ### GetWeeklyRecommendNum
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Question** | Pointer to **string** |  | [optional] 
 **Options** | Pointer to [**[]FormatJsonTriviaOptionsInner**](FormatJsonTriviaOptionsInner.md) |  | [optional] 
+**Question** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -25,31 +25,6 @@ will change when the set of required properties is changed
 NewFormatJsonTriviaWithDefaults instantiates a new FormatJsonTrivia object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetQuestion
-
-`func (o *FormatJsonTrivia) GetQuestion() string`
-
-GetQuestion returns the Question field if non-nil, zero value otherwise.
-
-### GetQuestionOk
-
-`func (o *FormatJsonTrivia) GetQuestionOk() (*string, bool)`
-
-GetQuestionOk returns a tuple with the Question field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetQuestion
-
-`func (o *FormatJsonTrivia) SetQuestion(v string)`
-
-SetQuestion sets Question field to given value.
-
-### HasQuestion
-
-`func (o *FormatJsonTrivia) HasQuestion() bool`
-
-HasQuestion returns a boolean if a field has been set.
 
 ### GetOptions
 
@@ -75,6 +50,31 @@ SetOptions sets Options field to given value.
 `func (o *FormatJsonTrivia) HasOptions() bool`
 
 HasOptions returns a boolean if a field has been set.
+
+### GetQuestion
+
+`func (o *FormatJsonTrivia) GetQuestion() string`
+
+GetQuestion returns the Question field if non-nil, zero value otherwise.
+
+### GetQuestionOk
+
+`func (o *FormatJsonTrivia) GetQuestionOk() (*string, bool)`
+
+GetQuestionOk returns a tuple with the Question field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQuestion
+
+`func (o *FormatJsonTrivia) SetQuestion(v string)`
+
+SetQuestion sets Question field to given value.
+
+### HasQuestion
+
+`func (o *FormatJsonTrivia) HasQuestion() bool`
+
+HasQuestion returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

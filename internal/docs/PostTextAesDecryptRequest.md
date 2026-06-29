@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | **string** | 密钥，长度必须为16、24或32字节，对应AES-128/192/256。 | 
-**Text** | **string** | Base64编码的密文。 | 
 **Nonce** | Pointer to **string** | 16字节的IV/Nonce，必须为16个字符 | [optional] 
+**Text** | **string** | Base64编码的密文。 | 
 
 ## Methods
 
@@ -47,26 +47,6 @@ and a boolean to check if the value has been set.
 SetKey sets Key field to given value.
 
 
-### GetText
-
-`func (o *PostTextAesDecryptRequest) GetText() string`
-
-GetText returns the Text field if non-nil, zero value otherwise.
-
-### GetTextOk
-
-`func (o *PostTextAesDecryptRequest) GetTextOk() (*string, bool)`
-
-GetTextOk returns a tuple with the Text field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetText
-
-`func (o *PostTextAesDecryptRequest) SetText(v string)`
-
-SetText sets Text field to given value.
-
-
 ### GetNonce
 
 `func (o *PostTextAesDecryptRequest) GetNonce() string`
@@ -91,6 +71,26 @@ SetNonce sets Nonce field to given value.
 `func (o *PostTextAesDecryptRequest) HasNonce() bool`
 
 HasNonce returns a boolean if a field has been set.
+
+### GetText
+
+`func (o *PostTextAesDecryptRequest) GetText() string`
+
+GetText returns the Text field if non-nil, zero value otherwise.
+
+### GetTextOk
+
+`func (o *PostTextAesDecryptRequest) GetTextOk() (*string, bool)`
+
+GetTextOk returns a tuple with the Text field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetText
+
+`func (o *PostTextAesDecryptRequest) SetText(v string)`
+
+SetText sets Text field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Year** | Pointer to **int32** |  | [optional] 
-**Title** | Pointer to **string** |  | [optional] 
-**Description** | Pointer to **string** |  | [optional] 
 **Category** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **Importance** | Pointer to **int32** |  | [optional] 
 **RelevanceScore** | Pointer to **float32** |  | [optional] 
+**Title** | Pointer to **string** |  | [optional] 
 **Url** | Pointer to **string** |  | [optional] 
+**Year** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -30,81 +30,6 @@ will change when the set of required properties is changed
 NewGetHistoryProgrammerToday200ResponseEventsInnerWithDefaults instantiates a new GetHistoryProgrammerToday200ResponseEventsInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetYear
-
-`func (o *GetHistoryProgrammerToday200ResponseEventsInner) GetYear() int32`
-
-GetYear returns the Year field if non-nil, zero value otherwise.
-
-### GetYearOk
-
-`func (o *GetHistoryProgrammerToday200ResponseEventsInner) GetYearOk() (*int32, bool)`
-
-GetYearOk returns a tuple with the Year field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetYear
-
-`func (o *GetHistoryProgrammerToday200ResponseEventsInner) SetYear(v int32)`
-
-SetYear sets Year field to given value.
-
-### HasYear
-
-`func (o *GetHistoryProgrammerToday200ResponseEventsInner) HasYear() bool`
-
-HasYear returns a boolean if a field has been set.
-
-### GetTitle
-
-`func (o *GetHistoryProgrammerToday200ResponseEventsInner) GetTitle() string`
-
-GetTitle returns the Title field if non-nil, zero value otherwise.
-
-### GetTitleOk
-
-`func (o *GetHistoryProgrammerToday200ResponseEventsInner) GetTitleOk() (*string, bool)`
-
-GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTitle
-
-`func (o *GetHistoryProgrammerToday200ResponseEventsInner) SetTitle(v string)`
-
-SetTitle sets Title field to given value.
-
-### HasTitle
-
-`func (o *GetHistoryProgrammerToday200ResponseEventsInner) HasTitle() bool`
-
-HasTitle returns a boolean if a field has been set.
-
-### GetDescription
-
-`func (o *GetHistoryProgrammerToday200ResponseEventsInner) GetDescription() string`
-
-GetDescription returns the Description field if non-nil, zero value otherwise.
-
-### GetDescriptionOk
-
-`func (o *GetHistoryProgrammerToday200ResponseEventsInner) GetDescriptionOk() (*string, bool)`
-
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDescription
-
-`func (o *GetHistoryProgrammerToday200ResponseEventsInner) SetDescription(v string)`
-
-SetDescription sets Description field to given value.
-
-### HasDescription
-
-`func (o *GetHistoryProgrammerToday200ResponseEventsInner) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
 
 ### GetCategory
 
@@ -130,6 +55,31 @@ SetCategory sets Category field to given value.
 `func (o *GetHistoryProgrammerToday200ResponseEventsInner) HasCategory() bool`
 
 HasCategory returns a boolean if a field has been set.
+
+### GetDescription
+
+`func (o *GetHistoryProgrammerToday200ResponseEventsInner) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *GetHistoryProgrammerToday200ResponseEventsInner) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *GetHistoryProgrammerToday200ResponseEventsInner) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *GetHistoryProgrammerToday200ResponseEventsInner) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 ### GetImportance
 
@@ -181,6 +131,31 @@ SetRelevanceScore sets RelevanceScore field to given value.
 
 HasRelevanceScore returns a boolean if a field has been set.
 
+### GetTitle
+
+`func (o *GetHistoryProgrammerToday200ResponseEventsInner) GetTitle() string`
+
+GetTitle returns the Title field if non-nil, zero value otherwise.
+
+### GetTitleOk
+
+`func (o *GetHistoryProgrammerToday200ResponseEventsInner) GetTitleOk() (*string, bool)`
+
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTitle
+
+`func (o *GetHistoryProgrammerToday200ResponseEventsInner) SetTitle(v string)`
+
+SetTitle sets Title field to given value.
+
+### HasTitle
+
+`func (o *GetHistoryProgrammerToday200ResponseEventsInner) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
+
 ### GetUrl
 
 `func (o *GetHistoryProgrammerToday200ResponseEventsInner) GetUrl() string`
@@ -205,6 +180,31 @@ SetUrl sets Url field to given value.
 `func (o *GetHistoryProgrammerToday200ResponseEventsInner) HasUrl() bool`
 
 HasUrl returns a boolean if a field has been set.
+
+### GetYear
+
+`func (o *GetHistoryProgrammerToday200ResponseEventsInner) GetYear() int32`
+
+GetYear returns the Year field if non-nil, zero value otherwise.
+
+### GetYearOk
+
+`func (o *GetHistoryProgrammerToday200ResponseEventsInner) GetYearOk() (*int32, bool)`
+
+GetYearOk returns a tuple with the Year field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetYear
+
+`func (o *GetHistoryProgrammerToday200ResponseEventsInner) SetYear(v int32)`
+
+SetYear sets Year field to given value.
+
+### HasYear
+
+`func (o *GetHistoryProgrammerToday200ResponseEventsInner) HasYear() bool`
+
+HasYear returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**FromLang** | Pointer to **string** | 源语言，支持：中文、英文、auto（自动检测）。默认为auto | [optional] [default to "auto"]
 **Query** | **string** | 待翻译的文本内容 | 
 **ToLang** | **string** | 目标语言，支持：中文、英文 | 
-**FromLang** | Pointer to **string** | 源语言，支持：中文、英文、auto（自动检测）。默认为auto | [optional] [default to "auto"]
 **Tone** | Pointer to **string** | 语气参数，可选 | [optional] 
 
 ## Methods
@@ -27,6 +27,31 @@ will change when the set of required properties is changed
 NewPostTranslateStreamRequestWithDefaults instantiates a new PostTranslateStreamRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetFromLang
+
+`func (o *PostTranslateStreamRequest) GetFromLang() string`
+
+GetFromLang returns the FromLang field if non-nil, zero value otherwise.
+
+### GetFromLangOk
+
+`func (o *PostTranslateStreamRequest) GetFromLangOk() (*string, bool)`
+
+GetFromLangOk returns a tuple with the FromLang field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFromLang
+
+`func (o *PostTranslateStreamRequest) SetFromLang(v string)`
+
+SetFromLang sets FromLang field to given value.
+
+### HasFromLang
+
+`func (o *PostTranslateStreamRequest) HasFromLang() bool`
+
+HasFromLang returns a boolean if a field has been set.
 
 ### GetQuery
 
@@ -67,31 +92,6 @@ and a boolean to check if the value has been set.
 
 SetToLang sets ToLang field to given value.
 
-
-### GetFromLang
-
-`func (o *PostTranslateStreamRequest) GetFromLang() string`
-
-GetFromLang returns the FromLang field if non-nil, zero value otherwise.
-
-### GetFromLangOk
-
-`func (o *PostTranslateStreamRequest) GetFromLangOk() (*string, bool)`
-
-GetFromLangOk returns a tuple with the FromLang field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFromLang
-
-`func (o *PostTranslateStreamRequest) SetFromLang(v string)`
-
-SetFromLang sets FromLang field to given value.
-
-### HasFromLang
-
-`func (o *PostTranslateStreamRequest) HasFromLang() bool`
-
-HasFromLang returns a boolean if a field has been set.
 
 ### GetTone
 

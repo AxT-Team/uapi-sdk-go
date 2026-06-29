@@ -4,30 +4,30 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FullName** | Pointer to **string** | 仓库完整名称。 | [optional] 
-**Description** | Pointer to **string** | 仓库简介。 | [optional] 
-**Homepage** | Pointer to **string** | 仓库主页链接。 | [optional] 
-**DefaultBranch** | Pointer to **string** | 默认分支名称。 | [optional] 
-**PrimaryBranch** | Pointer to **string** | 主要分支名称（通常与默认分支一致）。 | [optional] 
-**DefaultBranchSha** | Pointer to **string** | 默认分支最新提交的 SHA 哈希。 | [optional] 
-**Visibility** | Pointer to **string** | 仓库可见性，常见值为 &#x60;public&#x60; 或 &#x60;private&#x60;。 | [optional] 
 **Archived** | Pointer to **bool** | 仓库是否已归档。 | [optional] 
+**Collaborators** | Pointer to [**[]GetGithubRepo200ResponseCollaboratorsInner**](GetGithubRepo200ResponseCollaboratorsInner.md) | 协作者列表。受权限限制时可能为 null 或空数组。 | [optional] 
+**CreatedAt** | Pointer to **time.Time** | 创建时间（ISO 8601）。 | [optional] 
+**DefaultBranch** | Pointer to **string** | 默认分支名称。 | [optional] 
+**DefaultBranchSha** | Pointer to **string** | 默认分支最新提交的 SHA 哈希。 | [optional] 
+**Description** | Pointer to **string** | 仓库简介。 | [optional] 
 **Disabled** | Pointer to **bool** | 仓库是否被禁用。 | [optional] 
 **Fork** | Pointer to **bool** | 是否为 Fork 仓库。 | [optional] 
-**Language** | Pointer to **string** | 主要语言。 | [optional] 
-**Topics** | Pointer to **[]string** | 话题标签列表。 | [optional] 
-**License** | Pointer to **string** | 开源许可证名称。 | [optional] 
-**Stargazers** | Pointer to **int32** | Star 数。 | [optional] 
 **Forks** | Pointer to **int32** | Fork 数。 | [optional] 
-**OpenIssues** | Pointer to **int32** | 开放 Issue 数。 | [optional] 
-**Watchers** | Pointer to **int32** | 关注者数量（watchers/subscribers）。 | [optional] 
-**PushedAt** | Pointer to **time.Time** | 最后推送时间（ISO 8601）。 | [optional] 
-**CreatedAt** | Pointer to **time.Time** | 创建时间（ISO 8601）。 | [optional] 
-**UpdatedAt** | Pointer to **time.Time** | 更新时间（ISO 8601）。 | [optional] 
+**FullName** | Pointer to **string** | 仓库完整名称。 | [optional] 
+**Homepage** | Pointer to **string** | 仓库主页链接。 | [optional] 
+**Language** | Pointer to **string** | 主要语言。 | [optional] 
 **Languages** | Pointer to **map[string]int32** | 语言统计（键为语言名，值为代码字节数）。 | [optional] 
-**Collaborators** | Pointer to [**[]GetGithubRepo200ResponseCollaboratorsInner**](GetGithubRepo200ResponseCollaboratorsInner.md) | 协作者列表。受权限限制时可能为 null 或空数组。 | [optional] 
-**Maintainers** | Pointer to [**[]GetGithubRepo200ResponseCollaboratorsInner**](GetGithubRepo200ResponseCollaboratorsInner.md) | 维护者列表（根据默认分支近期提交推断）。 | [optional] 
 **LatestRelease** | Pointer to [**NullableGetGithubRepo200ResponseLatestRelease**](GetGithubRepo200ResponseLatestRelease.md) |  | [optional] 
+**License** | Pointer to **string** | 开源许可证名称。 | [optional] 
+**Maintainers** | Pointer to [**[]GetGithubRepo200ResponseCollaboratorsInner**](GetGithubRepo200ResponseCollaboratorsInner.md) | 维护者列表（根据默认分支近期提交推断）。 | [optional] 
+**OpenIssues** | Pointer to **int32** | 开放 Issue 数。 | [optional] 
+**PrimaryBranch** | Pointer to **string** | 主要分支名称（通常与默认分支一致）。 | [optional] 
+**PushedAt** | Pointer to **time.Time** | 最后推送时间（ISO 8601）。 | [optional] 
+**Stargazers** | Pointer to **int32** | Star 数。 | [optional] 
+**Topics** | Pointer to **[]string** | 话题标签列表。 | [optional] 
+**UpdatedAt** | Pointer to **time.Time** | 更新时间（ISO 8601）。 | [optional] 
+**Visibility** | Pointer to **string** | 仓库可见性，常见值为 &#x60;public&#x60; 或 &#x60;private&#x60;。 | [optional] 
+**Watchers** | Pointer to **int32** | 关注者数量（watchers/subscribers）。 | [optional] 
 
 ## Methods
 
@@ -48,80 +48,90 @@ NewGetGithubRepo200ResponseWithDefaults instantiates a new GetGithubRepo200Respo
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetFullName
+### GetArchived
 
-`func (o *GetGithubRepo200Response) GetFullName() string`
+`func (o *GetGithubRepo200Response) GetArchived() bool`
 
-GetFullName returns the FullName field if non-nil, zero value otherwise.
+GetArchived returns the Archived field if non-nil, zero value otherwise.
 
-### GetFullNameOk
+### GetArchivedOk
 
-`func (o *GetGithubRepo200Response) GetFullNameOk() (*string, bool)`
+`func (o *GetGithubRepo200Response) GetArchivedOk() (*bool, bool)`
 
-GetFullNameOk returns a tuple with the FullName field if it's non-nil, zero value otherwise
+GetArchivedOk returns a tuple with the Archived field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFullName
+### SetArchived
 
-`func (o *GetGithubRepo200Response) SetFullName(v string)`
+`func (o *GetGithubRepo200Response) SetArchived(v bool)`
 
-SetFullName sets FullName field to given value.
+SetArchived sets Archived field to given value.
 
-### HasFullName
+### HasArchived
 
-`func (o *GetGithubRepo200Response) HasFullName() bool`
+`func (o *GetGithubRepo200Response) HasArchived() bool`
 
-HasFullName returns a boolean if a field has been set.
+HasArchived returns a boolean if a field has been set.
 
-### GetDescription
+### GetCollaborators
 
-`func (o *GetGithubRepo200Response) GetDescription() string`
+`func (o *GetGithubRepo200Response) GetCollaborators() []GetGithubRepo200ResponseCollaboratorsInner`
 
-GetDescription returns the Description field if non-nil, zero value otherwise.
+GetCollaborators returns the Collaborators field if non-nil, zero value otherwise.
 
-### GetDescriptionOk
+### GetCollaboratorsOk
 
-`func (o *GetGithubRepo200Response) GetDescriptionOk() (*string, bool)`
+`func (o *GetGithubRepo200Response) GetCollaboratorsOk() (*[]GetGithubRepo200ResponseCollaboratorsInner, bool)`
 
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+GetCollaboratorsOk returns a tuple with the Collaborators field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDescription
+### SetCollaborators
 
-`func (o *GetGithubRepo200Response) SetDescription(v string)`
+`func (o *GetGithubRepo200Response) SetCollaborators(v []GetGithubRepo200ResponseCollaboratorsInner)`
 
-SetDescription sets Description field to given value.
+SetCollaborators sets Collaborators field to given value.
 
-### HasDescription
+### HasCollaborators
 
-`func (o *GetGithubRepo200Response) HasDescription() bool`
+`func (o *GetGithubRepo200Response) HasCollaborators() bool`
 
-HasDescription returns a boolean if a field has been set.
+HasCollaborators returns a boolean if a field has been set.
 
-### GetHomepage
+### SetCollaboratorsNil
 
-`func (o *GetGithubRepo200Response) GetHomepage() string`
+`func (o *GetGithubRepo200Response) SetCollaboratorsNil(b bool)`
 
-GetHomepage returns the Homepage field if non-nil, zero value otherwise.
+ SetCollaboratorsNil sets the value for Collaborators to be an explicit nil
 
-### GetHomepageOk
+### UnsetCollaborators
+`func (o *GetGithubRepo200Response) UnsetCollaborators()`
 
-`func (o *GetGithubRepo200Response) GetHomepageOk() (*string, bool)`
+UnsetCollaborators ensures that no value is present for Collaborators, not even an explicit nil
+### GetCreatedAt
 
-GetHomepageOk returns a tuple with the Homepage field if it's non-nil, zero value otherwise
+`func (o *GetGithubRepo200Response) GetCreatedAt() time.Time`
+
+GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
+
+### GetCreatedAtOk
+
+`func (o *GetGithubRepo200Response) GetCreatedAtOk() (*time.Time, bool)`
+
+GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetHomepage
+### SetCreatedAt
 
-`func (o *GetGithubRepo200Response) SetHomepage(v string)`
+`func (o *GetGithubRepo200Response) SetCreatedAt(v time.Time)`
 
-SetHomepage sets Homepage field to given value.
+SetCreatedAt sets CreatedAt field to given value.
 
-### HasHomepage
+### HasCreatedAt
 
-`func (o *GetGithubRepo200Response) HasHomepage() bool`
+`func (o *GetGithubRepo200Response) HasCreatedAt() bool`
 
-HasHomepage returns a boolean if a field has been set.
+HasCreatedAt returns a boolean if a field has been set.
 
 ### GetDefaultBranch
 
@@ -148,31 +158,6 @@ SetDefaultBranch sets DefaultBranch field to given value.
 
 HasDefaultBranch returns a boolean if a field has been set.
 
-### GetPrimaryBranch
-
-`func (o *GetGithubRepo200Response) GetPrimaryBranch() string`
-
-GetPrimaryBranch returns the PrimaryBranch field if non-nil, zero value otherwise.
-
-### GetPrimaryBranchOk
-
-`func (o *GetGithubRepo200Response) GetPrimaryBranchOk() (*string, bool)`
-
-GetPrimaryBranchOk returns a tuple with the PrimaryBranch field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPrimaryBranch
-
-`func (o *GetGithubRepo200Response) SetPrimaryBranch(v string)`
-
-SetPrimaryBranch sets PrimaryBranch field to given value.
-
-### HasPrimaryBranch
-
-`func (o *GetGithubRepo200Response) HasPrimaryBranch() bool`
-
-HasPrimaryBranch returns a boolean if a field has been set.
-
 ### GetDefaultBranchSha
 
 `func (o *GetGithubRepo200Response) GetDefaultBranchSha() string`
@@ -198,55 +183,30 @@ SetDefaultBranchSha sets DefaultBranchSha field to given value.
 
 HasDefaultBranchSha returns a boolean if a field has been set.
 
-### GetVisibility
+### GetDescription
 
-`func (o *GetGithubRepo200Response) GetVisibility() string`
+`func (o *GetGithubRepo200Response) GetDescription() string`
 
-GetVisibility returns the Visibility field if non-nil, zero value otherwise.
+GetDescription returns the Description field if non-nil, zero value otherwise.
 
-### GetVisibilityOk
+### GetDescriptionOk
 
-`func (o *GetGithubRepo200Response) GetVisibilityOk() (*string, bool)`
+`func (o *GetGithubRepo200Response) GetDescriptionOk() (*string, bool)`
 
-GetVisibilityOk returns a tuple with the Visibility field if it's non-nil, zero value otherwise
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetVisibility
+### SetDescription
 
-`func (o *GetGithubRepo200Response) SetVisibility(v string)`
+`func (o *GetGithubRepo200Response) SetDescription(v string)`
 
-SetVisibility sets Visibility field to given value.
+SetDescription sets Description field to given value.
 
-### HasVisibility
+### HasDescription
 
-`func (o *GetGithubRepo200Response) HasVisibility() bool`
+`func (o *GetGithubRepo200Response) HasDescription() bool`
 
-HasVisibility returns a boolean if a field has been set.
-
-### GetArchived
-
-`func (o *GetGithubRepo200Response) GetArchived() bool`
-
-GetArchived returns the Archived field if non-nil, zero value otherwise.
-
-### GetArchivedOk
-
-`func (o *GetGithubRepo200Response) GetArchivedOk() (*bool, bool)`
-
-GetArchivedOk returns a tuple with the Archived field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetArchived
-
-`func (o *GetGithubRepo200Response) SetArchived(v bool)`
-
-SetArchived sets Archived field to given value.
-
-### HasArchived
-
-`func (o *GetGithubRepo200Response) HasArchived() bool`
-
-HasArchived returns a boolean if a field has been set.
+HasDescription returns a boolean if a field has been set.
 
 ### GetDisabled
 
@@ -298,106 +258,6 @@ SetFork sets Fork field to given value.
 
 HasFork returns a boolean if a field has been set.
 
-### GetLanguage
-
-`func (o *GetGithubRepo200Response) GetLanguage() string`
-
-GetLanguage returns the Language field if non-nil, zero value otherwise.
-
-### GetLanguageOk
-
-`func (o *GetGithubRepo200Response) GetLanguageOk() (*string, bool)`
-
-GetLanguageOk returns a tuple with the Language field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLanguage
-
-`func (o *GetGithubRepo200Response) SetLanguage(v string)`
-
-SetLanguage sets Language field to given value.
-
-### HasLanguage
-
-`func (o *GetGithubRepo200Response) HasLanguage() bool`
-
-HasLanguage returns a boolean if a field has been set.
-
-### GetTopics
-
-`func (o *GetGithubRepo200Response) GetTopics() []string`
-
-GetTopics returns the Topics field if non-nil, zero value otherwise.
-
-### GetTopicsOk
-
-`func (o *GetGithubRepo200Response) GetTopicsOk() (*[]string, bool)`
-
-GetTopicsOk returns a tuple with the Topics field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTopics
-
-`func (o *GetGithubRepo200Response) SetTopics(v []string)`
-
-SetTopics sets Topics field to given value.
-
-### HasTopics
-
-`func (o *GetGithubRepo200Response) HasTopics() bool`
-
-HasTopics returns a boolean if a field has been set.
-
-### GetLicense
-
-`func (o *GetGithubRepo200Response) GetLicense() string`
-
-GetLicense returns the License field if non-nil, zero value otherwise.
-
-### GetLicenseOk
-
-`func (o *GetGithubRepo200Response) GetLicenseOk() (*string, bool)`
-
-GetLicenseOk returns a tuple with the License field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLicense
-
-`func (o *GetGithubRepo200Response) SetLicense(v string)`
-
-SetLicense sets License field to given value.
-
-### HasLicense
-
-`func (o *GetGithubRepo200Response) HasLicense() bool`
-
-HasLicense returns a boolean if a field has been set.
-
-### GetStargazers
-
-`func (o *GetGithubRepo200Response) GetStargazers() int32`
-
-GetStargazers returns the Stargazers field if non-nil, zero value otherwise.
-
-### GetStargazersOk
-
-`func (o *GetGithubRepo200Response) GetStargazersOk() (*int32, bool)`
-
-GetStargazersOk returns a tuple with the Stargazers field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStargazers
-
-`func (o *GetGithubRepo200Response) SetStargazers(v int32)`
-
-SetStargazers sets Stargazers field to given value.
-
-### HasStargazers
-
-`func (o *GetGithubRepo200Response) HasStargazers() bool`
-
-HasStargazers returns a boolean if a field has been set.
-
 ### GetForks
 
 `func (o *GetGithubRepo200Response) GetForks() int32`
@@ -423,130 +283,80 @@ SetForks sets Forks field to given value.
 
 HasForks returns a boolean if a field has been set.
 
-### GetOpenIssues
+### GetFullName
 
-`func (o *GetGithubRepo200Response) GetOpenIssues() int32`
+`func (o *GetGithubRepo200Response) GetFullName() string`
 
-GetOpenIssues returns the OpenIssues field if non-nil, zero value otherwise.
+GetFullName returns the FullName field if non-nil, zero value otherwise.
 
-### GetOpenIssuesOk
+### GetFullNameOk
 
-`func (o *GetGithubRepo200Response) GetOpenIssuesOk() (*int32, bool)`
+`func (o *GetGithubRepo200Response) GetFullNameOk() (*string, bool)`
 
-GetOpenIssuesOk returns a tuple with the OpenIssues field if it's non-nil, zero value otherwise
+GetFullNameOk returns a tuple with the FullName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOpenIssues
+### SetFullName
 
-`func (o *GetGithubRepo200Response) SetOpenIssues(v int32)`
+`func (o *GetGithubRepo200Response) SetFullName(v string)`
 
-SetOpenIssues sets OpenIssues field to given value.
+SetFullName sets FullName field to given value.
 
-### HasOpenIssues
+### HasFullName
 
-`func (o *GetGithubRepo200Response) HasOpenIssues() bool`
+`func (o *GetGithubRepo200Response) HasFullName() bool`
 
-HasOpenIssues returns a boolean if a field has been set.
+HasFullName returns a boolean if a field has been set.
 
-### GetWatchers
+### GetHomepage
 
-`func (o *GetGithubRepo200Response) GetWatchers() int32`
+`func (o *GetGithubRepo200Response) GetHomepage() string`
 
-GetWatchers returns the Watchers field if non-nil, zero value otherwise.
+GetHomepage returns the Homepage field if non-nil, zero value otherwise.
 
-### GetWatchersOk
+### GetHomepageOk
 
-`func (o *GetGithubRepo200Response) GetWatchersOk() (*int32, bool)`
+`func (o *GetGithubRepo200Response) GetHomepageOk() (*string, bool)`
 
-GetWatchersOk returns a tuple with the Watchers field if it's non-nil, zero value otherwise
+GetHomepageOk returns a tuple with the Homepage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWatchers
+### SetHomepage
 
-`func (o *GetGithubRepo200Response) SetWatchers(v int32)`
+`func (o *GetGithubRepo200Response) SetHomepage(v string)`
 
-SetWatchers sets Watchers field to given value.
+SetHomepage sets Homepage field to given value.
 
-### HasWatchers
+### HasHomepage
 
-`func (o *GetGithubRepo200Response) HasWatchers() bool`
+`func (o *GetGithubRepo200Response) HasHomepage() bool`
 
-HasWatchers returns a boolean if a field has been set.
+HasHomepage returns a boolean if a field has been set.
 
-### GetPushedAt
+### GetLanguage
 
-`func (o *GetGithubRepo200Response) GetPushedAt() time.Time`
+`func (o *GetGithubRepo200Response) GetLanguage() string`
 
-GetPushedAt returns the PushedAt field if non-nil, zero value otherwise.
+GetLanguage returns the Language field if non-nil, zero value otherwise.
 
-### GetPushedAtOk
+### GetLanguageOk
 
-`func (o *GetGithubRepo200Response) GetPushedAtOk() (*time.Time, bool)`
+`func (o *GetGithubRepo200Response) GetLanguageOk() (*string, bool)`
 
-GetPushedAtOk returns a tuple with the PushedAt field if it's non-nil, zero value otherwise
+GetLanguageOk returns a tuple with the Language field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPushedAt
+### SetLanguage
 
-`func (o *GetGithubRepo200Response) SetPushedAt(v time.Time)`
+`func (o *GetGithubRepo200Response) SetLanguage(v string)`
 
-SetPushedAt sets PushedAt field to given value.
+SetLanguage sets Language field to given value.
 
-### HasPushedAt
+### HasLanguage
 
-`func (o *GetGithubRepo200Response) HasPushedAt() bool`
+`func (o *GetGithubRepo200Response) HasLanguage() bool`
 
-HasPushedAt returns a boolean if a field has been set.
-
-### GetCreatedAt
-
-`func (o *GetGithubRepo200Response) GetCreatedAt() time.Time`
-
-GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
-
-### GetCreatedAtOk
-
-`func (o *GetGithubRepo200Response) GetCreatedAtOk() (*time.Time, bool)`
-
-GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCreatedAt
-
-`func (o *GetGithubRepo200Response) SetCreatedAt(v time.Time)`
-
-SetCreatedAt sets CreatedAt field to given value.
-
-### HasCreatedAt
-
-`func (o *GetGithubRepo200Response) HasCreatedAt() bool`
-
-HasCreatedAt returns a boolean if a field has been set.
-
-### GetUpdatedAt
-
-`func (o *GetGithubRepo200Response) GetUpdatedAt() time.Time`
-
-GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
-
-### GetUpdatedAtOk
-
-`func (o *GetGithubRepo200Response) GetUpdatedAtOk() (*time.Time, bool)`
-
-GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUpdatedAt
-
-`func (o *GetGithubRepo200Response) SetUpdatedAt(v time.Time)`
-
-SetUpdatedAt sets UpdatedAt field to given value.
-
-### HasUpdatedAt
-
-`func (o *GetGithubRepo200Response) HasUpdatedAt() bool`
-
-HasUpdatedAt returns a boolean if a field has been set.
+HasLanguage returns a boolean if a field has been set.
 
 ### GetLanguages
 
@@ -572,66 +382,6 @@ SetLanguages sets Languages field to given value.
 `func (o *GetGithubRepo200Response) HasLanguages() bool`
 
 HasLanguages returns a boolean if a field has been set.
-
-### GetCollaborators
-
-`func (o *GetGithubRepo200Response) GetCollaborators() []GetGithubRepo200ResponseCollaboratorsInner`
-
-GetCollaborators returns the Collaborators field if non-nil, zero value otherwise.
-
-### GetCollaboratorsOk
-
-`func (o *GetGithubRepo200Response) GetCollaboratorsOk() (*[]GetGithubRepo200ResponseCollaboratorsInner, bool)`
-
-GetCollaboratorsOk returns a tuple with the Collaborators field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCollaborators
-
-`func (o *GetGithubRepo200Response) SetCollaborators(v []GetGithubRepo200ResponseCollaboratorsInner)`
-
-SetCollaborators sets Collaborators field to given value.
-
-### HasCollaborators
-
-`func (o *GetGithubRepo200Response) HasCollaborators() bool`
-
-HasCollaborators returns a boolean if a field has been set.
-
-### SetCollaboratorsNil
-
-`func (o *GetGithubRepo200Response) SetCollaboratorsNil(b bool)`
-
- SetCollaboratorsNil sets the value for Collaborators to be an explicit nil
-
-### UnsetCollaborators
-`func (o *GetGithubRepo200Response) UnsetCollaborators()`
-
-UnsetCollaborators ensures that no value is present for Collaborators, not even an explicit nil
-### GetMaintainers
-
-`func (o *GetGithubRepo200Response) GetMaintainers() []GetGithubRepo200ResponseCollaboratorsInner`
-
-GetMaintainers returns the Maintainers field if non-nil, zero value otherwise.
-
-### GetMaintainersOk
-
-`func (o *GetGithubRepo200Response) GetMaintainersOk() (*[]GetGithubRepo200ResponseCollaboratorsInner, bool)`
-
-GetMaintainersOk returns a tuple with the Maintainers field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMaintainers
-
-`func (o *GetGithubRepo200Response) SetMaintainers(v []GetGithubRepo200ResponseCollaboratorsInner)`
-
-SetMaintainers sets Maintainers field to given value.
-
-### HasMaintainers
-
-`func (o *GetGithubRepo200Response) HasMaintainers() bool`
-
-HasMaintainers returns a boolean if a field has been set.
 
 ### GetLatestRelease
 
@@ -668,6 +418,256 @@ HasLatestRelease returns a boolean if a field has been set.
 `func (o *GetGithubRepo200Response) UnsetLatestRelease()`
 
 UnsetLatestRelease ensures that no value is present for LatestRelease, not even an explicit nil
+### GetLicense
+
+`func (o *GetGithubRepo200Response) GetLicense() string`
+
+GetLicense returns the License field if non-nil, zero value otherwise.
+
+### GetLicenseOk
+
+`func (o *GetGithubRepo200Response) GetLicenseOk() (*string, bool)`
+
+GetLicenseOk returns a tuple with the License field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLicense
+
+`func (o *GetGithubRepo200Response) SetLicense(v string)`
+
+SetLicense sets License field to given value.
+
+### HasLicense
+
+`func (o *GetGithubRepo200Response) HasLicense() bool`
+
+HasLicense returns a boolean if a field has been set.
+
+### GetMaintainers
+
+`func (o *GetGithubRepo200Response) GetMaintainers() []GetGithubRepo200ResponseCollaboratorsInner`
+
+GetMaintainers returns the Maintainers field if non-nil, zero value otherwise.
+
+### GetMaintainersOk
+
+`func (o *GetGithubRepo200Response) GetMaintainersOk() (*[]GetGithubRepo200ResponseCollaboratorsInner, bool)`
+
+GetMaintainersOk returns a tuple with the Maintainers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaintainers
+
+`func (o *GetGithubRepo200Response) SetMaintainers(v []GetGithubRepo200ResponseCollaboratorsInner)`
+
+SetMaintainers sets Maintainers field to given value.
+
+### HasMaintainers
+
+`func (o *GetGithubRepo200Response) HasMaintainers() bool`
+
+HasMaintainers returns a boolean if a field has been set.
+
+### GetOpenIssues
+
+`func (o *GetGithubRepo200Response) GetOpenIssues() int32`
+
+GetOpenIssues returns the OpenIssues field if non-nil, zero value otherwise.
+
+### GetOpenIssuesOk
+
+`func (o *GetGithubRepo200Response) GetOpenIssuesOk() (*int32, bool)`
+
+GetOpenIssuesOk returns a tuple with the OpenIssues field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOpenIssues
+
+`func (o *GetGithubRepo200Response) SetOpenIssues(v int32)`
+
+SetOpenIssues sets OpenIssues field to given value.
+
+### HasOpenIssues
+
+`func (o *GetGithubRepo200Response) HasOpenIssues() bool`
+
+HasOpenIssues returns a boolean if a field has been set.
+
+### GetPrimaryBranch
+
+`func (o *GetGithubRepo200Response) GetPrimaryBranch() string`
+
+GetPrimaryBranch returns the PrimaryBranch field if non-nil, zero value otherwise.
+
+### GetPrimaryBranchOk
+
+`func (o *GetGithubRepo200Response) GetPrimaryBranchOk() (*string, bool)`
+
+GetPrimaryBranchOk returns a tuple with the PrimaryBranch field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrimaryBranch
+
+`func (o *GetGithubRepo200Response) SetPrimaryBranch(v string)`
+
+SetPrimaryBranch sets PrimaryBranch field to given value.
+
+### HasPrimaryBranch
+
+`func (o *GetGithubRepo200Response) HasPrimaryBranch() bool`
+
+HasPrimaryBranch returns a boolean if a field has been set.
+
+### GetPushedAt
+
+`func (o *GetGithubRepo200Response) GetPushedAt() time.Time`
+
+GetPushedAt returns the PushedAt field if non-nil, zero value otherwise.
+
+### GetPushedAtOk
+
+`func (o *GetGithubRepo200Response) GetPushedAtOk() (*time.Time, bool)`
+
+GetPushedAtOk returns a tuple with the PushedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPushedAt
+
+`func (o *GetGithubRepo200Response) SetPushedAt(v time.Time)`
+
+SetPushedAt sets PushedAt field to given value.
+
+### HasPushedAt
+
+`func (o *GetGithubRepo200Response) HasPushedAt() bool`
+
+HasPushedAt returns a boolean if a field has been set.
+
+### GetStargazers
+
+`func (o *GetGithubRepo200Response) GetStargazers() int32`
+
+GetStargazers returns the Stargazers field if non-nil, zero value otherwise.
+
+### GetStargazersOk
+
+`func (o *GetGithubRepo200Response) GetStargazersOk() (*int32, bool)`
+
+GetStargazersOk returns a tuple with the Stargazers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStargazers
+
+`func (o *GetGithubRepo200Response) SetStargazers(v int32)`
+
+SetStargazers sets Stargazers field to given value.
+
+### HasStargazers
+
+`func (o *GetGithubRepo200Response) HasStargazers() bool`
+
+HasStargazers returns a boolean if a field has been set.
+
+### GetTopics
+
+`func (o *GetGithubRepo200Response) GetTopics() []string`
+
+GetTopics returns the Topics field if non-nil, zero value otherwise.
+
+### GetTopicsOk
+
+`func (o *GetGithubRepo200Response) GetTopicsOk() (*[]string, bool)`
+
+GetTopicsOk returns a tuple with the Topics field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTopics
+
+`func (o *GetGithubRepo200Response) SetTopics(v []string)`
+
+SetTopics sets Topics field to given value.
+
+### HasTopics
+
+`func (o *GetGithubRepo200Response) HasTopics() bool`
+
+HasTopics returns a boolean if a field has been set.
+
+### GetUpdatedAt
+
+`func (o *GetGithubRepo200Response) GetUpdatedAt() time.Time`
+
+GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
+
+### GetUpdatedAtOk
+
+`func (o *GetGithubRepo200Response) GetUpdatedAtOk() (*time.Time, bool)`
+
+GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpdatedAt
+
+`func (o *GetGithubRepo200Response) SetUpdatedAt(v time.Time)`
+
+SetUpdatedAt sets UpdatedAt field to given value.
+
+### HasUpdatedAt
+
+`func (o *GetGithubRepo200Response) HasUpdatedAt() bool`
+
+HasUpdatedAt returns a boolean if a field has been set.
+
+### GetVisibility
+
+`func (o *GetGithubRepo200Response) GetVisibility() string`
+
+GetVisibility returns the Visibility field if non-nil, zero value otherwise.
+
+### GetVisibilityOk
+
+`func (o *GetGithubRepo200Response) GetVisibilityOk() (*string, bool)`
+
+GetVisibilityOk returns a tuple with the Visibility field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVisibility
+
+`func (o *GetGithubRepo200Response) SetVisibility(v string)`
+
+SetVisibility sets Visibility field to given value.
+
+### HasVisibility
+
+`func (o *GetGithubRepo200Response) HasVisibility() bool`
+
+HasVisibility returns a boolean if a field has been set.
+
+### GetWatchers
+
+`func (o *GetGithubRepo200Response) GetWatchers() int32`
+
+GetWatchers returns the Watchers field if non-nil, zero value otherwise.
+
+### GetWatchersOk
+
+`func (o *GetGithubRepo200Response) GetWatchersOk() (*int32, bool)`
+
+GetWatchersOk returns a tuple with the Watchers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWatchers
+
+`func (o *GetGithubRepo200Response) SetWatchers(v int32)`
+
+SetWatchers sets Watchers field to given value.
+
+### HasWatchers
+
+`func (o *GetGithubRepo200Response) HasWatchers() bool`
+
+HasWatchers returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

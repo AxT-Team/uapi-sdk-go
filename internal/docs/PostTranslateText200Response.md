@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SourceLang** | Pointer to **string** | The source language detected. | [optional] 
-**TranslatedText** | Pointer to **string** | The translated text. | [optional] 
+**Text** | Pointer to **string** | 原始文本。 | [optional] 
+**Translate** | Pointer to **string** | 翻译后的文本。 | [optional] 
 
 ## Methods
 
@@ -26,55 +26,55 @@ NewPostTranslateText200ResponseWithDefaults instantiates a new PostTranslateText
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetSourceLang
+### GetText
 
-`func (o *PostTranslateText200Response) GetSourceLang() string`
+`func (o *PostTranslateText200Response) GetText() string`
 
-GetSourceLang returns the SourceLang field if non-nil, zero value otherwise.
+GetText returns the Text field if non-nil, zero value otherwise.
 
-### GetSourceLangOk
+### GetTextOk
 
-`func (o *PostTranslateText200Response) GetSourceLangOk() (*string, bool)`
+`func (o *PostTranslateText200Response) GetTextOk() (*string, bool)`
 
-GetSourceLangOk returns a tuple with the SourceLang field if it's non-nil, zero value otherwise
+GetTextOk returns a tuple with the Text field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSourceLang
+### SetText
 
-`func (o *PostTranslateText200Response) SetSourceLang(v string)`
+`func (o *PostTranslateText200Response) SetText(v string)`
 
-SetSourceLang sets SourceLang field to given value.
+SetText sets Text field to given value.
 
-### HasSourceLang
+### HasText
 
-`func (o *PostTranslateText200Response) HasSourceLang() bool`
+`func (o *PostTranslateText200Response) HasText() bool`
 
-HasSourceLang returns a boolean if a field has been set.
+HasText returns a boolean if a field has been set.
 
-### GetTranslatedText
+### GetTranslate
 
-`func (o *PostTranslateText200Response) GetTranslatedText() string`
+`func (o *PostTranslateText200Response) GetTranslate() string`
 
-GetTranslatedText returns the TranslatedText field if non-nil, zero value otherwise.
+GetTranslate returns the Translate field if non-nil, zero value otherwise.
 
-### GetTranslatedTextOk
+### GetTranslateOk
 
-`func (o *PostTranslateText200Response) GetTranslatedTextOk() (*string, bool)`
+`func (o *PostTranslateText200Response) GetTranslateOk() (*string, bool)`
 
-GetTranslatedTextOk returns a tuple with the TranslatedText field if it's non-nil, zero value otherwise
+GetTranslateOk returns a tuple with the Translate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTranslatedText
+### SetTranslate
 
-`func (o *PostTranslateText200Response) SetTranslatedText(v string)`
+`func (o *PostTranslateText200Response) SetTranslate(v string)`
 
-SetTranslatedText sets TranslatedText field to given value.
+SetTranslate sets Translate field to given value.
 
-### HasTranslatedText
+### HasTranslate
 
-`func (o *PostTranslateText200Response) HasTranslatedText() bool`
+`func (o *PostTranslateText200Response) HasTranslate() bool`
 
-HasTranslatedText returns a boolean if a field has been set.
+HasTranslate returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

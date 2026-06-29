@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**FetchFull** | Pointer to **bool** | 是否获取页面完整正文（会影响响应时间） | [optional] [default to false]
+**Filetype** | Pointer to **string** | 限制文件类型，不需要 &#x60;filetype:&#x60; 前缀。支持 pdf、doc、docx、ppt、pptx、xls、xlsx、txt 等 | [optional] 
 **Query** | **string** | 搜索查询关键词，支持中英文 | 
 **Site** | Pointer to **string** | 限制搜索特定网站，不需要 &#x60;site:&#x60; 前缀 | [optional] 
-**Filetype** | Pointer to **string** | 限制文件类型，不需要 &#x60;filetype:&#x60; 前缀。支持 pdf、doc、docx、ppt、pptx、xls、xlsx、txt 等 | [optional] 
-**FetchFull** | Pointer to **bool** | 是否获取页面完整正文（会影响响应时间） | [optional] [default to false]
 **Sort** | Pointer to **string** | 排序方式 | [optional] [default to "relevance"]
 **TimeRange** | Pointer to **string** | 时间范围过滤 | [optional] 
 
@@ -29,6 +29,56 @@ will change when the set of required properties is changed
 NewPostSearchAggregateRequestWithDefaults instantiates a new PostSearchAggregateRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetFetchFull
+
+`func (o *PostSearchAggregateRequest) GetFetchFull() bool`
+
+GetFetchFull returns the FetchFull field if non-nil, zero value otherwise.
+
+### GetFetchFullOk
+
+`func (o *PostSearchAggregateRequest) GetFetchFullOk() (*bool, bool)`
+
+GetFetchFullOk returns a tuple with the FetchFull field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFetchFull
+
+`func (o *PostSearchAggregateRequest) SetFetchFull(v bool)`
+
+SetFetchFull sets FetchFull field to given value.
+
+### HasFetchFull
+
+`func (o *PostSearchAggregateRequest) HasFetchFull() bool`
+
+HasFetchFull returns a boolean if a field has been set.
+
+### GetFiletype
+
+`func (o *PostSearchAggregateRequest) GetFiletype() string`
+
+GetFiletype returns the Filetype field if non-nil, zero value otherwise.
+
+### GetFiletypeOk
+
+`func (o *PostSearchAggregateRequest) GetFiletypeOk() (*string, bool)`
+
+GetFiletypeOk returns a tuple with the Filetype field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFiletype
+
+`func (o *PostSearchAggregateRequest) SetFiletype(v string)`
+
+SetFiletype sets Filetype field to given value.
+
+### HasFiletype
+
+`func (o *PostSearchAggregateRequest) HasFiletype() bool`
+
+HasFiletype returns a boolean if a field has been set.
 
 ### GetQuery
 
@@ -74,56 +124,6 @@ SetSite sets Site field to given value.
 `func (o *PostSearchAggregateRequest) HasSite() bool`
 
 HasSite returns a boolean if a field has been set.
-
-### GetFiletype
-
-`func (o *PostSearchAggregateRequest) GetFiletype() string`
-
-GetFiletype returns the Filetype field if non-nil, zero value otherwise.
-
-### GetFiletypeOk
-
-`func (o *PostSearchAggregateRequest) GetFiletypeOk() (*string, bool)`
-
-GetFiletypeOk returns a tuple with the Filetype field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFiletype
-
-`func (o *PostSearchAggregateRequest) SetFiletype(v string)`
-
-SetFiletype sets Filetype field to given value.
-
-### HasFiletype
-
-`func (o *PostSearchAggregateRequest) HasFiletype() bool`
-
-HasFiletype returns a boolean if a field has been set.
-
-### GetFetchFull
-
-`func (o *PostSearchAggregateRequest) GetFetchFull() bool`
-
-GetFetchFull returns the FetchFull field if non-nil, zero value otherwise.
-
-### GetFetchFullOk
-
-`func (o *PostSearchAggregateRequest) GetFetchFullOk() (*bool, bool)`
-
-GetFetchFullOk returns a tuple with the FetchFull field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFetchFull
-
-`func (o *PostSearchAggregateRequest) SetFetchFull(v bool)`
-
-SetFetchFull sets FetchFull field to given value.
-
-### HasFetchFull
-
-`func (o *PostSearchAggregateRequest) HasFetchFull() bool`
-
-HasFetchFull returns a boolean if a field has been set.
 
 ### GetSort
 

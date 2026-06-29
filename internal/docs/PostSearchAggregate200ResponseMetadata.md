@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestParams** | Pointer to [**PostSearchAggregate200ResponseMetadataRequestParams**](PostSearchAggregate200ResponseMetadataRequestParams.md) |  | [optional] 
-**DedupeRemoved** | Pointer to **int32** | 去重后移除的结果数 | [optional] 
-**RerankApplied** | Pointer to **bool** | 是否执行了排序重排 | [optional] 
 **ContentFetched** | Pointer to **int32** | 额外抓取正文的结果数 | [optional] 
+**DedupeRemoved** | Pointer to **int32** | 去重后移除的结果数 | [optional] 
+**RequestParams** | Pointer to [**PostSearchAggregate200ResponseMetadataRequestParams**](PostSearchAggregate200ResponseMetadataRequestParams.md) |  | [optional] 
+**RerankApplied** | Pointer to **bool** | 是否执行了排序重排 | [optional] 
 
 ## Methods
 
@@ -28,30 +28,30 @@ NewPostSearchAggregate200ResponseMetadataWithDefaults instantiates a new PostSea
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetRequestParams
+### GetContentFetched
 
-`func (o *PostSearchAggregate200ResponseMetadata) GetRequestParams() PostSearchAggregate200ResponseMetadataRequestParams`
+`func (o *PostSearchAggregate200ResponseMetadata) GetContentFetched() int32`
 
-GetRequestParams returns the RequestParams field if non-nil, zero value otherwise.
+GetContentFetched returns the ContentFetched field if non-nil, zero value otherwise.
 
-### GetRequestParamsOk
+### GetContentFetchedOk
 
-`func (o *PostSearchAggregate200ResponseMetadata) GetRequestParamsOk() (*PostSearchAggregate200ResponseMetadataRequestParams, bool)`
+`func (o *PostSearchAggregate200ResponseMetadata) GetContentFetchedOk() (*int32, bool)`
 
-GetRequestParamsOk returns a tuple with the RequestParams field if it's non-nil, zero value otherwise
+GetContentFetchedOk returns a tuple with the ContentFetched field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRequestParams
+### SetContentFetched
 
-`func (o *PostSearchAggregate200ResponseMetadata) SetRequestParams(v PostSearchAggregate200ResponseMetadataRequestParams)`
+`func (o *PostSearchAggregate200ResponseMetadata) SetContentFetched(v int32)`
 
-SetRequestParams sets RequestParams field to given value.
+SetContentFetched sets ContentFetched field to given value.
 
-### HasRequestParams
+### HasContentFetched
 
-`func (o *PostSearchAggregate200ResponseMetadata) HasRequestParams() bool`
+`func (o *PostSearchAggregate200ResponseMetadata) HasContentFetched() bool`
 
-HasRequestParams returns a boolean if a field has been set.
+HasContentFetched returns a boolean if a field has been set.
 
 ### GetDedupeRemoved
 
@@ -78,6 +78,31 @@ SetDedupeRemoved sets DedupeRemoved field to given value.
 
 HasDedupeRemoved returns a boolean if a field has been set.
 
+### GetRequestParams
+
+`func (o *PostSearchAggregate200ResponseMetadata) GetRequestParams() PostSearchAggregate200ResponseMetadataRequestParams`
+
+GetRequestParams returns the RequestParams field if non-nil, zero value otherwise.
+
+### GetRequestParamsOk
+
+`func (o *PostSearchAggregate200ResponseMetadata) GetRequestParamsOk() (*PostSearchAggregate200ResponseMetadataRequestParams, bool)`
+
+GetRequestParamsOk returns a tuple with the RequestParams field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequestParams
+
+`func (o *PostSearchAggregate200ResponseMetadata) SetRequestParams(v PostSearchAggregate200ResponseMetadataRequestParams)`
+
+SetRequestParams sets RequestParams field to given value.
+
+### HasRequestParams
+
+`func (o *PostSearchAggregate200ResponseMetadata) HasRequestParams() bool`
+
+HasRequestParams returns a boolean if a field has been set.
+
 ### GetRerankApplied
 
 `func (o *PostSearchAggregate200ResponseMetadata) GetRerankApplied() bool`
@@ -102,31 +127,6 @@ SetRerankApplied sets RerankApplied field to given value.
 `func (o *PostSearchAggregate200ResponseMetadata) HasRerankApplied() bool`
 
 HasRerankApplied returns a boolean if a field has been set.
-
-### GetContentFetched
-
-`func (o *PostSearchAggregate200ResponseMetadata) GetContentFetched() int32`
-
-GetContentFetched returns the ContentFetched field if non-nil, zero value otherwise.
-
-### GetContentFetchedOk
-
-`func (o *PostSearchAggregate200ResponseMetadata) GetContentFetchedOk() (*int32, bool)`
-
-GetContentFetchedOk returns a tuple with the ContentFetched field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetContentFetched
-
-`func (o *PostSearchAggregate200ResponseMetadata) SetContentFetched(v int32)`
-
-SetContentFetched sets ContentFetched field to given value.
-
-### HasContentFetched
-
-`func (o *PostSearchAggregate200ResponseMetadata) HasContentFetched() bool`
-
-HasContentFetched returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

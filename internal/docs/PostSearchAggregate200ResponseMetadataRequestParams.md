@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Query** | Pointer to **string** | 实际执行的搜索词 | [optional] 
 **Limit** | Pointer to **int32** | 实际生效的返回条数 | [optional] 
 **Page** | Pointer to **int32** | 实际生效的页码 | [optional] 
-**TimeoutMs** | Pointer to **int32** | 实际生效的超时时间（毫秒） | [optional] 
+**Query** | Pointer to **string** | 实际执行的搜索词 | [optional] 
 **Sort** | Pointer to **string** | 实际生效的排序方式 | [optional] 
+**TimeoutMs** | Pointer to **int32** | 实际生效的超时时间（毫秒） | [optional] 
 
 ## Methods
 
@@ -28,31 +28,6 @@ will change when the set of required properties is changed
 NewPostSearchAggregate200ResponseMetadataRequestParamsWithDefaults instantiates a new PostSearchAggregate200ResponseMetadataRequestParams object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetQuery
-
-`func (o *PostSearchAggregate200ResponseMetadataRequestParams) GetQuery() string`
-
-GetQuery returns the Query field if non-nil, zero value otherwise.
-
-### GetQueryOk
-
-`func (o *PostSearchAggregate200ResponseMetadataRequestParams) GetQueryOk() (*string, bool)`
-
-GetQueryOk returns a tuple with the Query field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetQuery
-
-`func (o *PostSearchAggregate200ResponseMetadataRequestParams) SetQuery(v string)`
-
-SetQuery sets Query field to given value.
-
-### HasQuery
-
-`func (o *PostSearchAggregate200ResponseMetadataRequestParams) HasQuery() bool`
-
-HasQuery returns a boolean if a field has been set.
 
 ### GetLimit
 
@@ -104,30 +79,30 @@ SetPage sets Page field to given value.
 
 HasPage returns a boolean if a field has been set.
 
-### GetTimeoutMs
+### GetQuery
 
-`func (o *PostSearchAggregate200ResponseMetadataRequestParams) GetTimeoutMs() int32`
+`func (o *PostSearchAggregate200ResponseMetadataRequestParams) GetQuery() string`
 
-GetTimeoutMs returns the TimeoutMs field if non-nil, zero value otherwise.
+GetQuery returns the Query field if non-nil, zero value otherwise.
 
-### GetTimeoutMsOk
+### GetQueryOk
 
-`func (o *PostSearchAggregate200ResponseMetadataRequestParams) GetTimeoutMsOk() (*int32, bool)`
+`func (o *PostSearchAggregate200ResponseMetadataRequestParams) GetQueryOk() (*string, bool)`
 
-GetTimeoutMsOk returns a tuple with the TimeoutMs field if it's non-nil, zero value otherwise
+GetQueryOk returns a tuple with the Query field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTimeoutMs
+### SetQuery
 
-`func (o *PostSearchAggregate200ResponseMetadataRequestParams) SetTimeoutMs(v int32)`
+`func (o *PostSearchAggregate200ResponseMetadataRequestParams) SetQuery(v string)`
 
-SetTimeoutMs sets TimeoutMs field to given value.
+SetQuery sets Query field to given value.
 
-### HasTimeoutMs
+### HasQuery
 
-`func (o *PostSearchAggregate200ResponseMetadataRequestParams) HasTimeoutMs() bool`
+`func (o *PostSearchAggregate200ResponseMetadataRequestParams) HasQuery() bool`
 
-HasTimeoutMs returns a boolean if a field has been set.
+HasQuery returns a boolean if a field has been set.
 
 ### GetSort
 
@@ -153,6 +128,31 @@ SetSort sets Sort field to given value.
 `func (o *PostSearchAggregate200ResponseMetadataRequestParams) HasSort() bool`
 
 HasSort returns a boolean if a field has been set.
+
+### GetTimeoutMs
+
+`func (o *PostSearchAggregate200ResponseMetadataRequestParams) GetTimeoutMs() int32`
+
+GetTimeoutMs returns the TimeoutMs field if non-nil, zero value otherwise.
+
+### GetTimeoutMsOk
+
+`func (o *PostSearchAggregate200ResponseMetadataRequestParams) GetTimeoutMsOk() (*int32, bool)`
+
+GetTimeoutMsOk returns a tuple with the TimeoutMs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimeoutMs
+
+`func (o *PostSearchAggregate200ResponseMetadataRequestParams) SetTimeoutMs(v int32)`
+
+SetTimeoutMs sets TimeoutMs field to given value.
+
+### HasTimeoutMs
+
+`func (o *PostSearchAggregate200ResponseMetadataRequestParams) HasTimeoutMs() bool`
+
+HasTimeoutMs returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

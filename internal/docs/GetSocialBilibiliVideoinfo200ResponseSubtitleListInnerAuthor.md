@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Face** | Pointer to **string** | 作者头像链接。 | [optional] 
 **Mid** | Pointer to **float32** | 作者 UID。 | [optional] 
 **Name** | Pointer to **string** | 作者昵称。 | [optional] 
-**Face** | Pointer to **string** | 作者头像链接。 | [optional] 
 
 ## Methods
 
@@ -26,6 +26,31 @@ will change when the set of required properties is changed
 NewGetSocialBilibiliVideoinfo200ResponseSubtitleListInnerAuthorWithDefaults instantiates a new GetSocialBilibiliVideoinfo200ResponseSubtitleListInnerAuthor object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetFace
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseSubtitleListInnerAuthor) GetFace() string`
+
+GetFace returns the Face field if non-nil, zero value otherwise.
+
+### GetFaceOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseSubtitleListInnerAuthor) GetFaceOk() (*string, bool)`
+
+GetFaceOk returns a tuple with the Face field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFace
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseSubtitleListInnerAuthor) SetFace(v string)`
+
+SetFace sets Face field to given value.
+
+### HasFace
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseSubtitleListInnerAuthor) HasFace() bool`
+
+HasFace returns a boolean if a field has been set.
 
 ### GetMid
 
@@ -76,31 +101,6 @@ SetName sets Name field to given value.
 `func (o *GetSocialBilibiliVideoinfo200ResponseSubtitleListInnerAuthor) HasName() bool`
 
 HasName returns a boolean if a field has been set.
-
-### GetFace
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseSubtitleListInnerAuthor) GetFace() string`
-
-GetFace returns the Face field if non-nil, zero value otherwise.
-
-### GetFaceOk
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseSubtitleListInnerAuthor) GetFaceOk() (*string, bool)`
-
-GetFaceOk returns a tuple with the Face field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFace
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseSubtitleListInnerAuthor) SetFace(v string)`
-
-SetFace sets Face field to given value.
-
-### HasFace
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseSubtitleListInnerAuthor) HasFace() bool`
-
-HasFace returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

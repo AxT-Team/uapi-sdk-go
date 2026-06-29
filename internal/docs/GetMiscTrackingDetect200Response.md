@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TrackingNumber** | Pointer to **string** | 查询的快递单号 | [optional] 
+**Alternatives** | Pointer to [**[]GetMiscTrackingDetect200ResponseAlternativesInner**](GetMiscTrackingDetect200ResponseAlternativesInner.md) | 其他可能的快递公司列表。如果没有备选项，会返回空数组。 | [optional] 
 **CarrierCode** | Pointer to **string** | 识别出的快递公司编码 | [optional] 
 **CarrierName** | Pointer to **string** | 识别出的快递公司名称 | [optional] 
-**Alternatives** | Pointer to [**[]GetMiscTrackingDetect200ResponseAlternativesInner**](GetMiscTrackingDetect200ResponseAlternativesInner.md) | 其他可能的快递公司列表。如果没有备选项，会返回空数组。 | [optional] 
+**TrackingNumber** | Pointer to **string** | 查询的快递单号 | [optional] 
 
 ## Methods
 
@@ -28,30 +28,30 @@ NewGetMiscTrackingDetect200ResponseWithDefaults instantiates a new GetMiscTracki
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetTrackingNumber
+### GetAlternatives
 
-`func (o *GetMiscTrackingDetect200Response) GetTrackingNumber() string`
+`func (o *GetMiscTrackingDetect200Response) GetAlternatives() []GetMiscTrackingDetect200ResponseAlternativesInner`
 
-GetTrackingNumber returns the TrackingNumber field if non-nil, zero value otherwise.
+GetAlternatives returns the Alternatives field if non-nil, zero value otherwise.
 
-### GetTrackingNumberOk
+### GetAlternativesOk
 
-`func (o *GetMiscTrackingDetect200Response) GetTrackingNumberOk() (*string, bool)`
+`func (o *GetMiscTrackingDetect200Response) GetAlternativesOk() (*[]GetMiscTrackingDetect200ResponseAlternativesInner, bool)`
 
-GetTrackingNumberOk returns a tuple with the TrackingNumber field if it's non-nil, zero value otherwise
+GetAlternativesOk returns a tuple with the Alternatives field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTrackingNumber
+### SetAlternatives
 
-`func (o *GetMiscTrackingDetect200Response) SetTrackingNumber(v string)`
+`func (o *GetMiscTrackingDetect200Response) SetAlternatives(v []GetMiscTrackingDetect200ResponseAlternativesInner)`
 
-SetTrackingNumber sets TrackingNumber field to given value.
+SetAlternatives sets Alternatives field to given value.
 
-### HasTrackingNumber
+### HasAlternatives
 
-`func (o *GetMiscTrackingDetect200Response) HasTrackingNumber() bool`
+`func (o *GetMiscTrackingDetect200Response) HasAlternatives() bool`
 
-HasTrackingNumber returns a boolean if a field has been set.
+HasAlternatives returns a boolean if a field has been set.
 
 ### GetCarrierCode
 
@@ -103,30 +103,30 @@ SetCarrierName sets CarrierName field to given value.
 
 HasCarrierName returns a boolean if a field has been set.
 
-### GetAlternatives
+### GetTrackingNumber
 
-`func (o *GetMiscTrackingDetect200Response) GetAlternatives() []GetMiscTrackingDetect200ResponseAlternativesInner`
+`func (o *GetMiscTrackingDetect200Response) GetTrackingNumber() string`
 
-GetAlternatives returns the Alternatives field if non-nil, zero value otherwise.
+GetTrackingNumber returns the TrackingNumber field if non-nil, zero value otherwise.
 
-### GetAlternativesOk
+### GetTrackingNumberOk
 
-`func (o *GetMiscTrackingDetect200Response) GetAlternativesOk() (*[]GetMiscTrackingDetect200ResponseAlternativesInner, bool)`
+`func (o *GetMiscTrackingDetect200Response) GetTrackingNumberOk() (*string, bool)`
 
-GetAlternativesOk returns a tuple with the Alternatives field if it's non-nil, zero value otherwise
+GetTrackingNumberOk returns a tuple with the TrackingNumber field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAlternatives
+### SetTrackingNumber
 
-`func (o *GetMiscTrackingDetect200Response) SetAlternatives(v []GetMiscTrackingDetect200ResponseAlternativesInner)`
+`func (o *GetMiscTrackingDetect200Response) SetTrackingNumber(v string)`
 
-SetAlternatives sets Alternatives field to given value.
+SetTrackingNumber sets TrackingNumber field to given value.
 
-### HasAlternatives
+### HasTrackingNumber
 
-`func (o *GetMiscTrackingDetect200Response) HasAlternatives() bool`
+`func (o *GetMiscTrackingDetect200Response) HasTrackingNumber() bool`
 
-HasAlternatives returns a boolean if a field has been set.
+HasTrackingNumber returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

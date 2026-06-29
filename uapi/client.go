@@ -411,6 +411,80 @@ func (api *DailyApi) GetDailyNewsImage(args map[string]any) (any, error) {
 	path := "/api/v1/daily/news-image"
 	return api.c.do("GET", path, q, nil, disableCache)
 }
+// 每日单词
+func (api *DailyApi) GetDailyWord(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["lang"]; ok { q["lang"] = fmt.Sprint(v) }
+	if v, ok := args["category"]; ok { q["category"] = fmt.Sprint(v) }
+	if v, ok := args["count"]; ok { q["count"] = fmt.Sprint(v) }
+	if v, ok := args["date"]; ok { q["date"] = fmt.Sprint(v) }
+	if v, ok := args["seed"]; ok { q["seed"] = fmt.Sprint(v) }
+	if v, ok := args["example"]; ok { q["example"] = fmt.Sprint(v) }
+	if v, ok := args["phonetic"]; ok { q["phonetic"] = fmt.Sprint(v) }
+	if v, ok := args["define"]; ok { q["define"] = fmt.Sprint(v) }
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/daily/word"
+	return api.c.do("GET", path, q, nil, disableCache)
+}
+type DictionaryApi struct { c *Client }
+func (c *Client) Dictionary() *DictionaryApi { return &DictionaryApi{c: c} }
+// 单词发音
+func (api *DictionaryApi) GetDictionaryAudio(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["word"]; ok { q["word"] = fmt.Sprint(v) }
+	if v, ok := args["accent"]; ok { q["accent"] = fmt.Sprint(v) }
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/dictionary/audio"
+	return api.c.do("GET", path, q, nil, disableCache)
+}
+// 单词查询
+func (api *DictionaryApi) GetDictionaryLookup(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["word"]; ok { q["word"] = fmt.Sprint(v) }
+	if v, ok := args["lang"]; ok { q["lang"] = fmt.Sprint(v) }
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/dictionary/lookup"
+	return api.c.do("GET", path, q, nil, disableCache)
+}
 type GameApi struct { c *Client }
 func (c *Client) Game() *GameApi { return &GameApi{c: c} }
 // Epic 免费游戏
@@ -455,6 +529,31 @@ func (api *GameApi) GetGameMinecraftHistoryid(args map[string]any) (any, error) 
 	path := "/api/v1/game/minecraft/historyid"
 	return api.c.do("GET", path, q, nil, disableCache)
 }
+// 搜索 MC Mod/插件
+func (api *GameApi) GetGameMinecraftMods(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["query"]; ok { q["query"] = fmt.Sprint(v) }
+	if v, ok := args["source"]; ok { q["source"] = fmt.Sprint(v) }
+	if v, ok := args["type"]; ok { q["type"] = fmt.Sprint(v) }
+	if v, ok := args["limit"]; ok { q["limit"] = fmt.Sprint(v) }
+	if v, ok := args["enrich"]; ok { q["enrich"] = fmt.Sprint(v) }
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/game/minecraft/mods"
+	return api.c.do("GET", path, q, nil, disableCache)
+}
 // 查询 MC 服务器
 func (api *GameApi) GetGameMinecraftServerstatus(args map[string]any) (any, error) {
 	q := map[string]string{}
@@ -495,6 +594,49 @@ func (api *GameApi) GetGameMinecraftUserinfo(args map[string]any) (any, error) {
 		}
 	}
 	path := "/api/v1/game/minecraft/userinfo"
+	return api.c.do("GET", path, q, nil, disableCache)
+}
+// Minecraft 最新版本
+func (api *GameApi) GetGameMinecraftVersion(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/game/minecraft/version"
+	return api.c.do("GET", path, q, nil, disableCache)
+}
+// 查询 Steam 游戏服务器
+func (api *GameApi) GetGameSteamServers(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["appid"]; ok { q["appid"] = fmt.Sprint(v) }
+	if v, ok := args["name"]; ok { q["name"] = fmt.Sprint(v) }
+	if v, ok := args["limit"]; ok { q["limit"] = fmt.Sprint(v) }
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/game/steam/servers"
 	return api.c.do("GET", path, q, nil, disableCache)
 }
 // 查询 Steam 用户
@@ -553,6 +695,7 @@ func (api *ImageApi) GetImageBingDaily(args map[string]any) (any, error) {
 	q := map[string]string{}
 	var disableCache *bool
 	if v, ok := args["date"]; ok { q["date"] = fmt.Sprint(v) }
+	if v, ok := args["random"]; ok { q["random"] = fmt.Sprint(v) }
 	if v, ok := args["resolution"]; ok { q["resolution"] = fmt.Sprint(v) }
 	if v, ok := args["format"]; ok { q["format"] = fmt.Sprint(v) }
 	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
@@ -1018,6 +1161,51 @@ func (api *MiscApi) GetMiscLunartime(args map[string]any) (any, error) {
 	path := "/api/v1/misc/lunartime"
 	return api.c.do("GET", path, q, nil, disableCache)
 }
+// 查询电影票房
+func (api *MiscApi) GetMiscMovieBoxOffice(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/misc/movie-box-office"
+	return api.c.do("GET", path, q, nil, disableCache)
+}
+// 电影收视排行查询
+func (api *MiscApi) GetMiscMovieRatingRank(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["channel"]; ok { q["channel"] = fmt.Sprint(v) }
+	if v, ok := args["platform"]; ok { q["platform"] = fmt.Sprint(v) }
+	if v, ok := args["limit"]; ok { q["limit"] = fmt.Sprint(v) }
+	if v, ok := args["period"]; ok { q["period"] = fmt.Sprint(v) }
+	if v, ok := args["date"]; ok { q["date"] = fmt.Sprint(v) }
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/misc/movie-rating-rank"
+	return api.c.do("GET", path, q, nil, disableCache)
+}
 // 查询手机归属地
 func (api *MiscApi) GetMiscPhoneinfo(args map[string]any) (any, error) {
 	q := map[string]string{}
@@ -1134,7 +1322,6 @@ func (api *MiscApi) GetMiscTrackingQuery(args map[string]any) (any, error) {
 	if v, ok := args["tracking_number"]; ok { q["tracking_number"] = fmt.Sprint(v) }
 	if v, ok := args["carrier_code"]; ok { q["carrier_code"] = fmt.Sprint(v) }
 	if v, ok := args["phone"]; ok { q["phone"] = fmt.Sprint(v) }
-	if v, ok := args["full"]; ok { q["full"] = fmt.Sprint(v) }
 	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
 	if v, ok := args["disableCache"]; ok {
 		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
@@ -1177,6 +1364,32 @@ func (api *MiscApi) GetMiscWeather(args map[string]any) (any, error) {
 		}
 	}
 	path := "/api/v1/misc/weather"
+	return api.c.do("GET", path, q, nil, disableCache)
+}
+// 查询历史天气
+func (api *MiscApi) GetMiscWeatherHistory(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["city"]; ok { q["city"] = fmt.Sprint(v) }
+	if v, ok := args["adcode"]; ok { q["adcode"] = fmt.Sprint(v) }
+	if v, ok := args["start_date"]; ok { q["start_date"] = fmt.Sprint(v) }
+	if v, ok := args["end_date"]; ok { q["end_date"] = fmt.Sprint(v) }
+	if v, ok := args["days"]; ok { q["days"] = fmt.Sprint(v) }
+	if v, ok := args["lang"]; ok { q["lang"] = fmt.Sprint(v) }
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/misc/weather/history"
 	return api.c.do("GET", path, q, nil, disableCache)
 }
 // 查询世界时间
@@ -1465,6 +1678,31 @@ func (api *PoemApi) GetSaying(args map[string]any) (any, error) {
 	path := "/api/v1/saying"
 	return api.c.do("GET", path, q, nil, disableCache)
 }
+// 一言（随机/每日/场景/此刻）
+func (api *PoemApi) GetSayingRandom(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["mode"]; ok { q["mode"] = fmt.Sprint(v) }
+	if v, ok := args["scene"]; ok { q["scene"] = fmt.Sprint(v) }
+	if v, ok := args["source"]; ok { q["source"] = fmt.Sprint(v) }
+	if v, ok := args["category"]; ok { q["category"] = fmt.Sprint(v) }
+	if v, ok := args["tag"]; ok { q["tag"] = fmt.Sprint(v) }
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/saying/random"
+	return api.c.do("GET", path, q, nil, disableCache)
+}
 type RandomApi struct { c *Client }
 func (c *Client) Random() *RandomApi { return &RandomApi{c: c} }
 // 答案之书
@@ -1588,6 +1826,9 @@ func (api *SocialApi) GetGithubUser(args map[string]any) (any, error) {
 	if v, ok := args["activity"]; ok { q["activity"] = fmt.Sprint(v) }
 	if v, ok := args["activity_scope"]; ok { q["activity_scope"] = fmt.Sprint(v) }
 	if v, ok := args["org"]; ok { q["org"] = fmt.Sprint(v) }
+	if v, ok := args["pinned"]; ok { q["pinned"] = fmt.Sprint(v) }
+	if v, ok := args["repos"]; ok { q["repos"] = fmt.Sprint(v) }
+	if v, ok := args["repos_limit"]; ok { q["repos_limit"] = fmt.Sprint(v) }
 	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
 	if v, ok := args["disableCache"]; ok {
 		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
@@ -2458,6 +2699,132 @@ func (api *ZhiNengSouSuoApi) PostSearchAggregate(args map[string]any) (any, erro
 	if v, ok := args["site"]; ok { body["site"] = v }
 	if v, ok := args["sort"]; ok { body["sort"] = v }
 	if v, ok := args["time_range"]; ok { body["time_range"] = v }
+	if len(body) == 0 {
+		return api.c.do("POST", path, q, nil, disableCache)
+	}
+	return api.c.do("POST", path, q, body, disableCache)
+}
+type ShuiYinYuAigcBiaoShiApi struct { c *Client }
+func (c *Client) ShuiYinYuAigcBiaoShi() *ShuiYinYuAigcBiaoShiApi { return &ShuiYinYuAigcBiaoShiApi{c: c} }
+// 提取图片隐水印
+func (api *ShuiYinYuAigcBiaoShiApi) PostWatermarkDecode(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/watermark/decode"
+	body := make(map[string]any)
+	if v, ok := args["ecc"]; ok { body["ecc"] = v }
+	if v, ok := args["file"]; ok { body["file"] = v }
+	if v, ok := args["image_base64"]; ok { body["image_base64"] = v }
+	if v, ok := args["model_type"]; ok { body["model_type"] = v }
+	if v, ok := args["url"]; ok { body["url"] = v }
+	return api.c.doMultipart("POST", path, q, body, disableCache, "file")
+}
+// 添加图片隐水印
+func (api *ShuiYinYuAigcBiaoShiApi) PostWatermarkEmbed(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/watermark/embed"
+	body := make(map[string]any)
+	if v, ok := args["ecc"]; ok { body["ecc"] = v }
+	if v, ok := args["file"]; ok { body["file"] = v }
+	if v, ok := args["image_base64"]; ok { body["image_base64"] = v }
+	if v, ok := args["jpeg_quality"]; ok { body["jpeg_quality"] = v }
+	if v, ok := args["model_type"]; ok { body["model_type"] = v }
+	if v, ok := args["out_format"]; ok { body["out_format"] = v }
+	if v, ok := args["payload"]; ok { body["payload"] = v }
+	if v, ok := args["strength"]; ok { body["strength"] = v }
+	if v, ok := args["url"]; ok { body["url"] = v }
+	return api.c.doMultipart("POST", path, q, body, disableCache, "file")
+}
+// 添加 AI 生成内容标识
+func (api *ShuiYinYuAigcBiaoShiApi) PostWatermarkLabel(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/watermark/label"
+	body := make(map[string]any)
+	if v, ok := args["content_producer"]; ok { body["content_producer"] = v }
+	if v, ok := args["content_propagator"]; ok { body["content_propagator"] = v }
+	if v, ok := args["embed_watermark"]; ok { body["embed_watermark"] = v }
+	if v, ok := args["explicit_height_ratio"]; ok { body["explicit_height_ratio"] = v }
+	if v, ok := args["explicit_label"]; ok { body["explicit_label"] = v }
+	if v, ok := args["explicit_position"]; ok { body["explicit_position"] = v }
+	if v, ok := args["explicit_text"]; ok { body["explicit_text"] = v }
+	if v, ok := args["file"]; ok { body["file"] = v }
+	if v, ok := args["image_base64"]; ok { body["image_base64"] = v }
+	if v, ok := args["jpeg_quality"]; ok { body["jpeg_quality"] = v }
+	if v, ok := args["label"]; ok { body["label"] = v }
+	if v, ok := args["out_format"]; ok { body["out_format"] = v }
+	if v, ok := args["produce_id"]; ok { body["produce_id"] = v }
+	if v, ok := args["propagate_id"]; ok { body["propagate_id"] = v }
+	if v, ok := args["skip_metadata"]; ok { body["skip_metadata"] = v }
+	if v, ok := args["url"]; ok { body["url"] = v }
+	if v, ok := args["watermark_payload"]; ok { body["watermark_payload"] = v }
+	return api.c.doMultipart("POST", path, q, body, disableCache, "file")
+}
+// 生成 AIGC 服务提供者编码
+func (api *ShuiYinYuAigcBiaoShiApi) PostWatermarkProducerCode(args map[string]any) (any, error) {
+	q := map[string]string{}
+	var disableCache *bool
+	if v, ok := args["_t"]; ok { q["_t"] = fmt.Sprint(v) }
+	if v, ok := args["disableCache"]; ok {
+		if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+			disableCache = &parsed
+		}
+	}
+	if disableCache == nil {
+		if v, ok := args["disable_cache"]; ok {
+			if parsed, parsedOK := parseOptionalBool(v); parsedOK {
+				disableCache = &parsed
+			}
+		}
+	}
+	path := "/api/v1/watermark/producer-code"
+	body := make(map[string]any)
+	if v, ok := args["binding"]; ok { body["binding"] = v }
+	if v, ok := args["code"]; ok { body["code"] = v }
+	if v, ok := args["identifier"]; ok { body["identifier"] = v }
+	if v, ok := args["model_code"]; ok { body["model_code"] = v }
+	if v, ok := args["service_type"]; ok { body["service_type"] = v }
+	if v, ok := args["subject_type"]; ok { body["subject_type"] = v }
 	if len(body) == 0 {
 		return api.c.do("POST", path, q, nil, disableCache)
 	}

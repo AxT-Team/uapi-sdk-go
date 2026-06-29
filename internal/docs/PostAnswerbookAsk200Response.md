@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Question** | Pointer to **string** |  | [optional] 
 **Answer** | Pointer to **string** |  | [optional] 
+**Question** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -25,31 +25,6 @@ will change when the set of required properties is changed
 NewPostAnswerbookAsk200ResponseWithDefaults instantiates a new PostAnswerbookAsk200Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetQuestion
-
-`func (o *PostAnswerbookAsk200Response) GetQuestion() string`
-
-GetQuestion returns the Question field if non-nil, zero value otherwise.
-
-### GetQuestionOk
-
-`func (o *PostAnswerbookAsk200Response) GetQuestionOk() (*string, bool)`
-
-GetQuestionOk returns a tuple with the Question field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetQuestion
-
-`func (o *PostAnswerbookAsk200Response) SetQuestion(v string)`
-
-SetQuestion sets Question field to given value.
-
-### HasQuestion
-
-`func (o *PostAnswerbookAsk200Response) HasQuestion() bool`
-
-HasQuestion returns a boolean if a field has been set.
 
 ### GetAnswer
 
@@ -75,6 +50,31 @@ SetAnswer sets Answer field to given value.
 `func (o *PostAnswerbookAsk200Response) HasAnswer() bool`
 
 HasAnswer returns a boolean if a field has been set.
+
+### GetQuestion
+
+`func (o *PostAnswerbookAsk200Response) GetQuestion() string`
+
+GetQuestion returns the Question field if non-nil, zero value otherwise.
+
+### GetQuestionOk
+
+`func (o *PostAnswerbookAsk200Response) GetQuestionOk() (*string, bool)`
+
+GetQuestionOk returns a tuple with the Question field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQuestion
+
+`func (o *PostAnswerbookAsk200Response) SetQuestion(v string)`
+
+SetQuestion sets Question field to given value.
+
+### HasQuestion
+
+`func (o *PostAnswerbookAsk200Response) HasQuestion() bool`
+
+HasQuestion returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

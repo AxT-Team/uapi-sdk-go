@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Acount** | Pointer to **float32** | 评论区总评论数，包含了所有的楼中楼回复。 | [optional] 
+**Count** | Pointer to **float32** | 根评论（即直接评论视频的评论）的总数。 | [optional] 
 **Num** | Pointer to **float32** | 当前所在的页码。 | [optional] 
 **Size** | Pointer to **float32** | 每页的项数。 | [optional] 
-**Count** | Pointer to **float32** | 根评论（即直接评论视频的评论）的总数。 | [optional] 
-**Acount** | Pointer to **float32** | 评论区总评论数，包含了所有的楼中楼回复。 | [optional] 
 
 ## Methods
 
@@ -27,6 +27,56 @@ will change when the set of required properties is changed
 NewGetSocialBilibiliReplies200ResponsePageWithDefaults instantiates a new GetSocialBilibiliReplies200ResponsePage object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAcount
+
+`func (o *GetSocialBilibiliReplies200ResponsePage) GetAcount() float32`
+
+GetAcount returns the Acount field if non-nil, zero value otherwise.
+
+### GetAcountOk
+
+`func (o *GetSocialBilibiliReplies200ResponsePage) GetAcountOk() (*float32, bool)`
+
+GetAcountOk returns a tuple with the Acount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAcount
+
+`func (o *GetSocialBilibiliReplies200ResponsePage) SetAcount(v float32)`
+
+SetAcount sets Acount field to given value.
+
+### HasAcount
+
+`func (o *GetSocialBilibiliReplies200ResponsePage) HasAcount() bool`
+
+HasAcount returns a boolean if a field has been set.
+
+### GetCount
+
+`func (o *GetSocialBilibiliReplies200ResponsePage) GetCount() float32`
+
+GetCount returns the Count field if non-nil, zero value otherwise.
+
+### GetCountOk
+
+`func (o *GetSocialBilibiliReplies200ResponsePage) GetCountOk() (*float32, bool)`
+
+GetCountOk returns a tuple with the Count field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCount
+
+`func (o *GetSocialBilibiliReplies200ResponsePage) SetCount(v float32)`
+
+SetCount sets Count field to given value.
+
+### HasCount
+
+`func (o *GetSocialBilibiliReplies200ResponsePage) HasCount() bool`
+
+HasCount returns a boolean if a field has been set.
 
 ### GetNum
 
@@ -77,56 +127,6 @@ SetSize sets Size field to given value.
 `func (o *GetSocialBilibiliReplies200ResponsePage) HasSize() bool`
 
 HasSize returns a boolean if a field has been set.
-
-### GetCount
-
-`func (o *GetSocialBilibiliReplies200ResponsePage) GetCount() float32`
-
-GetCount returns the Count field if non-nil, zero value otherwise.
-
-### GetCountOk
-
-`func (o *GetSocialBilibiliReplies200ResponsePage) GetCountOk() (*float32, bool)`
-
-GetCountOk returns a tuple with the Count field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCount
-
-`func (o *GetSocialBilibiliReplies200ResponsePage) SetCount(v float32)`
-
-SetCount sets Count field to given value.
-
-### HasCount
-
-`func (o *GetSocialBilibiliReplies200ResponsePage) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
-
-### GetAcount
-
-`func (o *GetSocialBilibiliReplies200ResponsePage) GetAcount() float32`
-
-GetAcount returns the Acount field if non-nil, zero value otherwise.
-
-### GetAcountOk
-
-`func (o *GetSocialBilibiliReplies200ResponsePage) GetAcountOk() (*float32, bool)`
-
-GetAcountOk returns a tuple with the Acount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAcount
-
-`func (o *GetSocialBilibiliReplies200ResponsePage) SetAcount(v float32)`
-
-SetAcount sets Acount field to given value.
-
-### HasAcount
-
-`func (o *GetSocialBilibiliReplies200ResponsePage) HasAcount() bool`
-
-HasAcount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

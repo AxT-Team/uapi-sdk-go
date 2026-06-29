@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Words** | Pointer to **string** | 当前文字片段的识别结果。 | [optional] 
 **Location** | Pointer to [**PostImageOcr200ResponseWordsResultInnerLocation**](PostImageOcr200ResponseWordsResultInnerLocation.md) |  | [optional] 
-**VertexesLocation** | Pointer to [**[]PostImageOcr200ResponseWordsResultInnerVertexesLocationInner**](PostImageOcr200ResponseWordsResultInnerVertexesLocationInner.md) | 当前文字片段的顶点坐标列表。只有在 &#x60;need_location&#x3D;true&#x60; 时才会返回。 | [optional] 
 **Score** | Pointer to **float32** | 当前文字片段的置信度。部分结果会返回。 | [optional] 
+**VertexesLocation** | Pointer to [**[]PostImageOcr200ResponseWordsResultInnerVertexesLocationInner**](PostImageOcr200ResponseWordsResultInnerVertexesLocationInner.md) | 当前文字片段的顶点坐标列表。只有在 &#x60;need_location&#x3D;true&#x60; 时才会返回。 | [optional] 
+**Words** | Pointer to **string** | 当前文字片段的识别结果。 | [optional] 
 
 ## Methods
 
@@ -27,31 +27,6 @@ will change when the set of required properties is changed
 NewPostImageOcr200ResponseWordsResultInnerWithDefaults instantiates a new PostImageOcr200ResponseWordsResultInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetWords
-
-`func (o *PostImageOcr200ResponseWordsResultInner) GetWords() string`
-
-GetWords returns the Words field if non-nil, zero value otherwise.
-
-### GetWordsOk
-
-`func (o *PostImageOcr200ResponseWordsResultInner) GetWordsOk() (*string, bool)`
-
-GetWordsOk returns a tuple with the Words field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetWords
-
-`func (o *PostImageOcr200ResponseWordsResultInner) SetWords(v string)`
-
-SetWords sets Words field to given value.
-
-### HasWords
-
-`func (o *PostImageOcr200ResponseWordsResultInner) HasWords() bool`
-
-HasWords returns a boolean if a field has been set.
 
 ### GetLocation
 
@@ -78,6 +53,31 @@ SetLocation sets Location field to given value.
 
 HasLocation returns a boolean if a field has been set.
 
+### GetScore
+
+`func (o *PostImageOcr200ResponseWordsResultInner) GetScore() float32`
+
+GetScore returns the Score field if non-nil, zero value otherwise.
+
+### GetScoreOk
+
+`func (o *PostImageOcr200ResponseWordsResultInner) GetScoreOk() (*float32, bool)`
+
+GetScoreOk returns a tuple with the Score field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScore
+
+`func (o *PostImageOcr200ResponseWordsResultInner) SetScore(v float32)`
+
+SetScore sets Score field to given value.
+
+### HasScore
+
+`func (o *PostImageOcr200ResponseWordsResultInner) HasScore() bool`
+
+HasScore returns a boolean if a field has been set.
+
 ### GetVertexesLocation
 
 `func (o *PostImageOcr200ResponseWordsResultInner) GetVertexesLocation() []PostImageOcr200ResponseWordsResultInnerVertexesLocationInner`
@@ -103,30 +103,30 @@ SetVertexesLocation sets VertexesLocation field to given value.
 
 HasVertexesLocation returns a boolean if a field has been set.
 
-### GetScore
+### GetWords
 
-`func (o *PostImageOcr200ResponseWordsResultInner) GetScore() float32`
+`func (o *PostImageOcr200ResponseWordsResultInner) GetWords() string`
 
-GetScore returns the Score field if non-nil, zero value otherwise.
+GetWords returns the Words field if non-nil, zero value otherwise.
 
-### GetScoreOk
+### GetWordsOk
 
-`func (o *PostImageOcr200ResponseWordsResultInner) GetScoreOk() (*float32, bool)`
+`func (o *PostImageOcr200ResponseWordsResultInner) GetWordsOk() (*string, bool)`
 
-GetScoreOk returns a tuple with the Score field if it's non-nil, zero value otherwise
+GetWordsOk returns a tuple with the Words field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetScore
+### SetWords
 
-`func (o *PostImageOcr200ResponseWordsResultInner) SetScore(v float32)`
+`func (o *PostImageOcr200ResponseWordsResultInner) SetWords(v string)`
 
-SetScore sets Score field to given value.
+SetWords sets Words field to given value.
 
-### HasScore
+### HasWords
 
-`func (o *PostImageOcr200ResponseWordsResultInner) HasScore() bool`
+`func (o *PostImageOcr200ResponseWordsResultInner) HasWords() bool`
 
-HasScore returns a boolean if a field has been set.
+HasWords returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

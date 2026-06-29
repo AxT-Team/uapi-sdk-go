@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Width** | Pointer to **float32** | 宽度。 | [optional] 
 **Height** | Pointer to **float32** | 高度。 | [optional] 
 **Rotate** | Pointer to **float32** | 旋转角度。 | [optional] 
+**Width** | Pointer to **float32** | 宽度。 | [optional] 
 
 ## Methods
 
@@ -26,31 +26,6 @@ will change when the set of required properties is changed
 NewGetSocialBilibiliVideoinfo200ResponsePagesInnerDimensionWithDefaults instantiates a new GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetWidth
-
-`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension) GetWidth() float32`
-
-GetWidth returns the Width field if non-nil, zero value otherwise.
-
-### GetWidthOk
-
-`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension) GetWidthOk() (*float32, bool)`
-
-GetWidthOk returns a tuple with the Width field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetWidth
-
-`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension) SetWidth(v float32)`
-
-SetWidth sets Width field to given value.
-
-### HasWidth
-
-`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension) HasWidth() bool`
-
-HasWidth returns a boolean if a field has been set.
 
 ### GetHeight
 
@@ -101,6 +76,31 @@ SetRotate sets Rotate field to given value.
 `func (o *GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension) HasRotate() bool`
 
 HasRotate returns a boolean if a field has been set.
+
+### GetWidth
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension) GetWidth() float32`
+
+GetWidth returns the Width field if non-nil, zero value otherwise.
+
+### GetWidthOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension) GetWidthOk() (*float32, bool)`
+
+GetWidthOk returns a tuple with the Width field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWidth
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension) SetWidth(v float32)`
+
+SetWidth sets Width field to given value.
+
+### HasWidth
+
+`func (o *GetSocialBilibiliVideoinfo200ResponsePagesInnerDimension) HasWidth() bool`
+
+HasWidth returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

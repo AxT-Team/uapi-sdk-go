@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Date** | Pointer to **string** | 日视图查询参数。date 模式下为 YYYY-MM-DD，其余模式下为空字符串。 | [optional] 
+**ExcludePast** | Pointer to **bool** | 是否过滤今天之前已经过去的节日。 | [optional] 
 **HolidayType** | Pointer to **string** | 节日筛选类型。 | [optional] 
 **IncludeNearby** | Pointer to **bool** | 是否开启前后最近节日查询。 | [optional] 
-**ExcludePast** | Pointer to **bool** | 是否过滤今天之前已经过去的节日。 | [optional] 
 **Month** | Pointer to **string** | 月视图查询参数。month 模式下为 YYYY-MM，其余模式下为空字符串。 | [optional] 
 **NearbyLimit** | Pointer to **int32** | 前后最近节日返回数量上限。 | [optional] 
 **Timezone** | Pointer to **string** | 实际生效的时区。 | [optional] 
@@ -56,6 +56,31 @@ SetDate sets Date field to given value.
 `func (o *GetMiscHolidayCalendar200ResponseQuery) HasDate() bool`
 
 HasDate returns a boolean if a field has been set.
+
+### GetExcludePast
+
+`func (o *GetMiscHolidayCalendar200ResponseQuery) GetExcludePast() bool`
+
+GetExcludePast returns the ExcludePast field if non-nil, zero value otherwise.
+
+### GetExcludePastOk
+
+`func (o *GetMiscHolidayCalendar200ResponseQuery) GetExcludePastOk() (*bool, bool)`
+
+GetExcludePastOk returns a tuple with the ExcludePast field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludePast
+
+`func (o *GetMiscHolidayCalendar200ResponseQuery) SetExcludePast(v bool)`
+
+SetExcludePast sets ExcludePast field to given value.
+
+### HasExcludePast
+
+`func (o *GetMiscHolidayCalendar200ResponseQuery) HasExcludePast() bool`
+
+HasExcludePast returns a boolean if a field has been set.
 
 ### GetHolidayType
 
@@ -106,31 +131,6 @@ SetIncludeNearby sets IncludeNearby field to given value.
 `func (o *GetMiscHolidayCalendar200ResponseQuery) HasIncludeNearby() bool`
 
 HasIncludeNearby returns a boolean if a field has been set.
-
-### GetExcludePast
-
-`func (o *GetMiscHolidayCalendar200ResponseQuery) GetExcludePast() bool`
-
-GetExcludePast returns the ExcludePast field if non-nil, zero value otherwise.
-
-### GetExcludePastOk
-
-`func (o *GetMiscHolidayCalendar200ResponseQuery) GetExcludePastOk() (*bool, bool)`
-
-GetExcludePastOk returns a tuple with the ExcludePast field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetExcludePast
-
-`func (o *GetMiscHolidayCalendar200ResponseQuery) SetExcludePast(v bool)`
-
-SetExcludePast sets ExcludePast field to given value.
-
-### HasExcludePast
-
-`func (o *GetMiscHolidayCalendar200ResponseQuery) HasExcludePast() bool`
-
-HasExcludePast returns a boolean if a field has been set.
 
 ### GetMonth
 

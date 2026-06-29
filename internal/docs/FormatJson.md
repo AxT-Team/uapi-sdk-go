@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** | Pointer to **string** |  | [optional] 
-**Market** | Pointer to **string** |  | [optional] 
-**Title** | Pointer to **string** |  | [optional] 
-**Subtitle** | Pointer to **string** |  | [optional] 
-**Headline** | Pointer to **string** |  | [optional] 
-**Description** | Pointer to **string** |  | [optional] 
 **Copyright** | Pointer to **string** |  | [optional] 
 **CopyrightLink** | Pointer to **string** |  | [optional] 
-**QuizId** | Pointer to **string** |  | [optional] 
-**Trivia** | Pointer to [**FormatJsonTrivia**](FormatJsonTrivia.md) |  | [optional] 
-**Resolution** | Pointer to **string** |  | [optional] 
-**ImageUrl** | Pointer to **string** |  | [optional] 
-**ImageUrl4k** | Pointer to **string** |  | [optional] 
-**ImageUrl1080** | Pointer to **string** |  | [optional] 
+**Date** | Pointer to **string** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 **FetchedAt** | Pointer to **string** |  | [optional] 
+**Headline** | Pointer to **string** |  | [optional] 
+**ImageUrl** | Pointer to **string** |  | [optional] 
+**ImageUrl1080** | Pointer to **string** |  | [optional] 
+**ImageUrl4k** | Pointer to **string** |  | [optional] 
+**Market** | Pointer to **string** |  | [optional] 
+**QuizId** | Pointer to **string** |  | [optional] 
+**Resolution** | Pointer to **string** |  | [optional] 
+**Subtitle** | Pointer to **string** |  | [optional] 
+**Title** | Pointer to **string** |  | [optional] 
+**Trivia** | Pointer to [**FormatJsonTrivia**](FormatJsonTrivia.md) |  | [optional] 
 **UpdatedAt** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -39,156 +39,6 @@ will change when the set of required properties is changed
 NewFormatJsonWithDefaults instantiates a new FormatJson object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetDate
-
-`func (o *FormatJson) GetDate() string`
-
-GetDate returns the Date field if non-nil, zero value otherwise.
-
-### GetDateOk
-
-`func (o *FormatJson) GetDateOk() (*string, bool)`
-
-GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDate
-
-`func (o *FormatJson) SetDate(v string)`
-
-SetDate sets Date field to given value.
-
-### HasDate
-
-`func (o *FormatJson) HasDate() bool`
-
-HasDate returns a boolean if a field has been set.
-
-### GetMarket
-
-`func (o *FormatJson) GetMarket() string`
-
-GetMarket returns the Market field if non-nil, zero value otherwise.
-
-### GetMarketOk
-
-`func (o *FormatJson) GetMarketOk() (*string, bool)`
-
-GetMarketOk returns a tuple with the Market field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMarket
-
-`func (o *FormatJson) SetMarket(v string)`
-
-SetMarket sets Market field to given value.
-
-### HasMarket
-
-`func (o *FormatJson) HasMarket() bool`
-
-HasMarket returns a boolean if a field has been set.
-
-### GetTitle
-
-`func (o *FormatJson) GetTitle() string`
-
-GetTitle returns the Title field if non-nil, zero value otherwise.
-
-### GetTitleOk
-
-`func (o *FormatJson) GetTitleOk() (*string, bool)`
-
-GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTitle
-
-`func (o *FormatJson) SetTitle(v string)`
-
-SetTitle sets Title field to given value.
-
-### HasTitle
-
-`func (o *FormatJson) HasTitle() bool`
-
-HasTitle returns a boolean if a field has been set.
-
-### GetSubtitle
-
-`func (o *FormatJson) GetSubtitle() string`
-
-GetSubtitle returns the Subtitle field if non-nil, zero value otherwise.
-
-### GetSubtitleOk
-
-`func (o *FormatJson) GetSubtitleOk() (*string, bool)`
-
-GetSubtitleOk returns a tuple with the Subtitle field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSubtitle
-
-`func (o *FormatJson) SetSubtitle(v string)`
-
-SetSubtitle sets Subtitle field to given value.
-
-### HasSubtitle
-
-`func (o *FormatJson) HasSubtitle() bool`
-
-HasSubtitle returns a boolean if a field has been set.
-
-### GetHeadline
-
-`func (o *FormatJson) GetHeadline() string`
-
-GetHeadline returns the Headline field if non-nil, zero value otherwise.
-
-### GetHeadlineOk
-
-`func (o *FormatJson) GetHeadlineOk() (*string, bool)`
-
-GetHeadlineOk returns a tuple with the Headline field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetHeadline
-
-`func (o *FormatJson) SetHeadline(v string)`
-
-SetHeadline sets Headline field to given value.
-
-### HasHeadline
-
-`func (o *FormatJson) HasHeadline() bool`
-
-HasHeadline returns a boolean if a field has been set.
-
-### GetDescription
-
-`func (o *FormatJson) GetDescription() string`
-
-GetDescription returns the Description field if non-nil, zero value otherwise.
-
-### GetDescriptionOk
-
-`func (o *FormatJson) GetDescriptionOk() (*string, bool)`
-
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDescription
-
-`func (o *FormatJson) SetDescription(v string)`
-
-SetDescription sets Description field to given value.
-
-### HasDescription
-
-`func (o *FormatJson) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
 
 ### GetCopyright
 
@@ -240,80 +90,105 @@ SetCopyrightLink sets CopyrightLink field to given value.
 
 HasCopyrightLink returns a boolean if a field has been set.
 
-### GetQuizId
+### GetDate
 
-`func (o *FormatJson) GetQuizId() string`
+`func (o *FormatJson) GetDate() string`
 
-GetQuizId returns the QuizId field if non-nil, zero value otherwise.
+GetDate returns the Date field if non-nil, zero value otherwise.
 
-### GetQuizIdOk
+### GetDateOk
 
-`func (o *FormatJson) GetQuizIdOk() (*string, bool)`
+`func (o *FormatJson) GetDateOk() (*string, bool)`
 
-GetQuizIdOk returns a tuple with the QuizId field if it's non-nil, zero value otherwise
+GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetQuizId
+### SetDate
 
-`func (o *FormatJson) SetQuizId(v string)`
+`func (o *FormatJson) SetDate(v string)`
 
-SetQuizId sets QuizId field to given value.
+SetDate sets Date field to given value.
 
-### HasQuizId
+### HasDate
 
-`func (o *FormatJson) HasQuizId() bool`
+`func (o *FormatJson) HasDate() bool`
 
-HasQuizId returns a boolean if a field has been set.
+HasDate returns a boolean if a field has been set.
 
-### GetTrivia
+### GetDescription
 
-`func (o *FormatJson) GetTrivia() FormatJsonTrivia`
+`func (o *FormatJson) GetDescription() string`
 
-GetTrivia returns the Trivia field if non-nil, zero value otherwise.
+GetDescription returns the Description field if non-nil, zero value otherwise.
 
-### GetTriviaOk
+### GetDescriptionOk
 
-`func (o *FormatJson) GetTriviaOk() (*FormatJsonTrivia, bool)`
+`func (o *FormatJson) GetDescriptionOk() (*string, bool)`
 
-GetTriviaOk returns a tuple with the Trivia field if it's non-nil, zero value otherwise
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTrivia
+### SetDescription
 
-`func (o *FormatJson) SetTrivia(v FormatJsonTrivia)`
+`func (o *FormatJson) SetDescription(v string)`
 
-SetTrivia sets Trivia field to given value.
+SetDescription sets Description field to given value.
 
-### HasTrivia
+### HasDescription
 
-`func (o *FormatJson) HasTrivia() bool`
+`func (o *FormatJson) HasDescription() bool`
 
-HasTrivia returns a boolean if a field has been set.
+HasDescription returns a boolean if a field has been set.
 
-### GetResolution
+### GetFetchedAt
 
-`func (o *FormatJson) GetResolution() string`
+`func (o *FormatJson) GetFetchedAt() string`
 
-GetResolution returns the Resolution field if non-nil, zero value otherwise.
+GetFetchedAt returns the FetchedAt field if non-nil, zero value otherwise.
 
-### GetResolutionOk
+### GetFetchedAtOk
 
-`func (o *FormatJson) GetResolutionOk() (*string, bool)`
+`func (o *FormatJson) GetFetchedAtOk() (*string, bool)`
 
-GetResolutionOk returns a tuple with the Resolution field if it's non-nil, zero value otherwise
+GetFetchedAtOk returns a tuple with the FetchedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetResolution
+### SetFetchedAt
 
-`func (o *FormatJson) SetResolution(v string)`
+`func (o *FormatJson) SetFetchedAt(v string)`
 
-SetResolution sets Resolution field to given value.
+SetFetchedAt sets FetchedAt field to given value.
 
-### HasResolution
+### HasFetchedAt
 
-`func (o *FormatJson) HasResolution() bool`
+`func (o *FormatJson) HasFetchedAt() bool`
 
-HasResolution returns a boolean if a field has been set.
+HasFetchedAt returns a boolean if a field has been set.
+
+### GetHeadline
+
+`func (o *FormatJson) GetHeadline() string`
+
+GetHeadline returns the Headline field if non-nil, zero value otherwise.
+
+### GetHeadlineOk
+
+`func (o *FormatJson) GetHeadlineOk() (*string, bool)`
+
+GetHeadlineOk returns a tuple with the Headline field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHeadline
+
+`func (o *FormatJson) SetHeadline(v string)`
+
+SetHeadline sets Headline field to given value.
+
+### HasHeadline
+
+`func (o *FormatJson) HasHeadline() bool`
+
+HasHeadline returns a boolean if a field has been set.
 
 ### GetImageUrl
 
@@ -340,31 +215,6 @@ SetImageUrl sets ImageUrl field to given value.
 
 HasImageUrl returns a boolean if a field has been set.
 
-### GetImageUrl4k
-
-`func (o *FormatJson) GetImageUrl4k() string`
-
-GetImageUrl4k returns the ImageUrl4k field if non-nil, zero value otherwise.
-
-### GetImageUrl4kOk
-
-`func (o *FormatJson) GetImageUrl4kOk() (*string, bool)`
-
-GetImageUrl4kOk returns a tuple with the ImageUrl4k field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetImageUrl4k
-
-`func (o *FormatJson) SetImageUrl4k(v string)`
-
-SetImageUrl4k sets ImageUrl4k field to given value.
-
-### HasImageUrl4k
-
-`func (o *FormatJson) HasImageUrl4k() bool`
-
-HasImageUrl4k returns a boolean if a field has been set.
-
 ### GetImageUrl1080
 
 `func (o *FormatJson) GetImageUrl1080() string`
@@ -390,30 +240,180 @@ SetImageUrl1080 sets ImageUrl1080 field to given value.
 
 HasImageUrl1080 returns a boolean if a field has been set.
 
-### GetFetchedAt
+### GetImageUrl4k
 
-`func (o *FormatJson) GetFetchedAt() string`
+`func (o *FormatJson) GetImageUrl4k() string`
 
-GetFetchedAt returns the FetchedAt field if non-nil, zero value otherwise.
+GetImageUrl4k returns the ImageUrl4k field if non-nil, zero value otherwise.
 
-### GetFetchedAtOk
+### GetImageUrl4kOk
 
-`func (o *FormatJson) GetFetchedAtOk() (*string, bool)`
+`func (o *FormatJson) GetImageUrl4kOk() (*string, bool)`
 
-GetFetchedAtOk returns a tuple with the FetchedAt field if it's non-nil, zero value otherwise
+GetImageUrl4kOk returns a tuple with the ImageUrl4k field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFetchedAt
+### SetImageUrl4k
 
-`func (o *FormatJson) SetFetchedAt(v string)`
+`func (o *FormatJson) SetImageUrl4k(v string)`
 
-SetFetchedAt sets FetchedAt field to given value.
+SetImageUrl4k sets ImageUrl4k field to given value.
 
-### HasFetchedAt
+### HasImageUrl4k
 
-`func (o *FormatJson) HasFetchedAt() bool`
+`func (o *FormatJson) HasImageUrl4k() bool`
 
-HasFetchedAt returns a boolean if a field has been set.
+HasImageUrl4k returns a boolean if a field has been set.
+
+### GetMarket
+
+`func (o *FormatJson) GetMarket() string`
+
+GetMarket returns the Market field if non-nil, zero value otherwise.
+
+### GetMarketOk
+
+`func (o *FormatJson) GetMarketOk() (*string, bool)`
+
+GetMarketOk returns a tuple with the Market field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMarket
+
+`func (o *FormatJson) SetMarket(v string)`
+
+SetMarket sets Market field to given value.
+
+### HasMarket
+
+`func (o *FormatJson) HasMarket() bool`
+
+HasMarket returns a boolean if a field has been set.
+
+### GetQuizId
+
+`func (o *FormatJson) GetQuizId() string`
+
+GetQuizId returns the QuizId field if non-nil, zero value otherwise.
+
+### GetQuizIdOk
+
+`func (o *FormatJson) GetQuizIdOk() (*string, bool)`
+
+GetQuizIdOk returns a tuple with the QuizId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQuizId
+
+`func (o *FormatJson) SetQuizId(v string)`
+
+SetQuizId sets QuizId field to given value.
+
+### HasQuizId
+
+`func (o *FormatJson) HasQuizId() bool`
+
+HasQuizId returns a boolean if a field has been set.
+
+### GetResolution
+
+`func (o *FormatJson) GetResolution() string`
+
+GetResolution returns the Resolution field if non-nil, zero value otherwise.
+
+### GetResolutionOk
+
+`func (o *FormatJson) GetResolutionOk() (*string, bool)`
+
+GetResolutionOk returns a tuple with the Resolution field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResolution
+
+`func (o *FormatJson) SetResolution(v string)`
+
+SetResolution sets Resolution field to given value.
+
+### HasResolution
+
+`func (o *FormatJson) HasResolution() bool`
+
+HasResolution returns a boolean if a field has been set.
+
+### GetSubtitle
+
+`func (o *FormatJson) GetSubtitle() string`
+
+GetSubtitle returns the Subtitle field if non-nil, zero value otherwise.
+
+### GetSubtitleOk
+
+`func (o *FormatJson) GetSubtitleOk() (*string, bool)`
+
+GetSubtitleOk returns a tuple with the Subtitle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubtitle
+
+`func (o *FormatJson) SetSubtitle(v string)`
+
+SetSubtitle sets Subtitle field to given value.
+
+### HasSubtitle
+
+`func (o *FormatJson) HasSubtitle() bool`
+
+HasSubtitle returns a boolean if a field has been set.
+
+### GetTitle
+
+`func (o *FormatJson) GetTitle() string`
+
+GetTitle returns the Title field if non-nil, zero value otherwise.
+
+### GetTitleOk
+
+`func (o *FormatJson) GetTitleOk() (*string, bool)`
+
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTitle
+
+`func (o *FormatJson) SetTitle(v string)`
+
+SetTitle sets Title field to given value.
+
+### HasTitle
+
+`func (o *FormatJson) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
+
+### GetTrivia
+
+`func (o *FormatJson) GetTrivia() FormatJsonTrivia`
+
+GetTrivia returns the Trivia field if non-nil, zero value otherwise.
+
+### GetTriviaOk
+
+`func (o *FormatJson) GetTriviaOk() (*FormatJsonTrivia, bool)`
+
+GetTriviaOk returns a tuple with the Trivia field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTrivia
+
+`func (o *FormatJson) SetTrivia(v FormatJsonTrivia)`
+
+SetTrivia sets Trivia field to given value.
+
+### HasTrivia
+
+`func (o *FormatJson) HasTrivia() bool`
+
+HasTrivia returns a boolean if a field has been set.
 
 ### GetUpdatedAt
 

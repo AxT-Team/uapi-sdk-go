@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Text** | **string** | 待解密的密文（Base64编码）。此值来自加密接口返回的ciphertext字段 | 
+**Iv** | Pointer to **string** | 初始化向量（非GCM模式必须提供，Base64编码）。此值来自加密接口返回的iv字段 | [optional] 
 **Key** | **string** | 解密密钥（必须与加密时相同） | 
 **Mode** | **string** | 加密模式（必须与加密时相同）：GCM/CBC/ECB/CTR/OFB/CFB | 
 **Padding** | Pointer to **string** | 填充方式（可选，必须与加密时相同）：PKCS7/ZERO/NONE。GCM模式默认为NONE | [optional] 
-**Iv** | Pointer to **string** | 初始化向量（非GCM模式必须提供，Base64编码）。此值来自加密接口返回的iv字段 | [optional] 
+**Text** | **string** | 待解密的密文（Base64编码）。此值来自加密接口返回的ciphertext字段 | 
 
 ## Methods
 
 ### NewPostTextAesDecryptAdvancedRequest
 
-`func NewPostTextAesDecryptAdvancedRequest(text string, key string, mode string, ) *PostTextAesDecryptAdvancedRequest`
+`func NewPostTextAesDecryptAdvancedRequest(key string, mode string, text string, ) *PostTextAesDecryptAdvancedRequest`
 
 NewPostTextAesDecryptAdvancedRequest instantiates a new PostTextAesDecryptAdvancedRequest object
 This constructor will assign default values to properties that have it defined,
@@ -29,25 +29,30 @@ NewPostTextAesDecryptAdvancedRequestWithDefaults instantiates a new PostTextAesD
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetText
+### GetIv
 
-`func (o *PostTextAesDecryptAdvancedRequest) GetText() string`
+`func (o *PostTextAesDecryptAdvancedRequest) GetIv() string`
 
-GetText returns the Text field if non-nil, zero value otherwise.
+GetIv returns the Iv field if non-nil, zero value otherwise.
 
-### GetTextOk
+### GetIvOk
 
-`func (o *PostTextAesDecryptAdvancedRequest) GetTextOk() (*string, bool)`
+`func (o *PostTextAesDecryptAdvancedRequest) GetIvOk() (*string, bool)`
 
-GetTextOk returns a tuple with the Text field if it's non-nil, zero value otherwise
+GetIvOk returns a tuple with the Iv field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetText
+### SetIv
 
-`func (o *PostTextAesDecryptAdvancedRequest) SetText(v string)`
+`func (o *PostTextAesDecryptAdvancedRequest) SetIv(v string)`
 
-SetText sets Text field to given value.
+SetIv sets Iv field to given value.
 
+### HasIv
+
+`func (o *PostTextAesDecryptAdvancedRequest) HasIv() bool`
+
+HasIv returns a boolean if a field has been set.
 
 ### GetKey
 
@@ -114,30 +119,25 @@ SetPadding sets Padding field to given value.
 
 HasPadding returns a boolean if a field has been set.
 
-### GetIv
+### GetText
 
-`func (o *PostTextAesDecryptAdvancedRequest) GetIv() string`
+`func (o *PostTextAesDecryptAdvancedRequest) GetText() string`
 
-GetIv returns the Iv field if non-nil, zero value otherwise.
+GetText returns the Text field if non-nil, zero value otherwise.
 
-### GetIvOk
+### GetTextOk
 
-`func (o *PostTextAesDecryptAdvancedRequest) GetIvOk() (*string, bool)`
+`func (o *PostTextAesDecryptAdvancedRequest) GetTextOk() (*string, bool)`
 
-GetIvOk returns a tuple with the Iv field if it's non-nil, zero value otherwise
+GetTextOk returns a tuple with the Text field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIv
+### SetText
 
-`func (o *PostTextAesDecryptAdvancedRequest) SetIv(v string)`
+`func (o *PostTextAesDecryptAdvancedRequest) SetText(v string)`
 
-SetIv sets Iv field to given value.
+SetText sets Text field to given value.
 
-### HasIv
-
-`func (o *PostTextAesDecryptAdvancedRequest) HasIv() bool`
-
-HasIv returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

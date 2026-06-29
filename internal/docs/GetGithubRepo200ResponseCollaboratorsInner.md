@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Email** | Pointer to **string** | 公开邮箱。 | [optional] 
 **Login** | Pointer to **string** | GitHub 登录名。 | [optional] 
 **Name** | Pointer to **string** | 显示名称。 | [optional] 
-**Email** | Pointer to **string** | 公开邮箱。 | [optional] 
 **Url** | Pointer to **string** | GitHub 主页链接。 | [optional] 
 
 ## Methods
@@ -27,6 +27,31 @@ will change when the set of required properties is changed
 NewGetGithubRepo200ResponseCollaboratorsInnerWithDefaults instantiates a new GetGithubRepo200ResponseCollaboratorsInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetEmail
+
+`func (o *GetGithubRepo200ResponseCollaboratorsInner) GetEmail() string`
+
+GetEmail returns the Email field if non-nil, zero value otherwise.
+
+### GetEmailOk
+
+`func (o *GetGithubRepo200ResponseCollaboratorsInner) GetEmailOk() (*string, bool)`
+
+GetEmailOk returns a tuple with the Email field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmail
+
+`func (o *GetGithubRepo200ResponseCollaboratorsInner) SetEmail(v string)`
+
+SetEmail sets Email field to given value.
+
+### HasEmail
+
+`func (o *GetGithubRepo200ResponseCollaboratorsInner) HasEmail() bool`
+
+HasEmail returns a boolean if a field has been set.
 
 ### GetLogin
 
@@ -77,31 +102,6 @@ SetName sets Name field to given value.
 `func (o *GetGithubRepo200ResponseCollaboratorsInner) HasName() bool`
 
 HasName returns a boolean if a field has been set.
-
-### GetEmail
-
-`func (o *GetGithubRepo200ResponseCollaboratorsInner) GetEmail() string`
-
-GetEmail returns the Email field if non-nil, zero value otherwise.
-
-### GetEmailOk
-
-`func (o *GetGithubRepo200ResponseCollaboratorsInner) GetEmailOk() (*string, bool)`
-
-GetEmailOk returns a tuple with the Email field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEmail
-
-`func (o *GetGithubRepo200ResponseCollaboratorsInner) SetEmail(v string)`
-
-SetEmail sets Email field to given value.
-
-### HasEmail
-
-`func (o *GetGithubRepo200ResponseCollaboratorsInner) HasEmail() bool`
-
-HasEmail returns a boolean if a field has been set.
 
 ### GetUrl
 

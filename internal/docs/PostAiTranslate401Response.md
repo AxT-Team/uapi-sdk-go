@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | Pointer to **int32** |  | [optional] 
-**Message** | Pointer to **string** |  | [optional] 
 **Error** | Pointer to **string** |  | [optional] 
+**Message** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -52,31 +52,6 @@ SetCode sets Code field to given value.
 
 HasCode returns a boolean if a field has been set.
 
-### GetMessage
-
-`func (o *PostAiTranslate401Response) GetMessage() string`
-
-GetMessage returns the Message field if non-nil, zero value otherwise.
-
-### GetMessageOk
-
-`func (o *PostAiTranslate401Response) GetMessageOk() (*string, bool)`
-
-GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMessage
-
-`func (o *PostAiTranslate401Response) SetMessage(v string)`
-
-SetMessage sets Message field to given value.
-
-### HasMessage
-
-`func (o *PostAiTranslate401Response) HasMessage() bool`
-
-HasMessage returns a boolean if a field has been set.
-
 ### GetError
 
 `func (o *PostAiTranslate401Response) GetError() string`
@@ -101,6 +76,31 @@ SetError sets Error field to given value.
 `func (o *PostAiTranslate401Response) HasError() bool`
 
 HasError returns a boolean if a field has been set.
+
+### GetMessage
+
+`func (o *PostAiTranslate401Response) GetMessage() string`
+
+GetMessage returns the Message field if non-nil, zero value otherwise.
+
+### GetMessageOk
+
+`func (o *PostAiTranslate401Response) GetMessageOk() (*string, bool)`
+
+GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMessage
+
+`func (o *PostAiTranslate401Response) SetMessage(v string)`
+
+SetMessage sets Message field to given value.
+
+### HasMessage
+
+`func (o *PostAiTranslate401Response) HasMessage() bool`
+
+HasMessage returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** |  | [optional] 
-**UpdateTime** | Pointer to **string** | 热榜更新时间。时光机无匹配快照时可能为空字符串。 | [optional] 
-**SnapshotTime** | Pointer to **int32** | 时光机模式返回的快照实际时间戳（毫秒）。当前热榜模式下通常不返回。 | [optional] 
 **List** | Pointer to [**[]GetMiscHotboard200ResponseOneOfListInner**](GetMiscHotboard200ResponseOneOfListInner.md) | 热榜条目列表。 | [optional] 
-**Keyword** | Pointer to **string** | 搜索关键词。 | [optional] 
+**SnapshotTime** | Pointer to **int32** | 时光机模式返回的快照实际时间戳（毫秒）。当前热榜模式下通常不返回。 | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
+**UpdateTime** | Pointer to **string** | 热榜更新时间。时光机模式下对应返回快照的更新时间。 | [optional] 
 **Count** | Pointer to **int32** | 匹配到的结果数量。 | [optional] 
+**Keyword** | Pointer to **string** | 搜索关键词。 | [optional] 
 **Results** | Pointer to [**[]GetMiscHotboard200ResponseOneOf1ResultsInner**](GetMiscHotboard200ResponseOneOf1ResultsInner.md) | 搜索结果数组。 | [optional] 
 
 ## Methods
@@ -30,6 +30,56 @@ will change when the set of required properties is changed
 NewGetMiscHotboard200ResponseWithDefaults instantiates a new GetMiscHotboard200Response object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetList
+
+`func (o *GetMiscHotboard200Response) GetList() []GetMiscHotboard200ResponseOneOfListInner`
+
+GetList returns the List field if non-nil, zero value otherwise.
+
+### GetListOk
+
+`func (o *GetMiscHotboard200Response) GetListOk() (*[]GetMiscHotboard200ResponseOneOfListInner, bool)`
+
+GetListOk returns a tuple with the List field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetList
+
+`func (o *GetMiscHotboard200Response) SetList(v []GetMiscHotboard200ResponseOneOfListInner)`
+
+SetList sets List field to given value.
+
+### HasList
+
+`func (o *GetMiscHotboard200Response) HasList() bool`
+
+HasList returns a boolean if a field has been set.
+
+### GetSnapshotTime
+
+`func (o *GetMiscHotboard200Response) GetSnapshotTime() int32`
+
+GetSnapshotTime returns the SnapshotTime field if non-nil, zero value otherwise.
+
+### GetSnapshotTimeOk
+
+`func (o *GetMiscHotboard200Response) GetSnapshotTimeOk() (*int32, bool)`
+
+GetSnapshotTimeOk returns a tuple with the SnapshotTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSnapshotTime
+
+`func (o *GetMiscHotboard200Response) SetSnapshotTime(v int32)`
+
+SetSnapshotTime sets SnapshotTime field to given value.
+
+### HasSnapshotTime
+
+`func (o *GetMiscHotboard200Response) HasSnapshotTime() bool`
+
+HasSnapshotTime returns a boolean if a field has been set.
 
 ### GetType
 
@@ -81,55 +131,30 @@ SetUpdateTime sets UpdateTime field to given value.
 
 HasUpdateTime returns a boolean if a field has been set.
 
-### GetSnapshotTime
+### GetCount
 
-`func (o *GetMiscHotboard200Response) GetSnapshotTime() int32`
+`func (o *GetMiscHotboard200Response) GetCount() int32`
 
-GetSnapshotTime returns the SnapshotTime field if non-nil, zero value otherwise.
+GetCount returns the Count field if non-nil, zero value otherwise.
 
-### GetSnapshotTimeOk
+### GetCountOk
 
-`func (o *GetMiscHotboard200Response) GetSnapshotTimeOk() (*int32, bool)`
+`func (o *GetMiscHotboard200Response) GetCountOk() (*int32, bool)`
 
-GetSnapshotTimeOk returns a tuple with the SnapshotTime field if it's non-nil, zero value otherwise
+GetCountOk returns a tuple with the Count field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSnapshotTime
+### SetCount
 
-`func (o *GetMiscHotboard200Response) SetSnapshotTime(v int32)`
+`func (o *GetMiscHotboard200Response) SetCount(v int32)`
 
-SetSnapshotTime sets SnapshotTime field to given value.
+SetCount sets Count field to given value.
 
-### HasSnapshotTime
+### HasCount
 
-`func (o *GetMiscHotboard200Response) HasSnapshotTime() bool`
+`func (o *GetMiscHotboard200Response) HasCount() bool`
 
-HasSnapshotTime returns a boolean if a field has been set.
-
-### GetList
-
-`func (o *GetMiscHotboard200Response) GetList() []GetMiscHotboard200ResponseOneOfListInner`
-
-GetList returns the List field if non-nil, zero value otherwise.
-
-### GetListOk
-
-`func (o *GetMiscHotboard200Response) GetListOk() (*[]GetMiscHotboard200ResponseOneOfListInner, bool)`
-
-GetListOk returns a tuple with the List field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetList
-
-`func (o *GetMiscHotboard200Response) SetList(v []GetMiscHotboard200ResponseOneOfListInner)`
-
-SetList sets List field to given value.
-
-### HasList
-
-`func (o *GetMiscHotboard200Response) HasList() bool`
-
-HasList returns a boolean if a field has been set.
+HasCount returns a boolean if a field has been set.
 
 ### GetKeyword
 
@@ -155,31 +180,6 @@ SetKeyword sets Keyword field to given value.
 `func (o *GetMiscHotboard200Response) HasKeyword() bool`
 
 HasKeyword returns a boolean if a field has been set.
-
-### GetCount
-
-`func (o *GetMiscHotboard200Response) GetCount() int32`
-
-GetCount returns the Count field if non-nil, zero value otherwise.
-
-### GetCountOk
-
-`func (o *GetMiscHotboard200Response) GetCountOk() (*int32, bool)`
-
-GetCountOk returns a tuple with the Count field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCount
-
-`func (o *GetMiscHotboard200Response) SetCount(v int32)`
-
-SetCount sets Count field to given value.
-
-### HasCount
-
-`func (o *GetMiscHotboard200Response) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
 
 ### GetResults
 

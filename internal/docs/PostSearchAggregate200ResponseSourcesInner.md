@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | 搜索引擎版本 | [optional] 
-**Status** | Pointer to **string** | 本次搜索引擎调用状态 | [optional] 
-**ResultCount** | Pointer to **int32** | 该搜索引擎返回的结果数 | [optional] 
 **ElapsedMs** | Pointer to **int32** | 该搜索引擎的耗时（毫秒） | [optional] 
 **FirstResultHost** | Pointer to **string** | 该搜索源首条结果的域名 | [optional] 
+**Name** | Pointer to **string** | 搜索引擎版本 | [optional] 
+**ResultCount** | Pointer to **int32** | 该搜索引擎返回的结果数 | [optional] 
+**Status** | Pointer to **string** | 本次搜索引擎调用状态 | [optional] 
 
 ## Methods
 
@@ -28,81 +28,6 @@ will change when the set of required properties is changed
 NewPostSearchAggregate200ResponseSourcesInnerWithDefaults instantiates a new PostSearchAggregate200ResponseSourcesInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetName
-
-`func (o *PostSearchAggregate200ResponseSourcesInner) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *PostSearchAggregate200ResponseSourcesInner) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *PostSearchAggregate200ResponseSourcesInner) SetName(v string)`
-
-SetName sets Name field to given value.
-
-### HasName
-
-`func (o *PostSearchAggregate200ResponseSourcesInner) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### GetStatus
-
-`func (o *PostSearchAggregate200ResponseSourcesInner) GetStatus() string`
-
-GetStatus returns the Status field if non-nil, zero value otherwise.
-
-### GetStatusOk
-
-`func (o *PostSearchAggregate200ResponseSourcesInner) GetStatusOk() (*string, bool)`
-
-GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStatus
-
-`func (o *PostSearchAggregate200ResponseSourcesInner) SetStatus(v string)`
-
-SetStatus sets Status field to given value.
-
-### HasStatus
-
-`func (o *PostSearchAggregate200ResponseSourcesInner) HasStatus() bool`
-
-HasStatus returns a boolean if a field has been set.
-
-### GetResultCount
-
-`func (o *PostSearchAggregate200ResponseSourcesInner) GetResultCount() int32`
-
-GetResultCount returns the ResultCount field if non-nil, zero value otherwise.
-
-### GetResultCountOk
-
-`func (o *PostSearchAggregate200ResponseSourcesInner) GetResultCountOk() (*int32, bool)`
-
-GetResultCountOk returns a tuple with the ResultCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetResultCount
-
-`func (o *PostSearchAggregate200ResponseSourcesInner) SetResultCount(v int32)`
-
-SetResultCount sets ResultCount field to given value.
-
-### HasResultCount
-
-`func (o *PostSearchAggregate200ResponseSourcesInner) HasResultCount() bool`
-
-HasResultCount returns a boolean if a field has been set.
 
 ### GetElapsedMs
 
@@ -153,6 +78,81 @@ SetFirstResultHost sets FirstResultHost field to given value.
 `func (o *PostSearchAggregate200ResponseSourcesInner) HasFirstResultHost() bool`
 
 HasFirstResultHost returns a boolean if a field has been set.
+
+### GetName
+
+`func (o *PostSearchAggregate200ResponseSourcesInner) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *PostSearchAggregate200ResponseSourcesInner) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *PostSearchAggregate200ResponseSourcesInner) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *PostSearchAggregate200ResponseSourcesInner) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### GetResultCount
+
+`func (o *PostSearchAggregate200ResponseSourcesInner) GetResultCount() int32`
+
+GetResultCount returns the ResultCount field if non-nil, zero value otherwise.
+
+### GetResultCountOk
+
+`func (o *PostSearchAggregate200ResponseSourcesInner) GetResultCountOk() (*int32, bool)`
+
+GetResultCountOk returns a tuple with the ResultCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResultCount
+
+`func (o *PostSearchAggregate200ResponseSourcesInner) SetResultCount(v int32)`
+
+SetResultCount sets ResultCount field to given value.
+
+### HasResultCount
+
+`func (o *PostSearchAggregate200ResponseSourcesInner) HasResultCount() bool`
+
+HasResultCount returns a boolean if a field has been set.
+
+### GetStatus
+
+`func (o *PostSearchAggregate200ResponseSourcesInner) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *PostSearchAggregate200ResponseSourcesInner) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *PostSearchAggregate200ResponseSourcesInner) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *PostSearchAggregate200ResponseSourcesInner) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

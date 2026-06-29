@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Aid** | Pointer to **int32** | 视频AID | [optional] 
 **Bvid** | Pointer to **string** | BV号 | [optional] 
-**Title** | Pointer to **string** | 标题 | [optional] 
 **Cover** | Pointer to **string** | 封面URL | [optional] 
+**CreateTime** | Pointer to **int32** | 创建时间戳 | [optional] 
 **Duration** | Pointer to **int32** | 时长(秒) | [optional] 
+**IsInteractive** | Pointer to **bool** | 是否为互动视频 | [optional] 
+**IsUgcPay** | Pointer to **int32** | 是否付费视频。0&#x3D;免费，1&#x3D;付费 | [optional] 
 **PlayCount** | Pointer to **int32** | 播放量 | [optional] 
 **PublishTime** | Pointer to **int32** | 发布时间戳 | [optional] 
-**CreateTime** | Pointer to **int32** | 创建时间戳 | [optional] 
 **State** | Pointer to **int32** | 视频状态 | [optional] 
-**IsUgcPay** | Pointer to **int32** | 是否付费视频。0&#x3D;免费，1&#x3D;付费 | [optional] 
-**IsInteractive** | Pointer to **bool** | 是否为互动视频 | [optional] 
+**Title** | Pointer to **string** | 标题 | [optional] 
 
 ## Methods
 
@@ -85,31 +85,6 @@ SetBvid sets Bvid field to given value.
 
 HasBvid returns a boolean if a field has been set.
 
-### GetTitle
-
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetTitle() string`
-
-GetTitle returns the Title field if non-nil, zero value otherwise.
-
-### GetTitleOk
-
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetTitleOk() (*string, bool)`
-
-GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTitle
-
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) SetTitle(v string)`
-
-SetTitle sets Title field to given value.
-
-### HasTitle
-
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) HasTitle() bool`
-
-HasTitle returns a boolean if a field has been set.
-
 ### GetCover
 
 `func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetCover() string`
@@ -135,6 +110,31 @@ SetCover sets Cover field to given value.
 
 HasCover returns a boolean if a field has been set.
 
+### GetCreateTime
+
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetCreateTime() int32`
+
+GetCreateTime returns the CreateTime field if non-nil, zero value otherwise.
+
+### GetCreateTimeOk
+
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetCreateTimeOk() (*int32, bool)`
+
+GetCreateTimeOk returns a tuple with the CreateTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreateTime
+
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) SetCreateTime(v int32)`
+
+SetCreateTime sets CreateTime field to given value.
+
+### HasCreateTime
+
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) HasCreateTime() bool`
+
+HasCreateTime returns a boolean if a field has been set.
+
 ### GetDuration
 
 `func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetDuration() int32`
@@ -159,6 +159,56 @@ SetDuration sets Duration field to given value.
 `func (o *GetSocialBilibiliArchives200ResponseVideosInner) HasDuration() bool`
 
 HasDuration returns a boolean if a field has been set.
+
+### GetIsInteractive
+
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetIsInteractive() bool`
+
+GetIsInteractive returns the IsInteractive field if non-nil, zero value otherwise.
+
+### GetIsInteractiveOk
+
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetIsInteractiveOk() (*bool, bool)`
+
+GetIsInteractiveOk returns a tuple with the IsInteractive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsInteractive
+
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) SetIsInteractive(v bool)`
+
+SetIsInteractive sets IsInteractive field to given value.
+
+### HasIsInteractive
+
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) HasIsInteractive() bool`
+
+HasIsInteractive returns a boolean if a field has been set.
+
+### GetIsUgcPay
+
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetIsUgcPay() int32`
+
+GetIsUgcPay returns the IsUgcPay field if non-nil, zero value otherwise.
+
+### GetIsUgcPayOk
+
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetIsUgcPayOk() (*int32, bool)`
+
+GetIsUgcPayOk returns a tuple with the IsUgcPay field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsUgcPay
+
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) SetIsUgcPay(v int32)`
+
+SetIsUgcPay sets IsUgcPay field to given value.
+
+### HasIsUgcPay
+
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) HasIsUgcPay() bool`
+
+HasIsUgcPay returns a boolean if a field has been set.
 
 ### GetPlayCount
 
@@ -210,31 +260,6 @@ SetPublishTime sets PublishTime field to given value.
 
 HasPublishTime returns a boolean if a field has been set.
 
-### GetCreateTime
-
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetCreateTime() int32`
-
-GetCreateTime returns the CreateTime field if non-nil, zero value otherwise.
-
-### GetCreateTimeOk
-
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetCreateTimeOk() (*int32, bool)`
-
-GetCreateTimeOk returns a tuple with the CreateTime field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCreateTime
-
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) SetCreateTime(v int32)`
-
-SetCreateTime sets CreateTime field to given value.
-
-### HasCreateTime
-
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) HasCreateTime() bool`
-
-HasCreateTime returns a boolean if a field has been set.
-
 ### GetState
 
 `func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetState() int32`
@@ -260,55 +285,30 @@ SetState sets State field to given value.
 
 HasState returns a boolean if a field has been set.
 
-### GetIsUgcPay
+### GetTitle
 
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetIsUgcPay() int32`
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetTitle() string`
 
-GetIsUgcPay returns the IsUgcPay field if non-nil, zero value otherwise.
+GetTitle returns the Title field if non-nil, zero value otherwise.
 
-### GetIsUgcPayOk
+### GetTitleOk
 
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetIsUgcPayOk() (*int32, bool)`
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetTitleOk() (*string, bool)`
 
-GetIsUgcPayOk returns a tuple with the IsUgcPay field if it's non-nil, zero value otherwise
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIsUgcPay
+### SetTitle
 
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) SetIsUgcPay(v int32)`
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) SetTitle(v string)`
 
-SetIsUgcPay sets IsUgcPay field to given value.
+SetTitle sets Title field to given value.
 
-### HasIsUgcPay
+### HasTitle
 
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) HasIsUgcPay() bool`
+`func (o *GetSocialBilibiliArchives200ResponseVideosInner) HasTitle() bool`
 
-HasIsUgcPay returns a boolean if a field has been set.
-
-### GetIsInteractive
-
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetIsInteractive() bool`
-
-GetIsInteractive returns the IsInteractive field if non-nil, zero value otherwise.
-
-### GetIsInteractiveOk
-
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) GetIsInteractiveOk() (*bool, bool)`
-
-GetIsInteractiveOk returns a tuple with the IsInteractive field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsInteractive
-
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) SetIsInteractive(v bool)`
-
-SetIsInteractive sets IsInteractive field to given value.
-
-### HasIsInteractive
-
-`func (o *GetSocialBilibiliArchives200ResponseVideosInner) HasIsInteractive() bool`
-
-HasIsInteractive returns a boolean if a field has been set.
+HasTitle returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

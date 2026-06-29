@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Face** | Pointer to **string** | UP主头像的URL。 | [optional] 
 **Mid** | Pointer to **float32** | UP主的UID。 | [optional] 
 **Name** | Pointer to **string** | UP主昵称。 | [optional] 
-**Face** | Pointer to **string** | UP主头像的URL。 | [optional] 
 
 ## Methods
 
@@ -26,6 +26,31 @@ will change when the set of required properties is changed
 NewGetSocialBilibiliVideoinfo200ResponseOwnerWithDefaults instantiates a new GetSocialBilibiliVideoinfo200ResponseOwner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetFace
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseOwner) GetFace() string`
+
+GetFace returns the Face field if non-nil, zero value otherwise.
+
+### GetFaceOk
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseOwner) GetFaceOk() (*string, bool)`
+
+GetFaceOk returns a tuple with the Face field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFace
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseOwner) SetFace(v string)`
+
+SetFace sets Face field to given value.
+
+### HasFace
+
+`func (o *GetSocialBilibiliVideoinfo200ResponseOwner) HasFace() bool`
+
+HasFace returns a boolean if a field has been set.
 
 ### GetMid
 
@@ -76,31 +101,6 @@ SetName sets Name field to given value.
 `func (o *GetSocialBilibiliVideoinfo200ResponseOwner) HasName() bool`
 
 HasName returns a boolean if a field has been set.
-
-### GetFace
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseOwner) GetFace() string`
-
-GetFace returns the Face field if non-nil, zero value otherwise.
-
-### GetFaceOk
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseOwner) GetFaceOk() (*string, bool)`
-
-GetFaceOk returns a tuple with the Face field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFace
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseOwner) SetFace(v string)`
-
-SetFace sets Face field to given value.
-
-### HasFace
-
-`func (o *GetSocialBilibiliVideoinfo200ResponseOwner) HasFace() bool`
-
-HasFace returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

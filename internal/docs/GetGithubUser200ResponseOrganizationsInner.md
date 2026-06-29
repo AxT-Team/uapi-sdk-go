@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Login** | Pointer to **string** | 组织登录名。 | [optional] 
+**AvatarUrl** | Pointer to **string** | 组织头像链接。 | [optional] 
 **Description** | Pointer to **string** | 组织简介。 | [optional] 
 **HtmlUrl** | Pointer to **string** | 组织主页链接。 | [optional] 
-**AvatarUrl** | Pointer to **string** | 组织头像链接。 | [optional] 
+**Login** | Pointer to **string** | 组织登录名。 | [optional] 
 
 ## Methods
 
@@ -28,30 +28,30 @@ NewGetGithubUser200ResponseOrganizationsInnerWithDefaults instantiates a new Get
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetLogin
+### GetAvatarUrl
 
-`func (o *GetGithubUser200ResponseOrganizationsInner) GetLogin() string`
+`func (o *GetGithubUser200ResponseOrganizationsInner) GetAvatarUrl() string`
 
-GetLogin returns the Login field if non-nil, zero value otherwise.
+GetAvatarUrl returns the AvatarUrl field if non-nil, zero value otherwise.
 
-### GetLoginOk
+### GetAvatarUrlOk
 
-`func (o *GetGithubUser200ResponseOrganizationsInner) GetLoginOk() (*string, bool)`
+`func (o *GetGithubUser200ResponseOrganizationsInner) GetAvatarUrlOk() (*string, bool)`
 
-GetLoginOk returns a tuple with the Login field if it's non-nil, zero value otherwise
+GetAvatarUrlOk returns a tuple with the AvatarUrl field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLogin
+### SetAvatarUrl
 
-`func (o *GetGithubUser200ResponseOrganizationsInner) SetLogin(v string)`
+`func (o *GetGithubUser200ResponseOrganizationsInner) SetAvatarUrl(v string)`
 
-SetLogin sets Login field to given value.
+SetAvatarUrl sets AvatarUrl field to given value.
 
-### HasLogin
+### HasAvatarUrl
 
-`func (o *GetGithubUser200ResponseOrganizationsInner) HasLogin() bool`
+`func (o *GetGithubUser200ResponseOrganizationsInner) HasAvatarUrl() bool`
 
-HasLogin returns a boolean if a field has been set.
+HasAvatarUrl returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -103,30 +103,30 @@ SetHtmlUrl sets HtmlUrl field to given value.
 
 HasHtmlUrl returns a boolean if a field has been set.
 
-### GetAvatarUrl
+### GetLogin
 
-`func (o *GetGithubUser200ResponseOrganizationsInner) GetAvatarUrl() string`
+`func (o *GetGithubUser200ResponseOrganizationsInner) GetLogin() string`
 
-GetAvatarUrl returns the AvatarUrl field if non-nil, zero value otherwise.
+GetLogin returns the Login field if non-nil, zero value otherwise.
 
-### GetAvatarUrlOk
+### GetLoginOk
 
-`func (o *GetGithubUser200ResponseOrganizationsInner) GetAvatarUrlOk() (*string, bool)`
+`func (o *GetGithubUser200ResponseOrganizationsInner) GetLoginOk() (*string, bool)`
 
-GetAvatarUrlOk returns a tuple with the AvatarUrl field if it's non-nil, zero value otherwise
+GetLoginOk returns a tuple with the Login field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAvatarUrl
+### SetLogin
 
-`func (o *GetGithubUser200ResponseOrganizationsInner) SetAvatarUrl(v string)`
+`func (o *GetGithubUser200ResponseOrganizationsInner) SetLogin(v string)`
 
-SetAvatarUrl sets AvatarUrl field to given value.
+SetLogin sets Login field to given value.
 
-### HasAvatarUrl
+### HasLogin
 
-`func (o *GetGithubUser200ResponseOrganizationsInner) HasAvatarUrl() bool`
+`func (o *GetGithubUser200ResponseOrganizationsInner) HasLogin() bool`
 
-HasAvatarUrl returns a boolean if a field has been set.
+HasLogin returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

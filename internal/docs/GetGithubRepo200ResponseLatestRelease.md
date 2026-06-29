@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TagName** | Pointer to **string** | 版本标签 | [optional] 
-**Name** | Pointer to **string** | 发布名称 | [optional] 
-**PublishedAt** | Pointer to **time.Time** | 发布时间 | [optional] 
-**HtmlUrl** | Pointer to **string** | Release 页面链接 | [optional] 
-**Prerelease** | Pointer to **bool** | 是否为预发布版本 | [optional] 
 **Draft** | Pointer to **bool** | 是否为草稿 | [optional] 
+**HtmlUrl** | Pointer to **string** | Release 页面链接 | [optional] 
+**Name** | Pointer to **string** | 发布名称 | [optional] 
+**Prerelease** | Pointer to **bool** | 是否为预发布版本 | [optional] 
+**PublishedAt** | Pointer to **time.Time** | 发布时间 | [optional] 
+**TagName** | Pointer to **string** | 版本标签 | [optional] 
 
 ## Methods
 
@@ -30,80 +30,30 @@ NewGetGithubRepo200ResponseLatestReleaseWithDefaults instantiates a new GetGithu
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetTagName
+### GetDraft
 
-`func (o *GetGithubRepo200ResponseLatestRelease) GetTagName() string`
+`func (o *GetGithubRepo200ResponseLatestRelease) GetDraft() bool`
 
-GetTagName returns the TagName field if non-nil, zero value otherwise.
+GetDraft returns the Draft field if non-nil, zero value otherwise.
 
-### GetTagNameOk
+### GetDraftOk
 
-`func (o *GetGithubRepo200ResponseLatestRelease) GetTagNameOk() (*string, bool)`
+`func (o *GetGithubRepo200ResponseLatestRelease) GetDraftOk() (*bool, bool)`
 
-GetTagNameOk returns a tuple with the TagName field if it's non-nil, zero value otherwise
+GetDraftOk returns a tuple with the Draft field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTagName
+### SetDraft
 
-`func (o *GetGithubRepo200ResponseLatestRelease) SetTagName(v string)`
+`func (o *GetGithubRepo200ResponseLatestRelease) SetDraft(v bool)`
 
-SetTagName sets TagName field to given value.
+SetDraft sets Draft field to given value.
 
-### HasTagName
+### HasDraft
 
-`func (o *GetGithubRepo200ResponseLatestRelease) HasTagName() bool`
+`func (o *GetGithubRepo200ResponseLatestRelease) HasDraft() bool`
 
-HasTagName returns a boolean if a field has been set.
-
-### GetName
-
-`func (o *GetGithubRepo200ResponseLatestRelease) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *GetGithubRepo200ResponseLatestRelease) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *GetGithubRepo200ResponseLatestRelease) SetName(v string)`
-
-SetName sets Name field to given value.
-
-### HasName
-
-`func (o *GetGithubRepo200ResponseLatestRelease) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### GetPublishedAt
-
-`func (o *GetGithubRepo200ResponseLatestRelease) GetPublishedAt() time.Time`
-
-GetPublishedAt returns the PublishedAt field if non-nil, zero value otherwise.
-
-### GetPublishedAtOk
-
-`func (o *GetGithubRepo200ResponseLatestRelease) GetPublishedAtOk() (*time.Time, bool)`
-
-GetPublishedAtOk returns a tuple with the PublishedAt field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPublishedAt
-
-`func (o *GetGithubRepo200ResponseLatestRelease) SetPublishedAt(v time.Time)`
-
-SetPublishedAt sets PublishedAt field to given value.
-
-### HasPublishedAt
-
-`func (o *GetGithubRepo200ResponseLatestRelease) HasPublishedAt() bool`
-
-HasPublishedAt returns a boolean if a field has been set.
+HasDraft returns a boolean if a field has been set.
 
 ### GetHtmlUrl
 
@@ -130,6 +80,31 @@ SetHtmlUrl sets HtmlUrl field to given value.
 
 HasHtmlUrl returns a boolean if a field has been set.
 
+### GetName
+
+`func (o *GetGithubRepo200ResponseLatestRelease) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *GetGithubRepo200ResponseLatestRelease) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *GetGithubRepo200ResponseLatestRelease) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *GetGithubRepo200ResponseLatestRelease) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
 ### GetPrerelease
 
 `func (o *GetGithubRepo200ResponseLatestRelease) GetPrerelease() bool`
@@ -155,30 +130,55 @@ SetPrerelease sets Prerelease field to given value.
 
 HasPrerelease returns a boolean if a field has been set.
 
-### GetDraft
+### GetPublishedAt
 
-`func (o *GetGithubRepo200ResponseLatestRelease) GetDraft() bool`
+`func (o *GetGithubRepo200ResponseLatestRelease) GetPublishedAt() time.Time`
 
-GetDraft returns the Draft field if non-nil, zero value otherwise.
+GetPublishedAt returns the PublishedAt field if non-nil, zero value otherwise.
 
-### GetDraftOk
+### GetPublishedAtOk
 
-`func (o *GetGithubRepo200ResponseLatestRelease) GetDraftOk() (*bool, bool)`
+`func (o *GetGithubRepo200ResponseLatestRelease) GetPublishedAtOk() (*time.Time, bool)`
 
-GetDraftOk returns a tuple with the Draft field if it's non-nil, zero value otherwise
+GetPublishedAtOk returns a tuple with the PublishedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDraft
+### SetPublishedAt
 
-`func (o *GetGithubRepo200ResponseLatestRelease) SetDraft(v bool)`
+`func (o *GetGithubRepo200ResponseLatestRelease) SetPublishedAt(v time.Time)`
 
-SetDraft sets Draft field to given value.
+SetPublishedAt sets PublishedAt field to given value.
 
-### HasDraft
+### HasPublishedAt
 
-`func (o *GetGithubRepo200ResponseLatestRelease) HasDraft() bool`
+`func (o *GetGithubRepo200ResponseLatestRelease) HasPublishedAt() bool`
 
-HasDraft returns a boolean if a field has been set.
+HasPublishedAt returns a boolean if a field has been set.
+
+### GetTagName
+
+`func (o *GetGithubRepo200ResponseLatestRelease) GetTagName() string`
+
+GetTagName returns the TagName field if non-nil, zero value otherwise.
+
+### GetTagNameOk
+
+`func (o *GetGithubRepo200ResponseLatestRelease) GetTagNameOk() (*string, bool)`
+
+GetTagNameOk returns a tuple with the TagName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTagName
+
+`func (o *GetGithubRepo200ResponseLatestRelease) SetTagName(v string)`
+
+SetTagName sets TagName field to given value.
+
+### HasTagName
+
+`func (o *GetGithubRepo200ResponseLatestRelease) HasTagName() bool`
+
+HasTagName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

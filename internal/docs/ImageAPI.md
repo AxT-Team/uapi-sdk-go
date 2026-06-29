@@ -1,6 +1,6 @@
 # \ImageAPI
 
-All URIs are relative to *https://uapis.cn/api/v1*
+All URIs are relative to *https://uapis.cn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -88,7 +88,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: image/*, application/json
+- **Accept**: image/png, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -97,7 +97,7 @@ No authorization required
 
 ## GetImageBingDaily
 
-> *os.File GetImageBingDaily(ctx).Date(date).Resolution(resolution).Format(format).Execute()
+> *os.File GetImageBingDaily(ctx).Date(date).Random(random).Resolution(resolution).Format(format).Execute()
 
 获取必应每日壁纸
 
@@ -117,12 +117,13 @@ import (
 
 func main() {
 	date := "date_example" // string | 壁纸日期，格式是 `YYYY-MM-DD`。不传时返回当天壁纸。 (optional)
+	random := true // bool | 是否每次请求随机返回一张历史壁纸。传 `true` 时生效；不能和 `date` 同时使用。不传或传 `false` 时保持默认当天/指定日期逻辑。 (optional) (default to false)
 	resolution := "4k" // string | 返回图片的目标分辨率。可以传 `4k` 或 `1080`，不传时默认是 `4k`。 (optional) (default to "4k")
 	format := "format_example" // string | 响应格式。可以传 `image`、`json` 或 `redirect`。不传时默认是 `image`。 (optional) (default to "image")
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ImageAPI.GetImageBingDaily(context.Background()).Date(date).Resolution(resolution).Format(format).Execute()
+	resp, r, err := apiClient.ImageAPI.GetImageBingDaily(context.Background()).Date(date).Random(random).Resolution(resolution).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageAPI.GetImageBingDaily``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -144,6 +145,7 @@ Other parameters are passed through a pointer to a apiGetImageBingDailyRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **date** | **string** | 壁纸日期，格式是 &#x60;YYYY-MM-DD&#x60;。不传时返回当天壁纸。 | 
+ **random** | **bool** | 是否每次请求随机返回一张历史壁纸。传 &#x60;true&#x60; 时生效；不能和 &#x60;date&#x60; 同时使用。不传或传 &#x60;false&#x60; 时保持默认当天/指定日期逻辑。 | [default to false]
  **resolution** | **string** | 返回图片的目标分辨率。可以传 &#x60;4k&#x60; 或 &#x60;1080&#x60;，不传时默认是 &#x60;4k&#x60;。 | [default to &quot;4k&quot;]
  **format** | **string** | 响应格式。可以传 &#x60;image&#x60;、&#x60;json&#x60; 或 &#x60;redirect&#x60;。不传时默认是 &#x60;image&#x60;。 | [default to &quot;image&quot;]
 
@@ -510,7 +512,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: image/*, application/json
+- **Accept**: image/png, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -538,8 +540,8 @@ import (
 )
 
 func main() {
-	width := int32(56) // int32 | 目标宽度，单位是像素。可以单独传，也可以和 `height` 一起传。与 `max_width`、`max_height` 互斥。 (optional)
-	height := int32(56) // int32 | 目标高度，单位是像素。可以单独传，也可以和 `width` 一起传。与 `max_width`、`max_height` 互斥。 (optional)
+	width := int32(800) // int32 | 目标宽度，单位是像素。可以单独传，也可以和 `height` 一起传。与 `max_width`、`max_height` 互斥。 (optional)
+	height := int32(600) // int32 | 目标高度，单位是像素。可以单独传，也可以和 `width` 一起传。与 `max_width`、`max_height` 互斥。 (optional)
 	maxWidth := int32(56) // int32 | 最大宽度，单位是像素。只有在不传 `width`、`height` 时才生效，会按原比例缩放。 (optional)
 	maxHeight := int32(56) // int32 | 最大高度，单位是像素。只有在不传 `width`、`height` 时才生效，会按原比例缩放。 (optional)
 	format := "format_example" // string | 输出格式。可以传 `bmp`、`rgb565` 或 `rgb888`，不传时默认是 `bmp`。 (optional) (default to "bmp")
@@ -669,7 +671,7 @@ No authorization required
 
 ## PostImageMotou
 
-> *os.File PostImageMotou(ctx).ImageUrl(imageUrl).File(file).BgColor(bgColor).Execute()
+> *os.File PostImageMotou(ctx).BgColor(bgColor).File(file).ImageUrl(imageUrl).Execute()
 
 生成摸摸头GIF
 
@@ -688,13 +690,13 @@ import (
 )
 
 func main() {
-	imageUrl := "imageUrl_example" // string | 图片的URL地址。如果提供此项，将优先使用该URL的图片。 (optional)
-	file := os.NewFile(1234, "some_file") // *os.File | 上传的图片文件。支持JPG、PNG、GIF等常见格式。 (optional)
 	bgColor := "bgColor_example" // string | GIF的背景颜色。可选值为 'white', 'black', 'transparent'。 (optional)
+	file := os.NewFile(1234, "some_file") // *os.File | 上传的图片文件。支持JPG、PNG、GIF等常见格式。 (optional)
+	imageUrl := "imageUrl_example" // string | 图片的URL地址。如果提供此项，将优先使用该URL的图片。 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ImageAPI.PostImageMotou(context.Background()).ImageUrl(imageUrl).File(file).BgColor(bgColor).Execute()
+	resp, r, err := apiClient.ImageAPI.PostImageMotou(context.Background()).BgColor(bgColor).File(file).ImageUrl(imageUrl).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageAPI.PostImageMotou``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -715,9 +717,9 @@ Other parameters are passed through a pointer to a apiPostImageMotouRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **imageUrl** | **string** | 图片的URL地址。如果提供此项，将优先使用该URL的图片。 | 
- **file** | ***os.File** | 上传的图片文件。支持JPG、PNG、GIF等常见格式。 | 
  **bgColor** | **string** | GIF的背景颜色。可选值为 &#39;white&#39;, &#39;black&#39;, &#39;transparent&#39;。 | 
+ **file** | ***os.File** | 上传的图片文件。支持JPG、PNG、GIF等常见格式。 | 
+ **imageUrl** | **string** | 图片的URL地址。如果提供此项，将优先使用该URL的图片。 | 
 
 ### Return type
 
@@ -793,7 +795,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -807,7 +809,7 @@ No authorization required
 
 ## PostImageOcr
 
-> PostImageOcr200Response PostImageOcr(ctx).File(file).Url(url).ImageBase64(imageBase64).ImageName(imageName).NeedLocation(needLocation).ReturnMarkdown(returnMarkdown).EnableCls(enableCls).Execute()
+> PostImageOcr200Response PostImageOcr(ctx).EnableCls(enableCls).File(file).ImageBase64(imageBase64).ImageName(imageName).NeedLocation(needLocation).ReturnMarkdown(returnMarkdown).Url(url).Execute()
 
 通用 OCR 文字识别
 
@@ -826,17 +828,17 @@ import (
 )
 
 func main() {
+	enableCls := "enableCls_example" // string | 是否开启额外的文字方向校正。请传 `true` 或 `false`，不传时默认是 `false`。 (optional) (default to "false")
 	file := os.NewFile(1234, "some_file") // *os.File | 待识别的图片文件。支持 JPG、JPEG、PNG、BMP、GIF、WebP 等常见格式，最大不超过 10MB。请勿与 url 或 image_base64 同时提交。 (optional)
-	url := "url_example" // string | 公网可直接访问的图片地址。请勿与 file 或 image_base64 同时提交。 (optional)
 	imageBase64 := "imageBase64_example" // string | 图片的 Base64 字符串。可以传完整 Data URI，也可以只传纯 Base64 内容。请勿与 file 或 url 同时提交。 (optional)
 	imageName := "imageName_example" // string | 自定义图片文件名。传链接或纯 Base64 时建议一起传，便于保留或推断扩展名。 (optional)
 	needLocation := "needLocation_example" // string | 是否返回文字坐标信息。请传 `true` 或 `false`，不传时默认是 `true`。 (optional) (default to "true")
 	returnMarkdown := "returnMarkdown_example" // string | 是否额外返回整理后的 Markdown 文本。请传 `true` 或 `false`，不传时默认是 `false`。 (optional) (default to "false")
-	enableCls := "enableCls_example" // string | 是否开启额外的文字方向校正。请传 `true` 或 `false`，不传时默认是 `false`。 (optional) (default to "false")
+	url := "url_example" // string | 公网可直接访问的图片地址。请勿与 file 或 image_base64 同时提交。 (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ImageAPI.PostImageOcr(context.Background()).File(file).Url(url).ImageBase64(imageBase64).ImageName(imageName).NeedLocation(needLocation).ReturnMarkdown(returnMarkdown).EnableCls(enableCls).Execute()
+	resp, r, err := apiClient.ImageAPI.PostImageOcr(context.Background()).EnableCls(enableCls).File(file).ImageBase64(imageBase64).ImageName(imageName).NeedLocation(needLocation).ReturnMarkdown(returnMarkdown).Url(url).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ImageAPI.PostImageOcr``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -857,13 +859,13 @@ Other parameters are passed through a pointer to a apiPostImageOcrRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **enableCls** | **string** | 是否开启额外的文字方向校正。请传 &#x60;true&#x60; 或 &#x60;false&#x60;，不传时默认是 &#x60;false&#x60;。 | [default to &quot;false&quot;]
  **file** | ***os.File** | 待识别的图片文件。支持 JPG、JPEG、PNG、BMP、GIF、WebP 等常见格式，最大不超过 10MB。请勿与 url 或 image_base64 同时提交。 | 
- **url** | **string** | 公网可直接访问的图片地址。请勿与 file 或 image_base64 同时提交。 | 
  **imageBase64** | **string** | 图片的 Base64 字符串。可以传完整 Data URI，也可以只传纯 Base64 内容。请勿与 file 或 url 同时提交。 | 
  **imageName** | **string** | 自定义图片文件名。传链接或纯 Base64 时建议一起传，便于保留或推断扩展名。 | 
  **needLocation** | **string** | 是否返回文字坐标信息。请传 &#x60;true&#x60; 或 &#x60;false&#x60;，不传时默认是 &#x60;true&#x60;。 | [default to &quot;true&quot;]
  **returnMarkdown** | **string** | 是否额外返回整理后的 Markdown 文本。请传 &#x60;true&#x60; 或 &#x60;false&#x60;，不传时默认是 &#x60;false&#x60;。 | [default to &quot;false&quot;]
- **enableCls** | **string** | 是否开启额外的文字方向校正。请传 &#x60;true&#x60; 或 &#x60;false&#x60;，不传时默认是 &#x60;false&#x60;。 | [default to &quot;false&quot;]
+ **url** | **string** | 公网可直接访问的图片地址。请勿与 file 或 image_base64 同时提交。 | 
 
 ### Return type
 
@@ -1016,7 +1018,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: image/*, application/json
+- **Accept**: image/png, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

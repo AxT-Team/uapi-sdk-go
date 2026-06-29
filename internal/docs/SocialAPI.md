@@ -1,6 +1,6 @@
 # \SocialAPI
 
-All URIs are relative to *https://uapis.cn/api/v1*
+All URIs are relative to *https://uapis.cn*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -84,7 +84,7 @@ No authorization required
 
 ## GetGithubUser
 
-> GetGithubUser200Response GetGithubUser(ctx).User(user).Activity(activity).ActivityScope(activityScope).Org(org).Execute()
+> GetGithubUser200Response GetGithubUser(ctx).User(user).Activity(activity).ActivityScope(activityScope).Org(org).Pinned(pinned).Repos(repos).ReposLimit(reposLimit).Execute()
 
 查询 GitHub 用户信息
 
@@ -107,10 +107,13 @@ func main() {
 	activity := true // bool | 是否获取最近一年的贡献活动数据（如贡献图、时间线）。传入 true 开启，其他值均视为不开启。 (optional) (default to false)
 	activityScope := "activityScope_example" // string | 活动数据范围。可选 all 或 organization。只有开启 activity 时才有意义。 (optional) (default to "all")
 	org := "org_example" // string | 组织登录名。如果传入此参数，会自动视为开启 organization 级别的贡献查询，切勿再同时传 activity_scope=all。 (optional)
+	pinned := true // bool | 是否附带该用户在 GitHub 主页展示的 pinned 仓库数据。传入 true 开启，其他值均视为不开启。 (optional) (default to false)
+	repos := true // bool | 是否附带该用户最近活跃的公开仓库列表。传入 true 开启，其他值均视为不开启。 (optional) (default to false)
+	reposLimit := int32(56) // int32 | 公开仓库列表的返回数量。只有开启 repos 时才有意义；如果单独传入 repos_limit，也会自动视为开启 repos。 (optional) (default to 6)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SocialAPI.GetGithubUser(context.Background()).User(user).Activity(activity).ActivityScope(activityScope).Org(org).Execute()
+	resp, r, err := apiClient.SocialAPI.GetGithubUser(context.Background()).User(user).Activity(activity).ActivityScope(activityScope).Org(org).Pinned(pinned).Repos(repos).ReposLimit(reposLimit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SocialAPI.GetGithubUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -135,6 +138,9 @@ Name | Type | Description  | Notes
  **activity** | **bool** | 是否获取最近一年的贡献活动数据（如贡献图、时间线）。传入 true 开启，其他值均视为不开启。 | [default to false]
  **activityScope** | **string** | 活动数据范围。可选 all 或 organization。只有开启 activity 时才有意义。 | [default to &quot;all&quot;]
  **org** | **string** | 组织登录名。如果传入此参数，会自动视为开启 organization 级别的贡献查询，切勿再同时传 activity_scope&#x3D;all。 | 
+ **pinned** | **bool** | 是否附带该用户在 GitHub 主页展示的 pinned 仓库数据。传入 true 开启，其他值均视为不开启。 | [default to false]
+ **repos** | **bool** | 是否附带该用户最近活跃的公开仓库列表。传入 true 开启，其他值均视为不开启。 | [default to false]
+ **reposLimit** | **int32** | 公开仓库列表的返回数量。只有开启 repos 时才有意义；如果单独传入 repos_limit，也会自动视为开启 repos。 | [default to 6]
 
 ### Return type
 
@@ -622,7 +628,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

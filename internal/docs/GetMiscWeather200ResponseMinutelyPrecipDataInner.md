@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Time** | Pointer to **string** | 预报时间 ISO8601 | [optional] 
 **Precip** | Pointer to **float32** | 该时间点的降水量 mm | [optional] 
+**Time** | Pointer to **string** | 预报时间 ISO8601 | [optional] 
 **Type** | Pointer to **string** | 降水类型：rain / snow | [optional] 
 
 ## Methods
@@ -26,31 +26,6 @@ will change when the set of required properties is changed
 NewGetMiscWeather200ResponseMinutelyPrecipDataInnerWithDefaults instantiates a new GetMiscWeather200ResponseMinutelyPrecipDataInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetTime
-
-`func (o *GetMiscWeather200ResponseMinutelyPrecipDataInner) GetTime() string`
-
-GetTime returns the Time field if non-nil, zero value otherwise.
-
-### GetTimeOk
-
-`func (o *GetMiscWeather200ResponseMinutelyPrecipDataInner) GetTimeOk() (*string, bool)`
-
-GetTimeOk returns a tuple with the Time field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTime
-
-`func (o *GetMiscWeather200ResponseMinutelyPrecipDataInner) SetTime(v string)`
-
-SetTime sets Time field to given value.
-
-### HasTime
-
-`func (o *GetMiscWeather200ResponseMinutelyPrecipDataInner) HasTime() bool`
-
-HasTime returns a boolean if a field has been set.
 
 ### GetPrecip
 
@@ -76,6 +51,31 @@ SetPrecip sets Precip field to given value.
 `func (o *GetMiscWeather200ResponseMinutelyPrecipDataInner) HasPrecip() bool`
 
 HasPrecip returns a boolean if a field has been set.
+
+### GetTime
+
+`func (o *GetMiscWeather200ResponseMinutelyPrecipDataInner) GetTime() string`
+
+GetTime returns the Time field if non-nil, zero value otherwise.
+
+### GetTimeOk
+
+`func (o *GetMiscWeather200ResponseMinutelyPrecipDataInner) GetTimeOk() (*string, bool)`
+
+GetTimeOk returns a tuple with the Time field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTime
+
+`func (o *GetMiscWeather200ResponseMinutelyPrecipDataInner) SetTime(v string)`
+
+SetTime sets Time field to given value.
+
+### HasTime
+
+`func (o *GetMiscWeather200ResponseMinutelyPrecipDataInner) HasTime() bool`
+
+HasTime returns a boolean if a field has been set.
 
 ### GetType
 
